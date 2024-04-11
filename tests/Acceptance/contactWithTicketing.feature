@@ -4,17 +4,17 @@ Feature: Contact an employee through the ticketing system
   As a customer
   I need to have a ticket page
 
-  Scenario: Customer accesses the contact page
-	Given the customer is on the website
-	When they navigate to the contact page
-	Then they should see a form to submit their inquiry
+  Scenario: Customer accesses the ticket page
+	Given the customer is on the "home_page"
+	When they navigate to the "ticket" page
+	Then they should see a "form" to submit their "inquiry"
   
-  Scenario: Customer submits inquiry via the contact form
-	Given the customer is on the contact page
-	When they submit the inquiry form
-	Then they should see a confirmation message indicating that their inquiry has been received
+  Scenario: Customer submits inquiry via the ticket form
+	Given the customer is on the "ticket" page
+	When they submit the "inquiry" "form"
+	Then they should see a confirmation "message" indicating that their inquiry has been received
 
   Scenario: Customer attempts to submit inquiry with missing information
-	Given the customer is on the contact page
-	When they attempt to submit the inquiry form without filling out all required fields
-	Then they should see an error message prompting them to fill out all required fields
+	Given the customer is on the "ticket" page
+	When they attempt to submit the inquiry "form" without filling out all the required fields with "data"
+	Then they should see an error "message" prompting them to fill out all required fields
