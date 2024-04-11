@@ -2,7 +2,7 @@ Feature: Disable a product listing.
 
   In order to disable a product listing
   As an admin
-  I need to have a [disable product] button
+  I need to have a "disable product" button
 
   Scenario: Admin disables a product listing
 	Given the admin is on the product listing disable page

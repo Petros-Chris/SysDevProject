@@ -5,8 +5,8 @@ Feature: Create an account and activate it
   I need to fill out a form, register and activate it through my email
 
   Scenario: User fills out registration form correctly and activates account
-	Given user is on the [registration page]
-	When they submit the [registration form] with [valid information] 
+	Given user is on the "registration page"
+	When they submit the "registration form" with "valid information" 
 	And activate their account through their email
 	Then they should be redirected to the login page
 
