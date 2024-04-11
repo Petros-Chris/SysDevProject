@@ -943,32 +943,32 @@ class AcceptanceTester extends \Codeception\Actor
    /**
     * @When they scroll down to the review section
     */
-    public function theyScrollDownToTheReviewSection()
+    public function theyScrollDownToTheReviewSection($section)
     {
-        $this->seeElement()
+        $this->seeElement($section);
     }
 
    /**
     * @Then they should see a list of reviews for the product
     */
-    public function theyShouldSeeAListOfReviewsForTheProduct()
+    public function theyShouldSeeAListOfReviewsForTheProduct($reviews)
     {
-        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see a list of reviews for the product` is not defined");
+        $this->seeElement($reviews); 
     }
 //TODO: ???
    /**
     * @When there are no reviews available for the product
     */
-    public function thereAreNoReviewsAvailableForTheProduct()
+    public function thereAreNoReviewsAvailableForTheProduct($message)
     {
-        throw new \PHPUnit\Framework\IncompleteTestError("Step `there are no reviews available for the product` is not defined");
+        $this->seeElement($message);
     }
 
    /**
     * @Then they should see a message indicating that there are no reviews available for the product
     */
-    public function theyShouldSeeAMessageIndicatingThatThereAreNoReviewsAvailableForTheProduct()
+    public function theyShouldSeeAMessageIndicatingThatThereAreNoReviewsAvailableForTheProduct($product)
     {
-        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see a message indicating that there are no reviews available for the product` is not defined");
+        $this->see('No Reviews Available', $product);
     }
 }
