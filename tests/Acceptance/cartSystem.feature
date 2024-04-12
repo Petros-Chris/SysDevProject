@@ -13,14 +13,14 @@ Feature: Cart system
   Scenario: Customer views their shopping cart
 	Given the customer is at the "product_listing" page
 	When they hover or click the cart_icon
-	Then they should see a list of products and their "price" as well as the "subtotal" of the "cart"
+	Then they should see a list of products and their "price" as well as the "subtotal" of the cart
 
   Scenario: User attempts to proceed to the checkout page
-	Given the user has "items" in their "shopping_cart"
+	Given the user has "items" in their "cart"
 	When they click on a check_out button to proceed to checkout
 	Then they should receive a "message" prompting them to log in
 
   Scenario: Customer removes items from their shopping cart
 	Given the customer has "items" in their "cart"
-	When they click on the remove_from_cart button to remove an "item" from their "cart"
+	When they click on the remove_from_cart button
 	Then the "item" alongside the price should be removed from their "cart"
