@@ -61,7 +61,7 @@ class App{
         //Routing version 1.0
 
         $url = $_GET['url'];
-var_dump($url);
+        
         include('app/routes.php');
 
         [$controllerMethod, $namedParams] = $this->resolve($url);
