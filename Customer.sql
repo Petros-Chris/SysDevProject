@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 18, 2024 at 05:20 PM
+-- Generation Time: Apr 18, 2024 at 05:23 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS `Customer` (
   `First_Name` varchar(50) NOT NULL,
   `Last_Name` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
+  `password_hash` varchar(255) NOT NULL,
   PRIMARY KEY (`Customer_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 COMMIT;
