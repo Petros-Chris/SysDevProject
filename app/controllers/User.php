@@ -24,25 +24,24 @@ class User extends \app\core\Controller{
 		}
 	}
 
-	// function login(){
-	// 	//show the login form and log the user in
-	// 	if($_SERVER['REQUEST_METHOD'] === 'POST'){
+	function login(){
+		if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-	// 		$first_name = $_POST['first_name'];
-	// 		$user = new \app\models\User();
-	// 		$user = $user->get($username);
-	// 		//check the password against the hash
-	// 		$password = $_POST['password'];
-	// 		if($user && $user->active && password_verify($password, $user->password_hash)){
-	// 			//remember that this is the user logging in...
-	// 			$_SESSION['user_id'] = $user->user_id;
+			$email = $_POST['email'];
+			$user = new \app\models\User();
+			$user = $user->get($email);
+			$password = $_POST['password'];
+			var_dump($user);
+			
+			if($user && password_verify($password, $user->password_hash)){
+				$_SESSION['customer_id'] = $user->customer_id;
 
-	// 			header('location:/User/securePlace');
-	// 		}else{
-	// 			header('location:/User/login');
-	// 		}
-	// 	}else{
-	// 		$this->view('User/login');
-	// 	}
-	// }
+				header('location:/User/securePlace');
+			}else{
+				header('location:/User/login');
+			}
+		}else{
+			$this->view('User/login');
+		}
+	}
 }

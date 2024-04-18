@@ -32,11 +32,11 @@ class User extends \app\core\Model
     }
 
     //get
-    public function get($username)
+    public function get($email)
     {
-        $SQL = 'SELECT * FROM Customer WHERE username = :username';//define the SQL
+        $SQL = 'SELECT * FROM Customer WHERE email = :email';//define the SQL
         $STMT = self::$_conn->prepare($SQL);//prepare
-        $STMT->execute(['username' => $username]);//run
+        $STMT->execute(['email' => $email]);//run
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\User');//choose the type of return from fetch
         return $STMT->fetch();//fetch
     }

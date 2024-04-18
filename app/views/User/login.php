@@ -7,14 +7,6 @@
 <body>
 	<div class='container'>
 		<form method='post' action=''>
-        <div class="form-group">
-				<label>First Name:<input type="text" class="form-control" name="first_name"/></label>
-			</div>
-
-			<div class="form-group">
-				<label>Last Name:<input type="text" class="form-control" name="last_name"/></label>
-			</div>
-
 			<div class="form-group">
 				<label>Email:<input type="text" class="form-control" name="email"/></label>
 			</div>
