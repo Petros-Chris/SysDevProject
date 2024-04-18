@@ -7,7 +7,7 @@ Feature: Cart system
   Scenario: Customer adds items to their shopping cart
 	Given the customer is browsing "product listings" 
  	When they click on the "product" to view the full product listing
-	And they click on the add_to_cart button to add a product to a cart
+	And they click on the #add_to_cart button to add a product to a cart
 	Then the "product" alongside the "price" should be added to their shopping "cart"
 
   Scenario: Customer views their shopping cart

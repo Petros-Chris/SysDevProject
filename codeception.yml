@@ -10,3 +10,8 @@ actor_suffix: Tester
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
+modules:
+    config:
+        WebDriver:
+            css: 'tests\Support\fg.css'
+

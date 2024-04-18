@@ -29,7 +29,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
     public function theCustomerIsBrowsing($url)
     {
-        $this->amOnPage($url);
+        //$this->amOnPage($url);
     }
 
    /**
@@ -37,15 +37,15 @@ class AcceptanceTester extends \Codeception\Actor
     */
     public function theyClickOnTheToViewTheFullProductListing($url)
     {
-        $this->click("$url");
+        //$this->click("$url");
     }
 
-   /**
-    * @When they click on the add_to_cart button to add a product to a cart
-    */
-    public function theyClickOnTheAdd_to_cartButtonToAddAProductToACart()
+    /**
+     * @When they click on the #add_to_cart button to add a product to a cart
+     */
+    public function theyClickOnTheadd_to_cartButtonToAddAProductToACart()
     {
-//        $this->click('add_to_cart');
+       // $this->click("add_to_cart");
     }
 
    /**
@@ -130,853 +130,770 @@ class AcceptanceTester extends \Codeception\Actor
     }
 
 //TODO: THIS IS GAP 
-   /**
-    * @Given the customer is in checkout
-    */
-    public function theCustomerIsInCheckout($url)
+    /**
+     * @Given the customer is in :arg1
+     */
+    public function theCustomerIsIn($arg1)
     {
-        $this->amOnPage($url);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `the customer is in :arg1` is not defined");
     }
 
    /**
-    * @When they have succesfully payed
+    * @When they have submitted the completed :arg1
     */
-    public function theyHaveSuccesfullyPayed($form, $data)
+    public function theyHaveSubmittedTheCompleted($arg1)
     {
-        $this->submitForm($form, $data);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they have submitted the completed :arg1` is not defined");
     }
 
    /**
-    * @Then the order should be seen by admins
+    * @Then the :arg1 should be added to the :arg2
     */
-    public function theOrderShouldBeSeenByAdmins($order, $orderId)
+    public function theShouldBeAddedToThe($arg1, $arg2)
     {
-        $this->seeElement($order, $orderId);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `the :arg1 should be added to the :arg2` is not defined");
     }
 
    /**
-    * @Given the customer is on the checkout page
+    * @Given the customer is on the :arg1 page
     */
-    public function theCustomerIsOnTheCheckoutPage($url)
+    public function theCustomerIsOnThePage($arg1)
     {
-        $this->amOnPage($url);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `the customer is on the :arg1 page` is not defined");
     }
 
    /**
-    * @When they attempt to proceed without providing shipping or payment information
+    * @When they attempt to submit the :arg1 without filling out all the required fields with :arg2
     */
-    public function theyAttemptToProceedWithoutProvidingShippingOrPaymentInformation($form, $data)
+    public function theyAttemptToSubmitTheWithoutFillingOutAllTheRequiredFieldsWith($arg1, $arg2)
     {
-        $this->submitForm($form, $data);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they attempt to submit the :arg1 without filling out all the required fields with :arg2` is not defined");
     }
 
    /**
-    * @Then they should see an error message prompting them to fill out all required fields
+    * @Then they should see an error :arg1 prompting them to fill out the form
     */
-    public function theyShouldSeeAnErrorMessagePromptingThemToFillOutAllRequiredFields($message)
+    public function theyShouldSeeAnErrorPromptingThemToFillOutTheForm($arg1)
     {
-        $this->seeElement($message);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see an error :arg1 prompting them to fill out the form` is not defined");
     }
 
    /**
-    * @Given the user or customer is on the website
+    * @When they attempt to submit the :arg1 with invalid :arg2
     */
-    public function theUserOrCustomerIsOnTheWebsite($url)
+    public function theyAttemptToSubmitTheWithInvalid($arg1, $arg2)
     {
-        $this->amOnPage($url);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they attempt to submit the :arg1 with invalid :arg2` is not defined");
     }
 
    /**
-    * @When they navigate to the contact page
+    * @Then they should see an :arg1 telling them which fields are invalid
     */
-    public function theyNavigateToTheContactPage($url)
+    public function theyShouldSeeAnTellingThemWhichFieldsAreInvalid($arg1)
     {
-        $this->amGoingTo($url);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see an :arg1 telling them which fields are invalid` is not defined");
     }
 
    /**
-    * @Then they see contact information
+    * @Given the user or customer is on the :arg1
     */
-    public function theySeeContactInformation($contactInformation)
+    public function theUserOrCustomerIsOnThe($arg1)
     {
-        $this->seeElement($contactInformation);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `the user or customer is on the :arg1` is not defined");
     }
 
    /**
-    * @Given the customer is on the website
+    * @When they navigate to the :arg1 page
     */
-    public function theCustomerIsOnTheWebsite($url)
+    public function theyNavigateToThePage($arg1)
     {
-        $url->amOnPage($url);
-    }
-//TODO: ???
-   /**
-    * @Then they should see a form to submit their inquiry
-    */
-    public function theyShouldSeeAFormToSubmitTheirInquiry($form)
-    {
-        $this->seeElement($form);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they navigate to the :arg1 page` is not defined");
     }
 
    /**
-    * @Given the customer is on the contact page
+    * @Then they see contact :arg1
     */
-    public function theCustomerIsOnTheContactPage($url)
+    public function theySeeContact($arg1)
     {
-        $url->amOnPage($url);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they see contact :arg1` is not defined");
     }
 
    /**
-    * @When they submit the inquiry form
+    * @Given the customer is on the :arg1
     */
-    public function theySubmitTheInquiryForm($form, $data)
+    public function theCustomerIsOnThe($arg1)
     {
-        $this->submitForm($form, $data);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `the customer is on the :arg1` is not defined");
     }
 
    /**
-    * @Then they should see a confirmation message indicating that their inquiry has been received
+    * @Then they should see a :arg1 to submit their :arg2
     */
-    public function theyShouldSeeAConfirmationMessageIndicatingThatTheirInquiryHasBeenReceived($message)
+    public function theyShouldSeeAToSubmitTheir($arg1, $arg2)
     {
-        $this->seeElement($message);
-    }
-//TODO: ???
-   /**
-    * @When they attempt to submit the inquiry form without filling out all required fields
-    */
-    public function theyAttemptToSubmitTheInquiryFormWithoutFillingOutAllRequiredFields($button)
-    {
-        $this->click($button);
-    }
-//TODO: ???
-   /**
-    * @Given user is on the registration page
-    */
-    public function userIsOnTheRegistrationPage($url)
-    {
-        $url->amOnPage($url);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see a :arg1 to submit their :arg2` is not defined");
     }
 
    /**
-    * @When they submit the registration form with valid information
+    * @When they submit the :arg1 :arg2
     */
-    public function theySubmitTheRegistrationFormWithValidInformation($form, $data)
+    public function theySubmitThe($arg1, $arg2)
     {
-        $this->submitForm($form, $data);
-    }
-//TODO: ???
-//TODO: ???
-   /**
-    * @When activate their account through their email
-    */
-    public function activateTheirAccountThroughTheirEmail($activationLink)
-    {
-        $this->amOnPage($activationLink);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they submit the :arg1 :arg2` is not defined");
     }
 
    /**
-    * @Then they should be redirected to the login page
+    * @Then they should see a confirmation :arg1 indicating that their inquiry has been received
     */
-    public function theyShouldBeRedirectedToTheLoginPage($url)
+    public function theyShouldSeeAConfirmationIndicatingThatTheirInquiryHasBeenReceived($arg1)
     {
-        $this->amGoingTo($url);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see a confirmation :arg1 indicating that their inquiry has been received` is not defined");
     }
 
    /**
-    * @Given the user is on the registration page
+    * @When they attempt to submit the inquiry :arg1 without filling out all the required fields with :arg2
     */
-    public function theUserIsOnTheRegistrationPage($url)
+    public function theyAttemptToSubmitTheInquiryWithoutFillingOutAllTheRequiredFieldsWith($arg1, $arg2)
     {
-        $url->amOnPage($url);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they attempt to submit the inquiry :arg1 without filling out all the required fields with :arg2` is not defined");
     }
 
    /**
-    * @When they submit the registration form incompletely
+    * @Then they should see an error :arg1 prompting them to fill out all required fields
     */
-    public function theySubmitTheRegistrationFormIncompletely($form, $data)
+    public function theyShouldSeeAnErrorPromptingThemToFillOutAllRequiredFields($arg1)
     {
-        $this->submitForm($form, $data);
-    }
-//TODO: ???
-//TODO: ???
-   /**
-    * @When they submit the registration form with invalid information
-    */
-    public function theySubmitTheRegistrationFormWithInvalidInformation($form, $data)
-    {
-        $this->submitForm($form, $data);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see an error :arg1 prompting them to fill out all required fields` is not defined");
     }
 
    /**
-    * @Then they should see an error message notifying them of invalid information
+    * @Given user is on the :arg1
     */
-    public function theyShouldSeeAnErrorMessageNotifyingThemOfInvalidInformation($message)
+    public function userIsOnThe($arg1)
     {
-        $this->seeElement($message);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `user is on the :arg1` is not defined");
     }
 
    /**
-    * @Given the admin is on the order management section
+    * @When they submit the :arg1 with :arg2
     */
-    public function theAdminIsOnTheOrderManagementSection($url)
+    public function theySubmitTheWith($arg1, $arg2)
     {
-        $url->amOnPage($url);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they submit the :arg1 with :arg2` is not defined");
     }
 
    /**
-    * @When they create a new order for a specific customer
+    * @When activate their :arg1 through their :arg2
     */
-    public function theyCreateANewOrderForASpecificCustomer($form, $orderData)
+    public function activateTheirThroughTheir($arg1, $arg2)
     {
-        $this->submitForm($form, $orderData);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `activate their :arg1 through their :arg2` is not defined");
     }
 
    /**
-    * @Then they should see a message indicating that the order has been created
+    * @Then they should be redirected to the :arg1
     */
-    public function theyShouldSeeAMessageIndicatingThatTheOrderHasBeenCreated($message)
+    public function theyShouldBeRedirectedToThe($arg1)
     {
-        $this->seeElement($message);
-    }
-
-//TODO: ???
-
-   /**
-    * @When they make changes to a specific customers’ order
-    */
-    public function theyMakeChangesToASpecificCustomersOrder($orderId, $change)
-    {
-        $this->submitForm($orderId, $change);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should be redirected to the :arg1` is not defined");
     }
 
    /**
-    * @Then they should see a message indicating that the order has been updated
+    * @Given the user is on the :arg1
     */
-    public function theyShouldSeeAMessageIndicatingThatTheOrderHasBeenUpdated($message)
+    public function theUserIsOnThe($arg1)
     {
-        $this->seeElement($message);
-    }
-
-//TODO: ???
-
-   /**
-    * @When they confirm a specific customers' order to disable
-    */
-    public function theyConfirmASpecificCustomersOrderToDisable($orderId, $button)
-    {
-        $this->click($orderId);
-        $this->click($button);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `the user is on the :arg1` is not defined");
     }
 
    /**
-    * @Then they should see a message indicating that the order has been disabled
+    * @When they submit the :arg1 without filling out all the required fields with :arg2
     */
-    public function theyShouldSeeAMessageIndicatingThatTheOrderHasBeenDisabled($message)
+    public function theySubmitTheWithoutFillingOutAllTheRequiredFieldsWith($arg1, $arg2)
     {
-        $this->seeElement($message);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they submit the :arg1 without filling out all the required fields with :arg2` is not defined");
     }
 
    /**
-    * @Given the admin is on the product listing creation page
+    * @Then they should see an error :arg1 notifying them of invalid information
     */
-    public function theAdminIsOnTheProductListingCreationPage($url)
+    public function theyShouldSeeAnErrorNotifyingThemOfInvalidInformation($arg1)
     {
-        $this->amOnPage($url);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see an error :arg1 notifying them of invalid information` is not defined");
     }
 
    /**
-    * @When they submit a form with product images and fields such as product name, description, price, and category
+    * @Given the admin is on the :arg1
     */
-    public function theySubmitAFormWithProductImagesAndFieldsSuchAsProductNameDescriptionPriceAndCategory($form, $data)
+    public function theAdminIsOnThe($arg1)
     {
-        $this->submitForm($form, $data);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `the admin is on the :arg1` is not defined");
     }
 
    /**
-    * @Then they should see a success message indicating that the product listing has been created
+    * @When they create a new :arg1 for a specific :arg2
     */
-    public function theyShouldSeeASuccessMessageIndicatingThatTheProductListingHasBeenCreated($message)
+    public function theyCreateANewForASpecific($arg1, $arg2)
     {
-        $this->seeElement($message);
-    }
-
-//TODO: ???
-
-   /**
-    * @When they attempt to submit the form without filling out all required fields
-    */
-    public function theyAttemptToSubmitTheFormWithoutFillingOutAllRequiredFields($submitButton)
-    {
-        $this->click($submitButton);
-    }
-
-//TODO: ???
-//TODO: ???
-
-   /**
-    * @When they attempt to submit the form with invalid data
-    */
-    public function theyAttemptToSubmitTheFormWithInvalidData($form, $data)
-    {
-        $this->submitForm($form, $data);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they create a new :arg1 for a specific :arg2` is not defined");
     }
 
    /**
-    * @Then they should see an error message indicating the invalid data
+    * @Then they should see a :arg1 indicating that the order has been created
     */
-    public function theyShouldSeeAnErrorMessageIndicatingTheInvalidData($message)
+    public function theyShouldSeeAIndicatingThatTheOrderHasBeenCreated($arg1)
     {
-        $this->seeElement($message);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see a :arg1 indicating that the order has been created` is not defined");
     }
 
    /**
-    * @Given the user is on the website
+    * @When they make changes to a specific :arg1 :arg2
     */
-    public function theUserIsOnTheWebsite($url)
+    public function theyMakeChangesToASpecific($arg1, $arg2)
     {
-        $this->amOnPage($url);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they make changes to a specific :arg1 :arg2` is not defined");
     }
 
    /**
-    * @When they navigate to the settings or preferences section
+    * @Then they should see a :arg1 indicating that the order has been updated
     */
-    public function theyNavigateToTheSettingsOrPreferencesSection($url)
+    public function theyShouldSeeAIndicatingThatTheOrderHasBeenUpdated($arg1)
     {
-        $this->amGoingTo($url);
-    }
-//TODO: ???
-//TODO: ???
-   /**
-    * @When they toggle the dark mode option
-    */
-    public function theyToggleTheDarkModeOption($toggleButton)
-    {
-        $this->click($toggleButton);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see a :arg1 indicating that the order has been updated` is not defined");
     }
 
    /**
-    * @Then the website interface should switch to dark mode
+    * @When they confirm a specific :arg1 :arg2 to disable
     */
-    public function theWebsiteInterfaceShouldSwitchToDarkMode($darkMode)
+    public function theyConfirmASpecificToDisable($arg1, $arg2)
     {
-        $this->seeElement($darkMode);
-    }
-//TODO: ???
-//TODO: ???
-   /**
-    * @Then the user's preference for dark mode should be saved for future visits
-    */
-    public function theUsersPreferenceForDarkModeShouldBeSavedForFutureVisits($preferenceCheckScript)
-    {
-        $this->executeJS($preferenceCheckScript);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they confirm a specific :arg1 :arg2 to disable` is not defined");
     }
 
    /**
-    * @Given the user is on the website in dark mode
+    * @Then they should see a :arg1 indicating that the order has been disabled
     */
-    public function theUserIsOnTheWebsiteInDarkMode($darkMode)
+    public function theyShouldSeeAIndicatingThatTheOrderHasBeenDisabled($arg1)
     {
-        $this->amOnPage($darkMode);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see a :arg1 indicating that the order has been disabled` is not defined");
     }
 
    /**
-    * @When they toggle the dark mode option to disable
+    * @Given the admin is on the :arg1 page
     */
-    public function theyToggleTheDarkModeOptionToDisable($button)
+    public function theAdminIsOnThePage($arg1)
     {
-        $this->click($button);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `the admin is on the :arg1 page` is not defined");
+    }
+
+   /**
+    * @When they submit a :arg1 with product images and :arg2 such as product name, description, price, and category
+    */
+    public function theySubmitAWithProductImagesAndSuchAsProductNameDescriptionPriceAndCategory($arg1, $arg2)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they submit a :arg1 with product images and :arg2 such as product name, description, price, and category` is not defined");
+    }
+
+   /**
+    * @Then they should see a success :arg1 indicating that the product listing has been created
+    */
+    public function theyShouldSeeASuccessIndicatingThatTheProductListingHasBeenCreated($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see a success :arg1 indicating that the product listing has been created` is not defined");
+    }
+
+   /**
+    * @When they attempt to submit the :arg1 without filling out all required :arg2
+    */
+    public function theyAttemptToSubmitTheWithoutFillingOutAllRequired($arg1, $arg2)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they attempt to submit the :arg1 without filling out all required :arg2` is not defined");
+    }
+
+   /**
+    * @When they attempt to submit the :arg1 with :arg2
+    */
+    public function theyAttemptToSubmitTheWith($arg1, $arg2)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they attempt to submit the :arg1 with :arg2` is not defined");
+    }
+
+   /**
+    * @Then they should see an error :arg1 indicating the invalid data
+    */
+    public function theyShouldSeeAnErrorIndicatingTheInvalidData($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see an error :arg1 indicating the invalid data` is not defined");
+    }
+
+   /**
+    * @When they navigate to the :arg1
+    */
+    public function theyNavigateToThe($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they navigate to the :arg1` is not defined");
+    }
+
+   /**
+    * @When they toggle the :arg1 option
+    */
+    public function theyToggleTheOption($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they toggle the :arg1 option` is not defined");
+    }
+
+   /**
+    * @Then the website interface should switch to an darker interface
+    */
+    public function theWebsiteInterfaceShouldSwitchToAnDarkerInterface()
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `the website interface should switch to an darker interface` is not defined");
+    }
+
+   /**
+    * @Given the user is on the :arg1 in :arg2
+    */
+    public function theUserIsOnTheIn($arg1, $arg2)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `the user is on the :arg1 in :arg2` is not defined");
+    }
+
+   /**
+    * @When they toggle the :arg1 option to disable
+    */
+    public function theyToggleTheOptionToDisable($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they toggle the :arg1 option to disable` is not defined");
+    }
+
+   /**
+    * @When they select to deactivate a :arg1
+    */
+    public function theySelectToDeactivateA($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they select to deactivate a :arg1` is not defined");
+    }
+
+   /**
+    * @Then the :arg1 should be deactivated
+    */
+    public function theShouldBeDeactivated($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `the :arg1 should be deactivated` is not defined");
+    }
+
+   /**
+    * @When they select and confirm the :arg1 they want to disable
+    */
+    public function theySelectAndConfirmTheTheyWantToDisable($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they select and confirm the :arg1 they want to disable` is not defined");
+    }
+
+   /**
+    * @Then they should see a success :arg1 indicating that the product listing has been disabled
+    */
+    public function theyShouldSeeASuccessIndicatingThatTheProductListingHasBeenDisabled($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see a success :arg1 indicating that the product listing has been disabled` is not defined");
+    }
+
+   /**
+    * @When they select and confirm the :arg1 they want to enable
+    */
+    public function theySelectAndConfirmTheTheyWantToEnable($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they select and confirm the :arg1 they want to enable` is not defined");
+    }
+
+   /**
+    * @Then they should see a success :arg1 indicating that the product listing has been enabled
+    */
+    public function theyShouldSeeASuccessIndicatingThatTheProductListingHasBeenEnabled($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see a success :arg1 indicating that the product listing has been enabled` is not defined");
+    }
+
+   /**
+    * @When they submit :arg1 to the :arg2 they want to edit
+    */
+    public function theySubmitToTheTheyWantToEdit($arg1, $arg2)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they submit :arg1 to the :arg2 they want to edit` is not defined");
+    }
+
+   /**
+    * @Then they should see a success :arg1 indicating that the product listing has been updated
+    */
+    public function theyShouldSeeASuccessIndicatingThatTheProductListingHasBeenUpdated($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see a success :arg1 indicating that the product listing has been updated` is not defined");
+    }
+
+   /**
+    * @When they update the :arg1 for a specific :arg2
+    */
+    public function theyUpdateTheForASpecific($arg1, $arg2)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they update the :arg1 for a specific :arg2` is not defined");
+    }
+
+   /**
+    * @Then they should see a :arg1 indicating that the stock number has been updated
+    */
+    public function theyShouldSeeAIndicatingThatTheStockNumberHasBeenUpdated($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see a :arg1 indicating that the stock number has been updated` is not defined");
+    }
+
+   /**
+    * @When they update the :arg1 for a specific :arg2 with incomplete data
+    */
+    public function theyUpdateTheForASpecificWithIncompleteData($arg1, $arg2)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they update the :arg1 for a specific :arg2 with incomplete data` is not defined");
+    }
+
+   /**
+    * @When they update the :arg1 for a specific :arg2 with invalid data
+    */
+    public function theyUpdateTheForASpecificWithInvalidData($arg1, $arg2)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they update the :arg1 for a specific :arg2 with invalid data` is not defined");
+    }
+
+   /**
+    * @When they apply :arg1 based on categories, price range, or other criteria
+    */
+    public function theyApplyBasedOnCategoriesPriceRangeOrOtherCriteria($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they apply :arg1 based on categories, price range, or other criteria` is not defined");
+    }
+
+   /**
+    * @Then they should see a refined list of :arg1 based on the applied filters
+    */
+    public function theyShouldSeeARefinedListOfBasedOnTheAppliedFilters($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see a refined list of :arg1 based on the applied filters` is not defined");
+    }
+
+   /**
+    * @Given the customer has applied filters on the :arg1 page
+    */
+    public function theCustomerHasAppliedFiltersOnThePage($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `the customer has applied filters on the :arg1 page` is not defined");
+    }
+
+   /**
+    * @Then they should see a list of their :arg1 with all the details
+    */
+    public function theyShouldSeeAListOfTheirWithAllTheDetails($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see a list of their :arg1 with all the details` is not defined");
+    }
+
+   /**
+    * @When they select a specific :arg1
+    */
+    public function theySelectASpecific($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they select a specific :arg1` is not defined");
+    }
+
+   /**
+    * @When they look at the product_description section
+    */
+    public function theyLookAtTheProduct_descriptionSection()
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they look at the product_description section` is not defined");
+    }
+
+   /**
+    * @Then they should see detailed information about the :arg1
+    */
+    public function theyShouldSeeDetailedInformationAboutThe($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see detailed information about the :arg1` is not defined");
+    }
+
+   /**
+    * @Given the user is on the :arg1 page
+    */
+    public function theUserIsOnThePage($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `the user is on the :arg1 page` is not defined");
+    }
+
+   /**
+    * @Then they should be redirected back to the :arg1 page
+    */
+    public function theyShouldBeRedirectedBackToThePage($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should be redirected back to the :arg1 page` is not defined");
+    }
+
+   /**
+    * @Then they should see a list of :arg1 with details such as name, price, image and description
+    */
+    public function theyShouldSeeAListOfWithDetailsSuchAsNamePriceImageAndDescription($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see a list of :arg1 with details such as name, price, image and description` is not defined");
+    }
+
+   /**
+    * @Then they should be redirected to the product :arg1 where they can view more information about the product
+    */
+    public function theyShouldBeRedirectedToTheProductWhereTheyCanViewMoreInformationAboutTheProduct($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should be redirected to the product :arg1 where they can view more information about the product` is not defined");
+    }
+
+   /**
+    * @When they submit their :arg1 details
+    */
+    public function theySubmitTheirDetails($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they submit their :arg1 details` is not defined");
+    }
+
+   /**
+    * @Then they should see available shipping options for their :arg1
+    */
+    public function theyShouldSeeAvailableShippingOptionsForTheir($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see available shipping options for their :arg1` is not defined");
+    }
+
+   /**
+    * @When they attempt to proceed to view shipping options without providing an :arg1
+    */
+    public function theyAttemptToProceedToViewShippingOptionsWithoutProvidingAn($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they attempt to proceed to view shipping options without providing an :arg1` is not defined");
+    }
+
+   /**
+    * @Then they should see an error :arg1 prompting them to enter their address
+    */
+    public function theyShouldSeeAnErrorPromptingThemToEnterTheirAddress($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see an error :arg1 prompting them to enter their address` is not defined");
+    }
+
+   /**
+    * @Given the customer has received the product and navigated to the :arg1 page
+    */
+    public function theCustomerHasReceivedTheProductAndNavigatedToThePage($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `the customer has received the product and navigated to the :arg1 page` is not defined");
+    }
+
+   /**
+    * @When they submit the form with their :arg1 and :arg2
+    */
+    public function theySubmitTheFormWithTheirAnd($arg1, $arg2)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they submit the form with their :arg1 and :arg2` is not defined");
+    }
+
+   /**
+    * @Then they should see a confirmation :arg1 indicating that their review has been submitted
+    */
+    public function theyShouldSeeAConfirmationIndicatingThatTheirReviewHasBeenSubmitted($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see a confirmation :arg1 indicating that their review has been submitted` is not defined");
+    }
+
+   /**
+    * @When they attempt to submit a :arg1 without purchasing the product
+    */
+    public function theyAttemptToSubmitAWithoutPurchasingTheProduct($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they attempt to submit a :arg1 without purchasing the product` is not defined");
+    }
+
+   /**
+    * @Then they should see an error :arg1 indicating that they need to purchase the product before leaving a review
+    */
+    public function theyShouldSeeAnErrorIndicatingThatTheyNeedToPurchaseTheProductBeforeLeavingAReview($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see an error :arg1 indicating that they need to purchase the product before leaving a review` is not defined");
+    }
+
+   /**
+    * @When they attempt to submit a :arg1 without filling all required fields
+    */
+    public function theyAttemptToSubmitAWithoutFillingAllRequiredFields($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they attempt to submit a :arg1 without filling all required fields` is not defined");
+    }
+
+   /**
+    * @Given the customer is in the :arg1 page
+    */
+    public function theCustomerIsInThePage($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `the customer is in the :arg1 page` is not defined");
+    }
+
+   /**
+    * @When they change and confirm their :arg1
+    */
+    public function theyChangeAndConfirmTheir($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they change and confirm their :arg1` is not defined");
+    }
+
+   /**
+    * @Then they should have a confirmation of their :arg1 as a pop-up
+    */
+    public function theyShouldHaveAConfirmationOfTheirAsAPopup($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should have a confirmation of their :arg1 as a pop-up` is not defined");
+    }
+
+   /**
+    * @When they attempt to update their :arg1 with invalid data
+    */
+    public function theyAttemptToUpdateTheirWithInvalidData($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they attempt to update their :arg1 with invalid data` is not defined");
+    }
+
+   /**
+    * @Given the admin is on the :arg1 section
+    */
+    public function theAdminIsOnTheSection($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `the admin is on the :arg1 section` is not defined");
+    }
+
+   /**
+    * @When they select a specific :arg1customer"
+    */
+    public function theySelectASpecificCustomer($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they select a specific :arg1customer' is not defined");
+    }
+
+   /**
+    * @Then they should see a :arg1 of that customer's past orders with all the details
+    */
+    public function theyShouldSeeAOfThatCustomersPastOrdersWithAllTheDetails($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see a :arg1 of that customer's past orders with all the details` is not defined");
+    }
+
+   /**
+    * @Then they should see a :arg1 of that customers' current orders
+    */
+    public function theyShouldSeeAOfThatCustomersCurrentOrders($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see a :arg1 of that customers' current orders` is not defined");
+    }
+
+   /**
+    * @Then they should see a list of :arg1 for the product
+    */
+    public function theyShouldSeeAListOfForTheProduct($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see a list of :arg1 for the product` is not defined");
+    }
+
+   /**
+    * @When there are no :arg1 available for the product
+    */
+    public function thereAreNoAvailableForTheProduct($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `there are no :arg1 available for the product` is not defined");
+    }
+
+   /**
+    * @Then they should see a :arg1 indicating that there are no reviews available for the product
+    */
+    public function theyShouldSeeAIndicatingThatThereAreNoReviewsAvailableForTheProduct($arg1)
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see a :arg1 indicating that there are no reviews available for the product` is not defined");
+    }
+      /**
+     * @Then the user's preference for dark mode should be saved for future visits
+     */
+    public function theUsersPreferenceForDarkModeShouldBeSavedForFutureVisits()
+    {
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `the user's preference for dark mode should be saved for future visits` is not defined");
     }
 
    /**
     * @Then the website interface should switch back to light mode
     */
-    public function theWebsiteInterfaceShouldSwitchBackToLightMode($lightMode)
+    public function theWebsiteInterfaceShouldSwitchBackToLightMode()
     {
-        $this->seeElement($lightMode);
-    }
-
-   /**
-    * @Given the admin is on the customer management section
-    */
-    public function theAdminIsOnTheCustomerManagementSection($url)
-    {
-        $this->amOnPage($url);
-    }
-
-   /**
-    * @When they select to deactivate a customers' account
-    */
-    public function theySelectToDeactivateACustomersAccount($customerId, $button)
-    {
-        $this->click($customerId);
-        $this->click($button);
-    }
-
-   /**
-    * @Then the customers' account should be deactivated
-    */
-    public function theCustomersAccountShouldBeDeactivated($customerStatus, $customerId)
-    {
-        $this->see($customerStatus, $customerId);
-    }
-
-   /**
-    * @Given the admin is on the product listing disable page
-    */
-    public function theAdminIsOnTheProductListingDisablePage($url)
-    {
-        $this->amOnPage($url);
-    }
-
-   /**
-    * @When they select and confirm the product listing they want to disable
-    */
-    public function theySelectAndConfirmTheProductListingTheyWantToDisable($productId, $button)
-    {
-        $this->click($productId);
-        $this->click($button);
-    }
-
-   /**
-    * @Then they should see a success message indicating that the product listing has been disabled
-    */
-    public function theyShouldSeeASuccessMessageIndicatingThatTheProductListingHasBeenDisabled($message)
-    {
-        $this->seeElement($message);
-    }
-
-   /**
-    * @Given the admin is on the product listing enable page
-    */
-    public function theAdminIsOnTheProductListingEnablePage($url)
-    {
-        $this->amOnPage($url);
-    }
-
-   /**
-    * @When they select and confirm the disabled product listing they want to enable
-    */
-    public function theySelectAndConfirmTheDisabledProductListingTheyWantToEnable($productId, $button)
-    {
-        $this->click($productId);
-        $this->click($button);
-    }
-
-   /**
-    * @Then they should see a success message indicating that the product listing has been enabled
-    */
-    public function theyShouldSeeASuccessMessageIndicatingThatTheProductListingHasBeenEnabled($message)
-    {
-        $this->seeElement($message);
-    }
-
-   /**
-    * @Given the admin is on the product listing edit page
-    */
-    public function theAdminIsOnTheProductListingEditPage($url)
-    {
-        $this->amOnPage($url);
-    }
-
-   /**
-    * @When they submit changes to the product they want to edit
-    */
-    public function theySubmitChangesToTheProductTheyWantToEdit($form, $change)
-    {
-        $this->submitForm($form, $change);
-    }
-
-   /**
-    * @Then they should see a success message indicating that the product listing has been updated
-    */
-    public function theyShouldSeeASuccessMessageIndicatingThatTheProductListingHasBeenUpdated($message)
-    {
-        $this->seeElement($message);
-    }
-//TODO: ???
-   /**
-    * @When they submit changes with missing information to the product they want to edit
-    */
-    public function theySubmitChangesWithMissingInformationToTheProductTheyWantToEdit($form, $change)
-    {
-        $this->submitForm($form, $change);
-    }
-//TODO: ???
-//TODO: ???
-   /**
-    * @When they submit changes with invalid data to the product they want to edit
-    */
-    public function theySubmitChangesWithInvalidDataToTheProductTheyWantToEdit($form, $change)
-    {
-        $this->submitForm($form, $change);
-    }
-//TODO: ???
-   /**
-    * @Given the admin is on the product management section
-    */
-    public function theAdminIsOnTheProductManagementSection($url)
-    {
-        $this->amOnPage($url);
-    }
-
-   /**
-    * @When they update the stock number for a specific product
-    */
-    public function theyUpdateTheStockNumberForASpecificProduct($productId, $button)
-    {
-        $this->click($productId);
-        $this->click($button);
-    }
-
-   /**
-    * @Then they should see a message indicating that the stock number has been updated
-    */
-    public function theyShouldSeeAMessageIndicatingThatTheStockNumberHasBeenUpdated($message)
-    {
-        $this->seeElement($message);
-    }
-
-   /**
-    * @Given the customer is on the product listing page
-    */
-    public function theCustomerIsOnTheProductListingPage($url)
-    {
-        $this->amOnPage($url);
-    }
-
-   /**
-    * @When they apply filters based on categories, price range, or other criteria
-    */
-    public function theyApplyFiltersBasedOnCategoriesPriceRangeOrOtherCriteria($filter, $criteria, $button)
-    {
-        foreach ($criteria as $key => $value) {
-            $this->selectOption($filter[$key], $value);
-        }
-        $this->click($button);
-    }
-
-   /**
-    * @Then they should see a refined list of products based on the applied filters
-    */
-    public function theyShouldSeeARefinedListOfProductsBasedOnTheAppliedFilters($products)
-    {
-        $this->seeElement($products);
-    }
-
-   /**
-    * @Given the customer has applied filters on the product listing page
-    */
-    public function theCustomerHasAppliedFiltersOnTheProductListingPage($isFilterActive)
-    {
-        $this->seeElement($isFilterActive);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `the website interface should switch back to light mode` is not defined");
     }
 
    /**
     * @When they choose to reset the filters
     */
-    public function theyChooseToResetTheFilters($button)
+    public function theyChooseToResetTheFilters()
     {
-        $this->click($button);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they choose to reset the filters` is not defined");
     }
 
    /**
     * @Then they should see the original, unfiltered product listing
     */
-    public function theyShouldSeeTheOriginalUnfilteredProductListing($filter)
+    public function theyShouldSeeTheOriginalUnfilteredProductListing()
     {
-        $this->dontSeeElement($filter);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they should see the original, unfiltered product listing` is not defined");
     }
 
    /**
     * @Given the customer is logged into their account
     */
-    public function theCustomerIsLoggedIntoTheirAccount($url)
+    public function theCustomerIsLoggedIntoTheirAccount()
     {
-        $this->amOnPage($url);
-    }
-
-   /**
-    * @When they navigate to the order history page
-    */
-    public function theyNavigateToTheOrderHistoryPage($url)
-    {
-        $this->amGoingTo($url);
-    }
-
-   /**
-    * @Then they should see a list of their previous orders with all the details
-    */
-    public function theyShouldSeeAListOfTheirPreviousOrdersWithAllTheDetails($orderDetails)
-    {
-        $this->seeElement($orderDetails);
-    }
-
-   /**
-    * @Given the admin is on the order processing page
-    */
-    public function theAdminIsOnTheOrderProcessingPage($url)
-    {
-        $this->amOnPage($url);
-    }
-
-   /**
-    * @When they select a specific customer
-    */
-    public function theySelectASpecificCustomer($customerId)
-    {
-        $this->click($customerId);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `the customer is logged into their account` is not defined");
     }
 
    /**
     * @Then they can process the order and mark it as complete
     */
-    public function theyCanProcessTheOrderAndMarkItAsComplete($orderId, $button)
+    public function theyCanProcessTheOrderAndMarkItAsComplete()
     {
-        $this->click($orderId);
-        $this->click($button);
-    }
-
-   /**
-    * @Given the customer is on the product detail page
-    */
-    public function theCustomerIsOnTheProductDetailPage($url)
-    {
-        $this->amOnPage($url);
-    }
-
-   /**
-    * @When they look at the product description section
-    */
-    public function theyLookAtTheProductDescriptionSection($description)
-    {
-        $this->seeElement($description);
-    }
-
-   /**
-    * @Then they should see detailed information about the product
-    */
-    public function theyShouldSeeDetailedInformationAboutTheProduct($informations)
-    {
-        foreach ($informations as $information) {
-            $this->seeElement($information);
-        }
-    }
-
-   /**
-    * @Given the user is on the product detail page
-    */
-    public function theUserIsOnTheProductDetailPage($url)
-    {
-        $this->amOnPage($url);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they can process the order and mark it as complete` is not defined");
     }
 
    /**
     * @When they click a back button
     */
-    public function theyClickABackButton($button)
+    public function theyClickABackButton()
     {
-        $this->click($button);
-    }
-
-   /**
-    * @Then they should be redirected back to the product listing page
-    */
-    public function theyShouldBeRedirectedBackToTheProductListingPage($url)
-    {
-        $this->amGoingTo($url);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they click a back button` is not defined");
     }
 
    /**
     * @When they browse through the available products
     */
-    public function theyBrowseThroughTheAvailableProducts($products)
+    public function theyBrowseThroughTheAvailableProducts()
     {
-        $this->seeElement($products);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they browse through the available products` is not defined");
     }
 
-   /**
-    * @Then they should see a list of products with details such as name, price, image and description
-    */
-    public function theyShouldSeeAListOfProductsWithDetailsSuchAsNamePriceImageAndDescription($productDetails)
-    {
-        $this->seeElement($productDetails);
-    }
-//TODO: ???
    /**
     * @When they click on a product
     */
-    public function theyClickOnAProduct($product)
+    public function theyClickOnAProduct()
     {
-        $this->click($product);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they click on a product` is not defined");
     }
 
-   /**
-    * @Then they should be redirected to the product detail page where they can view more information about the product
-    */
-    public function theyShouldBeRedirectedToTheProductDetailPageWhereTheyCanViewMoreInformationAboutTheProduct($url)
-    {
-       $this->amGoingTo($url);
-    }
-//TODO: ???
-   /**
-    * @When they submit their address details
-    */
-    public function theySubmitTheirAddressDetails($form, $addresDetails)
-    {
-        $this->submitForm($form, $addresDetails);
-    }
-
-   /**
-    * @Then they should see available shipping options for their address
-    */
-    public function theyShouldSeeAvailableShippingOptionsForTheirAddress($shippingOptions)
-    {
-        $this->seeElement($shippingOptions);
-    }
-//TODO: ???
-   /**
-    * @When they attempt to proceed to view shipping options without providing an address
-    */
-    public function theyAttemptToProceedToViewShippingOptionsWithoutProvidingAnAddress($button)
-    {
-        $this->click($button);
-    }
-
-   /**
-    * @Then they should see an error message prompting them to enter their address
-    */
-    public function theyShouldSeeAnErrorMessagePromptingThemToEnterTheirAddress($message)
-    {
-        $this->seeElement($message);
-    }
-
-   /**
-    * @Given the customer has received the product and navigated to the product detail page
-    */
-    public function theCustomerHasReceivedTheProductAndNavigatedToTheProductDetailPage($url)
-    {
-        $this->amOnPage($url);
-    }
-
-   /**
-    * @When they submit the form with their rating and comment
-    */
-    public function theySubmitTheFormWithTheirRatingAndComment($form, $reviewData)
-    {
-        $this->submitForm($form, $reviewData);
-    }
-
-   /**
-    * @Then they should see a confirmation message indicating that their review has been submitted
-    */
-    public function theyShouldSeeAConfirmationMessageIndicatingThatTheirReviewHasBeenSubmitted($message)
-    {
-        $this->seeElement($message);
-    }
-//TODO: ???
-   /**
-    * @When they attempt to submit a review without purchasing the product
-    */
-    public function theyAttemptToSubmitAReviewWithoutPurchasingTheProduct($form, $reviewData)
-    {
-        $this->submitForm($form, $reviewData);
-    }
-
-   /**
-    * @Then they should see an error message indicating that they need to purchase the product before leaving a review
-    */
-    public function theyShouldSeeAnErrorMessageIndicatingThatTheyNeedToPurchaseTheProductBeforeLeavingAReview($message)
-    {
-        $this->seeElement($message);
-    }
-//TODO: ???
-   /**
-    * @When they attempt to submit a review without filling all required fields
-    */
-    public function theyAttemptToSubmitAReviewWithoutFillingAllRequiredFields($form, $reviewData)
-    {
-        $this->submitForm($form, $reviewData);
-    }
-//TODO: ???
-   /**
-    * @Given the customer is in the account settings page
-    */
-    public function theCustomerIsInTheAccountSettingsPage($url)
-    {
-        $this->amOnPage($url);
-    }
-
-   /**
-    * @When they change and confirm their personal details
-    */
-    public function theyChangeAndConfirmTheirPersonalDetails($form, $changeDetails)
-    {
-        $this->submitForm($form, $changeDetails);
-    }
-
-   /**
-    * @Then they should have a confirmation of their changes as a pop-up
-    */
-    public function theyShouldHaveAConfirmationOfTheirChangesAsAPopup($message)
-    {
-        $this->seeElement($message);
-    }
-//TODO: ???
-   /**
-    * @When they attempt to update their personal details with invalid data
-    */
-    public function theyAttemptToUpdateTheirPersonalDetailsWithInvalidData($form, $changeDetails)
-    {
-        $this->submitForm($form, $changeDetails);
-    }
-
-   /**
-    * @Then they should see a list of that customer's past orders with all the details
-    */
-    public function theyShouldSeeAListOfThatCustomersPastOrdersWithAllTheDetails($orderId, $orderDetails)
-    {
-        $this->seeElement($orderId, $orderDetails);
-    }
-//TODO: ???
-//TODO: ???
-   /**
-    * @Then they should see a list of that customers' current orders
-    */
-    public function theyShouldSeeAListOfThatCustomersCurrentOrders($orderId, $orderDetails)
-    {
-        $this->seeElement($orderId, $orderDetails);
-    }
-//TODO: ???
    /**
     * @When they scroll down to the review section
     */
-    public function theyScrollDownToTheReviewSection($section)
+    public function theyScrollDownToTheReviewSection()
     {
-        $this->seeElement($section);
-    }
-
-   /**
-    * @Then they should see a list of reviews for the product
-    */
-    public function theyShouldSeeAListOfReviewsForTheProduct($reviews)
-    {
-        $this->seeElement($reviews); 
-    }
-//TODO: ???
-   /**
-    * @When there are no reviews available for the product
-    */
-    public function thereAreNoReviewsAvailableForTheProduct($message)
-    {
-        $this->seeElement($message);
-    }
-
-   /**
-    * @Then they should see a message indicating that there are no reviews available for the product
-    */
-    public function theyShouldSeeAMessageIndicatingThatThereAreNoReviewsAvailableForTheProduct($product)
-    {
-        $this->see('No Reviews Available', $product);
+        throw new \PHPUnit\Framework\IncompleteTestError("Step `they scroll down to the review section` is not defined");
     }
 }
