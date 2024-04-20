@@ -44,4 +44,8 @@ class User extends \app\core\Controller{
 			$this->view('User/login');
 		}
 	}
+
+	function contact() {
+		$this->view('contact');
+	}
 }
