@@ -27,4 +27,12 @@ class Product extends \app\core\Controller {
 
         $this->view('Product/listing');
     }
+
+    function description() {
+        $product = new \app\models\Product();
+
+        $item = $product->get($_GET['id']);
+
+        $this->view('Product/index', $item);
+    }
 }
