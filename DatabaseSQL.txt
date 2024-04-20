@@ -1,0 +1,129 @@
+CREATE TABLE IF NOT EXISTS product (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Brand ENUM('Cartier', 'Dexter Marx', 'Boss', 'Gucci', 'Ray-Ban', 'Prada', 'Oakley', 'Oliver Peoples') NOT NULL,
+    Model VARCHAR(30) NOT NULL UNIQUE,
+    Color SET('Black', 'Brown', 'Red', 'Green', 'Tortoise', 'White', 'Clear') NOT NULL,
+    CostPrice DECIMAL(7,2) NOT NULL CHECK (CostPrice BETWEEN 50 AND 3000),
+    SellPrice DECIMAL(7,2) GENERATED ALWAYS AS (CostPrice * 2) STORED,
+    Shape ENUM('Round', 'Cat eye', 'Rectangle', 'Square', 'Aviator', 'Geometric', 'Oval') NOT NULL,
+    Size INT NOT NULL CHECK (Size BETWEEN 46 AND 56),
+    OpticalSun ENUM('Optical', 'Sun') NOT NULL,
+    Description VARCHAR(255)
+);
+
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Cartier', 'ESW00632', 'Red,Brown,Tortoise', 787.50, 'Rectangle', 51, 'Optical', 'Timeless aesthetics with modern functionality.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Cartier', 'ESW00629', 'Black', 475.00, 'Oval', 46, 'Sun', 'Bold and modern, stands out in any crowd.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Cartier', 'ESW00669', 'Black', 550.00, 'Square', 49, 'Sun', 'Fashion-forward with a vintage feel.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Cartier', 'ESW00618', 'Red', 700.00, 'Square', 51, 'Sun', 'Timeless aesthetics with modern functionality.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Cartier', 'ESW00633', 'Black', 495.00, 'Round', 52, 'Optical', 'Chic and refined, suits a professional look.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Cartier', 'ESW00454', 'Brown', 850.00, 'Square', 48, 'Sun', 'Distinctive design with cutting-edge features.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Cartier', 'ESW00475', 'Black', 800.00, 'Aviator', 50, 'Optical', 'Classic design with a contemporary twist.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Cartier', 'ESW00661', 'Black', 1200.00, 'Geometric', 54, 'Sun', 'Fashion-forward with a vintage feel.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Cartier', 'ESW00581', 'Black', 875.00, 'Geometric', 48, 'Sun', 'Chic and refined, suits a professional look.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Cartier', 'ESW00614', 'Black', 1070.00, 'Square', 49, 'Sun', 'Versatile style, ideal for any face shape.');
+
+
+
+
+
+
+
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Dexter Marx', 'Storm', 'Brown', 190.00, 'Geometric', 50, 'Optical', 'Bold and modern, stands out in any crowd.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Dexter Marx', 'Clide', 'White', 175.00, 'Geometric', 52, 'Sun', 'Classic design with a contemporary twist.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Dexter Marx', 'Harper', 'Clear,White', 162.50, 'Aviator', 52, 'Optical', 'Chic and refined, suits a professional look.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Dexter Marx', 'Melena', 'Black', 180.00, 'Rectangle', 54, 'Optical', 'Bold and modern, stands out in any crowd.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Dexter Marx', 'Class', 'Green,Red,White', 187.50, 'Aviator', 48, 'Sun', 'Sleek and sophisticated, provides superior comfort.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Dexter Marx', 'Sammy', 'Green', 199.00, 'Cat eye', 51, 'Optical', 'Lightweight frame with exceptional durability.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Dexter Marx', 'Marx', 'White,Black,Tortoise', 210.00, 'Oval', 46, 'Optical', 'Versatile style, ideal for any face shape.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Dexter Marx', 'Hermes', 'Brown,White', 175.00, 'Square', 54, 'Optical', 'Distinctive design with cutting-edge features.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Dexter Marx', 'Fuit', 'Clear', 180.00, 'Oval', 47, 'Optical', 'Timeless aesthetics with modern functionality.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Dexter Marx', 'Alfreda', 'Green', 205.00, 'Aviator', 54, 'Sun', 'Elegant and stylish, perfect for everyday wear.');
+
+
+
+
+
+-- Boss Brand
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Boss', '1649/SKB752QT', 'Clear', 162.50, 'Oval', 53, 'Sun', 'Fashion-forward with a vintage feel.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Boss', '1599/S80756KU', 'Black', 165.00, 'Rectangle', 49, 'Optical', 'Elegant and stylish, perfect for everyday wear.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Boss', '1625/S8AS50QT', 'Tortoise,Brown', 147.50, 'Rectangle', 56, 'Optical', 'Classic design with a contemporary twist.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Boss', '1654/S80754IR', 'Black', 155.00, 'Square', 47, 'Optical', 'Lightweight frame with exceptional durability.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Boss', '1608/S2VM50IR', 'Red,Tortoise', 175.00, 'Square', 55, 'Optical', 'Chic and refined, suits a professional look.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Boss', '1455/N/SSDK55IR', 'Brown,Black,Tortoise', 187.50, 'Oval', 49, 'Sun', 'Versatile style, ideal for any face shape.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Boss', '1638TI75021', 'Clear,Black', 145.00, 'Round', 50, 'Optical', 'Bold and modern, stands out in any crowd.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Boss', '16422OS5716', 'Brown,Tortoise', 180.00, 'Rectangle', 46, 'Sun', 'Bold and modern, stands out in any crowd.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Boss', '1626/S80755QT', 'Black', 140.00, 'Square', 56, 'Sun', 'Elegant and stylish, perfect for everyday wear.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Boss', '1671/F/SK00356IR', 'Black,Brown', 172.50, 'Round', 53, 'Sun', 'Sleek and sophisticated, provides superior comfort.');
+
+-- Gucci Brand
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Gucci', 'GG1773S', 'Black,Tortoise,White', 340.00, 'Rectangle', 54, 'Sun', 'Timeless aesthetics with modern functionality.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Gucci', 'GG1527S', 'Black', 282.50, 'Oval', 51, 'Sun', 'Timeless aesthetics with modern functionality.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Gucci', 'GG1544S', 'Black', 180.00, 'Cat eye', 47, 'Sun', 'Fashion-forward with a vintage feel.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Gucci', 'GG1556S', 'Black,Red', 247.50, 'Cat eye', 55, 'Sun', 'Classic design with a contemporary twist.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Gucci', 'GG1547S', 'Black,Tortoise', 247.50, 'Square', 48, 'Sun', 'Distinctive design with cutting-edge features.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Gucci', 'GG1604S', 'Black,Red', 325.00, 'Geometric', 50, 'Sun', 'Lightweight frame with exceptional durability.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Gucci', 'GG1615S', 'Brown', 247.50, 'Square', 55, 'Sun', 'Chic and refined, suits a professional look.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Gucci', 'GG1440S', 'Green,Black', 305.00, 'Aviator', 46, 'Sun', 'Classic design with a contemporary twist.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Gucci', 'GG0447S', 'Black', 340.00, 'Aviator', 47, 'Sun', 'Lightweight frame with exceptional durability.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Gucci', 'GG1427S', 'Black,Brown', 225.00, 'Rectangle', 49, 'Optical', 'Timeless aesthetics with modern functionality.');
+
+
+
+
+
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Ray-Ban', 'RB3170B', 'Tortoise,Black,Green,Clear', 131.50, 'Round', 46, 'Optical', 'Bold and modern, stands out in any crowd.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Ray-Ban', 'RB3447V', 'Black,Brown', 124.00, 'Round', 47, 'Optical', 'Bold and modern, stands out in any crowd.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Ray-Ban', 'RB5228', 'Tortoise,Black,Brown', 131.50, 'Rectangle', 46, 'Optical', 'Distinctive design with cutting-edge features.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Ray-Ban', 'RB6489', 'Black,Brown,Red', 124.00, 'Aviator', 53, 'Sun', 'Fashion-forward with a vintage feel.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Ray-Ban', 'RX7239', 'Brown,Tortoise,Black,Clear', 104.00, 'Rectangle', 48, 'Optical', 'Elegant and stylish, perfect for everyday wear.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Ray-Ban', 'RX5430', 'Brown,Tortoise,Black,Green', 124.00, 'Round', 52, 'Optical', 'Distinctive design with cutting-edge features.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Ray-Ban', 'RX7235', 'Black,Brown,Red', 147.50, 'Round', 54, 'Optical', 'Versatile style, ideal for any face shape.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Ray-Ban', 'RB6448', 'Red,Clear,Black', 124.00, 'Round', 55, 'Optical', 'Elegant and stylish, perfect for everyday wear.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Ray-Ban', 'RB8908', 'Black,Green', 163.50, 'Rectangle', 47, 'Optical', 'Timeless aesthetics with modern functionality.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Ray-Ban', 'RB2241V', 'Brown,Green,White,Tortoise', 124.00, 'Round', 56, 'Optical', 'Lightweight frame with exceptional durability.');
+
+
+
+
+
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Prada', 'SPRA24_E1AB_F05S0_C_043', 'Black', 370.00, 'Round', 56, 'Sun', 'Lightweight frame with exceptional durability.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Prada', 'SPRA27_E16K_F05S0_C_062', 'Black', 372.50, 'Cat eye', 56, 'Sun', 'Fashion-forward with a vintage feel.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Prada', 'SPRA14_E12R_FE30B_C_060', 'Clear', 347.50, 'Rectangle', 48, 'Sun', 'Distinctive design with cutting-edge features.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Prada', 'SPRA14_E142_F05S0_C_060', 'White', 362.50, 'Rectangle', 51, 'Optical', 'Lightweight frame with exceptional durability.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Prada', 'SPR17W_E12R_FE30B_C_049', 'Clear', 350.00, 'Rectangle', 53, 'Optical', 'Sleek and sophisticated, provides superior comfort.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Prada', 'SPR26Z_E14L_FE09Z_C_055', 'Tortoise', 375.00, 'Oval', 56, 'Optical', 'Versatile style, ideal for any face shape.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Prada', 'SPRA09_E12O_FE10D_C_053', 'Black', 342.50, 'Cat eye', 47, 'Sun', 'Elegant and stylish, perfect for everyday wear.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Prada', 'SPRA51_E15N_FE01T_C_058', 'White', 410.00, 'Geometric', 52, 'Optical', 'Versatile style, ideal for any face shape.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Prada', 'SPR24Z_E18N_FE01T_C_056', 'Tortoise', 390.00, 'Square', 49, 'Optical', 'Fashion-forward with a vintage feel.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Prada', 'SPR14Z_E1AB_FE09S_C_050', 'Black', 335.00, 'Cat eye', 54, 'Sun', 'Fashion-forward with a vintage feel.');
+
+
+
+
+
+
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Oakley', 'OO9102-D655', 'Black,Green,Brown', 129.00, 'Rectangle', 46, 'Sun', 'Chic and refined, suits a professional look.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Oakley', 'OO9482-0157', 'Black,Red', 140.50, 'Geometric', 50, 'Sun', 'Lightweight frame with exceptional durability.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Oakley', 'OO9316 11-63', 'Green,Black', 156.00, 'Rectangle', 46, 'Sun', 'Classic design with a contemporary twist.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Oakley', 'OO9483-0156', 'Black,Brown,White', 143.00, 'Rectangle', 53, 'Optical', 'Fashion-forward with a vintage feel.'); 
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Oakley', 'OO9286 05-54', 'White,Black,Red,Brown', 171.00, 'Round', 48, 'Sun', 'Versatile style, ideal for any face shape.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Oakley', 'OO9417-0559', 'Black,Brown', 144.00, 'Rectangle', 47, 'Optical', 'Elegant and stylish, perfect for everyday wear.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Oakley', 'OO9013-F655', 'Brown,White,Brown', 170.00, 'Round', 49, 'Sun', 'Classic design with a contemporary twist.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Oakley', 'OO9284 07-55', 'Black,Red,Black', 138.00, 'Round', 49, 'Sun', 'Fashion-forward with a vintage feel.');    
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Oakley', 'OO9272-09', 'Black,Clear', 180.00, 'Rectangle', 47, 'Optical', 'Timeless aesthetics with modern functionality.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Oakley', 'OO9239 30-60', 'Black,Green,Red', 132.00, 'Rectangle', 47, 'Sun', 'Chic and refined, suits a professional look.');
+
+
+
+
+
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Oliver Peoples', 'Mr. Federer-R', 'Brown,Black,Clear', 330.00, 'Rectangle', 50, 'Sun', 'Versatile style, ideal for any face shape.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Oliver Peoples', 'N.05', 'Black,Brown,Green,Tortoise', 342.00, 'Round', 56, 'Optical', 'Fashion-forward with a vintage feel.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Oliver Peoples', 'Rosson', 'Tortoise,Clear,Black', 275.00, 'Rectangle', 54, 'Sun', 'Fashion-forward with a vintage feel.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Oliver Peoples', 'Josianne', 'Tortoise,Clear,Black', 275.00, 'Oval', 50, 'Optical', 'Fashion-forward with a vintage feel.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Oliver Peoples', 'OP-47', 'Black,Brown', 335.00, 'Round', 46, 'Optical', 'Sleek and sophisticated, provides superior comfort.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Oliver Peoples', 'Gregory Peck', 'Tortoise,Brown,Clear,Black', 255.00, 'Round', 54, 'Sun', 'Chic and refined, suits a professional look.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Oliver Peoples', 'Finley 1993', 'Tortoise,Brown,Clear,Black,Red', 290.00, 'Round', 54, 'Sun', 'Lightweight frame with exceptional durability.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Oliver Peoples', 'Birell', 'Black,Clear,Brown', 355.00, 'Rectangle', 54, 'Sun', 'Chic and refined, suits a professional look.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Oliver Peoples', 'Sidell', 'Red,Green,Clear', 362.50, 'Round', 56, 'Optical', 'Bold and modern, stands out in any crowd.');
+INSERT INTO product (Brand, Model, Color, CostPrice, Shape, Size, OpticalSun, Description) VALUES ('Oliver Peoples', 'Maysen', 'Brown,Black,Clear,Red', 360.00, 'Square', 47, 'Sun', 'Classic design with a contemporary twist.');
