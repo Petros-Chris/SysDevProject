@@ -41,7 +41,7 @@ class Product extends \app\core\Controller {
             $searchTerm = $_POST['search_box'];
 			$product = new \app\models\Product(); 
 
-            if ($_POST['action'] == 'title') {
+            if ($_POST['action'] == 'color') {
                $products = $product->getColor($searchTerm);
 			   
 
@@ -54,8 +54,6 @@ class Product extends \app\core\Controller {
                 $this->view('/Product/listing');
                 echo('asd');
             } 
-            $this->view('/Product/listing');
-                echo('oops');
         }
     }
 }

@@ -52,11 +52,11 @@ class Product extends \app\core\Model
 
     public function getColor($product_color)
     {
-        $SQL = 'SELECT * FROM product WHERE color = :color';
+        $SQL = 'SELECT * FROM product WHERE color LIKE :color';
         $STMT = self::$_conn->prepare($SQL);
-        $STMT->execute(['color' => $product_color]);
+        $STMT->execute(['color' => '%' . $product_color . '%']);
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Product');
-        return $STMT->fetch();
+        return $STMT->fetchAll();
     }
 
     public function getAll(){
