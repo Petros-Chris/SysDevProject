@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 21, 2024 at 01:22 AM
+-- Generation Time: Apr 21, 2024 at 06:23 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -47,25 +47,25 @@ CREATE TABLE IF NOT EXISTS `Customer` (
 
 DROP TABLE IF EXISTS `product`;
 CREATE TABLE IF NOT EXISTS `product` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Brand` enum('Cartier','Dexter Marx','Boss','Gucci','Ray-Ban','Prada','Oakley','Oliver Peoples') NOT NULL,
-  `Model` varchar(30) NOT NULL,
-  `Color` set('Black','Brown','Red','Green','Tortoise','White','Clear') NOT NULL,
-  `CostPrice` decimal(7,2) NOT NULL CHECK (`CostPrice` between 50 and 3000),
-  `SellPrice` decimal(7,2) GENERATED ALWAYS AS (`CostPrice` * 2) STORED,
-  `Shape` enum('Round','Cat eye','Rectangle','Square','Aviator','Geometric','Oval') NOT NULL,
-  `Size` int(11) NOT NULL CHECK (`Size` between 46 and 56),
-  `OpticalSun` enum('Optical','Sun') NOT NULL,
-  `Description` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  UNIQUE KEY `Model` (`Model`)
+  `product_id` int(11) NOT NULL AUTO_INCREMENT,
+  `brand` enum('Cartier','Dexter Marx','Boss','Gucci','Ray-Ban','Prada','Oakley','Oliver Peoples') NOT NULL,
+  `model` varchar(30) NOT NULL,
+  `color` set('Black','Brown','Red','Green','Tortoise','White','Clear') NOT NULL,
+  `cost_price` decimal(7,2) NOT NULL,
+  `sell_price` decimal(7,2) GENERATED ALWAYS AS (`cost_price` * 2) STORED,
+  `shape` enum('Round','Cat eye','Rectangle','Square','Aviator','Geometric','Oval') NOT NULL,
+  `size` int(11) NOT NULL,
+  `optical_sun` enum('Optical','Sun') NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`product_id`),
+  UNIQUE KEY `Model` (`model`)
 ) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`ID`, `Brand`, `Model`, `Color`, `CostPrice`, `Shape`, `Size`, `OpticalSun`, `Description`) VALUES
+INSERT INTO `product` (`product_id`, `brand`, `model`, `color`, `cost_price`, `shape`, `size`, `optical_sun`, `description`) VALUES
 (1, 'Cartier', 'ESW00632', 'Brown,Red,Tortoise', 787.50, 'Rectangle', 51, 'Optical', 'Timeless aesthetics with modern functionality.'),
 (2, 'Cartier', 'ESW00629', 'Black', 475.00, 'Oval', 46, 'Sun', 'Bold and modern, stands out in any crowd.'),
 (3, 'Cartier', 'ESW00669', 'Black', 550.00, 'Square', 49, 'Sun', 'Fashion-forward with a vintage feel.'),
