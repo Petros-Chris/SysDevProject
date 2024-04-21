@@ -48,7 +48,7 @@ class Product extends \app\core\Controller {
 				foreach ($products as $producta) {
                     $pro_id = $producta->product_id;
 					$pro_brand = $producta->brand;
-					echo "<a href='../Product/search?brand=$pro_brand&id=$pro_id'>$pro_brand</a><br>";
+					echo "<a href='../Product/index?brand=$pro_brand&id=$pro_id'>$pro_brand</a><br>";
 				}
                 
                 $this->view('/Product/listing');

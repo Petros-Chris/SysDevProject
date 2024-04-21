@@ -36,7 +36,16 @@ class Product extends \app\core\Model
 
     public function update()
     {
-        $SQL = 'UPDATE product SET brand = :brand, model = :model, color = :color, cost_price = :cost_price, shape = :shape, size = :size, optical_sun = :optical_sun, description = :description WHERE product_id = :product_id';
+        $SQL = 'UPDATE product SET brand = :brand,
+            model = :model,
+            color = :color,
+            cost_price = :cost_price,
+            shape = :shape,
+            size = :size,
+            optical_sun = :optical_sun,
+            description = :description 
+            WHERE product_id = :product_id';
+            
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute((array) $this);
     }
