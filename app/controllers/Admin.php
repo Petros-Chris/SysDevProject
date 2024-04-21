@@ -20,7 +20,7 @@ class Admin extends \app\core\Controller
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            
+            $product->product_id = '81';  
             $productg->brand = $_POST['brand'];
             $productg->model = $_POST['model'];
             $productg->color = $_POST['color'];
