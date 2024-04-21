@@ -7,5 +7,7 @@ $this->addRoute('contact','User,contact');
 $this->addRoute('Product/listing','Product,listings');
 $this->addRoute('Product/index','Product,description');
 $this->addRoute('Product/search','Product,search');
-
-
+$this->addRoute('Product/search','Product,search');
+$this->addRoute('Admin/index','Admin,index');
+$this->addRoute('Admin/modify','Admin,modify');
+$this->addRoute('Admin/create','Admin,create');

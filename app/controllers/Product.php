@@ -41,21 +41,19 @@ class Product extends \app\core\Controller {
             $searchTerm = $_POST['search_box'];
 			$product = new \app\models\Product(); 
 
-            if ($_POST['action'] == 'title') {
+            if ($_POST['action'] == 'color') {
                $products = $product->getColor($searchTerm);
 			   
 
-				foreach ($products as $product) {
-                    $pro_id = $product->product_id;
-					$pro_brand = $product->brand;
+				foreach ($products as $producta) {
+                    $pro_id = $producta->product_id;
+					$pro_brand = $producta->brand;
 					echo "<a href='../Product/search?brand=$pro_brand&id=$pro_id'>$pro_brand</a><br>";
 				}
                 
                 $this->view('/Product/listing');
                 echo('asd');
             } 
-            $this->view('/Product/listing');
-                echo('oops');
         }
     }
 }

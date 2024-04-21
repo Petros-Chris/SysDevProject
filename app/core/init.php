@@ -12,5 +12,7 @@ require('app/core/autoload.php');
     <li><a href='/Customer/logout'>Logout</a></li>
     <li><a href='/contact'>Contact Us</a></li>
     <li><a href='/Product/listing'>View All Products</a></li>
+    <li><a href='/Admin/index'>Admin Side</a></li>
+    <br>
     
 </html>

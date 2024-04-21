@@ -7,26 +7,53 @@ use stdClass;
 class Admin extends \app\core\Controller
 {
 
-    function update()
+    function index() {
+
+        $this->view('Admin/index');
+    }
+
+    function modify()
     {
-        $admin = new \app\models\Admin();
-        $admin = $admin->getById($_SESSION['customer_id']);
+        $product = new \app\models\Product();
+        $product = $product->get('81');
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            $admin->first_name = $_POST['first_name'];
-            $admin->last_name = $_POST['last_name'];
-            $admin->email = $_POST['email'];
-            $admin->password_hash = $_POST['password'];
+            $product->brand = $_POST['brand'];
+            $product->model = $_POST['model'];
+            $product->color = $_POST['color'];
+            $product->cost_price = $_POST['cost_price'];
+            $product->shape = $_POST['shape'];
+            $product->size = $_POST['size'];
+            $product->optical_sun = $_POST['optical_sun'];
+            $product->description = $_POST['description'];
 
-            if (!empty($password)) {
-                $admin->password_hash = password_hash($password, PASSWORD_DEFAULT);
-            }
-
-            $admin->update();
-            header('location:/Customer/update');
+            $product->update();
+            header('location:/Admin/index');
         } else {
-            $this->view('Customer/update', $admin);
+            $this->view('Admin/modify', $product);
+        }
+    }
+
+    function create()
+    {
+        $product = new \app\models\Product();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $product->brand = $_POST['brand'];
+            $product->model = $_POST['model'];
+            $product->color = $_POST['color'];
+            $product->cost_price = $_POST['cost_price'];
+            $product->shape = $_POST['shape'];
+            $product->size = $_POST['size'];
+            $product->optical_sun = $_POST['optical_sun'];
+            $product->description = $_POST['description'];
+
+            $product->insert();
+            header('location:/Admin/index');
+        } else {
+            $this->view('Admin/create');
         }
     }
 
