@@ -21,19 +21,23 @@ class Product extends \app\core\Controller {
             $pro_size = $product->size;
             $pro_optial_sun = $product->optical_sun;
             $pro_description = $product->description;
-            
-            echo "<a href='../Product/index?id=$pro_id'> Product -- $pro_id</a><br>";
+            echo "<a href='../Product/index?id=$pro_id'> Product $pro_model -- $pro_id</a><br>";
         }
-
         $this->view('Product/listing');
     }
 
     function description() {
-        $product = new \app\models\Product();
 
+        $product = new \app\models\Product();
         $item = $product->get($_GET['id']);
 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            
+            
+        } else {
+
         $this->view('Product/index', $item);
+        }
     }
 
     public function search() {
@@ -44,7 +48,6 @@ class Product extends \app\core\Controller {
             if ($_POST['action'] == 'color') {
                $products = $product->getColor($searchTerm);
 			   
-
 				foreach ($products as $producta) {
                     $pro_id = $producta->product_id;
 					$pro_brand = $producta->brand;

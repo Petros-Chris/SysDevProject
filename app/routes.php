@@ -11,3 +11,4 @@ $this->addRoute('Product/search','Product,search');
 $this->addRoute('Admin/index','Admin,index');
 $this->addRoute('Admin/modify','Admin,modify');
 $this->addRoute('Admin/create','Admin,create');
+$this->addRoute('Admin/productListing','Admin,listings');
