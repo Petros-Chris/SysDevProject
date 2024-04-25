@@ -14,5 +14,6 @@
         <dt><dd><?= $data->size ?></dd></dt>
         <dt><dd><?= $data->optical_sun ?></dd></dt>
         <dt><dd><?= $data->description ?></dd></dt>
+        <dt><dd><?= $data->quantity ?></dd></dt>
     </body>
 </html>

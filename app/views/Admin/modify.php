@@ -40,6 +40,14 @@
 			    	<label>Description:<textarea type="text" class="form-control" name="description"><?= $data->description ?></textarea></label>
 			    </div>
 
+				<div class="form-group">
+			    	<label>Quantity:<input type="text" class="form-control" name="quantity"><?= $data->quantity ?></input></label>
+			    </div>
+
+				<div class="form-group">
+			    	<label>Disable:<input type="checkbox" name="disable" value="true"></input></label>
+			    </div>
+
 			    <div class="form-group">
 			    	<input type="submit" name="action" value="Create Product"/> 
 			    </div>

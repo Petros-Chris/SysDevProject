@@ -15,11 +15,13 @@ class Product extends \app\core\Model
     public $size;
     public $optical_sun;
     public $description;
+    public $quantity;
+    public $disable;
 
 
     public function insert()
     {
-        $SQL = 'INSERT INTO product(brand, model, color, cost_price, shape, size, optical_sun, description) VALUES (:brand, :model, :color, :cost_price, :shape, :size, :optical_sun, :description)';
+        $SQL = 'INSERT INTO product(brand, model, color, cost_price, shape, size, optical_sun, description, quantity, disable) VALUES (:brand, :model, :color, :cost_price, :shape, :size, :optical_sun, :description, :quantity, :disable)';
 
         $STMT = self::$_conn->prepare($SQL);
  
@@ -31,7 +33,9 @@ class Product extends \app\core\Model
             'shape'=>$this->shape,
             'size'=>$this->size,
             'optical_sun'=>$this->optical_sun,
-            'description'=>$this->description]);
+            'description'=>$this->description,
+            'quantity'=>$this->quantity,
+            'disable'=>$this->disable]);
     }
 
     public function update()
