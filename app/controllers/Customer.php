@@ -9,7 +9,7 @@ class Customer extends \app\core\Controller
 
     function update()
     {
-        if (!isset($_SESSION['customer_id'])) {
+        if (!isset($_SESSIOrN['customer_id'])) {
             header('location:/User/login');
             return;
         }
@@ -33,6 +33,10 @@ class Customer extends \app\core\Controller
         } else {
             $this->view('Customer/update', $customer);
         }
+    }
+
+    function checkout() {
+        
     }
 
     function logout(){

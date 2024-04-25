@@ -27,16 +27,47 @@ class Product extends \app\core\Controller {
     }
 
     function description() {
-
         $product = new \app\models\Product();
         $item = $product->get($_GET['id']);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $productControl = new \app\controllers\Product();
+            $productControl->addToCart($item);
+            $productControl->viewCart();
             
-            
+            $this->view('Product/index', $item);
         } else {
 
         $this->view('Product/index', $item);
+        }
+    }    
+
+    public function addToCart($item) {
+        if (isset($_SESSION['cart'])) {
+            $cart = $_SESSION['cart'];
+            $length = $cart;
+            $_SESSION['cart'][$length] = $item;
+        } else {
+            
+            $_SESSION['cart'][0] = $item;
+        }
+        
+    }
+
+    public function viewCart() {
+        if (isset($_SESSION['cart'])) {
+            $cart = $_SESSION['cart'];
+
+            foreach($cart as $item) {
+                    echo $item->color;
+            }
+        }
+    }
+    
+    public function removeFromCart() {
+        if (isset($_SESSION['cart'])) {
+            $cart = $_SESSION['cart'];
+
         }
     }
 
@@ -59,4 +90,6 @@ class Product extends \app\core\Controller {
             } 
         }
     }
+
+
 }
