@@ -14,7 +14,8 @@
         <dt><dd><?= $data->size ?></dd></dt>
         <dt><dd><?= $data->optical_sun ?></dd></dt>
         <dt><dd><?= $data->description ?></dd></dt>
-
+        <dt><dd><?= $data->quantity ?></dd></dt>
+        
         <form method='post' action=''>
             <input type='submit' value='Add To Cart'>
         </form>
