@@ -21,6 +21,8 @@ class Admin extends \app\core\Controller
             $pro_size = $product->size;
             $pro_optial_sun = $product->optical_sun;
             $pro_description = $product->description;
+            $pro_quantity = $product->quantity;
+            $pro_disable = $product->disable;
             
             echo "<a href='../Admin/modify?id=$pro_id'> Product -- $pro_id</a><br>";
         }
@@ -50,6 +52,8 @@ class Admin extends \app\core\Controller
             $product->size = $_POST['size'];
             $product->optical_sun = $_POST['optical_sun'];
             $product->description = $_POST['description'];
+            $product->quantity = $_POST['quantity'];
+
 
             $product->update();
             header('location:/Admin/index');
@@ -72,7 +76,10 @@ class Admin extends \app\core\Controller
             $product->size = $_POST['size'];
             $product->optical_sun = $_POST['optical_sun'];
             $product->description = $_POST['description'];
+            $product->quantity = $_POST['quantity'];
+            $product->disable = 0;
 
+            var_dump($product);
             $product->insert();
             header('location:/Admin/index');
         } else {
