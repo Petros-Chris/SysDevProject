@@ -9,8 +9,11 @@ class Product extends \app\core\Controller {
     function listings() {
         $product = new \app\models\Product();
 
+
 		$products = $product->getAll();
 
+        $this->view('Product/listing');
+        
         foreach ($products as $product) {
             $pro_id = $product->product_id;
 			$pro_brand = $product->brand;
@@ -23,7 +26,6 @@ class Product extends \app\core\Controller {
             $pro_description = $product->description;
             echo "<a href='../Product/index?id=$pro_id'> Product $pro_model -- $pro_id</a><br>";
         }
-        $this->view('Product/listing');
     }
 
     function description() {
@@ -43,38 +45,52 @@ class Product extends \app\core\Controller {
     }    
 
     public function addToCart($item) {
+        require_once ('app/models/Product.php');
         if (isset($_SESSION['cart'])) {
             $cart = $_SESSION['cart'];
-            $length = $cart;
-            $_SESSION['cart'][$length] = $item;
+            $length = count($cart);
+            $_SESSION['cart'][$length] = $item; 
         } else {
-            
             $_SESSION['cart'][0] = $item;
         }
-        
     }
 
     public function viewCart() {
         if (isset($_SESSION['cart'])) {
-            $cart = $_SESSION['cart'];
+            $cart = ($_SESSION['cart']);
+            $price = 0;
 
-            foreach($cart as $item) {
-                    echo $item->color;
+            foreach($cart as $product) {
+                $pro_id = $product->product_id;
+                $pro_brand = $product->brand;
+                $pro_model = $product->model;
+                $pro_color = $product->color;
+                $pro_price = $product->cost_price;
+                $pro_shape = $product->shape;
+                $pro_size = $product->size;
+                $pro_optial_sun = $product->optical_sun;
+                $pro_description = $product->description;
+                    $price += $pro_price;
+                echo "<a href = '/Product/index?id=$pro_id'>$pro_brand $pro_shape $pro_price</a> <br>";
+                
             }
+            echo "Total: $price <br>";
+            echo "<input type='button' value='proceed to checkout'>";
         }
     }
     
     public function removeFromCart() {
         if (isset($_SESSION['cart'])) {
             $cart = $_SESSION['cart'];
-
         }
     }
 
     public function search() {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $searchTerm = $_POST['search_box'];
-			$product = new \app\models\Product(); 
+			$product = new \app\models\Product();   
+
+                $this->view('/Product/listing');
 
             if ($_POST['action'] == 'color') {
                $products = $product->getColor($searchTerm);
@@ -84,12 +100,7 @@ class Product extends \app\core\Controller {
 					$pro_brand = $producta->brand;
 					echo "<a href='../Product/index?brand=$pro_brand&id=$pro_id'>$pro_brand</a><br>";
 				}
-                
-                $this->view('/Product/listing');
-                echo('asd');
             } 
         }
     }
-
-
 }
