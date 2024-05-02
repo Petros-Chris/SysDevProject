@@ -45,7 +45,7 @@
 			    </div>
 
 				<div class="form-group">
-			    	<label>Disable:<input type="checkbox" name="disable" value="true"></input></label>
+			    	<label>Disable:<input type="checkbox" name="disable" value="on"></input></label>
 			    </div>
 
 			    <div class="form-group">
