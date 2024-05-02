@@ -24,7 +24,16 @@ class Product extends \app\core\Controller {
             $pro_size = $product->size;
             $pro_optial_sun = $product->optical_sun;
             $pro_description = $product->description;
-            echo "<a href='../Product/index?id=$pro_id'> Product $pro_model -- $pro_id</a><br>";
+            echo "<a href='../Product/index?id=$pro_id'> Product <div class='product-container'>
+    <div class='product-image'>
+      <img src='/../app/questionMark.png' alt='$pro_description'>
+    </div>
+    <div class='product-details'>
+      <span class='heart-icon'>&#x2661;</span> <!-- Unicode heart symbol -->
+      <div class='product-brand'>$pro_brand</div>
+      <div class='product-price'>$$pro_price</div>
+    </div>
+  </div></a><br>";
         }
     }
 
@@ -104,3 +113,4 @@ class Product extends \app\core\Controller {
         }
     }
 }
+
