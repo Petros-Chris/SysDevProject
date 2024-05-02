@@ -17,7 +17,7 @@ class Product extends \app\core\Model
     public $description;
     public $quantity;
     public $disable;
-
+  
 
     public function insert()
     {
@@ -48,11 +48,14 @@ class Product extends \app\core\Model
             shape = :shape,
             size = :size,
             optical_sun = :optical_sun,
-            description = :description
+            description = :description,
+            quantity = :quantity,
+            disable = :disable
             WHERE product_id = :product_id';
     
     $STMT = self::$_conn->prepare($SQL);
 
+    
 
     $params = [
         'brand' => $this->brand,
@@ -63,7 +66,9 @@ class Product extends \app\core\Model
         'size' => $this->size,
         'optical_sun' => $this->optical_sun,
         'description' => $this->description,
-        'product_id' => $this->product_id
+        'product_id' => $this->product_id,
+        'quantity' => $this->quantity,
+        'disable' => $this->disable
     ];
 
     $STMT->execute($params);
