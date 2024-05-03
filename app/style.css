@@ -31,3 +31,35 @@
   .heart-icon:hover {
     color: #ff6868;
   }
+
+
+  #map {
+    width: 300px;   
+    height: 300px;
+    margin: 10px auto; 
+  }
+  #searchInput {
+    width: 20%;
+    padding: 8px;
+    font-size: 16px;
+  }
+  #suggestions {
+    position: absolute;
+    z-index: 1000;
+    background: white;
+    width: 300px; 
+    display: none; 
+    border: 1px solid #ccc;
+    margin-top: -1px; 
+  }
+  .suggestion {
+    padding: 8px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+  }
+  .suggestion:last-child {
+    border-bottom: none;
+  }
+  .suggestion:hover {
+    background-color: #f0f0f0;
+  }

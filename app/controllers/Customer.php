@@ -36,7 +36,7 @@ class Customer extends \app\core\Controller
     }
 
     function checkout() {
-        
+        $this->view('Customer/checkout');
     }
 
     function logout(){
