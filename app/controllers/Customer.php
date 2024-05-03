@@ -7,13 +7,9 @@ use stdClass;
 class Customer extends \app\core\Controller
 {
 
+    #[\app\filters\IsCustomer]
     function update()
     {
-        if (!isset($_SESSIOrN['customer_id'])) {
-            header('location:/User/login');
-            return;
-        }
-
         $customer = new \app\models\Customer();
         $customer = $customer->getById($_SESSION['customer_id']);
 

@@ -15,10 +15,14 @@
         <dt><dd><?= $data->optical_sun ?></dd></dt>
         <dt><dd><?= $data->description ?></dd></dt>
         <dt><dd><?= $data->quantity ?></dd></dt>
+
+        <img src='<?= $data->image ?>'>
         
         <form method='post' action=''>
             <input type='submit' value='Add To Cart'>
         </form>
 
+        <a href= '/Review/create'>Make A Review</a> <br>
+        <a href= '/Wishlist/add'>Add To Wishlist</a>
     </body>
 </html>

@@ -12,4 +12,7 @@ $this->addRoute('Admin/index','Admin,index');
 $this->addRoute('Admin/modify','Admin,modify');
 $this->addRoute('Admin/create','Admin,create');
 $this->addRoute('Admin/productListing','Admin,listings');
-$this->addRoute('Customer/Checkout','Customer,checkout');
+$this->addRoute('Customer/checkout','Customer,checkout');
+$this->addRoute('Review/create','Review,create');
+$this->addRoute('Wishlist/add','Wishlist,addToWishlist');
+$this->addRoute('Wishlist/displaytest','Wishlist,displayWishlist');
