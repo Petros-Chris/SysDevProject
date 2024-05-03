@@ -39,4 +39,23 @@ class Customer extends \app\core\Controller
 		session_destroy();
 		header('location:/User/login');
 	}
+
+    function deactivate() {
+        $customer = new \app\models\Customer();
+        $customer = $customer->getById($_SESSION['customer_id']);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $password = $_POST['password'];
+
+            if($customer && password_verify($password, $customer->password_hash)){
+                
+                $customer->disable($_SESSION['customer_id']);
+                session_destroy();
+            }
+            header('location:/User/login');
+        } else {
+            $this->view('Customer/deactivate');
+        }
+    }
 }

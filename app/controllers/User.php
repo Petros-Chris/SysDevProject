@@ -33,14 +33,18 @@ class User extends \app\core\Controller{
 			$password = $_POST['password'];
 			
 			if($user && password_verify($password, $user->password_hash)){
-				$_SESSION['customer_id'] = $user->customer_id;
 
-				if($_SESSION['url'] != '') {
-					header("location:$_SESSION[url]");
+				if($user->disable == false) {
+					$_SESSION['customer_id'] = $user->customer_id;
+
+					if($_SESSION['url'] != '') {
+						header("location:$_SESSION[url]");
+					} else {
+						header("location:/Product/listing");
+					}
 				} else {
-					header("location:/Product/listing");
+					
 				}
-
 			}else{
 				header('location:/User/login');
 			}

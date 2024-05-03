@@ -16,3 +16,6 @@ $this->addRoute('Customer/checkout','Customer,checkout');
 $this->addRoute('Review/create','Review,create');
 $this->addRoute('Wishlist/add','Wishlist,addToWishlist');
 $this->addRoute('Wishlist/displaytest','Wishlist,displayWishlist');
+$this->addRoute('Customer/deactivate','Customer,deactivate');
+
+

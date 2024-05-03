@@ -11,6 +11,8 @@ class Customer extends \app\core\Model
     public $last_name;
     public $email;
     public $password_hash;
+    public $email_activated;
+    public $disable;
 
     public function insert()
     {
@@ -48,15 +50,11 @@ class Customer extends \app\core\Model
         $STMT->execute((array) $this);
     }
 
-
-
-
-    // function delete()
-    // {
-    //     //change anything but the PK
-    //     $SQL = 'UPDATE user SET active = :active WHERE user_id = :user_id';
-    //     $STMT = self::$_conn->prepare($SQL);
-    //     $data = ['user_id' => $this->user_id, 'active' => 0];
-    //     $STMT->execute($data);
-    // }
+    function disable($customer_id)
+    {
+        $SQL = 'UPDATE Customer SET disable = :disable WHERE customer_id = :customer_id';
+        $STMT = self::$_conn->prepare($SQL);
+        $data = ['customer_id' => $customer_id, 'disable' => 1];
+        $STMT->execute($data);
+    }
 }

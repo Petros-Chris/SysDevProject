@@ -91,4 +91,9 @@ class Admin extends \app\core\Controller
 		session_destroy();
 		header('location:/User/login');
 	}
+
+    function deactivate() 
+    {
+
+    }
 }

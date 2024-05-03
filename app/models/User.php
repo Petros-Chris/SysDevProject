@@ -11,6 +11,8 @@ class User extends \app\core\Model
     public $last_name;
     public $email;
     public $password_hash;
+    public $email_activated;
+    public $disable;
 
     public function insert()
     {
