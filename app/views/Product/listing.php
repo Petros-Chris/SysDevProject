@@ -14,3 +14,14 @@
         </form>
 	</body>
 </html>
+
+<script>
+        function toggleHeart(icon, $product_id) {
+            icon.classList.toggle('clicked');
+
+            <?php
+             //$wishCont = new \app\controllers\Wishlist();
+             //$wishCont->removeItem($product_id);
+             ?>
+        }
+    </script>

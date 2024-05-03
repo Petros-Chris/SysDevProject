@@ -31,6 +31,9 @@
   .heart-icon:hover {
     color: #ff6868;
   }
+  .heart-icon.clicked {
+    color: red;
+}
 
 
   #map {

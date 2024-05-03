@@ -16,41 +16,40 @@ class Review extends \app\core\Model
 
     public function insert()
     {
-        $SQL = 'INSERT INTO review(rating, description, image_link) VALUES (:rating, :description, :image_link)';
+        $SQL = 'INSERT INTO review(product_id, customer_id, rating, description, image_link) VALUES (:product_id, :customer_id, :rating, :description, :image_link)';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute(
             ['rating'=>$this->rating,
             'description'=> $this->description,
             'image_link'=>$this->image_link,
-            'timestamp'=>$this->timestamp]);
+            'product_id'=>$this->product_id,
+            'customer_id'=>$this->customer_id]);
     }
 
-    public function get($email)
+    public function get($review_id)
     {
-        $SQL = 'SELECT * FROM review WHERE email = :email';
+        $SQL = 'SELECT * FROM review WHERE review_id = :review_id';
         $STMT = self::$_conn->prepare($SQL);
-        $STMT->execute(['email' => $email]);
-        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Customer');
+        $STMT->execute(['review_id' => $review_id]);
+        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Review');
         return $STMT->fetch();
     }
 
-    public function getById($customer_id)
+    public function getAllFromProduct($product_id)
     {
-        $SQL = 'SELECT * FROM Customer WHERE customer_id = :customer_id';
-        $STMT = self::$_conn->prepare($SQL);
-        $STMT->execute(['customer_id' => $customer_id]);
-        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Customer');
-        return $STMT->fetch();
-    }
+		$SQL = 'SELECT * FROM review WHERE product_id = :product_id';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute(['product_id' => $product_id]);
+		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Review');
+		return $STMT->fetchAll();
+	}
 
     public function update()
     {
-        $SQL = 'UPDATE Customer SET first_name = :first_name, last_name = :last_name, email = :email, password_hash = :password_hash WHERE customer_id = :customer_id';
+        $SQL = 'UPDATE review SET rating = :rating, description = :description, image_link = :image_link, timestamp = :timestamp WHERE review_id = :review_id';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute((array) $this);
     }
-
-
 
 
     // function delete()

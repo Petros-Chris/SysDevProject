@@ -23,7 +23,7 @@ class User extends \app\core\Controller{
 			$this->view('User/register');
 		}
 	}
-
+  
 	function login(){
 		if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
@@ -31,12 +31,16 @@ class User extends \app\core\Controller{
 			$user = new \app\models\User();
 			$user = $user->get($email);
 			$password = $_POST['password'];
-			var_dump($user);
 			
 			if($user && password_verify($password, $user->password_hash)){
 				$_SESSION['customer_id'] = $user->customer_id;
 
-				header('location:/User/securePlace');
+				if($_SESSION['url'] != '') {
+					header("location:$_SESSION[url]");
+				} else {
+					header("location:/Product/listing");
+				}
+
 			}else{
 				header('location:/User/login');
 			}
