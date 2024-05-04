@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
-<link rel="stylesheet" type="text/css" href="../css/style.scss">
+  
+  <link rel="stylesheet" type="text/css" href="../css/style.scss">
 </head>
 <body>
 
@@ -39,21 +39,16 @@
   </ol>
   
 </nav>
-<div class="login-container">
-<h1>Sign in</h1>
-  <form action="/login" method="post">
-    <input type="email" id="email" name="email" placeholder="Enter your email"><br>
-    <input type="password" id="pwd" name="pwd" placeholder="Enter your password"><br>
-    <input type="submit" value="Sign In">
-	<div class="forgot-password">
-      <a href="#">Forgot password?</a>
-      <div class="divider"></div>
-    </div>
-    <div class="signup-link">
-      <h4>Don't have an account?</h4>
-      <button type="button" class="signup-button">Sign up</button>
-    </div>
-  </form>
+
+<h1>Sunglasses</h1>
+<p id ="sun">Find personalized sunglasses with unique designs</p>
+
+<div class="button-group">
+  <button class="button">Eyeglasses</button>
+  <button class="button">Sunglasses</button>
+  <button class="button">Best Seller</button>
+  <button class="button">Women</button>
+  <button class="button">Men</button>
 </div>
 
 <footer class="footer">
@@ -106,6 +101,6 @@
 			<p>&copy;1986-2024 Mes Yeux Tes Yeux</p>
 		</div>
   </footer>
-  
+
 </body> 
 </html>
