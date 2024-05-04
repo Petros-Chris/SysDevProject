@@ -37,7 +37,25 @@ class Customer extends \app\core\Controller
 
     function logout(){
 		session_destroy();
-		header('location:/User/login');
+		//header('location:/User/login');
+        $this->view('User/login');
+        echo("
+        <script>
+        document.getElementById('popup').style.display = 'block'
+        setTimeout(hidePopup, 3000);
+
+        setTimeout(function() {
+            popup.classList.add('popup-visible');
+          }, 250);
+        
+        function hidePopup() {
+                popup.classList.remove('popup-visible');
+                
+                setTimeout(function() {
+                    popup.style.display = 'none'
+                  }, 250);
+          }
+          </script>");
 	}
 
     function deactivate() {

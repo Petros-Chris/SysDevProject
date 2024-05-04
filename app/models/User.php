@@ -16,7 +16,7 @@ class User extends \app\core\Model
 
     public function insert()
     {
-        $SQL = 'INSERT INTO Customer(first_name, last_name, email, password_hash) VALUES (:first_name, :last_name, :email, :password_hash)';
+        $SQL = 'INSERT INTO Customer(first_name, last_name, email, password_hash, email_activated, disable) VALUES (:first_name, :last_name, :email, :password_hash, 0, 0)';
 
         $STMT = self::$_conn->prepare($SQL);
 

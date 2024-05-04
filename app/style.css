@@ -1,5 +1,4 @@
 
-
   .product-container {
     border: 1px solid #ccc;
     width: 200px;
@@ -33,8 +32,22 @@
   }
   .heart-icon.clicked {
     color: red;
-}
-
+  }
+  .popup {
+    display: none;
+    position: fixed;
+    top: -100%;
+    right: 10px;
+    padding: 10px;
+    background-color: wheat;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 9999;
+    transition: top 0.7s ease;
+  }
+  .popup-visible {
+    top: 0;
+  }
 
   #map {
     width: 300px;   

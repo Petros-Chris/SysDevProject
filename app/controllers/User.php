@@ -48,10 +48,8 @@ class User extends \app\core\Controller{
 					} else {
 						header("location:/Product/listing");
 					}
-				} else {
-					
 				}
-			}else{
+			} else {
 				header('location:/User/login');
 			}
 		}else{

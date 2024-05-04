@@ -9,11 +9,16 @@ class Product extends \app\core\Controller {
     function listings() {
         $product = new \app\models\Product();
 
-
 		$products = $product->getAll();
 
-        $this->view('Product/listing');
-        
+        //This works to display the search bar first but maybe we can find a better way?
+        //Maybe you could make it add each product to a div instead of just at the bottom of the page
+        echo"<form method='POST' action='/Product/search'>
+                <input name='search_box' placeholder='eg: Blue'>
+                <input type='submit' name='action' value='color'>
+                <input type='submit' name='action' value='content'>
+            </form>";
+
         foreach ($products as $product) {
             $pro_id = $product->product_id;
 			$pro_brand = $product->brand;
@@ -24,17 +29,18 @@ class Product extends \app\core\Controller {
             $pro_size = $product->size;
             $pro_optial_sun = $product->optical_sun;
             $pro_description = $product->description;
-            echo "<a href='../Product/index?id=$pro_id'> Product <div class='product-container'>
-                        <div class='product-image'>
-                        <img src='/../app/questionMark.png' alt='$pro_description'>
-                    </div>
-                        <div class='product-details'></a>
-                        <span class='heart-icon' onclick='toggleHeart(this, $pro_id)'>&#x2661;</span>
-                        <div class='product-brand'>$pro_brand</div>
-                        <div class='product-price'>$$pro_price</div>
-                    </div>
-                </div><br>";
+            echo "<a href='../Product/index?id=$pro_id'> <div class='product-container'>
+                    <div class='product-image'>
+                    <img src='/../app/questionMark.png' alt='$pro_description'>
+                        </div>
+                            <div class='product-details'></a>
+                            <span class='heart-icon' onclick='toggleHeart(this, $pro_id)'>&#x2661;</span>
+                            <div class='product-brand'>$pro_brand</div>
+                            <div class='product-price'>$$pro_price</div>
+                        </div>
+                    </div>";
         }
+        $this->view('Product/listing');
     }
 
     function description() {

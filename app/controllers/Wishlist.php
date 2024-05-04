@@ -11,14 +11,12 @@ class Wishlist extends \app\core\Controller
     function addToWishlist() 
     {
         $wishlist = new \app\models\Wishlist();
-        
+
+        if(isset($_POST['id'])) {
+        $wishlist->product_id  = $_POST['id'];
         $wishlist->customer_id = $_SESSION['customer_id'];
-        $wishlist->product_id = $_SESSION['product_id'];
-
         $wishlist->insert();
-
-        header("location:/Product/index?id=$_SESSION[product_id]");
-        
+        }
     }
 
     #[\app\filters\IsCustomer]
@@ -63,9 +61,11 @@ class Wishlist extends \app\core\Controller
     }
 
     #[\app\filters\IsCustomer]
-    function removeItem($product_id) 
+    function removeFromWishlist() 
     {
         $wishlist = new \app\models\Wishlist();
-        $wishlist->deleteItem($product_id, $_SESSION['customer_id']);
+        if(isset($_POST['id'])) {
+            $wishlist->deleteItem($_POST['id'], $_SESSION['customer_id']);
+        }
     }
 }

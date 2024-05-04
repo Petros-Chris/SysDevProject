@@ -28,10 +28,10 @@ class Wishlist extends \app\core\Model
     }
 
     function deleteItem($product_id, $customer_id) {
-        $SQL = 'DELETE * FROM wishlist WHERE product_id = :product_id AND customer_id = :customer_id';
+        $SQL = 'DELETE FROM wishlist WHERE product_id = :product_id AND customer_id = :customer_id';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute(
-            ['product_id'=>$this->product_id,
-            'customer_id'=>$this->customer_id]);
+            ['product_id'=>$product_id,
+            'customer_id'=>$customer_id]);
     }
 }
