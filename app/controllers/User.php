@@ -16,6 +16,12 @@ class User extends \app\core\Controller{
             $user->email = $_POST['email'];
 			$user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
+						// if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+			// 	print("Invalid Email");
+			// 	$this->view('User/register');
+			// 	exit;
+			// }
+			
 			$user->insert();
 
 			header('location:/User/login');

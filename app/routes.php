@@ -19,4 +19,5 @@ $this->addRoute('Wishlist/displaytest','Wishlist,displayWishlist');
 $this->addRoute('Customer/deactivate','Customer,deactivate');
 $this->addRoute('Admin/customerList','Admin,customerList');
 $this->addRoute('Admin/disableCustomer','Admin,deactivate');
+$this->addRoute('Customer/home','Customer,index');
 

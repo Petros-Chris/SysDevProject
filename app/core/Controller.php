@@ -9,5 +9,6 @@ class Controller{
 		// 	extract($data);
 		// }
 		include('app/views/' . $name . '.php');
+		require('app/views/Customer/home.php'); // put footer here
 	}
 }

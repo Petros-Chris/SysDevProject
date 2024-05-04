@@ -58,4 +58,8 @@ class Customer extends \app\core\Controller
             $this->view('Customer/deactivate');
         }
     }
+
+    function index() {
+        $this->view('Customer/home');
+    }
 }
