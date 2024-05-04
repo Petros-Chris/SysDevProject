@@ -92,8 +92,45 @@ class Admin extends \app\core\Controller
 		header('location:/User/login');
 	}
 
+    function customerList() 
+    {
+        $customer = new \app\models\Customer();
+        $customers = $customer->getAll();
+
+        $this->view('Admin/customerList');
+
+        foreach ($customers as $customer) {
+            $cust_id = $customer->customer_id;
+			$cus_first_name = $customer->first_name;
+			$cus_last_name = $customer->last_name;
+			$cus_email = $customer->email;
+            $cus_email_activated = $customer->email_activated;
+            $cus_disabled = $customer->disable;
+            
+            echo "<a href='../Admin/disableCustomer?id=$cust_id'>$cus_last_name $cus_first_name is Disabled $cus_disabled</a><br>";
+        }
+    }
+
     function deactivate() 
     {
+        $customer = new \app\models\Customer();
+        $cust = $customer->getById($_GET['id']);
 
+        $this->view('Admin/disableCustomer', $cust);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $password = $_POST['password'];
+
+            //Currently, Admin and Employee have no login system, so there is no password to get
+            //if($customer && password_verify($password, $customer->password_hash)){
+                
+                $customer->disable($_GET['id']);
+                session_destroy();
+            //}
+            //  header('location:/User/login');
+            //} else {
+            header('location:/Admin/customerList');
+       }
     }
 }

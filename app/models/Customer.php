@@ -25,6 +25,14 @@ class Customer extends \app\core\Model
             'password_hash'=>$this->password_hash]);
     }
 
+    public function getAll(){
+		$SQL = 'SELECT * FROM Customer';
+		$STMT = self::$_conn->prepare($SQL);
+		$STMT->execute();
+		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Customer');
+		return $STMT->fetchAll();
+	}
+
     public function get($email)
     {
         $SQL = 'SELECT * FROM Customer WHERE email = :email';
