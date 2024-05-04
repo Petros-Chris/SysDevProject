@@ -24,13 +24,24 @@ class Product extends \app\core\Controller {
             $pro_size = $product->size;
             $pro_optial_sun = $product->optical_sun;
             $pro_description = $product->description;
-            echo "<a href='../Product/index?id=$pro_id'> Product $pro_model -- $pro_id</a><br>";
+            echo "<a href='../Product/index?id=$pro_id'> Product <div class='product-container'>
+                        <div class='product-image'>
+                        <img src='/../app/questionMark.png' alt='$pro_description'>
+                    </div>
+                        <div class='product-details'></a>
+                        <span class='heart-icon' onclick='toggleHeart(this, $pro_id)'>&#x2661;</span>
+                        <div class='product-brand'>$pro_brand</div>
+                        <div class='product-price'>$$pro_price</div>
+                    </div>
+                </div><br>";
         }
     }
 
     function description() {
         $product = new \app\models\Product();
         $item = $product->get($_GET['id']);
+        
+        $_SESSION['product_id'] = $_GET['id'];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $productControl = new \app\controllers\Product();
@@ -39,9 +50,13 @@ class Product extends \app\core\Controller {
             
             $this->view('Product/index', $item);
         } else {
-
         $this->view('Product/index', $item);
         }
+        $review = new \app\controllers\Review();
+        $review-> displayReview();
+
+        $wishlistCont = new \app\controllers\Wishlist();
+        $wishlistCont->displayWishlist();
     }    
 
     public function addToCart($item) {
@@ -72,7 +87,6 @@ class Product extends \app\core\Controller {
                 $pro_description = $product->description;
                     $price += $pro_price;
                 echo "<a href = '/Product/index?id=$pro_id'>$pro_brand $pro_shape $pro_price</a> <br>";
-                
             }
             echo "Total: $price <br>";
             echo "<input type='button' value='proceed to checkout'>";
@@ -104,3 +118,4 @@ class Product extends \app\core\Controller {
         }
     }
 }
+

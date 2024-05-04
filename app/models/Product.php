@@ -39,8 +39,8 @@ class Product extends \app\core\Model
     }
 
     public function update()
-{
-    $SQL = 'UPDATE product SET
+    {
+        $SQL = 'UPDATE product SET
             brand = :brand,
             model = :model,
             color = :color,
@@ -54,8 +54,6 @@ class Product extends \app\core\Model
             WHERE product_id = :product_id';
     
     $STMT = self::$_conn->prepare($SQL);
-
-    
 
     $params = [
         'brand' => $this->brand,
