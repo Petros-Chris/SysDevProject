@@ -2,6 +2,8 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" type="text/css" href="/app/css/style.scss">
+        <link rel="stylesheet" type="text/css" href="/app/style.css">
+        <script src="/app/script.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     </head>
     <nav class="menu">

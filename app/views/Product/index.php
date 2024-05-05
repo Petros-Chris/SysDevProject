@@ -4,6 +4,10 @@
     </head>
 
     <body>
+
+    <div id='popup' class='popup'>
+                </div>
+
         <dt><dd><?= $data->brand ?></dd></dt>
         <dt><dd><?= $data->model ?></dd></dt>
         <dt><dd><?= $data->color ?></dd></dt>
@@ -14,13 +18,29 @@
         <dt><dd><?= $data->description ?></dd></dt>
         <dt><dd><?= $data->quantity ?></dd></dt>
 
-        <img src='<?= $data->image ?>'>
-        
-        <form method='post' action=''>
-            <input type='submit' value='Add To Cart'>
-        </form>
+        <!-- <img src='<?= $data->image ?>'> -->
+
+        <input type='button' value='Add To Cart' onclick="addProduct(<?= $data->product_id ?>)">
 
         <a href= '/Review/create'>Make A Review</a> <br>
-        <a href= '/Wishlist/add'>Add To Wishlist</a>
     </body>
 </html>
+
+<script>
+        function addProduct($product_id) {
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        console.log('Product added to cart:', $product_id);
+                    } else {
+                        console.error('Failed to add product to cart:', xhr.responseText);
+                    }
+                }
+            };
+            xhr.open('POST', '/Product/addCart');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send('id=' + $product_id);
+}
+</script>
