@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 22, 2024 at 07:29 PM
+-- Generation Time: May 05, 2024 at 06:22 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -36,7 +36,40 @@ CREATE TABLE IF NOT EXISTS `Customer` (
   `last_name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password_hash` varchar(255) NOT NULL,
+  `email_activated` tinyint(1) NOT NULL,
+  `disable` tinyint(1) NOT NULL,
   PRIMARY KEY (`customer_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `Customer`
+--
+
+INSERT INTO `Customer` (`customer_id`, `first_name`, `last_name`, `email`, `password_hash`, `email_activated`, `disable`) VALUES
+(1, 'chris', 'Gainw', 'chirsas@ads.com', '$2y$10$vDTvNtKXK2V3Bhuayb.r6OuczdmRRxY3mVM/oLJS3TwUoq428CWvS', 0, 1),
+(2, 'qwe', 'we', 'asd@das.com', '$2y$10$PHcDMPrwxmcSooHCXEzMTOA5PqfHsmwFrPAACzbqbRiu3NKqMblCa', 0, 1),
+(3, 'qw', 'qw', 'qw', '$2y$10$BmseMsmaZrKqPkDU/P551ODDB0t.A1tnjbUj3YbmbfKd3hZKSZnEK', 0, 1),
+(4, '', '', '', '$2y$10$jPQKKoTP.vwGSx7eikc3mOXaIRaU3/luMp2yR7LT0cagztVP/Xyoq', 0, 1),
+(5, '', '', '', '$2y$10$Mojw8Mtjd1s/9bQ5jUUwEuUZ.ECZtWyChY5kQeZkNd/nRzC0Dmt7C', 0, 0),
+(6, 'q', 'q', 'q', '$2y$10$8NyqsqVjBE9mv9Y6BtSt3.V2Ex8KXuD13aV8nNvutJUWk0ApL1kry', 0, 0),
+(7, '', '', '', '$2y$10$.yYV5c5X6SqC72iYjxVaJe2zICZcaDgurPYnVNjIFshtXWf64Pec2', 0, 0),
+(8, 'q', 'q', 'q@q.com', '$2y$10$4Mt/YgAppaLXExGIZUEQaeYldj17RFOM9scnXto2d/x51gTPVvk1C', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee`
+--
+
+DROP TABLE IF EXISTS `employee`;
+CREATE TABLE IF NOT EXISTS `employee` (
+  `employee_id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(60) NOT NULL,
+  `email` varchar(320) NOT NULL,
+  `password_hash` varchar(60) NOT NULL,
+  `admin` tinyint(1) NOT NULL,
+  PRIMARY KEY (`employee_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -149,6 +182,70 @@ INSERT INTO `product` (`product_id`, `brand`, `model`, `color`, `cost_price`, `s
 (79, 'Oliver Peoples', 'Sidell', 'Red,Green,Clear', 362.50, 'Round', 56, 'Optical', 'Bold and modern, stands out in any crowd.', 1, 0),
 (80, 'Oliver Peoples', 'Maysen', 'Black,Brown,Red,Clear', 360.00, 'Square', 47, 'Sun', 'Classic design with a contemporary twist.', 1, 0),
 (81, 'Cartier', 'odkowkod', 'Black', 120.00, 'Oval', 12, 'Sun', ' very good', 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `review`
+--
+
+DROP TABLE IF EXISTS `review`;
+CREATE TABLE IF NOT EXISTS `review` (
+  `review_id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `rating` int(11) NOT NULL,
+  `description` text NOT NULL,
+  `image_link` text NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`review_id`),
+  KEY `fk_review_product_id_product` (`product_id`),
+  KEY `fk_review_customer_id_customer` (`customer_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`review_id`, `product_id`, `customer_id`, `rating`, `description`, `image_link`, `timestamp`) VALUES
+(1, 1, 4, 4, '', '', '2024-05-02 15:04:39'),
+(2, 5, 4, 7, '', '', '2024-05-02 15:05:04'),
+(3, 7, 4, 8, '', '', '2024-05-02 15:07:36'),
+(4, 7, 4, 4, '', '', '2024-05-02 15:08:01'),
+(5, 1, 4, 4, '', '', '2024-05-03 18:32:44'),
+(6, 1, 4, 8, '', '', '2024-05-03 18:33:18');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wishlist`
+--
+
+DROP TABLE IF EXISTS `wishlist`;
+CREATE TABLE IF NOT EXISTS `wishlist` (
+  `product_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  UNIQUE KEY `product_id` (`product_id`,`customer_id`),
+  KEY `fk_wishlist_customer_id_customer` (`customer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `review`
+--
+ALTER TABLE `review`
+  ADD CONSTRAINT `fk_review_customer_id_customer` FOREIGN KEY (`customer_id`) REFERENCES `Customer` (`customer_id`),
+  ADD CONSTRAINT `fk_review_product_id_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
+
+--
+-- Constraints for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  ADD CONSTRAINT `fk_wishlist_customer_id_customer` FOREIGN KEY (`customer_id`) REFERENCES `Customer` (`customer_id`),
+  ADD CONSTRAINT `fk_wishlist_product_id_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
