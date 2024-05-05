@@ -32,6 +32,8 @@ class Customer extends \app\core\Controller
     }
 
     function checkout() {
+        $product = new \app\controllers\Product();
+        $product -> viewCartCheckout();
         $this->view('Customer/checkout');
     }
 

@@ -10,6 +10,8 @@
     <div id="map"></div>
 </div>
 
+<div id="popup" class="popup"></div>
+
 <script>
     var map = L.map('map').setView([45.509, -73.667], 13); //Montreal center, can change it to toronto or something
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -41,27 +43,34 @@
     
 
     function displaySuggestions(features) {
-        suggestionsBox.innerHTML = '';
-        suggestionsBox.style.display = 'block';
-        features.forEach(feature => {
-            var div = document.createElement('div');
-            div.innerHTML = feature.formatted; 
-            div.className = 'suggestion';
-            div.onclick = function() {
-                selectAddress(feature);
-            };
-            suggestionsBox.appendChild(div);
-        });
-    }
+    suggestionsBox.innerHTML = '';
+    suggestionsBox.style.display = 'block';
+    features.forEach(feature => {
+        var address = feature.formatted.split(','); // Split the formatted address by commas
+        address = address.slice(0, -2).join(',') + ',' + address.slice(-1); // Remove the postcode element
+        var div = document.createElement('div');
+        div.innerHTML = address; // Use the modified address without the postcode
+        div.className = 'suggestion';
+        div.onclick = function() {
+            selectAddress(feature);
+        };
+        suggestionsBox.appendChild(div);
+    });
+}
     
 
-    function selectAddress(feature) {
-        var latLng = [feature.lat, feature.lon];
-        map.setView(latLng, 16); 
-        L.marker([feature.lat, feature.lon]).addTo(map);
-        document.getElementById('searchInput').value = feature.formatted; 
-        suggestionsBox.style.display = 'none'; 
-    }
+function selectAddress(feature) {
+    var latLng = [feature.lat, feature.lon];
+    map.setView(latLng, 16); 
+    L.marker([feature.lat, feature.lon]).addTo(map);
+
+    // Remove postcode from the formatted address
+    var address = feature.formatted.split(','); // Split the formatted address by commas
+    address = address.slice(0, -2).join(',') + ',' + address.slice(-1); // Remove the postcode element
+
+    document.getElementById('searchInput').value = address; // Use the modified address without the postcode
+    suggestionsBox.style.display = 'none'; 
+}
     
     function debounce(func, delay) {
         var debounceTimer;

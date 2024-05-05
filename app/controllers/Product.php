@@ -147,5 +147,35 @@ class Product extends \app\core\Controller {
             } 
         }
     }
+
+    public function viewCartCheckout() {
+        if (isset($_SESSION['cart'])) {
+            $cart = ($_SESSION['cart']);
+            $price = 0;
+
+            foreach($cart as $product) {
+                $pro_id = $product->product_id;
+                $pro_brand = $product->brand;
+                $pro_model = $product->model;
+                $pro_color = $product->color;
+                $pro_price = $product->cost_price;
+                $pro_shape = $product->shape;
+                $pro_size = $product->size;
+                $pro_optial_sun = $product->optical_sun;
+                $pro_description = $product->description;
+                $price += $pro_price;
+
+                echo "<p>
+                        <a href=\"/Product/index?id=$pro_id\">$pro_brand $pro_shape $pro_price</a>
+                        <span onclick=\"removeProductFromCart($pro_id)\">&#128465;</span><br>
+                    </p>" ;
+            }
+                
+                echo "<p>
+                        Total: $price <br>
+                    </p>";
+        }
+    }
+
 }
 
