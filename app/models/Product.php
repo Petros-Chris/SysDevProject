@@ -21,7 +21,7 @@ class Product extends \app\core\Model
 
     public function insert()
     {
-        $SQL = 'INSERT INTO product(brand, model, color, cost_price, shape, size, optical_sun, description, quantity, disable) VALUES (:brand, :model, :color, :cost_price, :shape, :size, :optical_sun, :description, :quantity, :disable)';
+        $SQL = 'INSERT INTO product(brand, model, color, cost_price, shape, size, optical_sun, description, quantity, disable) VALUES (:brand, :model, :color, :cost_price, :shape, :size, :optical_sun, :description, :quantity, 1)';
 
         $STMT = self::$_conn->prepare($SQL);
  
@@ -72,7 +72,7 @@ class Product extends \app\core\Model
     $STMT->execute($params);
 }
 
-    public function get($product_id)
+    public function getId($product_id)
     {
         $SQL = 'SELECT * FROM product WHERE product_id = :product_id';
         $STMT = self::$_conn->prepare($SQL);
@@ -86,6 +86,16 @@ class Product extends \app\core\Model
         $SQL = 'SELECT * FROM product WHERE color LIKE :color';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute(['color' => '%' . $product_color . '%']);
+        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Product');
+        return $STMT->fetchAll();
+    }
+
+    
+    public function getBrand($filter)
+    {
+        $SQL = 'SELECT * FROM product WHERE brand LIKE :brand';
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute(['brand' => $filter]);
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Product');
         return $STMT->fetchAll();
     }

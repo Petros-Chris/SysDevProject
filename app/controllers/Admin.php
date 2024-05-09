@@ -6,16 +6,17 @@ use stdClass;
 
 class Admin extends \app\core\Controller
 {
-    function listings() {
+    function listings()
+    {
         $product = new \app\models\Product();
 
-		$products = $product->getAll();
+        $products = $product->getAll();
 
         foreach ($products as $product) {
             $pro_id = $product->product_id;
-			$pro_brand = $product->brand;
-			$pro_model = $product->model;
-			$pro_color = $product->color;
+            $pro_brand = $product->brand;
+            $pro_model = $product->model;
+            $pro_color = $product->color;
             $pro_price = $product->cost_price;
             $pro_shape = $product->shape;
             $pro_size = $product->size;
@@ -23,14 +24,15 @@ class Admin extends \app\core\Controller
             $pro_description = $product->description;
             $pro_quantity = $product->quantity;
             $pro_disable = $product->disable;
-            
+
             echo "<a href='../Admin/modify?id=$pro_id'> Product -- $pro_id</a><br>";
         }
 
         $this->view('Product/listing');
     }
 
-    function index() {
+    function index()
+    {
 
         $this->view('Admin/index');
     }
@@ -38,8 +40,8 @@ class Admin extends \app\core\Controller
     function modify()
     {
         $product = new \app\models\Product();
-        $product = $product->get($_GET['id']);
-        
+        $product = $product->getId($_GET['id']);
+
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -53,6 +55,12 @@ class Admin extends \app\core\Controller
             $product->optical_sun = $_POST['optical_sun'];
             $product->description = $_POST['description'];
             $product->quantity = $_POST['quantity'];
+
+            if ($_POST['disable'] == null) {
+                $product->disable = 0;
+            } else {
+                $product->disable = $_POST['disable'];
+            }
 
 
             $product->update();
@@ -87,12 +95,13 @@ class Admin extends \app\core\Controller
         }
     }
 
-    function logout(){
-		session_destroy();
-		header('location:/User/login');
-	}
+    function logout()
+    {
+        session_destroy();
+        header('location:/User/login');
+    }
 
-    function customerList() 
+    function customerList()
     {
         $customer = new \app\models\Customer();
         $customers = $customer->getAll();
@@ -101,17 +110,17 @@ class Admin extends \app\core\Controller
 
         foreach ($customers as $customer) {
             $cust_id = $customer->customer_id;
-			$cus_first_name = $customer->first_name;
-			$cus_last_name = $customer->last_name;
-			$cus_email = $customer->email;
+            $cus_first_name = $customer->first_name;
+            $cus_last_name = $customer->last_name;
+            $cus_email = $customer->email;
             $cus_email_activated = $customer->email_activated;
             $cus_disabled = $customer->disable;
-            
+
             echo "<a href='../Admin/disableCustomer?id=$cust_id'>$cus_last_name $cus_first_name is Disabled $cus_disabled</a><br>";
         }
     }
 
-    function deactivate() 
+    function deactivate()
     {
         $customer = new \app\models\Customer();
         $cust = $customer->getById($_GET['id']);
@@ -124,13 +133,13 @@ class Admin extends \app\core\Controller
 
             //Currently, Admin and Employee have no login system, so there is no password to get
             //if($customer && password_verify($password, $customer->password_hash)){
-                
-                $customer->disable($_GET['id']);
-                session_destroy();
+
+            $customer->disable($_GET['id']);
+            session_destroy();
             //}
             //  header('location:/User/login');
             //} else {
             header('location:/Admin/customerList');
-       }
+        }
     }
 }

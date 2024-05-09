@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 05, 2024 at 06:22 PM
+-- Generation Time: May 09, 2024 at 11:36 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -38,8 +38,9 @@ CREATE TABLE IF NOT EXISTS `Customer` (
   `password_hash` varchar(255) NOT NULL,
   `email_activated` tinyint(1) NOT NULL,
   `disable` tinyint(1) NOT NULL,
-  PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  PRIMARY KEY (`customer_id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `Customer`
@@ -50,10 +51,11 @@ INSERT INTO `Customer` (`customer_id`, `first_name`, `last_name`, `email`, `pass
 (2, 'qwe', 'we', 'asd@das.com', '$2y$10$PHcDMPrwxmcSooHCXEzMTOA5PqfHsmwFrPAACzbqbRiu3NKqMblCa', 0, 1),
 (3, 'qw', 'qw', 'qw', '$2y$10$BmseMsmaZrKqPkDU/P551ODDB0t.A1tnjbUj3YbmbfKd3hZKSZnEK', 0, 1),
 (4, '', '', '', '$2y$10$jPQKKoTP.vwGSx7eikc3mOXaIRaU3/luMp2yR7LT0cagztVP/Xyoq', 0, 1),
-(5, '', '', '', '$2y$10$Mojw8Mtjd1s/9bQ5jUUwEuUZ.ECZtWyChY5kQeZkNd/nRzC0Dmt7C', 0, 0),
 (6, 'q', 'q', 'q', '$2y$10$8NyqsqVjBE9mv9Y6BtSt3.V2Ex8KXuD13aV8nNvutJUWk0ApL1kry', 0, 0),
-(7, '', '', '', '$2y$10$.yYV5c5X6SqC72iYjxVaJe2zICZcaDgurPYnVNjIFshtXWf64Pec2', 0, 0),
-(8, 'q', 'q', 'q@q.com', '$2y$10$4Mt/YgAppaLXExGIZUEQaeYldj17RFOM9scnXto2d/x51gTPVvk1C', 0, 0);
+(8, 'q', 'q', 'q@q.com', '$2y$10$4Mt/YgAppaLXExGIZUEQaeYldj17RFOM9scnXto2d/x51gTPVvk1C', 0, 0),
+(9, 'yu', 'o', 'qwer@asd', '$2y$10$cdGvJi0MT6iLeZ1IVLvJTumz1CfOhv6mqMumHz7z1oLxeg3mqiy5S', 0, 0),
+(10, 'zz', 'zz', 'zz@zz', '$2y$10$ZjMDPwTaD.uklnwFfMIcie9aNjGjMqwQ6zP4U9gZ8k2fSEplgRkv2', 0, 0),
+(12, 'asfsdg', 'a', 'a@a', '$2y$10$NAy8TA10Hx/yZ4g32hmWAeMxSYI6PmuaTOdrhXqnekLjS9U3DZA2e', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -102,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `product` (
 
 INSERT INTO `product` (`product_id`, `brand`, `model`, `color`, `cost_price`, `shape`, `size`, `optical_sun`, `description`, `quantity`, `disable`) VALUES
 (1, 'Cartier', 'ESW00632', 'Brown,Red,Tortoise', 787.50, 'Rectangle', 51, 'Optical', 'Timeless aesthetics with modern functionality.', 1, 0),
-(2, 'Cartier', 'ESW00629', 'Black', 475.00, 'Oval', 46, 'Sun', 'Bold and modern, stands out in any crowd.', 1, 0),
+(2, 'Cartier', 'ESW00629', 'Black', 475.00, 'Oval', 46, 'Sun', 'Bold and modern, stands out in any crowd.', 3, 1),
 (3, 'Cartier', 'ESW00669', 'Black', 550.00, 'Square', 49, 'Sun', 'Fashion-forward with a vintage feel.', 1, 0),
 (4, 'Cartier', 'ESW00618', 'Red', 700.00, 'Square', 51, 'Sun', 'Timeless aesthetics with modern functionality.', 1, 0),
 (5, 'Cartier', 'ESW00633', 'Black', 495.00, 'Round', 52, 'Optical', 'Chic and refined, suits a professional look.', 1, 0),
@@ -218,6 +220,31 @@ INSERT INTO `review` (`review_id`, `product_id`, `customer_id`, `rating`, `descr
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ticket`
+--
+
+DROP TABLE IF EXISTS `ticket`;
+CREATE TABLE IF NOT EXISTS `ticket` (
+  `ticket_id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `issue` text NOT NULL,
+  `issue_description` text NOT NULL,
+  `ticket_status` tinyint(1) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`ticket_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ticket`
+--
+
+INSERT INTO `ticket` (`ticket_id`, `product_id`, `customer_id`, `issue`, `issue_description`, `ticket_status`, `timestamp`) VALUES
+(1, 1, 12, 'Order Issue', 'Heaf', 0, '2024-05-09 16:09:29');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `wishlist`
 --
 
@@ -228,6 +255,14 @@ CREATE TABLE IF NOT EXISTS `wishlist` (
   UNIQUE KEY `product_id` (`product_id`,`customer_id`),
   KEY `fk_wishlist_customer_id_customer` (`customer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `wishlist`
+--
+
+INSERT INTO `wishlist` (`product_id`, `customer_id`) VALUES
+(72, 10),
+(80, 10);
 
 --
 -- Constraints for dumped tables
