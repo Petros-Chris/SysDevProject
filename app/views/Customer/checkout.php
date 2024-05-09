@@ -22,7 +22,7 @@
     var apiKey = '3a5a6881d18b4a7da94f9f41908a16f6'; 
     var suggestionsBox = document.getElementById('suggestions');
     
-    // Function to fetch address suggestions
+  
     function fetchAddress(input) {
         var url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(input)}&format=json&apiKey=${apiKey}`;
         fetch(url)
@@ -46,10 +46,10 @@
     suggestionsBox.innerHTML = '';
     suggestionsBox.style.display = 'block';
     features.forEach(feature => {
-        var address = feature.formatted.split(','); // Split the formatted address by commas
-        address = address.slice(0, -2).join(',') + ',' + address.slice(-1); // Remove the postcode element
+        var address = feature.formatted.split(',');
+        address = address.slice(0, -2).join(',') + ',' + address.slice(-1); 
         var div = document.createElement('div');
-        div.innerHTML = address; // Use the modified address without the postcode
+        div.innerHTML = address; 
         div.className = 'suggestion';
         div.onclick = function() {
             selectAddress(feature);
@@ -64,11 +64,11 @@ function selectAddress(feature) {
     map.setView(latLng, 16); 
     L.marker([feature.lat, feature.lon]).addTo(map);
 
-    // Remove postcode from the formatted address
-    var address = feature.formatted.split(','); // Split the formatted address by commas
-    address = address.slice(0, -2).join(',') + ',' + address.slice(-1); // Remove the postcode element
 
-    document.getElementById('searchInput').value = address; // Use the modified address without the postcode
+    var address = feature.formatted.split(','); 
+    address = address.slice(0, -2).join(',') + ',' + address.slice(-1); 
+
+    document.getElementById('searchInput').value = address; 
     suggestionsBox.style.display = 'none'; 
 }
     
@@ -89,6 +89,5 @@ function selectAddress(feature) {
     }, 500)); // CHANGE FOR RESPONSE TIME 
     </script>
 </html>
-
 
 pk_test_51PBnmi2KG2mMbYzvSesfNltIylncp0OgLrsBTVhg3Mx8SMfgoHD4PJXtcLoaiHxab7zLxJpQzvaoMfyUJZKkMrqO00ZaPX5CJd

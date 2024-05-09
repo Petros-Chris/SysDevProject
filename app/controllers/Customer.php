@@ -82,4 +82,8 @@ class Customer extends \app\core\Controller
     function index() {
         $this->view('Customer/home');
     }
+
+    function dashboard() {
+        $this->view('Customer/dashboard');
+    }
 }

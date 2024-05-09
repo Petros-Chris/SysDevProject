@@ -23,7 +23,7 @@
     </div>
     <div class="signup-link">
       <h4>Don't have an account?</h4>
-      <button type="button" class="signup-button">Sign up</button>
+      <button type="button" onclick="window.location.href = '/User/register'" class="signup-button">Sign up</button>
     </div>
   </form>
 </div>

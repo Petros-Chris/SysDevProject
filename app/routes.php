@@ -22,5 +22,8 @@ $this->addRoute('Admin/customerList','Admin,customerList');
 $this->addRoute('Admin/disableCustomer','Admin,deactivate');
 $this->addRoute('Customer/home','Customer,index');
 $this->addRoute('Product/addCart','Product,addToCart');
+$this->addRoute('Product/view','Product,viewCart');
 $this->addRoute('Product/removeCart','Product,removeFromCart');
+$this->addRoute('Ticket/create','Ticket,createTicket');
+
 

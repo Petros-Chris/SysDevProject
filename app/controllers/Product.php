@@ -77,6 +77,7 @@ class Product extends \app\core\Controller {
 
     public function viewCart() {
         if (isset($_SESSION['cart'])) {
+            
             $cart = ($_SESSION['cart']);
             $price = 0;
 
@@ -92,13 +93,14 @@ class Product extends \app\core\Controller {
                 $pro_description = $product->description;
                 $price += $pro_price;
 
+                echo("HI");
                 echo "<script> 
                         document.getElementById('popup').innerHTML += 
                         '<a href=\"/Product/index?id=$pro_id\">$pro_brand $pro_shape $pro_price</a>' +
                         '<span onclick=\"removeProductFromCart($pro_id)\">&#128465;</span><br>';
                     </script>";  
             }
-                
+                sleep(2);
                 echo "<script> 
                         document.getElementById('popup').innerHTML += 
                         'Total: $price <br> <input type=button value=proceed>';
