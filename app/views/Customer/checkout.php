@@ -3,7 +3,11 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   
+<head>
+<h1>Checkout</h1>
 
+</head>
+<body>
 <div class="shipping-details">
     <input type="text" id="searchInput" placeholder="Enter your address" autocomplete="off">
     <div id="suggestions"></div>
@@ -11,6 +15,23 @@
 </div>
 
 <div id="popup" class="popup"></div>
+
+<div id="paypal-button-container"></div>
+    <p id="result-message"></p>
+    <!-- Replace the "test" client-id value with your client-id -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AZ6bh_hTIkMnkoa67bG9BEaXg4THLvnEJUMrCoii10T60QuuD6QftVXrxM8pTSrrgZsbSqnGrqtX4LhB&currency=CAD" data-sdk-integration-source="developer-studio"></script>
+    
+    <script src="/app/app.js"></script>
+    
+    <div class='container'>
+		    <form method='post' action=''>
+			    <div class="form-group">
+			    	<input type="submit" name="action" value="Place Order"/> 
+			    </div>
+		    </form>
+	    </div>
+
+    </body>
 
 <script>
     var map = L.map('map').setView([45.509, -73.667], 13); //Montreal center, can change it to toronto or something
@@ -90,4 +111,3 @@ function selectAddress(feature) {
     </script>
 </html>
 
-pk_test_51PBnmi2KG2mMbYzvSesfNltIylncp0OgLrsBTVhg3Mx8SMfgoHD4PJXtcLoaiHxab7zLxJpQzvaoMfyUJZKkMrqO00ZaPX5CJd
