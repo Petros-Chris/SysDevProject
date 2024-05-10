@@ -4,10 +4,10 @@ namespace app\controllers;
 
 use stdClass;
 
+#[\app\filters\IsCustomer]
 class Customer extends \app\core\Controller
 {
 
-    #[\app\filters\IsCustomer]
     function update()
     {
         $customer = new \app\models\Customer();
@@ -31,17 +31,19 @@ class Customer extends \app\core\Controller
         }
     }
 
-    function checkout() {
+    function checkout()
+    {
         $product = new \app\controllers\Product();
-        $product -> viewCartCheckout();
+        $product->viewCartCheckout();
         $this->view('Customer/checkout');
     }
 
-    function logout(){
-		session_destroy();
-		//header('location:/User/login');
+    function logout()
+    {
+        session_destroy();
+        //header('location:/User/login');
         $this->view('User/login');
-        echo("
+        echo ("
         <script>
         document.getElementById('popup').style.display = 'block'
         setTimeout(hidePopup, 3000);
@@ -58,9 +60,10 @@ class Customer extends \app\core\Controller
                   }, 250);
           }
           </script>");
-	}
+    }
 
-    function deactivate() {
+    function deactivate()
+    {
         $customer = new \app\models\Customer();
         $customer = $customer->getById($_SESSION['customer_id']);
 
@@ -68,8 +71,8 @@ class Customer extends \app\core\Controller
 
             $password = $_POST['password'];
 
-            if($customer && password_verify($password, $customer->password_hash)){
-                
+            if ($customer && password_verify($password, $customer->password_hash)) {
+
                 $customer->disable($_SESSION['customer_id']);
                 session_destroy();
             }
@@ -79,12 +82,19 @@ class Customer extends \app\core\Controller
         }
     }
 
-    function index() {
+    function index()
+    {
         $this->view('Customer/home');
     }
 
     function paypal(){
         $this->view('client/checkout');
 
+    }
+
+
+    function dashboard()
+    {
+        $this->view('Customer/dashboard');
     }
 }

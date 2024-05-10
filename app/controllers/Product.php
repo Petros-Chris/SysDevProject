@@ -43,9 +43,48 @@ class Product extends \app\core\Controller {
         $this->view('Product/listing');
     }
 
+    function listingFliter() {
+
+        //$this->view('Product/as');
+        $product = new \app\models\Product();
+
+		$products = $product->getBrand($_POST['filter']);
+
+        //This works to display the search bar first but maybe we can find a better way?
+        //Maybe you could make it add each product to a div instead of just at the bottom of the page
+        echo"<form method='POST' action='/Product/search'>
+                <input name='search_box' placeholder='eg: Blue'>
+                <input type='submit' name='action' value='color'>
+                <input type='submit' name='action' value='content'>
+            </form>";
+
+        foreach ($products as $product) {
+            $pro_id = $product->product_id;
+			$pro_brand = $product->brand;
+			$pro_model = $product->model;
+			$pro_color = $product->color;
+            $pro_price = $product->cost_price;
+            $pro_shape = $product->shape;
+            $pro_size = $product->size;
+            $pro_optial_sun = $product->optical_sun;
+            $pro_description = $product->description;
+            echo "<a href='../Product/index?id=$pro_id'> <div class='product-container'>
+                    <div class='product-image'>
+                    <img src='/../app/questionMark.png' alt='$pro_description'>
+                        </div>
+                            <div class='product-details'></a>
+                            <span class='heart-icon' onclick='toggleHeart(this, $pro_id)'>&#x2661;</span>
+                            <div class='product-brand'>$pro_brand</div>
+                            <div class='product-price'>$$pro_price</div>
+                        </div>
+                    </div>";
+        }
+    }
+        
+
     function description() {
         $product = new \app\models\Product();
-        $item = $product->get($_GET['id']);
+        $item = $product->getId($_GET['id']);
         
         $_SESSION['product_id'] = $_GET['id'];
 
@@ -62,7 +101,7 @@ class Product extends \app\core\Controller {
 
         if(isset($_POST['id'])) {
             $product = new \app\models\Product();
-            $item = $product->get($_POST['id']);
+            $item = $product->getId($_POST['id']);
 
             if (isset($_SESSION['cart'])) {
                 $cart = $_SESSION['cart'];
@@ -77,6 +116,7 @@ class Product extends \app\core\Controller {
 
     public function viewCart() {
         if (isset($_SESSION['cart'])) {
+            
             $cart = ($_SESSION['cart']);
             $price = 0;
 
@@ -92,13 +132,14 @@ class Product extends \app\core\Controller {
                 $pro_description = $product->description;
                 $price += $pro_price;
 
+                echo("HI");
                 echo "<script> 
                         document.getElementById('popup').innerHTML += 
                         '<a href=\"/Product/index?id=$pro_id\">$pro_brand $pro_shape $pro_price</a>' +
                         '<span onclick=\"removeProductFromCart($pro_id)\">&#128465;</span><br>';
                     </script>";  
             }
-                
+                sleep(2);
                 echo "<script> 
                         document.getElementById('popup').innerHTML += 
                         'Total: $price <br> <input type=button value=proceed>';

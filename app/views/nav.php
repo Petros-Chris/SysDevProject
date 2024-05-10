@@ -8,7 +8,7 @@
     </head>
     <nav class="menu">
         <ol>
-            <li class="menu-item"><a href="#0">Shop</a>
+            <li class="menu-item"><a href="\Product\listing">Shop</a>
             <ol class="sub-menu">
                 <li class="menu-item"><a href="#0">Eyeglasses</a>
                 </li>
@@ -18,7 +18,7 @@
             </li>
             <li class="menu-item"><a href="#0">Brands</a>
             <ol class="sub-menu">
-                <li class="menu-item"><a href="#0">Gucci</a></li>
+                <li class="menu-item"><a href="#eyeglasses" onclick="adjustFilter(event, 'eyeglasses')">Gucci</a></li>
                 <li class="menu-item"><a href="#0">Cartier</a></li>
                 <li class="menu-item"><a href="#0">More ></a></li>
             </ol>
@@ -26,16 +26,37 @@
             <li class="menu-item"><a href="#0">About</a>
             <ol class="sub-menu">
                 <li class="menu-item"><a href="#0">About Mes Yeux Tes Yeux</a></li>
-                <li class="menu-item"><a href="#0">Contact Us</a></li>
+                <li class="menu-item"><a href="\contact">Contact Us</a></li>
             </ol>
             </li>
-            <li class="menu-item"><a href="#0">Account</a>
+            <li class="menu-item"><a href="\Customer\dashboard">Account</a>
             <ol class="sub-menu">
-                <li class="menu-item"><a href="#0">My Account</a></li>
-                <li class="menu-item"><a href="#0">Login/Register</a></li>
+                <li class="menu-item"><a href="\Customer\dashboard">My Account</a></li>
+                <li class="menu-item"><a href="\User\login">Login/Register</a></li>
             </ol>
             </li>
             
         </ol>
     </nav>
+    <div id="test"></div>
 </html>
+
+<script>
+    function adjustFilter(event, product_id) {
+    var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                
+                console.log('Response from server:', xhr.response);
+            } else {
+                console.error('Failed to remove product from cart:', xhr.responseText);
+            }
+        }
+    };
+    xhr.open('POST', '/Product/eyeglasses');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send('filter=' + encodeURIComponent(product_id));
+}
+</script>
