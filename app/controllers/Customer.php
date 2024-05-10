@@ -88,7 +88,22 @@ class Customer extends \app\core\Controller
     }
 
     function paypal(){
-        $this->view('client/checkout');
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $order = new \app\models\Order();
+
+            $order->product_id = 1;
+            $order->customer_id = $_SESSION['customer_id'];
+            $order->address = $_POST['address'];
+            $order->total = $_POST['total'];
+
+            $order->insert();
+
+            header('location:/User/login');
+        } else {
+            $this->view('client/checkout');
+        }
+        
 
     }
 
