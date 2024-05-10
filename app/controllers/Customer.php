@@ -82,4 +82,9 @@ class Customer extends \app\core\Controller
     function index() {
         $this->view('Customer/home');
     }
+
+    function paypal(){
+        $this->view('client/checkout');
+
+    }
 }
