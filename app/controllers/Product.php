@@ -8,6 +8,17 @@ class Product extends \app\core\Controller {
 
     function listings() {
         $product = new \app\models\Product();
+        $productCont = new \app\controllers\Product();
+
+
+        switch ($_GET['filter']) {
+            case 'Cartier':
+
+                $productCont -> listingFilter($product, $_GET['Brand']);
+                break;
+
+            default:
+        
 
 		$products = $product->getAll();
 
@@ -40,15 +51,12 @@ class Product extends \app\core\Controller {
                         </div>
                     </div>";
         }
+    }
         $this->view('Product/listing');
     }
 
-    function listingFliter() {
-
-        //$this->view('Product/as');
-        $product = new \app\models\Product();
-
-		$products = $product->getBrand($_POST['filter']);
+    function listingFilter($product, $type, $filter) {
+		$products = $product->getFilter($type, $filter);
 
         //This works to display the search bar first but maybe we can find a better way?
         //Maybe you could make it add each product to a div instead of just at the bottom of the page
@@ -59,6 +67,7 @@ class Product extends \app\core\Controller {
             </form>";
 
         foreach ($products as $product) {
+            echo("HELLP");
             $pro_id = $product->product_id;
 			$pro_brand = $product->brand;
 			$pro_model = $product->model;

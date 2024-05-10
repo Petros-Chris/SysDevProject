@@ -91,11 +91,11 @@ class Product extends \app\core\Model
     }
 
     
-    public function getBrand($filter)
+    public function getFilter($type, $filter)
     {
-        $SQL = 'SELECT * FROM product WHERE brand LIKE :brand';
+        $SQL = 'SELECT * FROM product WHERE type = :type';
         $STMT = self::$_conn->prepare($SQL);
-        $STMT->execute(['brand' => $filter]);
+        $STMT->execute(['type' => $filter]);
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Product');
         return $STMT->fetchAll();
     }

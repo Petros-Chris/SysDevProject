@@ -103,8 +103,6 @@ class Customer extends \app\core\Controller
         } else {
             $this->view('client/checkout');
         }
-        
-
     }
 
 

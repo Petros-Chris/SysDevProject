@@ -19,7 +19,7 @@
             <li class="menu-item"><a href="#0">Brands</a>
             <ol class="sub-menu">
                 <li class="menu-item"><a href="#eyeglasses" onclick="adjustFilter(event, 'eyeglasses')">Gucci</a></li>
-                <li class="menu-item"><a href="#0">Cartier</a></li>
+                <li class="menu-item"><a href="/Product/listing?filter=Cartier">Cartier</a></li>
                 <li class="menu-item"><a href="#0">More ></a></li>
             </ol>
             </li>

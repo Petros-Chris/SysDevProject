@@ -37,7 +37,7 @@ class Wishlist extends \app\core\Controller
     function getProductInformation($product_id) 
     {
         $product = new \app\models\Product();
-        $products = $product->get($product_id);
+        $products = $product->getId($product_id);
 
         $pro_brand = $product->brand;
         $pro_model = $product->model;
