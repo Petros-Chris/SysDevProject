@@ -16,10 +16,10 @@
 
 <div id="popup" class="popup"></div>
 
-<div id="paypal-button-container"></div>
-    <p id="result-message"></p>
-    <!-- Replace the "test" client-id value with your client-id -->
-    <script src="https://www.paypal.com/sdk/js?client-id=AZ6bh_hTIkMnkoa67bG9BEaXg4THLvnEJUMrCoii10T60QuuD6QftVXrxM8pTSrrgZsbSqnGrqtX4LhB&currency=CAD" data-sdk-integration-source="developer-studio"></script>
+<form action="/Order/charge" method="post">
+    <input type="text" name="amount" value="20.00" />
+    <input type="submit" name="submit" value="Pay Now">
+</form>
     
     <script src="/app/app.js"></script>
     

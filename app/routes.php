@@ -46,3 +46,6 @@ $this->addRoute('Review/create','Review,create');
 //misc
 $this->addRoute('contact','User,contact');
 
+//paypal
+$this->addRoute('Order/charge','Order,charge');
+$this->addRoute('Order/success','Order,success');
