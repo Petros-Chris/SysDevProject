@@ -13,17 +13,32 @@ class Order extends \app\core\Model
     public $total;
     public $status;
     public $timestamp;
+    public $quantity;
+    public $price;
 
-    public function insert()
+    public function insertOrder_Customer()
     {
-        $SQL = 'INSERT INTO customer_order(product_id, customer_id, address, total, status) VALUES (:product_id, :customer_id, :address, :total, 0)';
+        $SQL = 'INSERT INTO customer_order(customer_id, address, total, status) VALUES (:customer_id, :address, :total, 0)';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute(
             [
-                'product_id' => $this->product_id,
                 'customer_id' => $this->customer_id,
                 'address' => $this->address,
                 'total' => $this->total
+            ]
+        );
+    }
+
+    public function insertItem_Order()
+    {
+        $SQL = 'INSERT INTO item_order(order_id, product_id, quantity, price) VALUES (:order_id, :product_id, :quantity, :price)';
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute(
+            [
+                'order_id' => $this->order_id,
+                'product_id' => $this->product_id,
+                'quantity' => $this->quantity,
+                'price' => $this->price
             ]
         );
     }

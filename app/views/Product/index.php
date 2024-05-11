@@ -64,23 +64,24 @@
         xhr.open('POST', '/Product/addCart');
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.send('id=' + $product_id);
+
+        
     }
 
     function viewCart() {
-        var xhr = new XMLHttpRequest();
-
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-
-                    console.log("cart displayed");
-                    print(xhr.responseText);
-                } else {
-                    console.error('Failed to display cart', xhr.responseText);
-                }
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                // Assuming the server sends back the full cart HTML
+                document.getElementById('popup').innerHTML = xhr.responseText;
+                console.log("cart displayed");
+            } else {
+                console.error('Failed to display cart', xhr.responseText);
             }
-        };
-        xhr.open('GET', '/Product/view');
-        xhr.send();
-    }
+        }
+    };
+    xhr.open('GET', 'Product/view'); // Make sure to provide the correct path
+    xhr.send();
+}
 </script>

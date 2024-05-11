@@ -15,12 +15,14 @@ class Order extends \app\core\Controller
 
             $order = new \app\models\Order();
 
-            $order->product_id = 1;
             $order->customer_id = $_SESSION['customer_id'];
             $order->address = $_POST['address'];
-            $order->total = $_POST['total'];
+            $order->total = 0;
 
-            $order->insert();
+
+            
+
+            $order->insertOrder_Customer();
 
             header('location:/User/login');
         } else {
