@@ -39,6 +39,7 @@ class Admin extends \app\core\Controller
 
     function modify()
     {
+        //TESTTTT
         $product = new \app\models\Product();
         $product = $product->getId($_GET['id']);
 
@@ -143,3 +144,5 @@ class Admin extends \app\core\Controller
         }
     }
 }
+
+
