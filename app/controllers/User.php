@@ -103,11 +103,11 @@ class User extends \app\core\Controller
 		if ($employee->admin == 0 && password_verify($password, $employee->password_hash)) {
 			$_SESSION['employee_id'] = $employee->employee_id;
 
-			if ($_SESSION['url'] != '') {
-				header("location:$_SESSION[url]");
-			} else {
-				header("location:/Admin/index");
-			}
+			// if ($_SESSION['url'] != '') {
+			// 	header("location:$_SESSION[url]");
+			// } else {
+				header("location:/Employee/index");
+			// }
 			return true;
 		}
 		return false;
@@ -124,7 +124,7 @@ class User extends \app\core\Controller
 			//if ($_SESSION['url'] != '') {
 			//	header("location:$_SESSION[url]");
 			//} else {
-			header("location:/contact");
+			header("location:/Admin/index");
 			//}
 		} else {
 			header('location:/User/login');

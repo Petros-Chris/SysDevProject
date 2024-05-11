@@ -14,6 +14,7 @@ require('app/views/nav.php');
     <li><a href='/contact'>Contact Us</a></li>
     <li><a href='/Product/listing'>View All Products</a></li>
     <li><a href='/Admin/index'>Admin Side</a></li>
+    <li><a href='/Employee/index'>Employee Side</a></li>
     <li><a href='/Customer/checkout'>Checkout</a></li>
     <br>
 </html>

@@ -4,19 +4,20 @@ namespace app\controllers;
 
 use stdClass;
 
+#[\app\filters\IsEmployee]
 class Employee extends \app\core\Controller
 {
 
-function register()
+	function register()
 	{
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-			$user = new \app\models\User();
+			$employee = new \app\models\Employee();
 
-			$user->first_name = $_POST['first_name'];
-			$user->last_name = $_POST['last_name'];
-			$user->email = $_POST['email'];
-			$user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+			$employee->first_name = $_POST['first_name'];
+			$employee->last_name = $_POST['last_name'];
+			$employee->email = $_POST['email'];
+			$employee->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 			//I think I stopped this b/c it was too good 🤤
 
@@ -26,11 +27,16 @@ function register()
 			// 	exit;
 			// }
 
-			$user->insert();
+			$employee->insert();
 
-			header('location:/User/login');
+			header('location:/Admin/index');
 		} else {
-			$this->view('User/register');
+			$this->view('Admin/createEmployee');
 		}
+	}
+
+	function index()
+	{
+		$this->view('Employee/index');
 	}
 }

@@ -16,14 +16,13 @@ class Employee extends \app\core\Model
 
     public function insert()
     {
-        $SQL = 'INSERT INTO employee(first_name, last_name, email, password_hash, admin) VALUES (:first_name, :last_name, :email, :password_hash, :admin)';
+        $SQL = 'INSERT INTO employee(first_name, last_name, email, password_hash, admin) VALUES (:first_name, :last_name, :email, :password_hash, 0)';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute(
             ['first_name'=>$this->first_name,
             'last_name'=> $this->last_name,
             'email'=>$this->email,
-            'password_hash'=>$this->password_hash,
-            'admin'=>$this->admin]);
+            'password_hash'=>$this->password_hash]);
     }
 
     public function get($email)

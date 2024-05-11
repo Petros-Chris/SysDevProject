@@ -5,11 +5,12 @@ $this->addRoute('User/login','User,login');
 $this->addRoute('User/logout','User,logout');
 //customers
 $this->addRoute('Customer/update','Customer,update');
-
 $this->addRoute('Customer/checkout','Customer,checkout');
 $this->addRoute('Customer/deactivate','Customer,deactivate');
 $this->addRoute('Customer/home','Customer,index');
 $this->addRoute('Customer/dashboard','Customer,dashboard');
+$this->addRoute('Customer/home','Customer,index');
+$this->addRoute('Customer/paypal','Customer,paypal');
 //products
 $this->addRoute('Product/listing','Product,listings');
 $this->addRoute('Product/index','Product,description');
@@ -18,7 +19,9 @@ $this->addRoute('Product/search','Product,search');
 $this->addRoute('Product/addCart','Product,addToCart');
 $this->addRoute('Product/view','Product,viewCart');
 $this->addRoute('Product/removeCart','Product,removeFromCart');
-$this->addRoute('Product/eyeglasses','Product,listingFliter');
+// $this->addRoute('Product/eyeglasses','Product,listingFliter');
+$this->addRoute('Product/addCart','Product,addToCart');
+$this->addRoute('Product/removeCart','Product,removeFromCart');
 //admins
 $this->addRoute('Admin/index','Admin,index');
 $this->addRoute('Admin/modify','Admin,modify');
@@ -26,17 +29,13 @@ $this->addRoute('Admin/create','Admin,create');
 $this->addRoute('Admin/productListing','Admin,listings');
 $this->addRoute('Admin/customerList','Admin,customerList');
 $this->addRoute('Admin/disableCustomer','Admin,deactivate');
+//employee
+$this->addRoute('Employee/creation','Employee,register');
+$this->addRoute('Employee/index','Employee,index');
 //wishlist
 $this->addRoute('Wishlist/add','Wishlist,addToWishlist');
 $this->addRoute('Wishlist/remove','Wishlist,removeFromWishlist');
 $this->addRoute('Wishlist/displaytest','Wishlist,displayWishlist');
-$this->addRoute('Customer/deactivate','Customer,deactivate');
-$this->addRoute('Admin/customerList','Admin,customerList');
-$this->addRoute('Admin/disableCustomer','Admin,deactivate');
-$this->addRoute('Customer/home','Customer,index');
-$this->addRoute('Product/addCart','Product,addToCart');
-$this->addRoute('Product/removeCart','Product,removeFromCart');
-$this->addRoute('Customer/paypal','Customer,paypal');
 //ticket
 $this->addRoute('Ticket/create','Ticket,createTicket');
 $this->addRoute('Ticket/ongoing','Ticket,currentTickets');
@@ -45,7 +44,6 @@ $this->addRoute('Ticket/index','Ticket,description');
 $this->addRoute('Review/create','Review,create');
 //misc
 $this->addRoute('contact','User,contact');
-
 //paypal
 $this->addRoute('Order/charge','Order,charge');
 $this->addRoute('Order/success','Order,success');

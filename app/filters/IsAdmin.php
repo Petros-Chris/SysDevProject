@@ -2,7 +2,7 @@
 namespace app\filters;
 
 #[\Attribute]
-class IsEmployee implements \app\core\AccessFilter{
+class IsAdmin implements \app\core\AccessFilter{
 
 	public function redirected(){
 		if(!isset($_SESSION['isAdmin'])){
