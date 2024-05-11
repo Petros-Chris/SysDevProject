@@ -10,16 +10,9 @@ class Product extends \app\core\Controller {
         $product = new \app\models\Product();
         $productCont = new \app\controllers\Product();
 
-
-        switch ($_GET['filter']) {
-            case 'Cartier':
-
-                $productCont -> listingFilter($product, $_GET['Brand']);
-                break;
-
-            default:
-        
-
+        if(isset($_GET['filter'])) {
+            $productCont -> listingFilter($product, $_GET['type'], $_GET['filter']);
+        } else { 
 		$products = $product->getAll();
 
         //This works to display the search bar first but maybe we can find a better way?
@@ -67,7 +60,6 @@ class Product extends \app\core\Controller {
             </form>";
 
         foreach ($products as $product) {
-            echo("HELLP");
             $pro_id = $product->product_id;
 			$pro_brand = $product->brand;
 			$pro_model = $product->model;
