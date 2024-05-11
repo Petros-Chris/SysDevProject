@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use stdClass;
 
+#[\app\filters\IsAdmin]
 class Admin extends \app\core\Controller
 {
     function listings()
@@ -33,7 +34,6 @@ class Admin extends \app\core\Controller
 
     function index()
     {
-
         $this->view('Admin/index');
     }
 

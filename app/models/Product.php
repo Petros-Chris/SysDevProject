@@ -34,8 +34,7 @@ class Product extends \app\core\Model
             'size'=>$this->size,
             'optical_sun'=>$this->optical_sun,
             'description'=>$this->description,
-            'quantity'=>$this->quantity,
-            'disable'=>$this->disable]);
+            'quantity'=>$this->quantity]);
     }
 
     public function update()

@@ -60,7 +60,7 @@
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
 
-                    console.log('Response from server:', xhr.response);
+                    console.log('Response from server:', xhr.responseText);
                 } else {
                     console.error('Failed to remove product from cart:', xhr.responseText);
                 }

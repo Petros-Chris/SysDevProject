@@ -2,10 +2,10 @@
 namespace app\filters;
 
 #[\Attribute]
-class IsAdmin implements \app\core\AccessFilter{
+class IsEmployee implements \app\core\AccessFilter{
 
 	public function redirected(){
-		if(!isset($_SESSION['isAdmin'])){
+		if(!isset($_SESSION['employee_id'])){
             $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 			header('location:/User/login');
 			return true;
