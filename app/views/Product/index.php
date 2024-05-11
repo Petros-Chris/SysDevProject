@@ -74,7 +74,7 @@
                 if (xhr.status === 200) {
 
                     console.log("cart displayed");
-                    print(xhr.responseText);
+                   // print(xhr.responseText);
                 } else {
                     console.error('Failed to display cart', xhr.responseText);
                 }

@@ -43,33 +43,118 @@ class User extends \app\core\Controller
 			//unset($_SESSION["customer_id"]);
 
 			//if we want to delete the whole session we do
-			$customer = new \app\controllers\Customer();
-			$customer->logout();
+			$user = new \app\controllers\User();
+			$user->logout();
 		}
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 			$email = $_POST['email'];
-			$user = new \app\models\User();
-			$user = $user->get($email);
 			$password = $_POST['password'];
 
-			if ($user && password_verify($password, $user->password_hash)) {
+			$userContr = new \app\controllers\User();
 
-				if ($user->disable == false) {
-					$_SESSION['customer_id'] = $user->customer_id;
 
-					if ($_SESSION['url'] != '') {
-						header("location:$_SESSION[url]");
-					} else {
-						header("location:/Product/listing");
-					}
-				}
-			} else {
-				header('location:/User/login');
+			if($userContr->userSide($email, $password)) {
+				exit;
+			}
+		
+			
+
+			if($userContr->employeeSide($email, $password)) {
+				exit;
+			}
+
+			if($userContr->adminSide($email, $password)) {
+				exit;
 			}
 		} else {
-			$this->view('User/login');
+			$this->view('User/Login');
 		}
+
+	}
+
+	function userSide($email, $password)
+	{
+		$user = new \app\models\User();
+		$user = $user->get($email);
+
+		if ($user && password_verify($password, $user->password_hash)) {
+
+			if ($user->disable == false) {
+				$_SESSION['customer_id'] = $user->customer_id;
+
+				if ($_SESSION['url'] != '') {
+					// header("location:$_SESSION[url]");
+				} else {
+					header("location:/Product/listing");
+					
+				}
+			}
+			return true;
+		} 
+		return false;
+	}
+
+	function employeeSide($email, $password)
+	{
+		$employee = new \app\models\Employee();
+		$employee = $employee->get($email);
+
+		if ($employee->admin == 0 && password_verify($password, $employee->password_hash)) {
+			$_SESSION['employee_id'] = $employee->employee_id;
+
+			if ($_SESSION['url'] != '') {
+				header("location:$_SESSION[url]");
+			} else {
+				header("location:/Admin/index");
+			}
+			return true;
+		}
+		return false;
+	}
+
+	function adminSide($email, $password)
+	{
+		$employee = new \app\models\Employee();
+		$employee = $employee->get($email);
+
+		if ($employee->admin == 1 && password_verify($password, $employee->password_hash)) {
+			$_SESSION['isAdmin'] = $employee->admin;
+
+			//if ($_SESSION['url'] != '') {
+			//	header("location:$_SESSION[url]");
+			//} else {
+			header("location:/contact");
+			//}
+		} else {
+			header('location:/User/login');
+			return true;
+		}
+		
+	}
+
+	function logout()
+	{
+		session_destroy();
+		header('location:/User/login');
+		//$this->view('User/login');
+		echo ("
+        <script>
+        document.getElementById('popup').style.display = 'block'
+        setTimeout(hidePopup, 3000);
+
+        setTimeout(function() {
+            popup.classList.add('popup-visible');
+          }, 250);
+        
+        function hidePopup() {
+                popup.classList.remove('popup-visible');
+                
+                setTimeout(function() {
+                    popup.style.display = 'none'
+                  }, 250);
+          }
+          </script>");
 	}
 
 	function contact()

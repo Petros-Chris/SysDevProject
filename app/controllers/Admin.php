@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use stdClass;
 
+#[\app\filters\IsEmployee]
 class Admin extends \app\core\Controller
 {
     function listings()

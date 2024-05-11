@@ -4,10 +4,11 @@ namespace app\controllers;
 
 use stdClass;
 
-#[\app\filters\IsCustomer]
+
 class Customer extends \app\core\Controller
 {
 
+    #[\app\filters\IsCustomer]
     function update()
     {
         $customer = new \app\models\Customer();
@@ -31,6 +32,7 @@ class Customer extends \app\core\Controller
         }
     }
 
+    #[\app\filters\IsCustomer]
     function checkout()
     {
         $product = new \app\controllers\Product();
@@ -38,30 +40,7 @@ class Customer extends \app\core\Controller
         $this->view('Customer/checkout');
     }
 
-    function logout()
-    {
-        session_destroy();
-        //header('location:/User/login');
-        $this->view('User/login');
-        echo ("
-        <script>
-        document.getElementById('popup').style.display = 'block'
-        setTimeout(hidePopup, 3000);
-
-        setTimeout(function() {
-            popup.classList.add('popup-visible');
-          }, 250);
-        
-        function hidePopup() {
-                popup.classList.remove('popup-visible');
-                
-                setTimeout(function() {
-                    popup.style.display = 'none'
-                  }, 250);
-          }
-          </script>");
-    }
-
+    #[\app\filters\IsCustomer]
     function deactivate()
     {
         $customer = new \app\models\Customer();
@@ -82,11 +61,13 @@ class Customer extends \app\core\Controller
         }
     }
 
+    #[\app\filters\IsCustomer]
     function index()
     {
         $this->view('Customer/home');
     }
 
+    #[\app\filters\IsCustomer]
     function paypal(){
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -106,6 +87,7 @@ class Customer extends \app\core\Controller
     }
 
 
+    #[\app\filters\IsCustomer]
     function dashboard()
     {
         $this->view('Customer/dashboard');

@@ -17,7 +17,7 @@
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
-                        console.log('Product added to wishlist:', $product_id);
+                        console.log('Product added to wishlist:', xhr.responseText);
                     } else {
                         console.error('Failed to add product to wishlist:', xhr.responseText);
                     }

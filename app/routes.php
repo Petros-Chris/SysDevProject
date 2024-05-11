@@ -2,9 +2,10 @@
 //users
 $this->addRoute('User/register','User,register');
 $this->addRoute('User/login','User,login');
+$this->addRoute('User/logout','User,logout');
 //customers
 $this->addRoute('Customer/update','Customer,update');
-$this->addRoute('Customer/logout','Customer,logout');
+
 $this->addRoute('Customer/checkout','Customer,checkout');
 $this->addRoute('Customer/deactivate','Customer,deactivate');
 $this->addRoute('Customer/home','Customer,index');
