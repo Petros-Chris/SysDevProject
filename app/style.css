@@ -1,3 +1,9 @@
+.tools button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 .product-container {
   border: 1px solid #ccc;
   width: 200px;
