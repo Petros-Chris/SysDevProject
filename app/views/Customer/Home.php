@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+<title><?= $name ?> view</title>
 
   <link rel="stylesheet" type="text/css" href="/app/css/style.scss">
   
