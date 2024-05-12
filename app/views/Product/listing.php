@@ -5,11 +5,28 @@
     </head>
 
 	<body>
-	
+<div id="imcool">
+	<?php foreach ($products as $product): ?>
+        
+    <a href='../Product/index?id=<?= $product->product_id ?>'>
+        <div class='product-container'>
+            <div class='product-image'>
+                <img src='/../app/questionMark.png' alt='<?= $product->description ?>'>
+            </div>
+            <div class='product-details'>
+                <span class='heart-icon' onclick='toggleHeart(this, <?= $product->product_id ?>)'>&#x2661;</span>
+                <div class='product-brand'><?= $product->brand ?></div>
+                <div class='product-price'>$<?= $product->cost_price ?></div>
+            </div>
+        </div>
+    </a>
+<?php endforeach; ?>
+</div>
 	</body>
 </html>
 
 <script>
+    // addEventListener('onclick', toggleHeart(this, ))
         function toggleHeart(icon, $product_id) {
             icon.classList.toggle('clicked');
             var xhr = new XMLHttpRequest();

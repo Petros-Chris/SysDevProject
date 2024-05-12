@@ -36,7 +36,7 @@ class User extends \app\core\Controller
 
 	function login()
 	{
-		if (isset($_SESSION['customer_id'])) {
+		if (isset($_SESSION['customer_id']) || isset($_SESSION['employee_id']) || isset($_SESSION['isAdmin'])) {
 			//header('location:/Customer/dashboard');
 
 			//or if redirect isent such a great idea we could auto log out by
@@ -84,7 +84,7 @@ class User extends \app\core\Controller
 				$_SESSION['customer_id'] = $user->customer_id;
 
 				if ($_SESSION['url'] != '') {
-					// header("location:$_SESSION[url]");
+					 header("location:$_SESSION[url]");
 				} else {
 					header("location:/Product/listing");
 					

@@ -12,7 +12,9 @@
   margin: 20px;
   text-align: center;
 }
-
+#imcool {
+  display: flex;
+}
 .product-image img {
   max-width: 100%;
   height: auto;
