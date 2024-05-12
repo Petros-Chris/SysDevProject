@@ -96,14 +96,20 @@ class Product extends \app\core\Controller {
         
         $_SESSION['product_id'] = $_GET['id'];
 
-            $productControl = new \app\controllers\Product();
+            
            
             
             $this->view('Product/index', $item);
-            $productControl->viewCart();
+            $this->displayCart();
         $review = new \app\controllers\Review();
         $review->displayReview();
     }    
+
+    function displayCart(){
+       
+        $this->viewCart();  
+
+    }
 
     public function addToCart() {
 
