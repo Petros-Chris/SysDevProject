@@ -19,8 +19,7 @@
 
 <div class="contact-content">
 <div id="contact-form">
-<h3 class="contact-h3">Contact us</h3>
-
+<h3 class="contact-h3">Contaus</h3>
 <form id="contact-form-id" class="contact-form-class" method="post" action="contact-form-process.php">
     
     <div class="contact-form-group">
