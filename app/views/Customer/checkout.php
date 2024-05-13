@@ -8,16 +8,17 @@
 
 </head>
 <body>
+<form id="orderForm" action="" method="POST">
 <div class="shipping-details">
-    <input type="text" id="searchInput" placeholder="Enter your address" autocomplete="off">
+    <input type="text" id="searchInput" placeholder="Enter your address" autocomplete="off" name="address">
     <div id="suggestions"></div>
     <div id="map"></div>
 </div>
 
 <div id="popup" class="popup"></div>
 
-<form id="orderForm" action="" method="POST">
-        <input type="hidden" name="address" value="">
+
+
         <input type="hidden" name="total" value="">
         <input type="submit" value="Place Order">
     </form>
@@ -110,7 +111,7 @@ function selectAddress(feature) {
     document.getElementById('orderForm').addEventListener('submit', function(event) {
     event.preventDefault();
     var address = document.getElementById('searchInput').value; // Getting value from visible input
-    var total = calculateTotal();  // Assuming there's a function to calculate total
+    var total = 0;  // Assuming there's a function to calculate total
 
     // Set hidden form values
     this.address.value = address;  // Assigning the value to hidden input
