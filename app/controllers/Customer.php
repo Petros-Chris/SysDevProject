@@ -91,4 +91,8 @@ class Customer extends \app\core\Controller
     {
         $this->view('Customer/dashboard');
     }
+
+    function about(){
+		$this->view('Customer/about');
+	}
 }

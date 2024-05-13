@@ -550,3 +550,60 @@ ul {
   padding-bottom: 10px;
 }
 
+//-----about us ------//
+.header {
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+}
+
+.header p,
+.header h1 {
+  margin: 10px;
+  text-align: center;
+}
+
+.story-container {
+  padding: 40px;
+}
+
+.story-content {
+  display: flex;
+ // flex-wrap: wrap;
+  //justify-content: center;
+  padding-left: 20px;
+}
+
+.story-content2{
+  display: flex;
+  // flex-wrap: wrap;
+   //justify-content: center;
+   padding-right: 20px;
+
+}
+
+.story-image {
+  width: 40%;
+  margin-right: 20px;
+}
+
+.story-text {
+  width: 50%; 
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  padding:6rem 7rem 7rem;
+ // text-align: right;
+}
+
+.story-text-left {
+  width: 50%; 
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  padding:6rem 7rem 7rem;
+  
+}
+
+.story-image-left {
+  width: 40%; 
+  margin-left: 20px; 
+}

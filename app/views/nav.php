@@ -24,9 +24,9 @@
                 <li class="menu-item"><a href="#0">More ></a></li>
             </ol>
         </li>
-        <li class="menu-item"><a href="#0">About</a>
+        <li class="menu-item"><a href="\Customer\about">About</a>
             <ol class="sub-menu">
-                <li class="menu-item"><a href="#0">About Mes Yeux Tes Yeux</a></li>
+                <li class="menu-item"><a href="\Customer\about">About Mes Yeux Tes Yeux</a></li>
                 <li class="menu-item"><a href="\contact">Contact Us</a></li>
             </ol>
         </li>
