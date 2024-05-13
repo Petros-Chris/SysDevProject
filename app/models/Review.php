@@ -53,6 +53,13 @@ class Review extends \app\core\Model
     }
 
 
+    function delete($review_id) {
+        $SQL = 'DELETE FROM review WHERE review_id = :review_id';
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute(
+            ['review_id'=>$review_id]);
+    }
+
     // function delete()
     // {
     //     //change anything but the PK

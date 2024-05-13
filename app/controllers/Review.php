@@ -44,6 +44,24 @@ class Review extends \app\core\Controller
             header("location:/Product/index?id=$pro_id");
         } else {
             $this->view('Review/create');
+            include 'app/views/footer.php';
+        }
+    }
+
+    #[\app\filters\IsCustomer]
+    function delete()
+    {
+        $review = new \app\models\Review();
+        $specificReview = $review->get($_GET['id']);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $specificReview->delete($_GET['id']);
+
+            header("Location:/Product/index?id=$_SESSION[product_id]");
+
+        } else {
+            $this->view('Review/delete', $specificReview);
+            include 'app/views/footer.php';
         }
     }
 

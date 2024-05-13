@@ -21,6 +21,8 @@
             </div>
 
             <input type='Submit' value='Update' name='update_review'>
+            <a href="/Review/delete?id=<?= $data->review_id ?>">Delete Instead</a>
+            <a href="#" onclick="history.back();">Cancel</a>
         </form>
     </div>
 </body>
