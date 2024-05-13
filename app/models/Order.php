@@ -18,19 +18,21 @@ class Order extends \app\core\Model
 
     public function insertOrder_Customer()
     {
-        $SQL = 'INSERT INTO customer_order(customer_id, address, total, status) VALUES (:customer_id, :address, :total, 0)';
-        $STMT = self::$_conn->prepare($SQL);
-        $STMT->execute([
-            'customer_id' => $this->customer_id,
-            'address' => $this->address,
-            'total' => $this->total
+        $SQL = 'INSERT INTO customer_order(customer_id, address, total, status) VALUES (:customer_id, :address, :total, :status)';
+    $STMT = self::$_conn->prepare($SQL);
+    $STMT->execute([
+        'customer_id' => $this->customer_id,
+        'address' => $this->address,
+        'total' => $this->total,
+        'status' => 'OPEN'  
         ]);
         return self::$_conn->lastInsertId(); // Capture and return the order ID
     }
 
     public function insertItem_Order()
-    {
-        $SQL = 'INSERT INTO item_order(order_id, product_id, quantity, price) VALUES (:order_id, :product_id, :quantity, :price)';
+{
+    try {
+        $SQL = 'INSERT INTO order_item(order_id, product_id, quantity, price) VALUES (:order_id, :product_id, :quantity, :price)';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute([
             'order_id' => $this->order_id,
@@ -38,9 +40,13 @@ class Order extends \app\core\Model
             'quantity' => $this->quantity,
             'price' => $this->price
         ]);
+    } catch (PDOException $e) {
+        // Handle exception
+        die("Error inserting item order: " . $e->getMessage());
     }
+}
 
-    public function getAll()
+    public function getAllOrders()
     {
         $SQL = 'SELECT * FROM customer_order';
         $STMT = self::$_conn->prepare($SQL);
@@ -48,6 +54,25 @@ class Order extends \app\core\Model
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Order');
         return $STMT->fetchAll();
     }
+
+    public function getAllOrderItems(){
+        $SQL = 'SELECT * FROM order_item';
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute();
+        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Order');
+        return $STMT->fetchAll();
+
+    }
+
+    public function getItemsPerOrder($order_id){
+        $SQL = 'SELECT * FROM order_item where order_id = :order_id';
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute(['order_id' => $order_id]);
+        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Order');
+        return $STMT->fetchAll();
+
+    }
+
 
     public function get($email)
     {

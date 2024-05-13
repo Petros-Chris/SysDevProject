@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 11, 2024 at 01:56 AM
+-- Generation Time: May 14, 2024 at 01:58 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `Customer` (
   `disable` tinyint(1) NOT NULL,
   PRIMARY KEY (`customer_id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `Customer`
@@ -55,7 +55,9 @@ INSERT INTO `Customer` (`customer_id`, `first_name`, `last_name`, `email`, `pass
 (8, 'q', 'q', 'q@q.com', '$2y$10$4Mt/YgAppaLXExGIZUEQaeYldj17RFOM9scnXto2d/x51gTPVvk1C', 0, 0),
 (9, 'yu', 'o', 'qwer@asd', '$2y$10$cdGvJi0MT6iLeZ1IVLvJTumz1CfOhv6mqMumHz7z1oLxeg3mqiy5S', 0, 0),
 (10, 'zz', 'zz', 'zz@zz', '$2y$10$ZjMDPwTaD.uklnwFfMIcie9aNjGjMqwQ6zP4U9gZ8k2fSEplgRkv2', 0, 0),
-(12, 'asfsdg', 'a', 'a@a', '$2y$10$NAy8TA10Hx/yZ4g32hmWAeMxSYI6PmuaTOdrhXqnekLjS9U3DZA2e', 0, 0);
+(12, 'asfsdg', 'a', 'a@a', '$2y$10$NAy8TA10Hx/yZ4g32hmWAeMxSYI6PmuaTOdrhXqnekLjS9U3DZA2e', 0, 0),
+(13, 'among', 'us', '1@1', '$2y$10$o8RxtMunv6Mn57pqMaIp0OuILthykyRhKtQVKLiiOwS5LCEoOAb2a', 0, 0),
+(14, 'joe', 'biden', '123@e', '$2y$10$j7qQUW89rd/Y7VH3RIcS2O2C73yDuq/Ar/6SHFzGNDfvAxbhJFWf2', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -67,13 +69,26 @@ DROP TABLE IF EXISTS `customer_order`;
 CREATE TABLE IF NOT EXISTS `customer_order` (
   `order_id` int(11) NOT NULL AUTO_INCREMENT,
   `customer_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
   `address` varchar(200) NOT NULL,
   `total` double NOT NULL,
   `status` tinyint(1) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`order_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `customer_order`
+--
+
+INSERT INTO `customer_order` (`order_id`, `customer_id`, `address`, `total`, `status`, `timestamp`) VALUES
+(1, 14, '37 Edgehill Terrace, Stratford, Canada', 0, 0, '2024-05-13 19:58:08'),
+(2, 14, 'Studio Coolio, Utrechter Straße 48, Germany', 0, 0, '2024-05-13 19:58:45'),
+(3, 14, '36 Place Marie-Hélène, Saint-Joseph-du-Lac, Canada', 0, 0, '2024-05-13 20:01:58'),
+(4, 14, '36 Place Marie-Hélène, Saint-Joseph-du-Lac, Canada', 787.5, 0, '2024-05-13 21:13:04'),
+(5, 14, '36 Place Marie-Hélène, Saint-Joseph-du-Lac, Canada', 787.5, 0, '2024-05-13 21:15:55'),
+(6, 14, '36 Place Marie-Hélène, Saint-Joseph-du-Lac, Canada', 787.5, 0, '2024-05-13 21:18:10'),
+(7, 14, '194 Rue Lamarche, Laval (administrative region), Canada', 2562.5, 0, '2024-05-13 21:18:50'),
+(8, 14, '194 Rue Lamarche, Laval (administrative region), Canada', 0, 0, '2024-05-13 21:28:33');
 
 -- --------------------------------------------------------
 
@@ -105,6 +120,17 @@ CREATE TABLE IF NOT EXISTS `order_item` (
   `quantity` int(11) NOT NULL,
   `price` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_item`
+--
+
+INSERT INTO `order_item` (`order_id`, `product_id`, `quantity`, `price`) VALUES
+(6, 1, 1, 787.5),
+(7, 1, 1, 787.5),
+(7, 7, 1, 800),
+(7, 7, 1, 800),
+(7, 18, 1, 175);
 
 -- --------------------------------------------------------
 
