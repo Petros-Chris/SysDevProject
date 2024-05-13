@@ -29,3 +29,12 @@ function hidePopup() {
         popup.style.display = 'none';
     }, 250);
 }
+
+function generateStarRating(rating) {
+    var stars = '';
+    for (var i = 1; i <= 5; i++) {
+        var starClass = (i <= rating) ? 'filled' : 'empty';
+        stars += '<span class="star ' + starClass + '">&#9733;</span>'; // Unicode for a star icon
+    }
+    return stars;
+}

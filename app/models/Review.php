@@ -13,6 +13,7 @@ class Review extends \app\core\Model
     public $description;
     public $image_link;
     public $timestamp;
+    public $customer_information;
 
     public function insert()
     {

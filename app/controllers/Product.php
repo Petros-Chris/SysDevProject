@@ -6,29 +6,19 @@ use stdClass;
 
 class Product extends \app\core\Controller
 {
-
     function listings()
     {
         $product = new \app\models\Product();
-        $productCont = new \app\controllers\Product();
-
         if (isset($_GET['filter'])) {
-            $productCont->listingFilter($product, $_GET['type'], $_GET['filter']);
+            $products = $product->getFilter($_GET['type'], $_GET['filter']);
+            include 'app/views/Product/listing.php';
+            include 'app/views/footer.php';
         } else {
             $products = $product->getAll();
-
             include 'app/views/Product/listing.php';
             include 'app/views/footer.php';
         }
     }
-
-    public function listingFilter($product, $type, $filter)
-    {
-        $products = $product->getFilter($type, $filter);
-        include 'app/views/Product/listing.php';
-        include 'app/views/footer.php';
-    }
-
 
     function description()
     {
@@ -37,13 +27,13 @@ class Product extends \app\core\Controller
 
         $_SESSION['product_id'] = $_GET['id'];
 
-
+        $re = new \app\controllers\Review();
 
 
         $this->view('Product/index', $item);
+        $re->displayReview();
         $this->displayCart();
-        $review = new \app\controllers\Review();
-        $review->displayReview();
+
     }
 
     function displayCart()
