@@ -29,15 +29,17 @@ class Customer extends \app\core\Controller
             header('location:/Customer/update');
         } else {
             $this->view('Customer/update', $customer);
+            include('app/views/footer.php');
         }
     }
 
     #[\app\filters\IsCustomer]
     function checkout()
     {
-        $product = new \app\controllers\Product();
+        $product = new \app\controllers\Cart();
         $product->viewCartCheckout();
         $this->view('Customer/checkout');
+        include('app/views/footer.php');
     }
 
     #[\app\filters\IsCustomer]
@@ -58,12 +60,14 @@ class Customer extends \app\core\Controller
             header('location:/User/login');
         } else {
             $this->view('Customer/deactivate');
+            include('app/views/footer.php');
         }
     }
 
     function index()
     {
         $this->view('Customer/home');
+        include('app/views/footer.php');
     }
 
     #[\app\filters\IsCustomer]
@@ -82,6 +86,7 @@ class Customer extends \app\core\Controller
             header('location:/User/login');
         } else {
             $this->view('client/checkout');
+            include('app/views/footer.php');
         }
     }
 
@@ -90,6 +95,7 @@ class Customer extends \app\core\Controller
     function dashboard()
     {
         $this->view('Customer/dashboard');
+        include('app/views/footer.php');
     }
 
     function about(){

@@ -7,10 +7,10 @@
 
 <body>
 
-    <form method='POST' action='/Product/search'>
-        <input name='search_box' placeholder='eg: Blue'>
-        <input type='submit' name='action' value='color'>
-        <input type='submit' name='action' value='content'>
+<form action="/Product/search" method="GET">
+        <label for="search">Search:</label>
+        <input type="text" id="search" name="search" placeholder='eg: Black'>
+        <button type="submit">Search</button>
     </form>
 
     <div id="imcool">
@@ -29,10 +29,9 @@
         </div>
         </div>
 
-        </div>
 
     <?php endforeach; ?>
-    </div>
+</div>
 </body>
 
 </html>

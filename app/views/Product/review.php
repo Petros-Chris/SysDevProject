@@ -7,7 +7,7 @@
 <script>
     function generateStarRating(rating) {
         var stars = '';
-        for (var i = 1; i <= 10; i++) {
+        for (var i = 1; i <= 5; i++) {
             var starClass = (i <= rating) ? 'filled' : 'half-Filled';
             stars += '<span class="star ' + starClass + '">&#9733;</span>';
         }
@@ -29,7 +29,7 @@
             <div class='product-brand'>User: <?= $review->customer_information->first_name ?>
                 <?= $review->customer_information->last_name ?>
             </div>
-            <div id='product-star'>Rating:
+            <div id='product-star'>
                 <script>document.write(generateStarRating(<?= $review->rating ?>))</script></div>
             <div class='product-brand'>Description: <?= $review->description ?></div>
             <div class='product-brand'>Created: <?= $review->timestamp ?></div>

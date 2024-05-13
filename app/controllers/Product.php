@@ -39,21 +39,11 @@ class Product extends \app\core\Controller
 
     public function search()
     {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $searchTerm = $_POST['search_box'];
-            $product = new \app\models\Product();
+        $product = new \app\models\Product();
 
-            $this->view('/Product/listing');
+        $products = $product->getMultiFilter('color', 'brand', 'shape', 'description', 'optical_sun', $_GET['search']);
 
-            if ($_POST['action'] == 'color') {
-                $products = $product->getColor($searchTerm);
-
-                foreach ($products as $producta) {
-                    $pro_id = $producta->product_id;
-                    $pro_brand = $producta->brand;
-                    echo "<a href='../Product/index?brand=$pro_brand&id=$pro_id'>$pro_brand</a><br>";
-                }
-            }
-        }
+        include 'app/views/Product/listing.php';
+        include 'app/views/footer.php';
     }
 }
