@@ -344,7 +344,7 @@ ul {
 }
 
 #footer-license {
-  color: black;
+  color: white;
   font-size: 16px;
   text-transform: capitalize;
   font-weight: 300;
@@ -469,23 +469,21 @@ ul {
 
 //----contact------//
 .phone-box {
-
     margin-top: 20px;
-    background-color: #ffffff; // White background
+    background-color: #ffffff; 
     padding: 20px;
     border-radius: 5px;
     box-sizing: border-box;
-    float: left; // Float left for email box
+    float: left; 
 }
 
 .phone-box {
-    float: right; // Float right for phone box
-    margin-bottom: 4440px;
+    float: right; 
 }
 
 
 .contact-info {
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 20px;
   background-color: #fff;
@@ -493,12 +491,15 @@ ul {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 200px;
+  
 }
 
 .email-box,
 .phone-box {
   flex: 1 0 45%;
   margin-top: 20px;
+  text-align: center;
+
 }
 
 .email-box {
@@ -517,6 +518,7 @@ ul {
     font-weight: bold;
     margin-top: 0;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .email-box a,
@@ -538,9 +540,13 @@ ul {
     text-align: center;
 }
 
-.contact-text p {
+.contact-text p{
     margin-bottom: 5px;
     text-align: center;
 }
 
+.email-box img,
+.phone-box img{
+  padding-bottom: 10px;
+}
 
