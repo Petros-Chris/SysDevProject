@@ -5,6 +5,6 @@ namespace app\core;
 class Controller{
 	function view($name, $data=null){
 		include('app/views/' . $name . '.php');
-		// require('app/views/footer.php');
+		//require('app/views/footer.php');
 	}
 }
