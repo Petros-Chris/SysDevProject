@@ -11,11 +11,9 @@ class Order extends \app\core\Controller
     #[\app\filters\IsCustomer]
     function createOrder()
     {
-        echo("ermm what the sigma");
+
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
-            echo("RAHAHHHH");
-            sleep(2);
             $order = new \app\models\Order();
             $order->customer_id = $_SESSION['customer_id'];
             $order->address = $_POST['address'];
