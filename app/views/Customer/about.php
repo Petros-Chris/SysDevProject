@@ -13,7 +13,7 @@
 	<div class="story-container">
 		<div class="story-content">
 			<div class="story-image">
-				<img src="../../email.png" alt="Image description" width="100%">
+				<img src="/app/resources/email.png" alt="Image description" width="100%">
 			</div>
            
 			<div class="story-text">
@@ -32,7 +32,7 @@
                     and ecently with ds PageMaker including versions of Lorem Ipsum.</p>
 			</div>
 			<div class="story-image-left">
-				<img src="path/to/second-image.png" alt="Image description" width="100%">
+				<img src="/app/resources/manonwall.png" alt="Image description" width="100%">
 			</div>
 		</div>
 	</div>

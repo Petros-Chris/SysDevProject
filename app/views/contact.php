@@ -14,7 +14,7 @@
 
 <div class="contact-info">
     <div class="email-box">
-        <img src="app/email.png" alt="Email Icon" class = "imgEmail">
+        <img src="/app/resources/email.png" alt="Email Icon" class = "imgEmail">
         <h3>Send an Email</h3>
         <p>Want to contact us by email to ask any questions?</p>
         <p>Email to company</p>
@@ -24,7 +24,7 @@
     </div>
 
     <div class="phone-box">
-    <img src="app/telephone.png" alt="phone Icon" class = "imgPhone">
+    <img src="/app/resources/telephone.png" alt="phone Icon" class = "imgPhone">
         <h3>Give us a call</h3>
         <p>Would you like to talk to one of our agents?</p>
         <p>Call our in-store agent</p>
