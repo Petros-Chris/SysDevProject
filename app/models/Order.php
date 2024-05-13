@@ -20,27 +20,24 @@ class Order extends \app\core\Model
     {
         $SQL = 'INSERT INTO customer_order(customer_id, address, total, status) VALUES (:customer_id, :address, :total, 0)';
         $STMT = self::$_conn->prepare($SQL);
-        $STMT->execute(
-            [
-                'customer_id' => $this->customer_id,
-                'address' => $this->address,
-                'total' => $this->total
-            ]
-        );
+        $STMT->execute([
+            'customer_id' => $this->customer_id,
+            'address' => $this->address,
+            'total' => $this->total
+        ]);
+        return self::$_conn->lastInsertId(); // Capture and return the order ID
     }
 
     public function insertItem_Order()
     {
         $SQL = 'INSERT INTO item_order(order_id, product_id, quantity, price) VALUES (:order_id, :product_id, :quantity, :price)';
         $STMT = self::$_conn->prepare($SQL);
-        $STMT->execute(
-            [
-                'order_id' => $this->order_id,
-                'product_id' => $this->product_id,
-                'quantity' => $this->quantity,
-                'price' => $this->price
-            ]
-        );
+        $STMT->execute([
+            'order_id' => $this->order_id,
+            'product_id' => $this->product_id,
+            'quantity' => $this->quantity,
+            'price' => $this->price
+        ]);
     }
 
     public function getAll()
