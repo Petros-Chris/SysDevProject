@@ -32,8 +32,9 @@ class Product extends \app\core\Controller
 
 
         $this->view('Product/index', $item);
-        $re->displayReview();
         $cart->displayCart();
+        $re->displayReview();
+        
 
     }
 

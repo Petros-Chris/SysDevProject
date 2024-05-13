@@ -7,7 +7,7 @@ use stdClass;
 class Cart extends \app\core\Controller
 {
 
-public function viewCartCheckout()
+    public function viewCartCheckout()
     {
         if (isset($_SESSION['cart'])) {
             $cart = ($_SESSION['cart']);
@@ -39,7 +39,6 @@ public function viewCartCheckout()
 
     public function addToCart()
     {
-
         if (isset($_POST['id'])) {
             $product = new \app\models\Product();
             $item = $product->getId($_POST['id']);
@@ -81,7 +80,6 @@ public function viewCartCheckout()
                         '<span onclick=\"removeProductFromCart($pro_id)\">&#128465;</span><br>';
                     </script>";
             }
-            sleep(2);
             echo "<script> 
                         document.getElementById('popup').innerHTML += 
                         'Total: $price <br> <input type=button value=proceed>';
@@ -93,7 +91,10 @@ public function viewCartCheckout()
                             popup.classList.add('popup-visible');
                         }, 250);
                     </script>";
+        } else {
+            echo ("OOPS");
         }
+
     }
 
     public function removeFromCart()

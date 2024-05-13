@@ -18,7 +18,7 @@ function removeProductFromCart($product_id) {
             }
         }
     };
-    xhr.open('POST', '/Product/removeCart');
+    xhr.open('POST', '/Cart/removeCart');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.send('id=' + $product_id);
 }

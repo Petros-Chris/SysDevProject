@@ -16,12 +16,8 @@ $this->addRoute('Customer/about','Customer,about');
 $this->addRoute('Product/listing','Product,listings');
 $this->addRoute('Product/index','Product,description');
 $this->addRoute('Product/search','Product,search');
-$this->addRoute('Product/addCart','Product,addToCart');
-$this->addRoute('Product/view','Product,viewCart');
-$this->addRoute('Product/removeCart','Product,removeFromCart');
+
 // $this->addRoute('Product/eyeglasses','Product,listingFliter');
-$this->addRoute('Product/addCart','Product,addToCart');
-$this->addRoute('Product/removeCart','Product,removeFromCart');
 //admins
 $this->addRoute('Admin/index','Admin,index');
 $this->addRoute('Admin/modify','Admin,modify');
@@ -50,3 +46,7 @@ $this->addRoute('Order/charge','Order,charge');
 $this->addRoute('Order/success','Order,success');
 //order
 $this->addRoute('Order/createOrder','Order,createOrder');
+
+$this->addRoute('Cart/removeCart','Cart,removeFromCart');
+$this->addRoute('Cart/addCart','Cart,addToCart');
+$this->addRoute('Cart/view','Cart,viewCart');

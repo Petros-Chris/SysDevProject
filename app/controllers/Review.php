@@ -6,22 +6,21 @@ use stdClass;
 
 class Review extends \app\core\Controller
 {
+    #[\app\filters\IsCustomer]
     function update()
     {
         $review = new \app\models\Review();
-        $review = $review->get($_GET['id']);
+        $specificReview = $review->get($_GET['id']);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $specificReview->rating = $_POST['rating'];
+            $specificReview->description = $_POST['description'];
+            $specificReview->image_link = $_POST['image_link'];
 
-            $review->review_id = $_GET['id'];
-            $review->rating = $_POST['rating'];
-            $review->description = $_POST['description'];
-            $review->image_link = $_POST['image_link'];
-
-            $review->update();
-            header('location:/Review/update');
+            $specificReview->update();
+            header('location:/Review/index');
         } else {
-            $this->view('Review/edit', $review);
+            $this->view('Review/edit', $specificReview);
         }
     }
 
@@ -29,7 +28,6 @@ class Review extends \app\core\Controller
     function create()
     {
         $pro_id = $_SESSION['product_id'];
-
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -63,7 +61,7 @@ class Review extends \app\core\Controller
         }
         $ownsReview = isset($_SESSION['customer_id']);
         $cus_id = 0;
-        if($ownsReview) {
+        if ($ownsReview) {
             $cus_id = $_SESSION['customer_id'];
         }
 

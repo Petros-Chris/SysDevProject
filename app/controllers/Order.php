@@ -12,6 +12,10 @@ class Order extends \app\core\Controller
     function createOrder()
     {
 
+        $cart = new \app\controllers\Cart();
+
+        $cart->viewCartCheckout();
+
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
             $order = new \app\models\Order();

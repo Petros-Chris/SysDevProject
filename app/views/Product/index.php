@@ -53,14 +53,13 @@
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     console.log('Product added to cart:', $product_id);
-
-                    viewCart();
+                    viewCart()
                 } else {
                     console.error('Failed to add product to cart:', xhr.responseText);
                 }
             }
         };
-        xhr.open('POST', '/Product/addCart');
+        xhr.open('POST', '/Cart/addCart');
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.send('id=' + $product_id);
 
@@ -80,7 +79,7 @@
                 }
             }
         };
-        xhr.open('GET', 'Product/view'); // Make sure to provide the correct path
+        xhr.open('GET', '/Cart/view'); // Make sure to provide the correct path
         xhr.send();
     }
 </script>
