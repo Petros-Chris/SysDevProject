@@ -16,7 +16,6 @@ $this->addRoute('Customer/about','Customer,about');
 $this->addRoute('Product/listing','Product,listings');
 $this->addRoute('Product/index','Product,description');
 $this->addRoute('Product/search','Product,search');
-$this->addRoute('Product/search','Product,search');
 $this->addRoute('Product/addCart','Product,addToCart');
 $this->addRoute('Product/view','Product,viewCart');
 $this->addRoute('Product/removeCart','Product,removeFromCart');

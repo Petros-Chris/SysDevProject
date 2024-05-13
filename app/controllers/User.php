@@ -31,6 +31,7 @@ class User extends \app\core\Controller
 			header('location:/User/login');
 		} else {
 			$this->view('User/register');
+			include('app/views/footer.php');
 		}
 	}
 
@@ -69,6 +70,7 @@ class User extends \app\core\Controller
 			}
 		} else {
 			$this->view('User/Login');
+			include('app/views/footer.php');
 		}
 
 	}
