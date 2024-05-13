@@ -1,19 +1,38 @@
-<html>
-    <head>
-	    <title><?= $name ?> view</title>
-	    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title><?= $name ?> view</title>
+<link rel="stylesheet" type="text/css" href="/app/css/style.scss">
+</head>
+<body>
 
-    <body>
-        <p>Call Icon</p>
-        <p>Give Call Text</p>
+<div class="contact-text">
+    <h1>Get in touch</h1>
+    <p>Want to get in touch?</p>
+    <p>We'd love to hear from you. Here's how you can reach us</p>
+</div>
 
-        <p>Phone Number 1: 34623446457</p>
-        <p>Phone Number 2: 34623446457</p>
+<div class="contact-info">
+    <div class="email-box">
+        <img src="/app/resources/email.png" alt="Email Icon" class = "imgEmail">
+        <h3>Send an Email</h3>
+        <p>Want to contact us by email to ask any questions?</p>
+        <p>Email to company</p>
+        <a href="mailto:MesYeuxTesYeux@gmail.com">MesYeuxTesYeux@gmail.com</a>
+        <p>Talk to a representative</p>
+        <a href="mailto:PersonCompany@gmail.com">PersonCompany@gmail.com</a>
+    </div>
 
-        <p>Email Icon</p>
-        <p>Send Email Text</p>
-    
-        <p>Email: 1</p>
-        <p>Email: 2</p>
-    </body>
+    <div class="phone-box">
+    <img src="/app/resources/telephone.png" alt="phone Icon" class = "imgPhone">
+        <h3>Give us a call</h3>
+        <p>Would you like to talk to one of our agents?</p>
+        <p>Call our in-store agent</p>
+        <a href="tel:514-341-202">514-341-202</a>
+        <p>Prefer to book an appointment with one of our doctors?</p>
+        <a href="tel:450-xxx-xxx">450-xxx-xxx</a>
+    </div>
+</div>
+
+</body>
 </html>

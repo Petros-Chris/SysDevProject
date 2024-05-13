@@ -11,6 +11,7 @@ $this->addRoute('Customer/home','Customer,index');
 $this->addRoute('Customer/dashboard','Customer,dashboard');
 $this->addRoute('Customer/home','Customer,index');
 $this->addRoute('Customer/paypal','Customer,paypal');
+$this->addRoute('Customer/about','Customer,about');
 //products
 $this->addRoute('Product/listing','Product,listings');
 $this->addRoute('Product/index','Product,description');

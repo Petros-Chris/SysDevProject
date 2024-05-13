@@ -22,6 +22,11 @@
   flex-direction: column;
   box-sizing: border-box; /* Includes padding and border in the element's total width and height */
 }
+
+#imcool {
+  display: flex;
+}
+
 .product-image img {
   max-width: 100%;
   height: auto;
@@ -52,6 +57,18 @@
 
 .heart-icon.clicked {
   color: red;
+}
+
+.star-rating {
+  font-size: 24px;
+}
+
+.star {
+  color: #ddd;
+}
+
+.star.filled {
+  color: #ffcc00;
 }
 
 .popup {

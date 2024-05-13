@@ -344,7 +344,7 @@ ul {
 }
 
 #footer-license {
-  color: black;
+  color: white;
   font-size: 16px;
   text-transform: capitalize;
   font-weight: 300;
@@ -465,4 +465,146 @@ ul {
   font-size: 1.2em;
   font-weight: bold;
 
+}
+
+//----contact------//
+.phone-box {
+    margin-top: 20px;
+    background-color: #ffffff; 
+    padding: 20px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    float: left; 
+}
+
+.phone-box {
+    float: right; 
+}
+
+
+.contact-info {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 200px;
+  
+}
+
+.email-box,
+.phone-box {
+  flex: 1 0 45%;
+  margin-top: 20px;
+  text-align: center;
+
+}
+
+.email-box {
+  margin-right: 2%;
+}
+
+.contact-info:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.email-box h3,
+.phone-box h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.email-box a,
+.phone-box a {
+    display: block;
+    margin-bottom: 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.email-box a:hover,
+.phone-box a:hover {
+    text-decoration: underline;
+}
+
+.contact-text h1 {
+    margin-bottom: 10px;
+    padding-left: 0;
+    text-align: center;
+}
+
+.contact-text p{
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.email-box img,
+.phone-box img{
+  padding-bottom: 10px;
+}
+
+//-----about us ------//
+.header {
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+}
+
+.header p,
+.header h1 {
+  margin: 10px;
+  text-align: center;
+}
+
+.story-container {
+  padding: 40px;
+}
+
+.story-content {
+  display: flex;
+ // flex-wrap: wrap;
+  //justify-content: center;
+  padding-left: 20px;
+}
+
+.story-content2{
+  display: flex;
+  // flex-wrap: wrap;
+   //justify-content: center;
+   padding-right: 20px;
+
+}
+
+.story-image {
+  width: 40%;
+  margin-right: 20px;
+}
+
+.story-text {
+  width: 50%; 
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  padding:6rem 7rem 7rem;
+ // text-align: right;
+}
+
+.story-text-left {
+  width: 50%; 
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  padding:6rem 7rem 7rem;
+  
+}
+
+.story-image-left {
+  width: 40%; 
+  margin-left: 20px; 
 }
