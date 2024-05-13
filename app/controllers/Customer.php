@@ -81,7 +81,7 @@ class Customer extends \app\core\Controller
             $order->address = $_POST['address'];
             $order->total = $_POST['total'];
 
-            $order->insert();
+            //$order->insert();
 
             header('location:/User/login');
         } else {
@@ -102,4 +102,5 @@ class Customer extends \app\core\Controller
 		$this->view('Customer/about');
         include('app/views/footer.php');
 	}
+
 }

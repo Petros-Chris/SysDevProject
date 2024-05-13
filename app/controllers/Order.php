@@ -1,7 +1,7 @@
 <?php
 namespace app\controllers;
 
-require_once 'vendor/omnipay/paypal/config.php';
+//require_once 'vendor/omnipay/paypal/config.php';
 use Exception;
 use stdClass;
 
@@ -11,24 +11,43 @@ class Order extends \app\core\Controller
     #[\app\filters\IsCustomer]
     function createOrder()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        echo("ermm what the sigma");
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
+            echo("RAHAHHHH");
+            sleep(2);
             $order = new \app\models\Order();
-
             $order->customer_id = $_SESSION['customer_id'];
             $order->address = $_POST['address'];
-            $order->total = 0;
 
 
-            
+            $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
+            $total = 0;
+            foreach ($cart as $item) {
+                $total += $item->cost_price;
+            }
+            $order->total = $total;
 
-            $order->insertOrder_Customer();
+          
+            $order_id = $order->insertOrder_Customer();
 
-            header('location:/User/login');
+
+            foreach ($cart as $item) {
+                $item_order = new \app\models\Order(); 
+                $item_order->order_id = $order_id;
+                $item_order->product_id = $item->product_id;
+                $item_order->quantity = 1; 
+                $item_order->price = $item->cost_price;
+                $item_order->insertItem_Order();
+            }
+
+
+            header('location:/Order/Success');
         } else {
-            $this->view('Ticket/create');
+            $this->view('Customer/Checkout');
         }
     }
+
 
     function currentTickets()
     {
