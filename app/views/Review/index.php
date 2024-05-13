@@ -24,6 +24,11 @@
     foreach ($reviews as $review): ?>
 
         <div class='product-container'>
+            <?php if ($ownsReview): ?>
+                <?php if ($cus_id == $review->customer_id): ?>
+                    <a href="/Review/edit?id=<?= $review->review_id ?>">AAAA PANIC</a>
+                <?php endif; ?>
+            <?php endif; ?>
 
             <div class='product-details'>debug: <?= $review->review_id ?></div>
             <div class='product-brand'>User: <?= $review->customer_information->first_name ?>
@@ -35,8 +40,6 @@
             <div class='product-brand'>Created: <?= $review->timestamp ?></div>
 
         </div>
-        <!-- 1 1 1 1 1  5 stars -->
-        <!--  -->
         <!-- <a href='../Product/index?id=<<?= $review->product_id ?>'>  <br> -->
 
 

@@ -9,10 +9,11 @@ class Review extends \app\core\Controller
     function update()
     {
         $review = new \app\models\Review();
-        $review = $review->get($_GET['review_id']);
+        $review = $review->get($_GET['id']);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+            $review->review_id = $_GET['id'];
             $review->rating = $_POST['rating'];
             $review->description = $_POST['description'];
             $review->image_link = $_POST['image_link'];
@@ -20,7 +21,7 @@ class Review extends \app\core\Controller
             $review->update();
             header('location:/Review/update');
         } else {
-            $this->view('Review/update', $review);
+            $this->view('Review/edit', $review);
         }
     }
 
@@ -60,8 +61,13 @@ class Review extends \app\core\Controller
             $customerInfo = $customer->getById($review->customer_id);
             $review->customer_information = $customerInfo;
         }
+        $ownsReview = isset($_SESSION['customer_id']);
+        $cus_id = 0;
+        if($ownsReview) {
+            $cus_id = $_SESSION['customer_id'];
+        }
 
-        include 'app/views/Product/review.php';
+        include 'app/views/Review/index.php';
         include 'app/views/footer.php';
     }
 }

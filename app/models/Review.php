@@ -47,7 +47,7 @@ class Review extends \app\core\Model
 
     public function update()
     {
-        $SQL = 'UPDATE review SET rating = :rating, description = :description, image_link = :image_link, timestamp = :timestamp WHERE review_id = :review_id';
+        $SQL = 'UPDATE review SET rating = :rating, description = :description, image_link = :image_link WHERE review_id = :review_id';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute((array) $this);
     }
