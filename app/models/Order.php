@@ -21,13 +21,12 @@ class Order extends \app\core\Model
 
     public function insertOrder_Customer()
     {
-        $SQL = 'INSERT INTO customer_order(customer_id, address, total, status) VALUES (:customer_id, :address, :total, :status)';
+        $SQL = 'INSERT INTO customer_order(customer_id, address, total, status) VALUES (:customer_id, :address, :total, 0)';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute([
             'customer_id' => $this->customer_id,
             'address' => $this->address,
             'total' => $this->total,
-            'status' => 'OPEN'
         ]);
         return self::$_conn->lastInsertId(); // Capture and return the order ID
     }
@@ -67,11 +66,30 @@ class Order extends \app\core\Model
         return $STMT->fetchAll();
     }
 
+    public function getCustomerOrderInformationById($customer_id)
+    {
+        $SQL = 'SELECT * FROM customer_order WHERE customer_id = :customer_id';
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute(['customer_id' => $customer_id]);
+        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Order');
+        return $STMT->fetch();
+    }
+
     public function getAllOrderItems()
     {
         $SQL = 'SELECT * FROM order_item';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute();
+        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Order');
+        return $STMT->fetchAll();
+
+    }
+
+    public function getAllOrderItemsFromCustomer($customer_id)
+    {
+        $SQL = 'SELECT * FROM order_item WHERE customer_id = :customer_id';
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute(['customer_id' => $customer_id]);
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Order');
         return $STMT->fetchAll();
 

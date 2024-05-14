@@ -19,14 +19,15 @@
                         <?= $ticket->customer_information->last_name ?>
                     </div>
                     <!-- //Check if address exists -->
-                    <?php if (isset($ticket->customer_information->address)): ?>
-                        <div class='product-details'>Debug: <?= $ticket->customer_information->address ?></div>
+                    <?php if (isset($extraCustomerinfo->address)): ?>
+                        <dd><?= $extraCustomerinfo->address ?></dd>
                     <?php else: ?>
-                        <div class='product-details'>User Has No Address</div>
+                        <dd>User Has No Address</dd>
                     <?php endif; ?>
                 <?php else: ?>
                     <div class='product-details'>User Has Been Deleted</div>
                 <?php endif; ?>
+
                 <div class='product-details'>The Issue: <?= $ticket->issue ?></div>
                 <div class='product-brand'>Status: <?= $ticket->ticket_status_text ?></div>
             </a>

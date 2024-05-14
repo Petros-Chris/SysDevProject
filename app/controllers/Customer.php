@@ -28,8 +28,8 @@ class Customer extends \app\core\Controller
             $customer->update();
             header('location:/Customer/update');
         } else {
-            $this->view('Customer/update', $customer);
-            include('app/views/footer.php');
+            include 'app/views/Customer/update.php';
+            include ('app/views/footer.php');
         }
     }
 
@@ -39,7 +39,7 @@ class Customer extends \app\core\Controller
         $product = new \app\controllers\Cart();
         $product->viewCartCheckout();
         $this->view('Customer/checkout');
-        include('app/views/footer.php');
+        include ('app/views/footer.php');
     }
 
     #[\app\filters\IsCustomer]
@@ -60,18 +60,19 @@ class Customer extends \app\core\Controller
             header('location:/User/login');
         } else {
             $this->view('Customer/deactivate');
-            include('app/views/footer.php');
+            include ('app/views/footer.php');
         }
     }
 
     function index()
     {
         $this->view('Customer/home');
-        include('app/views/footer.php');
+        include ('app/views/footer.php');
     }
 
     #[\app\filters\IsCustomer]
-    function paypal(){
+    function paypal()
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $order = new \app\models\Order();
@@ -86,7 +87,7 @@ class Customer extends \app\core\Controller
             header('location:/User/login');
         } else {
             $this->view('client/checkout');
-            include('app/views/footer.php');
+            include ('app/views/footer.php');
         }
     }
 
@@ -95,12 +96,13 @@ class Customer extends \app\core\Controller
     function dashboard()
     {
         $this->view('Customer/dashboard');
-        include('app/views/footer.php');
+        include ('app/views/footer.php');
     }
 
-    function about(){
-		$this->view('Customer/about');
-        include('app/views/footer.php');
-	}
+    function about()
+    {
+        $this->view('Customer/about');
+        include ('app/views/footer.php');
+    }
 
 }

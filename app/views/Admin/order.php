@@ -13,7 +13,7 @@
     <dt>Email:</dt>
     <dd><?= $customerInfo->email ?></dd>
     <dt>Address:</dt>
-    <dd><?= $customerOrderInfo->address ?></dd>
+    <dd><?= $extraCustomerInfo->address ?></dd>
     <h1>Products Ordered:</h1>
     <?php
 
@@ -29,8 +29,8 @@
             <div class='product-details'>Size: <?= $orderInfo->product_information->size ?></div>
             <div class='product-details'>Type: <?= $orderInfo->product_information->optical_sun ?></div>
             <div class='product-details'>status: <?= $orderInfo->statusText ?></div>
-
         </div>
+
     <?php endforeach; ?>
 </body>
 

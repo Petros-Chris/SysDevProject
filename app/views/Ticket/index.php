@@ -11,7 +11,7 @@
         <dt>Email:</dt>
         <dd><?= $customerInfo->email ?></dd>
         <dt>Address:</dt>
-        <?php if (isset($ticket->customer_information->address)): ?>
+        <?php if (isset($extraCustomerinfo->address)): ?>
             <dd><?= $extraCustomerinfo->address ?></dd>
         <?php else: ?>
             <dd>User Has No Address</dd>

@@ -43,6 +43,15 @@ class Ticket extends \app\core\Model
         return $STMT->fetchAll();
     }
 
+    public function getAllByCustomerId($customer_id)
+    {
+        $SQL = 'SELECT * FROM ticket WHERE customer_id = :customer_id';
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute(['customer_id' => $customer_id]);
+        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Ticket');
+        return $STMT->fetchAll();
+    }
+
     public function get($email)
     {
         $SQL = 'SELECT * FROM Customer WHERE email = :email';

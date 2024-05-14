@@ -131,7 +131,6 @@ class Admin extends \app\core\Controller
 
             $password = $_POST['password'];
 
-            //Currently, Admin and Employee have no login system, so there is no password to get
             //if($customer && password_verify($password, $customer->password_hash)){
 
             $customer->disable($_GET['id']);
@@ -168,35 +167,6 @@ class Admin extends \app\core\Controller
         }
 
         include 'app/views/Admin/orders.php';
-        include 'app/views/footer.php';
-    }
-
-    function viewCustomerOrder()
-    {
-        $order = new \app\models\Order();
-        $customer = new \app\models\Customer();
-        $product = new \app\models\Product();
-
-        $orderInfomation = $order->getItemsPerOrder($_GET['order_id']);
-        $customerOrderInfo = $order->getOrdersByCustomerId($_GET['cust_id']);
-        $customerInfo = $customer->getById($_GET['cust_id']);
-
-        foreach ($orderInfomation as $order) {
-            $order->product_information = $product->getId($order->product_id);
-            $status = $order->status;
-
-            switch ($status) {
-                case 1: {
-                    $order->statusText = "Processed";
-                    break;
-                }
-                default: {
-                    $order->statusText = "Needs To Be Processed";
-                    break;
-                }
-            }
-        }
-        include 'app/views/Admin/order.php';
         include 'app/views/footer.php';
     }
 }

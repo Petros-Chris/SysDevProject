@@ -38,10 +38,41 @@ class Ticket extends \app\core\Controller
         foreach ($tickets as $ticket) {
             $tick_status = $ticket->ticket_status;
             $customerInfo = $customer->getById($ticket->customer_id);
-            $extraCustomerinfo = $order->getOrdersByCustomerId($ticket->customer_id);
+            $extraCustomerinfo = $order->getCustomerOrderInformationById($ticket->customer_id);
 
             $ticket->customer_information = $customerInfo;
             $ticket->extra_customer_information = $extraCustomerinfo;
+            
+
+            switch ($tick_status) {
+                case 1:
+                    $ticket->ticket_status_text = "Closed";
+                    break;
+
+                default:
+                    $ticket->ticket_status_text = "Ongoing";
+            }
+        }
+        include 'app/views/Ticket/list.php';
+        include 'app/views/footer.php';
+    }
+
+    function currentTicketsForSpecificCustomer()
+    {
+        $ticket = new \app\models\Ticket();
+        $order = new \app\models\Order();
+        $customer = new \app\models\Customer();
+
+        $tickets = $ticket->getAllByCustomerId($_SESSION['customer_id']);
+
+        foreach ($tickets as $ticket) {
+            $tick_status = $ticket->ticket_status;
+            $customerInfo = $customer->getById($ticket->customer_id);
+            $extraCustomerinfo = $order->getCustomerOrderInformationById($ticket->customer_id);
+
+            $ticket->customer_information = $customerInfo;
+            $ticket->extra_customer_information = $extraCustomerinfo;
+            
 
             switch ($tick_status) {
                 case 1:
@@ -65,7 +96,7 @@ class Ticket extends \app\core\Controller
         $ticketInfo = $ticket->getId($_GET['id']);
         $tick_status = $ticketInfo->ticket_status;
         $customerInfo = $customer->getById($ticketInfo->customer_id);
-        $extraCustomerinfo = $order->getOrdersByCustomerId($ticketInfo->customer_id);
+        $extraCustomerinfo = $order->getCustomerOrderInformationById($ticketInfo->customer_id);
 
         $ticket->customer_information = $customerInfo;
         $ticket->extra_customer_information = $extraCustomerinfo;
