@@ -13,6 +13,8 @@ class Customer extends \app\core\Model
     public $password_hash;
     public $email_activated;
     public $disable;
+    public $whole_customer;
+    public $disable_text;
 
     public function insert()
     {
@@ -62,11 +64,11 @@ class Customer extends \app\core\Model
         $STMT->execute((array) $this);
     }
 
-    function disable($customer_id)
+    function disableOrEnable($customer_id, $status)
     {
         $SQL = 'UPDATE Customer SET disable = :disable WHERE customer_id = :customer_id';
         $STMT = self::$_conn->prepare($SQL);
-        $data = ['customer_id' => $customer_id, 'disable' => 1];
+        $data = ['customer_id' => $customer_id, 'disable' => $status];
         $STMT->execute($data);
     }
 }

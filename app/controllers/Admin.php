@@ -106,18 +106,22 @@ class Admin extends \app\core\Controller
         $customer = new \app\models\Customer();
         $customers = $customer->getAll();
 
-        $this->view('Admin/customerList');
-
         foreach ($customers as $customer) {
-            $cust_id = $customer->customer_id;
-            $cus_first_name = $customer->first_name;
-            $cus_last_name = $customer->last_name;
-            $cus_email = $customer->email;
-            $cus_email_activated = $customer->email_activated;
-            $cus_disabled = $customer->disable;
+            $customer->whole_customer = $customer;
 
-            echo "<a href='../Admin/disableCustomer?id=$cust_id'>$cus_last_name $cus_first_name is Disabled $cus_disabled</a><br>";
+            switch ($customer->disable) {
+                case 0:
+                    $customer->disable_text = "Enabled";
+                    break;
+                case 1:
+                    $customer->disable_text = "Disabled";
+                    break;
+            }
+
         }
+        include 'app/views/Admin/customerList.php';
+        include 'app/views/footer.php';
+
     }
 
     function deactivate()
@@ -133,8 +137,30 @@ class Admin extends \app\core\Controller
 
             //if($customer && password_verify($password, $customer->password_hash)){
 
-            $customer->disable($_GET['id']);
-            session_destroy();
+            $customer->disableOrEnable($_GET['id'], 1);
+            // session_destroy();
+            //}
+            //  header('location:/User/login');
+            //} else {
+            header('location:/Admin/customerList');
+        }
+    }
+
+    function reactivate()
+    {
+        $customer = new \app\models\Customer();
+        $cust = $customer->getById($_GET['id']);
+
+        $this->view('Admin/enableCustomer', $cust);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $password = $_POST['password'];
+
+            //if($customer && password_verify($password, $customer->password_hash)){
+
+            $customer->disableOrEnable($_GET['id'], 0);
+            // session_destroy();
             //}
             //  header('location:/User/login');
             //} else {

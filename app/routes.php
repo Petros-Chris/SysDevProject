@@ -25,6 +25,7 @@ $this->addRoute('Admin/create', 'Admin,create');
 $this->addRoute('Admin/productListing', 'Admin,listings');
 $this->addRoute('Admin/customerList', 'Admin,customerList');
 $this->addRoute('Admin/disableCustomer', 'Admin,deactivate');
+$this->addRoute('Admin/enableCustomer', 'Admin,reactivate');
 //employee
 $this->addRoute('Employee/creation', 'Employee,register');
 $this->addRoute('Employee/index', 'Employee,index');
@@ -37,6 +38,8 @@ $this->addRoute('Ticket/create', 'Ticket,createTicket');
 $this->addRoute('Ticket/ongoing', 'Ticket,currentTickets');
 $this->addRoute('Ticket/allTickets', 'Ticket,currentTicketsForSpecificCustomer');
 $this->addRoute('Ticket/index', 'Ticket,description');
+//ticketMessage
+$this->addRoute('Ticket/createMessage', 'TicketMessage,createMessage');
 //review
 $this->addRoute('Review/create', 'Review,create');
 $this->addRoute('Review/edit', 'Review,update');

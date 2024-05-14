@@ -17,7 +17,7 @@ class Ticket extends \app\core\Model
     public $ticket_status_text;
 
     public $customer_information;
-    
+
     public $extra_customer_information;
 
     public function insert()

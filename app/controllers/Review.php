@@ -96,7 +96,6 @@ class Review extends \app\core\Controller
         $cus_id = $_SESSION['customer_id'];
         $reviews = $review->getAllFromCustomerId($cus_id);
 
-        //This adds the customer information into the review
         foreach ($reviews as $review) {
             $customerInfo = $customer->getById($review->customer_id);
             $review->customer_information = $customerInfo;

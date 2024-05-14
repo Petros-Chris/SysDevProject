@@ -42,7 +42,7 @@ class Ticket extends \app\core\Controller
 
             $ticket->customer_information = $customerInfo;
             $ticket->extra_customer_information = $extraCustomerinfo;
-            
+
 
             switch ($tick_status) {
                 case 1:
@@ -72,7 +72,7 @@ class Ticket extends \app\core\Controller
 
             $ticket->customer_information = $customerInfo;
             $ticket->extra_customer_information = $extraCustomerinfo;
-            
+
 
             switch ($tick_status) {
                 case 1:
@@ -111,6 +111,9 @@ class Ticket extends \app\core\Controller
         }
 
         include 'app/views/Ticket/index.php';
+
+        $ticketMessage = new \app\controllers\TicketMessage();
+        $ticketMessage->viewMessage();
         include 'app/views/footer.php';
     }
 

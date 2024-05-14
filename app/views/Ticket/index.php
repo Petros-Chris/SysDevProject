@@ -24,6 +24,8 @@
         <dt>Description</dt>
         <dd><?= $ticketInfo->issue_description ?></dd>
     </div>
+
+    <a href="/Ticket/createMessage?ticket_id=<?= $ticketInfo->ticket_id ?>">Add A Message</a>
 </body>
 
 </html>
