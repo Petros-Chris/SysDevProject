@@ -19,19 +19,23 @@ class Customer extends \app\core\Model
         $SQL = 'INSERT INTO Customer(first_name, last_name, email, password_hash) VALUES (:first_name, :last_name, :email, :password_hash)';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute(
-            ['first_name'=>$this->first_name,
-            'last_name'=> $this->last_name,
-            'email'=>$this->email,
-            'password_hash'=>$this->password_hash]);
+            [
+                'first_name' => $this->first_name,
+                'last_name' => $this->last_name,
+                'email' => $this->email,
+                'password_hash' => $this->password_hash
+            ]
+        );
     }
 
-    public function getAll(){
-		$SQL = 'SELECT * FROM Customer';
-		$STMT = self::$_conn->prepare($SQL);
-		$STMT->execute();
-		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Customer');
-		return $STMT->fetchAll();
-	}
+    public function getAll()
+    {
+        $SQL = 'SELECT * FROM Customer';
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute();
+        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Customer');
+        return $STMT->fetchAll();
+    }
 
     public function get($email)
     {

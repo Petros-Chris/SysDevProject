@@ -12,6 +12,8 @@
     <dd><?= $customerInfo->last_name ?></dd>
     <dt>Email:</dt>
     <dd><?= $customerInfo->email ?></dd>
+    <dt>Address:</dt>
+    <dd><?= $customerOrderInfo->address ?></dd>
     <h1>Products Ordered:</h1>
     <?php
 

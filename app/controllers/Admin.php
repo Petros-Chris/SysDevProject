@@ -178,11 +178,11 @@ class Admin extends \app\core\Controller
         $product = new \app\models\Product();
 
         $orderInfomation = $order->getItemsPerOrder($_GET['order_id']);
+        $customerOrderInfo = $order->getOrdersByCustomerId($_GET['cust_id']);
         $customerInfo = $customer->getById($_GET['cust_id']);
 
         foreach ($orderInfomation as $order) {
             $order->product_information = $product->getId($order->product_id);
-
             $status = $order->status;
 
             switch ($status) {
@@ -196,9 +196,7 @@ class Admin extends \app\core\Controller
                 }
             }
         }
-
         include 'app/views/Admin/order.php';
         include 'app/views/footer.php';
-
     }
 }

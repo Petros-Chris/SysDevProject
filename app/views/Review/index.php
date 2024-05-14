@@ -18,7 +18,9 @@
 
 <body>
     <br>
-    <a href='/Review/create'>Make A Review</a> <br>
+    <?php if ($canMakeNewReview): ?>
+        <a href='/Review/create'>Make A Review</a> <br>
+    <?php endif; ?>
 
     <?php
     foreach ($reviews as $review): ?>
@@ -38,12 +40,11 @@
                 <script>document.write(generateStarRating(<?= $review->rating ?>))</script></div>
             <div class='product-brand'>Description: <?= $review->description ?></div>
             <div class='product-brand'>Created: <?= $review->timestamp ?></div>
+            <?php if (!$canMakeNewReview): ?>
+                <a href="/Product/index?id=<?= $review->product_id ?>">Go To Product</a>
+            <?php endif; ?>
 
         </div>
-        <!-- <a href='../Product/index?id=<<?= $review->product_id ?>'>  <br> -->
-
-
-
     <?php endforeach; ?>
 </body>
 

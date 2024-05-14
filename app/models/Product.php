@@ -102,16 +102,20 @@ class Product extends \app\core\Model
         return $STMT->fetchAll();
     }
 
-    public function getMultiFilter($type, $type2, $type3, $type4, $type5, $filter)
+    public function getMultiFilter($type, $type2, $type3, $type4, $type5, $type6, $filter)
     {
-        $SQL = "SELECT * FROM product WHERE $type LIKE :$type OR $type2 LIKE :$type2 OR $type3 LIKE :$type3 OR $type4 LIKE :$type4 OR $type5 LIKE :$type5";
+        $SQL = "SELECT * FROM product WHERE $type LIKE :$type
+            OR $type2 LIKE :$type2 OR $type3 LIKE :$type3
+            OR $type4 LIKE :$type4 OR $type5 LIKE :$type5
+            OR $type6 LIKE :$type6";
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute([
             "$type" => '%' . $filter . '%',
             "$type2" => '%' . $filter . '%',
             "$type3" => '%' . $filter . '%',
             "$type4" => '%' . $filter . '%',
-            "$type5" => '%' . $filter . '%'
+            "$type5" => '%' . $filter . '%',
+            "$type6" => '%' . $filter . '%'
         ]);
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Product');
         return $STMT->fetchAll();

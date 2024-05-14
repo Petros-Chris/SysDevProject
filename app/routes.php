@@ -40,6 +40,7 @@ $this->addRoute('Ticket/index','Ticket,description');
 $this->addRoute('Review/create','Review,create');
 $this->addRoute('Review/edit','Review,update');
 $this->addRoute('Review/delete','Review,delete');
+$this->addRoute('Review/byUser','Review,displayUserReview');
 //misc
 $this->addRoute('contact','User,contact');
 //paypal

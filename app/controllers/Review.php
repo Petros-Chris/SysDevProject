@@ -18,7 +18,7 @@ class Review extends \app\core\Controller
             $specificReview->image_link = $_POST['image_link'];
 
             $specificReview->update();
-            header('location:/Review/index');
+            header("Location:/Product/index?id=$_SESSION[product_id]");
         } else {
             $this->view('Review/edit', $specificReview);
         }
@@ -82,6 +82,27 @@ class Review extends \app\core\Controller
         if ($ownsReview) {
             $cus_id = $_SESSION['customer_id'];
         }
+        $canMakeNewReview = true;
+
+        include 'app/views/Review/index.php';
+        include 'app/views/footer.php';
+    }
+
+    function displayUserReview()
+    {
+        $review = new \app\models\Review();
+        $customer = new \app\models\Customer();
+
+        $cus_id = $_SESSION['customer_id'];
+        $reviews = $review->getAllFromCustomerId($cus_id);
+
+        //This adds the customer information into the review
+        foreach ($reviews as $review) {
+            $customerInfo = $customer->getById($review->customer_id);
+            $review->customer_information = $customerInfo;
+        }
+        $ownsReview = true;
+        $canMakeNewReview = false;
 
         include 'app/views/Review/index.php';
         include 'app/views/footer.php';

@@ -42,7 +42,7 @@ class Product extends \app\core\Controller
     {
         $product = new \app\models\Product();
 
-        $products = $product->getMultiFilter('color', 'brand', 'shape', 'description', 'optical_sun', $_GET['search']);
+        $products = $product->getMultiFilter('color', 'brand', 'shape', 'description', 'optical_sun', 'model', $_GET['search']);
 
         include 'app/views/Product/listing.php';
         include 'app/views/footer.php';

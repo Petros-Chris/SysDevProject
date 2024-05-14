@@ -14,6 +14,12 @@ class Ticket extends \app\core\Model
     public $ticket_status;
     public $timestamp;
 
+    public $ticket_status_text;
+
+    public $customer_information;
+    
+    public $extra_customer_information;
+
     public function insert()
     {
         $SQL = 'INSERT INTO ticket(product_id, customer_id, issue, issue_description, ticket_status) VALUES (:product_id, :customer_id, :issue, :issue_description, 0)';

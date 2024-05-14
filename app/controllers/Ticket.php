@@ -30,39 +30,57 @@ class Ticket extends \app\core\Controller
     function currentTickets()
     {
         $ticket = new \app\models\Ticket();
+        $order = new \app\models\Order();
+        $customer = new \app\models\Customer();
 
         $tickets = $ticket->getAll();
 
         foreach ($tickets as $ticket) {
-            $tick_id = $ticket->ticket_id;
-            $tick_issue = $ticket->issue;
-            $cus_id = $ticket->customer_id;
             $tick_status = $ticket->ticket_status;
-            $tick_status_text = "";
+            $customerInfo = $customer->getById($ticket->customer_id);
+            $extraCustomerinfo = $order->getOrdersByCustomerId($ticket->customer_id);
 
-            if ($tick_status == 0) {
-                $tick_status_text = "Ongoing";
-            } else {
-                $tick_status_text = "Closed";
+            $ticket->customer_information = $customerInfo;
+            $ticket->extra_customer_information = $extraCustomerinfo;
+
+            switch ($tick_status) {
+                case 1:
+                    $ticket->ticket_status_text = "Closed";
+                    break;
+
+                default:
+                    $ticket->ticket_status_text = "Ongoing";
             }
-
-            echo "<a href='../Ticket/index?id=$tick_id'> <div class='product-container'>
-                        
-                            <div class='product-details'>The Issue: $tick_issue</div>
-                            <div class='product-brand'>User: $cus_id</div>
-                            <div class='product-brand'>Status: $tick_status_text</div>
-                            
-                    </a></div>";
         }
-
-        $this->view('Ticket/list');
+        include 'app/views/Ticket/list.php';
+        include 'app/views/footer.php';
     }
 
     function description()
     {
         $ticket = new \app\models\Ticket();
+        $order = new \app\models\Order();
+        $customer = new \app\models\Customer();
+
         $ticketInfo = $ticket->getId($_GET['id']);
-        $this->view('Ticket/index', $ticketInfo);
+        $tick_status = $ticketInfo->ticket_status;
+        $customerInfo = $customer->getById($ticketInfo->customer_id);
+        $extraCustomerinfo = $order->getOrdersByCustomerId($ticketInfo->customer_id);
+
+        $ticket->customer_information = $customerInfo;
+        $ticket->extra_customer_information = $extraCustomerinfo;
+
+        switch ($tick_status) {
+            case 1:
+                $ticket->ticket_status_text = "Closed";
+                break;
+
+            default:
+                $ticket->ticket_status_text = "Ongoing";
+        }
+
+        include 'app/views/Ticket/index.php';
+        include 'app/views/footer.php';
     }
 
 }
