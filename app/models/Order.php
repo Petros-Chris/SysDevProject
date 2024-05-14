@@ -15,6 +15,9 @@ class Order extends \app\core\Model
     public $timestamp;
     public $quantity;
     public $price;
+    public $customer_information;
+    public $product_information;
+    public $statusText;
 
     public function insertOrder_Customer()
     {
@@ -83,11 +86,11 @@ class Order extends \app\core\Model
         return $STMT->fetch();
     }
 
-    public function getId($ticket_id)
+    public function getId($customer_id)
     {
         $SQL = 'SELECT * FROM ticket WHERE ticket_id = :ticket_id';
         $STMT = self::$_conn->prepare($SQL);
-        $STMT->execute(['ticket_id' => $ticket_id]);
+        $STMT->execute(['ticket_id' => $customer_id]);
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Ticket');
         return $STMT->fetch();
     }

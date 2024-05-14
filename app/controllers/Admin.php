@@ -142,6 +142,63 @@ class Admin extends \app\core\Controller
             header('location:/Admin/customerList');
         }
     }
+
+    function viewCustomerOrders()
+    {
+        $order = new \app\models\Order();
+        $allCustOrders = $order->getAllOrders();
+
+        //To Get Customer Information (needed?)
+        foreach ($allCustOrders as $custOrder) {
+            // $customerInfo = $custOrder->getById($custOrder->customer_id);
+            // $custOrder->customer_information = $customerInfo;
+
+            $status = $custOrder->status;
+
+            switch ($status) {
+                case 1: {
+                    $custOrder->statusText = "Processed";
+                    break;
+                }
+                default: {
+                    $custOrder->statusText = "Needs To Be Processed";
+                    break;
+                }
+            }
+        }
+
+        include 'app/views/Admin/orders.php';
+        include 'app/views/footer.php';
+    }
+
+    function viewCustomerOrder()
+    {
+        $order = new \app\models\Order();
+        $customer = new \app\models\Customer();
+        $product = new \app\models\Product();
+
+        $orderInfomation = $order->getItemsPerOrder($_GET['order_id']);
+        $customerInfo = $customer->getById($_GET['cust_id']);
+
+        foreach ($orderInfomation as $order) {
+            $order->product_information = $product->getId($order->product_id);
+
+            $status = $order->status;
+
+            switch ($status) {
+                case 1: {
+                    $order->statusText = "Processed";
+                    break;
+                }
+                default: {
+                    $order->statusText = "Needs To Be Processed";
+                    break;
+                }
+            }
+        }
+
+        include 'app/views/Admin/order.php';
+        include 'app/views/footer.php';
+
+    }
 }
-
-

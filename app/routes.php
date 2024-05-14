@@ -48,6 +48,9 @@ $this->addRoute('Order/success','Order,success');
 //order
 $this->addRoute('Order/createOrder','Order,createOrder');
 
+$this->addRoute('Admin/orders','Admin,viewCustomerOrders');
+$this->addRoute('Admin/order','Admin,viewCustomerOrder');
+
 $this->addRoute('Cart/removeCart','Cart,removeFromCart');
 $this->addRoute('Cart/addCart','Cart,addToCart');
 $this->addRoute('Cart/view','Cart,viewCart');

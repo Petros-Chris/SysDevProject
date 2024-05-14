@@ -9,5 +9,6 @@
         <li><a href='/Admin/customerList'>Disable User Account</a></li>
         <li><a href='/Ticket/ongoing'>View All Ongoing Tickets</a></li>
         <li><a href='/Employee/creation'>Create A New Employee</a></li>
+        <li><a href='/Admin/orders'>View All Orders</a></li>
     </body>
 </html>
