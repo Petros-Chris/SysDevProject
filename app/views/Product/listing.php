@@ -2,16 +2,11 @@
 <html>
 
 <head>
-    <title><?= $name ?> view</title>
-    <link rel="stylesheet" type="text/css" href="/app/style.scss">
+	<title><?= $name ?> view</title>
+	<link rel="stylesheet" type="text/css" href="/app/css/style.scss">
 </head>
-
 <body>
-    <form action="/Product/search" method="GET">
-        <label for="search">Search:</label>
-        <input type="text" id="search" name="search" placeholder='eg: Black'>
-        <button type="submit">Search</button>
-    </form>
+
 
     <div id="imcool">
         <?php foreach ($products as $product): ?>
