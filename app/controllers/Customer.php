@@ -66,8 +66,13 @@ class Customer extends \app\core\Controller
 
     function index()
     {
+
+        
+
         $this->view('Customer/home');
         include('app/views/footer.php');
+
+        
     }
 
     #[\app\filters\IsCustomer]

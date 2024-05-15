@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "dark-voltage-422922-r4",
+  "private_key_id": "348a3156f03969a50fceae961a5992a83013ff9a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEugIBADANBgkqhkiG9w0BAQEFAASCBKQwggSgAgEAAoIBAQCal243S9AJGg4m\nUE9T6bY8p9WSvP4DoNJzvzQvhSm149OsCDEAggwbVGzdNLf4cImXNCN5WBQObxBJ\nj7qulGirr4F813BAHTLZVrQrOv+jIlAEN9oEJjRuJc3vvyYfnMIiV+yFDzZtZOQS\nyqJDVoFo93BIzM3oNBQJqfEPvav54NJXPrGQdkRoPSebcVU9ylZd0pzCJo9w91LQ\n4hEYUEYM2aVUn/yVf2vpMQys1VCq6XyXW1roQV8i+yKOjg2qqSqXdtrHYgk+M+06\nXECQS+tJknZ0I4uhVL70VulDluKOt2O71s19jFkCgZsEQzXdqdzn/eTQoKRtkYHY\nnj4VZDoPAgMBAAECgf8WCoEsYSLIKW7bB5hH3oqdG1DYGxocalGXLyvBmrrXtCP5\n4zEZYXFYdDERWPLh+Smk5UopguVZKXypAFUdjwtdbyiHJDBc88zMMBCAGWlZWQsP\njucGsGvJSJqUFCzbVP5Y5zBRyFl6P2hFRZ7c+vh4fs8Dki/Ja6NvvUshc2mRtsOM\nVqzm7a6mOmYUZ+9N5GCV5nrxV0VpdUoAn+nq+71M9Edwtv1fFGTLTqMmdQ/D/RIA\nhKQnF7vkh2CXpwEu+gjqxgfv5y4H2qAOwY9x0Ob7mhVchYuelCLfD9Pixh+LKt0q\nhBwuM9LKJguqiW66e+ZOFs1m5S/uVRI+ENK+UC0CgYEAx1KZVVLfrvC3Yk0P7l6g\nVOKlMFWOQDEKAsCvX7D27FjP3Ecmh1nUMfxohkEnSnC7Puwr93Hof3NV/vtHZYUI\nuCGEBYeNjRx1+W05bbRHn0yy+f2nL41NCfrBDdwe3TQwB1qhPhPbWY4+KATQlwyd\n/OsWwro29AccYY42deBXJDsCgYEAxoyx0ckiREOMcn1Wx5a8BSUQ6EPEZgY1i/S/\njglixGyK+uNvbZ1fuQ5xVZ+egukr4o6CjFim0cLX2RTSQBe6+HdK3krQKG6n0Vo+\nDRF8moyf5ez7QopkmUVY2EOwESdk8NXG6TZnU6yRwXKYgOasSqxTF6FNAkbCQtW3\n+qRQSD0CgYA8zA8FHZAo9jeZflP7q1VQTwl/4rjPD6Y0DL3xfDL1CGnukK1J37Z/\nwLPJL5pidFxI5xTKFy6JoY57hf3TE28DawWwAhbFEgdSG2TG95RZHLYC1sHmGT2E\na73zEk8/valgtN415yyi9mYzIrTVPf36pWJ95vrYGEsp3ozyC4nI/QKBgHTAPLvY\nYt7zPX4BN+srNqprzlJVrwIzOn9uzsjtufc4wEyhOl+hf60o0foAX0wpYlXZaOiw\nJIAJ67TJqoxnp9j9BLhME7UCxIm1X/F9S+DxOgEQ5fqNuHPsND8PJlQf7xozCsEN\n7ZplSlwPT5/UhJFwXXfysH7bLtXwKDwpLNAdAoGAC48NLzlf9fb45MJ6gjQJtCwY\n5I1dcFS2UfBKezRyctnU1MVd3nPSYc8kTltiEVWiWRMpBELGnCtYl4Z7GcUP1w+l\nyrQ+O5iSEaFsJmaSbjWTQokPFf2MdJyLNI3jvbJ6GMB55W4KBU0iTP2rt9kts9VB\nlCuyyy8WUu3ddnNMThc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "glass-image-storage@dark-voltage-422922-r4.iam.gserviceaccount.com",
+  "client_id": "117099837842855281169",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/glass-image-storage%40dark-voltage-422922-r4.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
