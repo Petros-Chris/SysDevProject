@@ -3,6 +3,7 @@ namespace app\models;
 
 use PDO;
 use PDOException;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class Product extends \app\core\Model
 {
@@ -128,4 +129,5 @@ class Product extends \app\core\Model
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Product');
         return $STMT->fetchAll();
     }
+
 }

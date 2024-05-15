@@ -42,7 +42,13 @@
         <?php endif; ?>
 
         <?php if (!isset($_SESSION['isAdmin']) && isset($_SESSION['employee_id'])): ?>
-            <li class="menu-item"><a href='/Employee/index'>Employee</a></li>
+            <li class="menu-item"><a href='/Employee/index'>Employee</a>
+                <ol class="sub-menu">
+                    <li class="menu-item"><a href='/Admin/productListing'><?= __('Modify Product') ?></a></li>
+                    <li class="menu-item"><a href='/Ticket/ongoing'><?= __('Ongoing Tickets') ?></a></li>
+                    <li class="menu-item"><a href='/Employee/index'><?= __('More') ?></a></li>
+                </ol>
+            </li>
         <?php endif; ?>
 
         <li class="menu-item"><a href="\about">About</a>
@@ -76,8 +82,9 @@
                 <li class="menu-item"><button onclick="updateLanguageCookie('en')">english</button></li>
             </ol>
         </li>
-
-        <li class="menu-item"><a href="\User\logout">Log Out</a></li>
+        <?php if (isset($_SESSION['customer_id']) || isset($_SESSION['employee_id'])): ?>
+            <li class="menu-item"><a href="\User\logout">Log Out</a></li>
+        <?php endif; ?>
     </ol>
 
 

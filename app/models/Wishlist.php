@@ -19,7 +19,7 @@ class Wishlist extends \app\core\Model
             'customer_id'=>$this->customer_id]);
     }
 
-    public function getAllFromCustomer($customer_id)
+    public function getAllHearts($customer_id)
     {
         $SQL = 'SELECT * FROM wishlist WHERE customer_id = :customer_id';
         $STMT = self::$_conn->prepare($SQL);
