@@ -16,7 +16,7 @@
             <a href='../Product/index?id=<?= $product->product_id ?>'>
                 <div class='product-container'>
                     <div class='product-image'> 
-                        <img src='/app/resources/questionMark.png' alt='<?= $product->description ?>'>
+                        <img src='/app/resources/images/product_<?= $product->product_id ?>.png' alt='<?= $product->description ?>'>
                     </div>
                     </a>
                     <div class='product-details'>
