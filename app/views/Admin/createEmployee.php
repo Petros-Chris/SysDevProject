@@ -6,7 +6,7 @@
 
 <body>
     <div class="login-container">
-        <h1>New Employee</h1>
+        <h1><?= __('New Employee') ?></h1>
         <form id="registerForm" method='post'>
             <input type="text" name="first_name" placeholder="First Name" required />
 
@@ -19,7 +19,8 @@
 
             <input type="submit" name="action" value="Register" />
 
-            <button type="button" onclick="window.location.href = '/Admin/index'" class="signup-button">Go Back</button>
+            <button type="button" onclick="window.location.href = '/Admin/index'"
+                class="signup-button"><?= __('Go Back') ?></button>
         </form>
     </div>
 </body>

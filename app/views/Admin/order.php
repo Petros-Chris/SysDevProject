@@ -5,16 +5,16 @@
 </head>
 
 <body>
-    <h1>Customer:</h1>
-    <dt>First Name:</dt>
+    <h1><?= __('Customer') ?>:</h1>
+    <dt><?= __('First Name') ?>:</dt>
     <dd><?= $customerInfo->first_name ?></dd>
-    <dt>Last Name:</dt>
+    <dt><?= __('Last Name') ?>:</dt>
     <dd><?= $customerInfo->last_name ?></dd>
-    <dt>Email:</dt>
+    <dt><?= __('Email') ?>:</dt>
     <dd><?= $customerInfo->email ?></dd>
-    <dt>Address:</dt>
+    <dt><?= __('Address') ?>:</dt>
     <dd><?= $extraCustomerInfo->address ?></dd>
-    <h1>Products Ordered:</h1>
+    <h1><?= __('Products Ordered') ?>:</h1>
     <?php
 
     foreach ($orderInfomation as $orderInfo): ?>
