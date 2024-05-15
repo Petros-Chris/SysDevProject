@@ -15,30 +15,30 @@
 	<div class="story-container">
 		<div class="story-content">
 			<div class="story-image">
-				<img src="/app/resources/email.png" alt="Image description" height="100%" ; width="100%" ;>
+				<img src="/app/resources/peopleTryingOnGlasses.png" alt="Image description" height="100%" ; width="100%" ;>
 			</div>
 
 			<div class="story-text">
-				<h3>From optician to designer</h3>
-				<p>Optician, entrepreneur and designer, Marie-Sophie Dion (MSD) is the founder of the Mes Yeux Tes yeux
-					concept, where the customer lets himself be served like a king. Since entering the field in 1992,
-					she quickly made known her talent as a curator for creative and avant-garde frames, all over the
-					world. 300 distinct models are offered in 28 colors and are available exclusively at our 5
-					boutiques.</p>
+				<h3><?= __('Welcome to Mes Yeux Tes Yeux') ?></h3>
+				<p><?= __('your premier destination for high-end fashion eyewear and cutting-edge optical solutions. Nestled in Mount Royal at 2324 Lucerne Rd, 
+					we have proudly served our community for nearly 30 years.
+					At Mes Yeux Tes Yeux, we curate an exquisite collection of eyewear from the most coveted fashion brands, offering both optical glasses and sunglasses that epitomize luxury\
+					 and innovation. Our commitment to quality and excellence is exemplified by our exclusive retail 
+					 partnership with the renowned Japanese optical company, TOKAI. Through this exclusive collaboration, 
+					 we provide our customers with access to TOKAI\'s revolutionary neuroscience lenses and advanced progressive lens technology.
+					  These lenses feature extraordinary coatings designed to endure the test of time, ensuring superior visual clarity and durability') ?></p>
 			</div>
 		</div>
 		<br>
 
 		<div class="story-content2">
 			<div class="story-text-left">
-				<h3><?= __('Second content heading') ?></h3>
-				<p>orem Ipsum is simply dummy text of the printing and
-					typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-					when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-					survived not only five centuries, but also the leap into electronic typesetting, remaining
-					essentially unchanged. It was popularised
-					in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-					and ecently with ds PageMaker including versions of Lorem Ipsum.</p>
+				<h3><?= __('Customer Service') ?></h3>
+				
+				<p> <?= __('Our experienced team is dedicated to delivering personalized service,
+				 helping you find the perfect eyewear to meet your needs and express your unique style. 
+				Whether you\'re looking for the latest trends in eyewear fashion or the most advanced optical solutions,
+ Mes Yeux Tes Yeux is here to offer you the very best.') ?> </p>
 			</div>
 			<div class="story-image-left">
 				<img src="/app/resources/manonwall.png" alt="Image description" height="100%" ; width="100%" ;>

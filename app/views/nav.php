@@ -6,9 +6,11 @@
     <link rel="stylesheet" type="text/css" href="/app/style.css">
     <script src="/app/script.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    
 </head>
 <nav class="menu">
     <ol>
+    <a href="/Customer/home"> <img src="/app/resources/logo/LOGO/mesyeuxtesyeuxLOGO.png" alt="Image Logo" height="20%" ; width="20%" ;></a>
         <?php if (!isset($_SESSION['employee_id'])): ?>
             <li class="menu-item"><a href="\Product\listing">Shop</a>
                 <ol class="sub-menu">
@@ -40,7 +42,13 @@
         <?php endif; ?>
 
         <?php if (!isset($_SESSION['isAdmin']) && isset($_SESSION['employee_id'])): ?>
-            <li class="menu-item"><a href='/Employee/index'>Employee</a></li>
+            <li class="menu-item"><a href='/Employee/index'>Employee</a>
+                <ol class="sub-menu">
+                    <li class="menu-item"><a href='/Admin/productListing'><?= __('Modify Product') ?></a></li>
+                    <li class="menu-item"><a href='/Ticket/ongoing'><?= __('Ongoing Tickets') ?></a></li>
+                    <li class="menu-item"><a href='/Employee/index'><?= __('More') ?></a></li>
+                </ol>
+            </li>
         <?php endif; ?>
 
         <li class="menu-item"><a href="\about">About</a>
@@ -74,8 +82,9 @@
                 <li class="menu-item"><button onclick="updateLanguageCookie('en')">english</button></li>
             </ol>
         </li>
-
-        <li class="menu-item"><a href="\User\logout">Log Out</a></li>
+        <?php if (isset($_SESSION['customer_id']) || isset($_SESSION['employee_id'])): ?>
+            <li class="menu-item"><a href="\User\logout">Log Out</a></li>
+        <?php endif; ?>
     </ol>
 
 
