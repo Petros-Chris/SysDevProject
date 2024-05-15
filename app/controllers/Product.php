@@ -34,7 +34,7 @@ class Product extends \app\core\Controller
         $this->view('Product/index', $item);
         $cart->displayCart();
         $re->displayReview();
-        
+
 
     }
 
@@ -45,6 +45,15 @@ class Product extends \app\core\Controller
         $products = $product->getMultiFilter('color', 'brand', 'shape', 'description', 'optical_sun', 'model', $_GET['search']);
 
         include 'app/views/Product/listing.php';
+        include 'app/views/footer.php';
+    }
+
+    public function allBrands()
+    {
+        $product = new \app\models\Product();
+        $products = $product->getAll();
+
+        include 'app/views/Product/allBrands.php';
         include 'app/views/footer.php';
     }
 }

@@ -83,16 +83,6 @@ class Product extends \app\core\Model
         return $STMT->fetch();
     }
 
-    public function getColor($product_color)
-    {
-        $SQL = 'SELECT * FROM product WHERE color LIKE :color';
-        $STMT = self::$_conn->prepare($SQL);
-        $STMT->execute(['color' => '%' . $product_color . '%']);
-        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Product');
-        return $STMT->fetchAll();
-    }
-
-
     public function getFilter($type, $filter)
     {
         $SQL = "SELECT * FROM product WHERE $type = :$type ORDER BY product_id"; //maybe order by when created idk
@@ -123,7 +113,7 @@ class Product extends \app\core\Model
 
     public function getAll()
     {
-        $SQL = 'SELECT * FROM product';
+        $SQL = 'SELECT DISTINCT brand FROM product';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute();
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Product');

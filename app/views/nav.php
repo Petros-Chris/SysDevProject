@@ -17,11 +17,11 @@
                 </li>
             </ol>
         </li>
-        <li class="menu-item"><a href="#0">Brands</a>
+        <li class="menu-item"><a href="/Product/more">Brands</a>
             <ol class="sub-menu">
                 <li class="menu-item"><a href="/Product/listing?type=brand&filter=Gucci">Gucci</a></li>
                 <li class="menu-item"><a href="/Product/listing?type=brand&filter=Cartier">Cartier</a></li>
-                <li class="menu-item"><a href="#0">More ></a></li>
+                <li class="menu-item"><a href="/Product/more">More ></a></li>
             </ol>
         </li>
         <li class="menu-item"><a href="\Customer\about">About</a>
@@ -40,7 +40,8 @@
             <div class="tools">
                 <button>🔍</button>
                 <button>🤸‍♂️</button>
-                <button>EN</button>
+                <button id="langBtn" onclick="updateLanguageCookie('en')">en</button>
+                <button onclick="updateLanguageCookie('fr')">fr</button>
             </div>
         </li>
     </ol>
@@ -48,5 +49,35 @@
     </div>
 </nav>
 
-
 </html>
+
+<script>
+    // function switchLang() {
+    //     var button = document.getElementById('langBtn')
+    //     switch (button.value) {
+    //         case 'en': {
+    //             button.innerText = 'fr';
+    //             updateLanguageCookie('fr');
+    //             break;
+    //         }
+    //         case 'fr': {
+    //             button.innerText = 'en';
+    //             updateLanguageCookie('en');
+    //             break;
+    //         }
+    //         default: {
+    //             button.innerText = 'en';
+    //             updateLanguageCookie('en');
+    //         }
+    //     }
+    // }
+
+    function updateLanguageCookie(lang) {
+        // Set the cookie value
+        document.cookie = "lang=" + lang + ";expires=" + new Date(Date.now() + (30 * 24 * 60 * 60 * 1000)).toUTCString() + ";path=/;SameSite=None;secure";
+
+        // Reload the page to reflect the change
+        window.location.reload();
+    }
+
+</script>

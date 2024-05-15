@@ -16,6 +16,7 @@ $this->addRoute('Customer/paypal', 'Customer,paypal');
 $this->addRoute('Product/listing', 'Product,listings');
 $this->addRoute('Product/index', 'Product,description');
 $this->addRoute('Product/search', 'Product,search');
+$this->addRoute('Product/more', 'Product,allBrands');
 
 // $this->addRoute('Product/eyeglasses','Product,listingFliter');
 //admins
