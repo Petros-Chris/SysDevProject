@@ -32,6 +32,13 @@ class Wishlist extends \app\core\Controller
     {
         
     }
+
+    function displayHearts(){
+        $wishlist = new \app\models\Wishlist();
+        $customer_id = $_SESSION['customer_id'];
+       $heartProduct = $wishlist->getAllHearts($customer_id);
+
+    }
 }
 
 
