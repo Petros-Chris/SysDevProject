@@ -29,7 +29,7 @@ class TicketMessage extends \app\core\Model
 
     public function getMessageFromTicketId($ticket_id)
     {
-        $SQL = 'SELECT * FROM ticket_message WHERE ticket_id = :ticket_id';
+        $SQL = 'SELECT * FROM ticket_message WHERE ticket_id = :ticket_id ORDER BY timestamp DESC';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute(['ticket_id' => $ticket_id]);
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\TicketMessage');

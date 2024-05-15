@@ -31,7 +31,7 @@ class User extends \app\core\Controller
 			header('location:/User/login');
 		} else {
 			$this->view('User/register');
-			include('app/views/footer.php');
+			include ('app/views/footer.php');
 		}
 	}
 
@@ -55,22 +55,21 @@ class User extends \app\core\Controller
 			$userContr = new \app\controllers\User();
 
 
-			if($userContr->userSide($email, $password)) {
-				exit;
-			}
-		
-			
-
-			if($userContr->employeeSide($email, $password)) {
+			if ($userContr->userSide($email, $password)) {
 				exit;
 			}
 
-			if($userContr->adminSide($email, $password)) {
+			if ($userContr->employeeSide($email, $password)) {
 				exit;
 			}
+
+			if ($userContr->adminSide($email, $password)) {
+				exit;
+			}
+			header("location:/User/login");
 		} else {
 			$this->view('User/Login');
-			include('app/views/footer.php');
+			include ('app/views/footer.php');
 		}
 
 	}
@@ -86,29 +85,33 @@ class User extends \app\core\Controller
 				$_SESSION['customer_id'] = $user->customer_id;
 
 				if ($_SESSION['url'] != '') {
-					 header("location:$_SESSION[url]");
+					header("location:$_SESSION[url]");
 				} else {
 					header("location:/Product/listing");
-					
+
 				}
 			}
 			return true;
-		} 
+		}
 		return false;
 	}
 
 	function employeeSide($email, $password)
 	{
 		$employee = new \app\models\Employee();
-		$employee = $employee->get($email);
+		$employeeInfo = $employee->get($email);
 
-		if ($employee->admin == 0 && password_verify($password, $employee->password_hash)) {
-			$_SESSION['employee_id'] = $employee->employee_id;
+		if ($employeeInfo == null) {
+			return false;
+		}
+
+		if ($employeeInfo->admin == 0 && password_verify($password, $employeeInfo->password_hash)) {
+			$_SESSION['employee_id'] = $employeeInfo->employee_id;
 
 			// if ($_SESSION['url'] != '') {
 			// 	header("location:$_SESSION[url]");
 			// } else {
-				header("location:/Employee/index");
+			header("location:/Employee/index");
 			// }
 			return true;
 		}
@@ -118,22 +121,24 @@ class User extends \app\core\Controller
 	function adminSide($email, $password)
 	{
 		$employee = new \app\models\Employee();
-		$employee = $employee->get($email);
+		$employeeInfo = $employee->get($email);
 
-		if ($employee->admin == 1 && password_verify($password, $employee->password_hash)) {
-			$_SESSION['isAdmin'] = $employee->admin;
-			$_SESSION['employee_id'] = $employee->employee_id;
+		if ($employeeInfo == null) {
+			return false;
+		}
+
+		if ($employeeInfo->admin == 1 && password_verify($password, $employeeInfo->password_hash)) {
+			$_SESSION['isAdmin'] = $employeeInfo->admin;
+			$_SESSION['employee_id'] = $employeeInfo->employee_id;
 
 			//if ($_SESSION['url'] != '') {
 			//	header("location:$_SESSION[url]");
 			//} else {
 			header("location:/Admin/index");
-			//}
-		} else {
-			header('location:/User/login');
 			return true;
+			//}
 		}
-		
+		return false;
 	}
 
 	function logout()
