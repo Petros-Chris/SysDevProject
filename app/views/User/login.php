@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
-<!-- <link rel="stylesheet" type="text/css" href="/app/css/style.scss"> -->
-<link rel="stylesheet" type="text/css" href="/app/style.scss">
+	<title><?= $name ?> view</title>
+	<link rel="stylesheet" type="text/css" href="/app/css/style.scss">
 </head>
 <body>
 

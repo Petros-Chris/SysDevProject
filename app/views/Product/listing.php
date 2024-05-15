@@ -2,7 +2,7 @@
 
 <head>
     <title><?= $name ?> view</title>
-    <link rel="stylesheet" type="text/css" href="/app/style.css">
+    <link rel="stylesheet" type="text/css" href="/app/style.scss">
 </head>
 
 <script>

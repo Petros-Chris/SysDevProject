@@ -6,9 +6,11 @@
     <link rel="stylesheet" type="text/css" href="/app/style.css">
     <script src="/app/script.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    
 </head>
 <nav class="menu">
     <ol>
+    <img src="app/resources\logo\LOGO\mesyeuxtesyeuxLOGO.png" alt="Image Logo" height="20%" ; width="20%" ;>
         <?php if (!isset($_SESSION['employee_id'])): ?>
             <li class="menu-item"><a href="\Product\listing">Shop</a>
                 <ol class="sub-menu">
