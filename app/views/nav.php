@@ -6,11 +6,12 @@
     <link rel="stylesheet" type="text/css" href="/app/style.css">
     <script src="/app/script.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    
+
 </head>
 <nav class="menu">
     <ol>
-    <a href="/Customer/home"> <img src="/app/resources/logo/LOGO/mesyeuxtesyeuxLOGO.png" alt="Image Logo" height="20%" ; width="20%" ;></a>
+        <a href="/Customer/home"> <img src="/app/resources/logo/LOGO/mesyeuxtesyeuxLOGO.png" alt="Image Logo"
+                height="20%" ; width="20%" ;></a>
         <?php if (!isset($_SESSION['employee_id'])): ?>
             <li class="menu-item"><a href="\Product\listing">Shop</a>
                 <ol class="sub-menu">
@@ -32,7 +33,7 @@
         <?php endif; ?>
 
         <?php if (isset($_SESSION['isAdmin'])): ?>
-            <li class="menu-item"><a href='\Admin\index'>Admin</a>
+            <li class="menu-item"><a href='/Admin/index'>Admin</a>
                 <ol class="sub-menu">
                     <li class="menu-item"><a href='/Admin/create'><?= __('New Product') ?></a></li>
                     <li class="menu-item"><a href='/Ticket/ongoing'><?= __('Ongoing Tickets') ?></a></li>
@@ -51,16 +52,16 @@
             </li>
         <?php endif; ?>
 
-        <li class="menu-item"><a href="\about">About</a>
+        <li class="menu-item"><a href="/about">About</a>
             <ol class="sub-menu">
-                <li class="menu-item"><a href="\about">About Mes Yeux Tes Yeux</a></li>
-                <li class="menu-item"><a href="\contact">Contact Us</a></li>
+                <li class="menu-item"><a href="/about">About Mes Yeux Tes Yeux</a></li>
+                <li class="menu-item"><a href="/contact">Contact Us</a></li>
             </ol>
         </li>
-        <li class="menu-item"><a href="\Customer\dashboard">Account</a>
+        <li class="menu-item"><a href="/Customer/dashboard">Account</a>
             <ol class="sub-menu">
-                <li class="menu-item"><a href="\Customer\dashboard">My Account</a></li>
-                <li class="menu-item"><a href="\User\login">Login/Register</a></li>
+                <li class="menu-item"><a href="/Customer/dashboard">My Account</a></li>
+                <li class="menu-item"><a href="/User/login">Login/Register</a></li>
             </ol>
         </li>
 
@@ -72,7 +73,7 @@
 
         <li class="menu-item">
             <div class="tools">
-                <button onclick="callLink('/Cart/view')">🛒</button>
+                <button>🛒</button>
             </div>
         </li>
 
@@ -83,7 +84,7 @@
             </ol>
         </li>
         <?php if (isset($_SESSION['customer_id']) || isset($_SESSION['employee_id'])): ?>
-            <li class="menu-item"><a href="\User\logout">Log Out</a></li>
+            <li class="menu-item"><a href="/User/login">Log Out</a></li>
         <?php endif; ?>
     </ol>
 
@@ -93,18 +94,19 @@
 
 </html>
 <script>
-    function callLink(url) {
-        fetch('app\controllers\Cart.php', {
-            method: 'POST',
-            body: JSON.stringify({ action: 'viewCart' })
-        })
-            // Handle the response as needed)
-            .catch(error => {
-                // Handle errors if any
-                console.error('Error:', error);
-            });
+    //god knows for this (no wokry)
+    // function callLink(url) {
+    //     fetch('app\controllers\Cart.php', {
+    //         method: 'POST',
+    //         body: JSON.stringify({ action: 'viewCart' })
+    //     })
+    //         // Handle the response as needed)
+    //         .catch(error => {
+    //             // Handle errors if any
+    //             console.error('Error:', error);
+    //         });
 
-    }
+    // }
 </script>
 
 <script>

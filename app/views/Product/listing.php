@@ -17,20 +17,23 @@
         <?php foreach ($products as $product): ?>
             <a id="productLink" href='../Product/index?id=<?= $product->product_id ?>'>
                 <div class='product-container'>
-                    <div class='product-image'> 
-                        <img src='/app/resources/images/product_<?= $product->product_id ?>.png' alt='<?= $product->description ?>'>
+                    <div class='product-image'>
+                        <img src='/app/resources/images/product_<?= $product->product_id ?>.png'
+                            alt='<?= $product->description ?>'>
                     </div>
             </a>
             <div class='product-details'>
-                <?php
-                $isWishlisted = false;
-                foreach ($wishlistItems as $item) {
-                    if ($item->product_id == $product->product_id) {
-                        $isWishlisted = true;
-                        break;
+                <?php if (isset($wishlistItems)): ?>
+                    <?php
+                    $isWishlisted = false;
+                    foreach ($wishlistItems as $item) {
+                        if ($item->product_id == $product->product_id) {
+                            $isWishlisted = true;
+                            break;
+                        }
                     }
-                }
-                ?>
+                    ?>
+                <?php endif; ?>
                 <?php if (isset($_SESSION['customer_id'])): ?>
                     <span id='heart-icon-<?= $product->product_id ?>' class='heart-icon <?= $isWishlisted ? 'clicked' : '' ?>'
                         onclick='toggleHeartAjax(this, <?= $product->product_id ?>)'>&#x2661;</span>
