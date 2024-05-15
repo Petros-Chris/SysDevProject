@@ -29,7 +29,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
     public function theCustomerIsBrowsing($url)
     {
-        //$this->amOnPage($url);
+        $this->amOnPage('http://localhost/Product/listing');
     }
 
    /**
@@ -37,7 +37,7 @@ class AcceptanceTester extends \Codeception\Actor
     */
     public function theyClickOnTheToViewTheFullProductListing($url)
     {
-        //$this->click("$url");
+        $this->click("#productLink");
     }
 
     /**
@@ -45,7 +45,7 @@ class AcceptanceTester extends \Codeception\Actor
      */
     public function theyClickOnTheadd_to_cartButtonToAddAProductToACart()
     {
-       // $this->click("add_to_cart");
+       $this->click("#cartBtn");
     }
 
    /**

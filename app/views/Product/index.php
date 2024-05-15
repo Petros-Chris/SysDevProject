@@ -30,7 +30,7 @@
         <dd><?= $data->quantity ?></dd>
     </dl>
 
-    <input type='button' value='Add To Cart' onclick="addProduct(<?= $data->product_id ?>)">
+    <input id="cartBtn" type='button' value='Add To Cart' onclick="addProduct(<?= $data->product_id ?>)">
 
 </body>
 

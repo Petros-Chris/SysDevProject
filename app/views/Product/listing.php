@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title><?= $name ?> view</title>
     <link rel="stylesheet" type="text/css" href="/app/style.css">
 </head>
+
 <body>
     <form action="/Product/search" method="GET">
         <label for="search">Search:</label>
@@ -13,30 +15,32 @@
 
     <div id="imcool">
         <?php foreach ($products as $product): ?>
-            <a href='../Product/index?id=<?= $product->product_id ?>'>
+            <a id="productLink" href='../Product/index?id=<?= $product->product_id ?>'>
                 <div class='product-container'>
-                    <div class='product-image'> 
+                    <div class='product-image'>
                         <img src='/app/resources/questionMark.png' alt='<?= $product->description ?>'>
                     </div>
-                    </a>
-                    <div class='product-details'>
-                        <?php 
-                        $isWishlisted = false;
-                        foreach ($wishlistItems as $item) {
-                            if ($item->product_id == $product->product_id) {
-                                $isWishlisted = true;
-                                break;
-                            }
-                        }
-                        ?>
-                        <span id='heart-icon-<?= $product->product_id ?>' class='heart-icon <?= $isWishlisted ? 'clicked' : '' ?>'
-                            onclick='toggleHeartAjax(this, <?= $product->product_id ?>)'>&#x2661;</span>
-                        <div class='product-brand'><?= $product->brand ?></div>
-                        <div class='product-price'>$<?= $product->cost_price ?></div>
-                    </div>
-                </div>
-            
-        <?php endforeach; ?>
+            </a>
+            <div class='product-details'>
+                <?php
+                $isWishlisted = false;
+                foreach ($wishlistItems as $item) {
+                    if ($item->product_id == $product->product_id) {
+                        $isWishlisted = true;
+                        break;
+                    }
+                }
+                ?>
+                <?php if (isset($_SESSION['customer_id'])): ?>
+                    <span id='heart-icon-<?= $product->product_id ?>' class='heart-icon <?= $isWishlisted ? 'clicked' : '' ?>'
+                        onclick='toggleHeartAjax(this, <?= $product->product_id ?>)'>&#x2661;</span>
+                <?php endif; ?>
+
+                <div class='product-brand'><?= $product->brand ?></div>
+                <div class='product-price'>$<?= $product->cost_price ?></div>
+            </div>
+        </div>
+    <?php endforeach; ?>
     </div>
 
     <script>
@@ -62,4 +66,5 @@
         }
     </script>
 </body>
+
 </html>
