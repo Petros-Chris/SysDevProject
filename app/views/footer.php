@@ -15,8 +15,8 @@
                 <div class="footer-col">
                     <h4>company</h4>
                     <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="\about">About</a></li>
+                        <li><a href="\contact">Contact Us</a></li>
                     </ul>
   	 		    </div>
   	 		<div class="footer-col">
@@ -29,7 +29,7 @@
   	 		<div class="footer-col">
   	 			<h4>Account</h4>
   	 			<ul>
-  	 				<li><a href="#">My account</a></li>
+  	 				<li><a href="\customer\dashboard">My account</a></li>
   	 				<li><a href="#">My orders</a></li>
   	 				<li><a href="#">My cart</a></li>
   	 			</ul>

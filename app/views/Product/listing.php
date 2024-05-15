@@ -3,7 +3,7 @@
 
 <head>
     <title><?= $name ?> view</title>
-    <link rel="stylesheet" type="text/css" href="/app/style.css">
+    <link rel="stylesheet" type="text/css" href="/app/style.scss">
 </head>
 
 <body>
@@ -17,8 +17,8 @@
         <?php foreach ($products as $product): ?>
             <a id="productLink" href='../Product/index?id=<?= $product->product_id ?>'>
                 <div class='product-container'>
-                    <div class='product-image'>
-                        <img src='/app/resources/questionMark.png' alt='<?= $product->description ?>'>
+                    <div class='product-image'> 
+                        <img src='/app/resources/images/product_<?= $product->product_id ?>.png' alt='<?= $product->description ?>'>
                     </div>
             </a>
             <div class='product-details'>

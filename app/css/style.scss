@@ -400,7 +400,9 @@ ul {
 }
 
 .login-container input[type="email"],
-.login-container input[type="password"] {
+.login-container input[type="password"],
+.login-container input[type="text"]
+ {
   width: 100%;
   padding: 10px;
   margin-top: 10px;
@@ -456,6 +458,7 @@ ul {
 .signup-button {
   width: 60%;
   padding: 10px;
+  margin-left: 50px;
   margin-top: 10px;
   background-color: blue;
   color: white;
@@ -557,9 +560,10 @@ ul {
   text-align: center;
 }
 
+
 .header p,
 .header h1 {
-  margin: 10px;
+  margin-top: 20px;
   text-align: center;
 }
 
@@ -584,7 +588,7 @@ ul {
 
 .story-image {
   width: 40%;
-  margin-right: 20px;
+  margin-right: 0px;
 }
 
 .story-text {
@@ -606,5 +610,5 @@ ul {
 .story-image-left {
   width: 40%; 
  // height: 40%;
-  margin-left: 2px; 
+  margin-left: 0px; 
 }

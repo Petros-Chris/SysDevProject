@@ -7,20 +7,20 @@
 <body>
 
 <div class="contact-text">
-    <h1>Get in touch</h1>
-    <p>Want to get in touch?</p>
-    <p>We'd love to hear from you. Here's how you can reach us</p>
+    <h1><?= __('Get in touch') ?></h1>
+    <p><?= __('Want to get in touch?') ?></p>
+    <p><?= __('We\'d love to hear from you. Here\'s how you can reach us') ?></p>
 </div>
 
 <div class="contact-info">
     <div class="email-box">
         <img src="/app/resources/email.png" alt="Email Icon" class = "imgEmail">
-        <h3>Send an Email</h3>
-        <p>Want to contact us by email to ask any questions?</p>
-        <p>Email to company</p>
-        <a href="mailto:MesYeuxTesYeux@gmail.com">MesYeuxTesYeux@gmail.com</a>
-        <p>Talk to a representative</p>
-        <a href="mailto:PersonCompany@gmail.com">PersonCompany@gmail.com</a>
+        <h3><?= __('Send an Email') ?></h3>
+        <p><?= __('Want to contact us by email to ask any questions?') ?>Want to contact us by email to ask any questions?</p>
+        <p><?= __('Want to get in touch?') ?>Email to company</p>
+        <a href="mailto:MesYeuxTesYeux@gmail.com"><?= __('Want to get in touch?') ?>MesYeuxTesYeux@gmail.com</a>
+        <p><?= __('Want to get in touch?') ?>Talk to a representative</p>
+        <a href="mailto:PersonCompany@gmail.com"><?= __('Want to get in touch?') ?>PersonCompany@gmail.com</a>
     </div>
 
     <div class="phone-box">
