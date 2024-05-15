@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title><?= $name ?> view</title>
+  <title><?= $name ?> view</title>
 
   <link rel="stylesheet" type="text/css" href="/app/css/style.scss">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,11 +10,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+
 <body>
 
 
 
-  <h2>Carousel Example</h2>  
+  <h2>Carousel Example</h2>
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -25,14 +27,16 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-      <img src="/app/resources/manonWall.png" alt="Chicago" style="height:400px;">      </div>
+        <img src="/app/resources/manonWall.png" alt="Chicago" style="height:400px;">
+      </div>
 
       <div class="item">
-      <img src="/app/resources/manonWall.png" alt="Chicago" style="height:400px;">
+        <img src="/app/resources/manonWall.png" alt="Chicago" style="height:400px;">
       </div>
-    
+
       <div class="item">
-      <img src="/app/resources/manonWall.png" alt="Chicago" style="height:400px;">      </div>
+        <img src="/app/resources/manonWall.png" alt="Chicago" style="height:400px;">
+      </div>
     </div>
 
     <!-- Left and right controls -->
@@ -48,7 +52,7 @@
 
 
 
-<!-- <div class="container"> 
+  <!-- <div class="container"> 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     Indicators 
     <ol class="carousel-indicators">
@@ -86,7 +90,7 @@
 
 
 
-<div class="text-center">
+  <div class="text-center">
     <h3>Join Newsletter</h3>
   </div>
 
@@ -97,13 +101,11 @@
         <input type="email" class="form-control" id="emailInput" placeholder="Email">
         <button type="submit" class="btn btn-primary">Join</button>
       </div>
-      
+
     </form>
   </div>
-</div>
-  
-</body> 
+  </div>
+
+</body>
+
 </html>
-
-
-

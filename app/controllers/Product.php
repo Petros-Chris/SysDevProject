@@ -9,6 +9,16 @@ class Product extends \app\core\Controller
     function listings()
     {
         $product = new \app\models\Product();
+        $wishlist = new \app\models\Wishlist();
+
+        if (isset($_SESSION['customer_id'])) {
+            $allWishlistForCustomer = $wishlist->getAllFromCustomer($_SESSION['customer_id']);
+            foreach ($allWishlistForCustomer as $wishlistForCustomer) {
+                $wishlist->customer = $wishlistForCustomer;
+            }
+
+        }
+
         if (isset($_GET['filter'])) {
             $products = $product->getFilter($_GET['type'], $_GET['filter']);
             include 'app/views/Product/listing.php';
@@ -32,28 +42,28 @@ class Product extends \app\core\Controller
 
 
         $this->view('Product/index', $item);
-        $re->displayReview();
         $cart->displayCart();
+        $re->displayReview();
+
 
     }
 
     public function search()
     {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $searchTerm = $_POST['search_box'];
-            $product = new \app\models\Product();
+        $product = new \app\models\Product();
 
-            $this->view('/Product/listing');
+        $products = $product->getMultiFilter('color', 'brand', 'shape', 'description', 'optical_sun', 'model', $_GET['search']);
 
-            if ($_POST['action'] == 'color') {
-                $products = $product->getColor($searchTerm);
+        include 'app/views/Product/listing.php';
+        include 'app/views/footer.php';
+    }
 
-                foreach ($products as $producta) {
-                    $pro_id = $producta->product_id;
-                    $pro_brand = $producta->brand;
-                    echo "<a href='../Product/index?brand=$pro_brand&id=$pro_id'>$pro_brand</a><br>";
-                }
-            }
-        }
+    public function allBrands()
+    {
+        $product = new \app\models\Product();
+        $products = $product->getAllBrands();
+
+        include 'app/views/Product/allBrands.php';
+        include 'app/views/footer.php';
     }
 }

@@ -14,6 +14,12 @@ class Ticket extends \app\core\Model
     public $ticket_status;
     public $timestamp;
 
+    public $ticket_status_text;
+
+    public $customer_information;
+
+    public $extra_customer_information;
+
     public function insert()
     {
         $SQL = 'INSERT INTO ticket(product_id, customer_id, issue, issue_description, ticket_status) VALUES (:product_id, :customer_id, :issue, :issue_description, 0)';
@@ -30,20 +36,20 @@ class Ticket extends \app\core\Model
 
     public function getAll()
     {
-        $SQL = 'SELECT * FROM ticket';
+        $SQL = 'SELECT * FROM ticket ORDER BY timestamp DESC';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute();
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Ticket');
         return $STMT->fetchAll();
     }
 
-    public function get($email)
+    public function getAllByCustomerId($customer_id)
     {
-        $SQL = 'SELECT * FROM Customer WHERE email = :email';
+        $SQL = 'SELECT * FROM ticket WHERE customer_id = :customer_id ORDER BY timestamp DESC';
         $STMT = self::$_conn->prepare($SQL);
-        $STMT->execute(['email' => $email]);
-        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\User');
-        return $STMT->fetch();
+        $STMT->execute(['customer_id' => $customer_id]);
+        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Ticket');
+        return $STMT->fetchAll();
     }
 
     public function getId($ticket_id)

@@ -13,25 +13,31 @@ class Customer extends \app\core\Model
     public $password_hash;
     public $email_activated;
     public $disable;
+    public $whole_customer;
+    public $disable_text;
 
     public function insert()
     {
         $SQL = 'INSERT INTO Customer(first_name, last_name, email, password_hash) VALUES (:first_name, :last_name, :email, :password_hash)';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute(
-            ['first_name'=>$this->first_name,
-            'last_name'=> $this->last_name,
-            'email'=>$this->email,
-            'password_hash'=>$this->password_hash]);
+            [
+                'first_name' => $this->first_name,
+                'last_name' => $this->last_name,
+                'email' => $this->email,
+                'password_hash' => $this->password_hash
+            ]
+        );
     }
 
-    public function getAll(){
-		$SQL = 'SELECT * FROM Customer';
-		$STMT = self::$_conn->prepare($SQL);
-		$STMT->execute();
-		$STMT->setFetchMode(PDO::FETCH_CLASS,'app\models\Customer');
-		return $STMT->fetchAll();
-	}
+    public function getAll()
+    {
+        $SQL = 'SELECT * FROM Customer';
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute();
+        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Customer');
+        return $STMT->fetchAll();
+    }
 
     public function get($email)
     {
@@ -58,11 +64,11 @@ class Customer extends \app\core\Model
         $STMT->execute((array) $this);
     }
 
-    function disable($customer_id)
+    function disableOrEnable($customer_id, $status)
     {
         $SQL = 'UPDATE Customer SET disable = :disable WHERE customer_id = :customer_id';
         $STMT = self::$_conn->prepare($SQL);
-        $data = ['customer_id' => $customer_id, 'disable' => 1];
+        $data = ['customer_id' => $customer_id, 'disable' => $status];
         $STMT->execute($data);
     }
 }

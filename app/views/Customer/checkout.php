@@ -8,30 +8,29 @@
 
 </head>
 <body>
+<form id="orderForm" action="" method="POST">
 <div class="shipping-details">
-    <input type="text" id="searchInput" placeholder="Enter your address" autocomplete="off">
+    <input type="text" id="searchInput" placeholder="Enter your address" autocomplete="off" name="address">
     <div id="suggestions"></div>
     <div id="map"></div>
 </div>
 
 <div id="popup" class="popup"></div>
 
-<form action="/Order/charge" method="post">
+
+
+        <input type="hidden" name="total" value="">
+        <input type="submit" value="Place Order">
+    </form>
+
+<!--<form action="/Order/charge" method="post"> 
     <input type="text" name="amount" value="20.00" />
     <input type="submit" name="submit" value="Pay Now">
-</form>
+</form> 
     
-    <script src="/app/app.js"></script>
+    <script src="/app/app.js"></script> -->
     
-    <div class='container'>
-		    <form method='post' action=''>
-			    <div class="form-group">
-			    	<input type="submit" name="action" value="Place Order"/> 
-			    </div>
-		    </form>
-	    </div>
-
-    </body>
+    
 
 <script>
     var map = L.map('map').setView([45.509, -73.667], 13); //Montreal center, can change it to toronto or something
@@ -107,7 +106,21 @@ function selectAddress(feature) {
         } else {
             suggestionsBox.style.display = 'none';
         }
-    }, 500)); // CHANGE FOR RESPONSE TIME 
+    }, 500));
+    
+    document.getElementById('orderForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var address = document.getElementById('searchInput').value; // Getting value from visible input
+    var total = 0;  // Assuming there's a function to calculate total
+
+    // Set hidden form values
+    this.address.value = address;  // Assigning the value to hidden input
+    this.total.value = total;
+
+    // Submit the form
+    this.submit();
+});
+
     </script>
 </html>
 

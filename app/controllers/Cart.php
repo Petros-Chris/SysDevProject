@@ -7,7 +7,7 @@ use stdClass;
 class Cart extends \app\core\Controller
 {
 
-public function viewCartCheckout()
+    public function viewCartCheckout()
     {
         if (isset($_SESSION['cart'])) {
             $cart = ($_SESSION['cart']);
@@ -39,7 +39,6 @@ public function viewCartCheckout()
 
     public function addToCart()
     {
-
         if (isset($_POST['id'])) {
             $product = new \app\models\Product();
             $item = $product->getId($_POST['id']);
@@ -48,6 +47,7 @@ public function viewCartCheckout()
                 $cart = $_SESSION['cart'];
                 $length = count($cart);
                 $_SESSION['cart'][$length] = $item;
+                $this->viewCart();
             } else {
                 $_SESSION['cart'][0] = $item;
             }
@@ -74,17 +74,16 @@ public function viewCartCheckout()
                 $pro_description = $product->description;
                 $price += $pro_price;
 
-                echo ("HI");
+
                 echo "<script> 
                         document.getElementById('popup').innerHTML += 
                         '<a href=\"/Product/index?id=$pro_id\">$pro_brand $pro_shape $pro_price</a>' +
                         '<span onclick=\"removeProductFromCart($pro_id)\">&#128465;</span><br>';
                     </script>";
             }
-            sleep(2);
             echo "<script> 
                         document.getElementById('popup').innerHTML += 
-                        'Total: $price <br> <input type=button value=proceed>';
+                        'Total: $price <br> <button onclick=\"window.location.href=\'/Customer/checkout\'\">Proceed</button>';
 
                         document.getElementById('popup').style.display = 'block';
                         setTimeout(hidePopup, 3000);
@@ -104,7 +103,6 @@ public function viewCartCheckout()
                 $cart = $_SESSION['cart'];
 
                 $index = array_search($_POST['id'], array_column($cart, 'product_id'));
-
                 if ($index !== false) {
                     unset($cart[$index]);
                     $_SESSION['cart'] = array_values($cart);
