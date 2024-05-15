@@ -12,7 +12,7 @@
         <?php if (!isset($_SESSION['employee_id'])): ?>
             <li class="menu-item"><a href="\Product\listing">Shop</a>
                 <ol class="sub-menu">
-                    <li class="menu-item"><a href="/Product/listing?type=optical_sun&filter=Optical">Eyeglasses</a>
+                    <li class="menu-item"><a href="/Product/listing?type=optical_sun&filter=Optical">Optical Glasses </a>
                     </li>
                     <li class="menu-item"><a href="/Product/listing?type=optical_sun&filter=Sun">Sunglasses</a>
                     </li>
