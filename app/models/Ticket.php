@@ -36,7 +36,7 @@ class Ticket extends \app\core\Model
 
     public function getAll()
     {
-        $SQL = 'SELECT * FROM ticket';
+        $SQL = 'SELECT * FROM ticket ORDER BY timestamp DESC';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute();
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Ticket');
@@ -45,20 +45,11 @@ class Ticket extends \app\core\Model
 
     public function getAllByCustomerId($customer_id)
     {
-        $SQL = 'SELECT * FROM ticket WHERE customer_id = :customer_id';
+        $SQL = 'SELECT * FROM ticket WHERE customer_id = :customer_id ORDER BY timestamp DESC';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute(['customer_id' => $customer_id]);
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Ticket');
         return $STMT->fetchAll();
-    }
-
-    public function get($email)
-    {
-        $SQL = 'SELECT * FROM Customer WHERE email = :email';
-        $STMT = self::$_conn->prepare($SQL);
-        $STMT->execute(['email' => $email]);
-        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\User');
-        return $STMT->fetch();
     }
 
     public function getId($ticket_id)

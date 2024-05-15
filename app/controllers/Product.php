@@ -9,6 +9,16 @@ class Product extends \app\core\Controller
     function listings()
     {
         $product = new \app\models\Product();
+        $wishlist = new \app\models\Wishlist();
+
+        if (isset($_SESSION['customer_id'])) {
+            $allWishlistForCustomer = $wishlist->getAllFromCustomer($_SESSION['customer_id']);
+            foreach ($allWishlistForCustomer as $wishlistForCustomer) {
+                $wishlist->customer = $wishlistForCustomer;
+            }
+
+        }
+
         if (isset($_GET['filter'])) {
             $products = $product->getFilter($_GET['type'], $_GET['filter']);
             include 'app/views/Product/listing.php';
