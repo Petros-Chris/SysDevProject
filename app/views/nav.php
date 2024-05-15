@@ -7,10 +7,15 @@
     <script src="/app/script.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     
+    <style>
+        .search-form {
+            display: none;
+        }
+    </style>
 </head>
 <nav class="menu">
     <ol>
-    <a href="/home"> <img src="/app/resources/logo/LOGO/mesyeuxtesyeuxLOGO.png" class="logo" alt="Image Logo" height="50px" ; width="160px" ;></a>
+    <a href="/home"> <img src="/app/resources/logo/LOGO/mesyeuxtesyeuxLOGO.png" class="logo" alt="Image Logo" height="55px" ; width="160px" ;></a>
         <?php if (!isset($_SESSION['employee_id'])): ?>
             <li class="menu-item"><a href="\Product\listing">Shop</a>
                 <ol class="sub-menu">
@@ -65,10 +70,15 @@
         </li>
 
         <li class="menu-item">
-            <div class="tools">
-                <button>🔍</button>
-            </div>
-        </li>
+        <div class="tools">
+            <button onclick="toggleSearch()">🔍</button>
+            <form action="/Product/search" method="GET" class="search-form" id="searchForm">
+                <label for="search">Search:</label>
+                <input type="text" id="search" name="search" placeholder="eg: Black">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </li>
 
         <li class="menu-item">
             <div class="tools">
@@ -92,6 +102,7 @@
 </nav>
 
 </html>
+
 <script>
     function callLink(url) {
         fetch('app\controllers\Cart.php', {
@@ -135,3 +146,15 @@
     }
 
 </script>
+
+
+<script>
+        function toggleSearch() {
+            var searchForm = document.getElementById("searchForm");
+            if (searchForm.style.display === "none") {
+                searchForm.style.display = "block";
+            } else {
+                searchForm.style.display = "none";
+            }
+        }
+    </script>
