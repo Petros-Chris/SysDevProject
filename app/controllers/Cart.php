@@ -83,7 +83,7 @@ class Cart extends \app\core\Controller
             }
             echo "<script> 
                         document.getElementById('popup').innerHTML += 
-                        'Total: $price <br> <input type=button value=proceed>';
+                        'Total: $price <br> <button onclick=\"window.location.href=\'/Customer/checkout\'\">Proceed</button>';
 
                         document.getElementById('popup').style.display = 'block';
                         setTimeout(hidePopup, 3000);
@@ -92,10 +92,7 @@ class Cart extends \app\core\Controller
                             popup.classList.add('popup-visible');
                         }, 250);
                     </script>";
-        } else {
-            echo ("OOPS");
         }
-
     }
 
     public function removeFromCart()

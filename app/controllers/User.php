@@ -168,5 +168,18 @@ class User extends \app\core\Controller
 	function contact()
 	{
 		$this->view('contact');
+		include ('app/views/footer.php');
 	}
+
+	function index()
+	{
+		$this->view('home');
+		include ('app/views/footer.php');
+	}
+	function about()
+	{
+		$this->view('about');
+		include ('app/views/footer.php');
+	}
+
 }

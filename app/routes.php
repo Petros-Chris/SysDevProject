@@ -7,9 +7,7 @@ $this->addRoute('User/logout', 'User,logout');
 $this->addRoute('Customer/update', 'Customer,update');
 $this->addRoute('Customer/checkout', 'Order,createOrder');
 $this->addRoute('Customer/deactivate', 'Customer,deactivate');
-$this->addRoute('Customer/home', 'Customer,index');
 $this->addRoute('Customer/dashboard', 'Customer,dashboard');
-$this->addRoute('Customer/home', 'Customer,index');
 $this->addRoute('Customer/paypal', 'Customer,paypal');
 
 //products
@@ -48,7 +46,8 @@ $this->addRoute('Review/delete', 'Review,delete');
 $this->addRoute('Review/byUser', 'Review,displayUserReview');
 //misc
 $this->addRoute('contact', 'User,contact');
-$this->addRoute('Customer/about', 'Customer,about');
+$this->addRoute('about', 'User,about');
+$this->addRoute('home', 'User,index');
 //paypal
 $this->addRoute('Order/charge', 'Order,charge');
 $this->addRoute('Order/success', 'Order,success');

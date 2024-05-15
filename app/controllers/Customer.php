@@ -64,17 +64,6 @@ class Customer extends \app\core\Controller
         }
     }
 
-    function index()
-    {
-
-        
-
-        $this->view('Customer/home');
-        include('app/views/footer.php');
-
-        
-    }
-
     #[\app\filters\IsCustomer]
     function paypal()
     {
@@ -103,11 +92,4 @@ class Customer extends \app\core\Controller
         $this->view('Customer/dashboard');
         include ('app/views/footer.php');
     }
-
-    function about()
-    {
-        $this->view('Customer/about');
-        include ('app/views/footer.php');
-    }
-
 }
