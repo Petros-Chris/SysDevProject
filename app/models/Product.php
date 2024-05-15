@@ -113,6 +113,15 @@ class Product extends \app\core\Model
 
     public function getAll()
     {
+        $SQL = 'SELECT * FROM product';
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute();
+        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Product');
+        return $STMT->fetchAll();
+    }
+
+    public function getAllBrands()
+    {
         $SQL = 'SELECT DISTINCT brand FROM product';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute();

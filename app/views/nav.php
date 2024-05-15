@@ -9,21 +9,25 @@
 </head>
 <nav class="menu">
     <ol>
-        <li class="menu-item"><a href="\Product\listing">Shop</a>
-            <ol class="sub-menu">
-                <li class="menu-item"><a href="/Product/listing?type=optical_sun&filter=Optical">Eyeglasses</a>
-                </li>
-                <li class="menu-item"><a href="/Product/listing?type=optical_sun&filter=Sun">Sunglasses</a>
-                </li>
-            </ol>
-        </li>
-        <li class="menu-item"><a href="/Product/more">Brands</a>
-            <ol class="sub-menu">
-                <li class="menu-item"><a href="/Product/listing?type=brand&filter=Gucci">Gucci</a></li>
-                <li class="menu-item"><a href="/Product/listing?type=brand&filter=Cartier">Cartier</a></li>
-                <li class="menu-item"><a href="/Product/more">More ></a></li>
-            </ol>
-        </li>
+        <?php if (!isset($_SESSION['employee_id'])): ?>
+            <li class="menu-item"><a href="\Product\listing">Shop</a>
+                <ol class="sub-menu">
+                    <li class="menu-item"><a href="/Product/listing?type=optical_sun&filter=Optical">Eyeglasses</a>
+                    </li>
+                    <li class="menu-item"><a href="/Product/listing?type=optical_sun&filter=Sun">Sunglasses</a>
+                    </li>
+                </ol>
+            </li>
+        <?php endif; ?>
+        <?php if (!isset($_SESSION['employee_id'])): ?>
+            <li class="menu-item"><a href="/Product/more">Brands</a>
+                <ol class="sub-menu">
+                    <li class="menu-item"><a href="/Product/listing?type=brand&filter=Gucci">Gucci</a></li>
+                    <li class="menu-item"><a href="/Product/listing?type=brand&filter=Cartier">Cartier</a></li>
+                    <li class="menu-item"><a href="/Product/more">More ></a></li>
+                </ol>
+            </li>
+        <?php endif; ?>
         <li class="menu-item"><a href="\Customer\about">About</a>
             <ol class="sub-menu">
                 <li class="menu-item"><a href="\Customer\about">About Mes Yeux Tes Yeux</a></li>
@@ -39,12 +43,26 @@
         <li class="menu-item">
             <div class="tools">
                 <button>🔍</button>
-                <button>🤸‍♂️</button>
-                <button id="langBtn" onclick="updateLanguageCookie('en')">en</button>
+            </div>
+        </li>
+        <li class="menu-item">
+            <div class="tools">
+                <button>🛒</button>
+            </div>
+        </li>
+        <li class="menu-item">
+            <div class="tools">
                 <button onclick="updateLanguageCookie('fr')">fr</button>
             </div>
         </li>
+        <li class="menu-item">
+            <div class="tools">
+                <button onclick="updateLanguageCookie('en')">en</button>
+            </div>
+        </li>
+
     </ol>
+
 
     </div>
 </nav>
@@ -73,10 +91,8 @@
     // }
 
     function updateLanguageCookie(lang) {
-        // Set the cookie value
         document.cookie = "lang=" + lang + ";expires=" + new Date(Date.now() + (30 * 24 * 60 * 60 * 1000)).toUTCString() + ";path=/;SameSite=None;secure";
 
-        // Reload the page to reflect the change
         window.location.reload();
     }
 

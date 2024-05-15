@@ -51,7 +51,7 @@ class Product extends \app\core\Controller
     public function allBrands()
     {
         $product = new \app\models\Product();
-        $products = $product->getAll();
+        $products = $product->getAllBrands();
 
         include 'app/views/Product/allBrands.php';
         include 'app/views/footer.php';
