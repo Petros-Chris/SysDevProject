@@ -11,9 +11,9 @@
     <ol>
         <li class="menu-item"><a href="\Product\listing">Shop</a>
             <ol class="sub-menu">
-                <li class="menu-item"><a href="/Product/listing?type=brand&filter=Cartier">Eyeglasses</a>
+                <li class="menu-item"><a href="/Product/listing?type=optical_sun&filter=Optical">Eyeglasses</a>
                 </li>
-                <li class="menu-item"><a href="#0">Sunglasses</a>
+                <li class="menu-item"><a href="/Product/listing?type=optical_sun&filter=Sun">Sunglasses</a>
                 </li>
             </ol>
         </li>
@@ -43,31 +43,10 @@
                 <button>EN</button>
             </div>
         </li>
-        <!-- onclick="adjustFilter(event, 'eyeglasses')" -->
     </ol>
 
     </div>
 </nav>
-<div id="test"></div>
+
 
 </html>
-
-<script>
-    function adjustFilter(event, product_id) {
-        var xhr = new XMLHttpRequest();
-
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-
-                    console.log('Response from server:', xhr.responseText);
-                } else {
-                    console.error('Failed to remove product from cart:', xhr.responseText);
-                }
-            }
-        };
-        xhr.open('POST', '/Product/eyeglasses');
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.send('filter=' + encodeURIComponent(product_id));
-    }
-</script>

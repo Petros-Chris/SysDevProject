@@ -94,5 +94,6 @@ class Customer extends \app\core\Controller
 
     function about(){
 		$this->view('Customer/about');
+        include('app/views/footer.php');
 	}
 }
