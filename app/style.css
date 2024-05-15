@@ -1,3 +1,5 @@
+
+
 .tools button {
   background: none;
   border: none;
@@ -7,20 +9,24 @@
 #imcool {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Aligns items centrally on the line */
+  justify-content: center;
+  /* Aligns items centrally on the line */
   align-items: stretch;
 }
 
 .product-container {
   border: 1px solid #ccc;
-  width: calc(18% - 20px); /* Adjusts each box to be smaller as previously set */
+  width: calc(18% - 20px);
+  /* Adjusts each box to be smaller as previously set */
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 10px; /* Consistent margin for spacing around each box */
+  margin: 10px;
+  /* Consistent margin for spacing around each box */
   text-align: center;
   display: inline-flex;
   flex-direction: column;
-  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+  box-sizing: border-box;
+  /* Includes padding and border in the element's total width and height */
 }
 
 #imcool {

@@ -16,7 +16,6 @@ class Product extends \app\core\Controller
 
         if (isset($_SESSION['customer_id'])) {
             $wishlistItems = $wishlist->getAllHearts($_SESSION['customer_id']);
-
         }
 
         if (isset($_GET['filter'])) {
