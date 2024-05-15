@@ -5,7 +5,7 @@ use Google\Cloud\Storage\StorageClient;
 
 try {
     $storage = new StorageClient([
-        'keyFilePath' => 'app/dark-voltage-422922-r4-348a3156f039.json',
+        'keyFilePath' => 'app/dark-voltage-422922-r4-82c41811752e.json',
     ]);
 
     $bucketName = 'artisansweb-bucket';
