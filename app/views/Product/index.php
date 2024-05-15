@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -6,54 +7,41 @@
 
 <body>
 
-    <div id='popup' class='popup'>
-    </div>
+    <div id='popup' class='popup'></div>
 
-    <dt>
-    <dd><?= $data->brand ?></dd>
-    </dt>
-    <dt>
-    <dd><?= $data->model ?></dd>
-    </dt>
-    <dt>
-    <dd><?= $data->color ?></dd>
-    </dt>
-    <dt>
-    <dd><?= $data->cost_price ?></dd>
-    </dt>
-    <dt>
-    <dd><?= $data->shape ?></dd>
-    </dt>
-    <dt>
-    <dd><?= $data->size ?></dd>
-    </dt>
-    <dt>
-    <dd><?= $data->optical_sun ?></dd>
-    </dt>
-    <dt>
-    <dd><?= $data->description ?></dd>
-    </dt>
-    <dt>
-    <dd><?= $data->quantity ?></dd>
-    </dt>
-
-    <!-- <img src='<?= $data->image ?>'> -->
+    <dl>
+        <dt>Brand:</dt>
+        <dd><?= $data->brand ?></dd>
+        <dt>Model:</dt>
+        <dd><?= $data->model ?></dd>
+        <dt>Color:</dt>
+        <dd><?= $data->color ?></dd>
+        <dt>Cost Price:</dt>
+        <dd><?= $data->cost_price ?></dd>
+        <dt>Shape:</dt>
+        <dd><?= $data->shape ?></dd>
+        <dt>Size:</dt>
+        <dd><?= $data->size ?></dd>
+        <dt>Optical Sun:</dt>
+        <dd><?= $data->optical_sun ?></dd>
+        <dt>Description:</dt>
+        <dd><?= $data->description ?></dd>
+        <dt>Quantity:</dt>
+        <dd><?= $data->quantity ?></dd>
+    </dl>
 
     <input type='button' value='Add To Cart' onclick="addProduct(<?= $data->product_id ?>)">
 
 </body>
 
-</html>
-
 <script>
-    function addProduct($product_id) {
+    function addProduct(product_id) {
         var xhr = new XMLHttpRequest();
-
         xhr.onreadystatechange = function () {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
-                    console.log('Product added to cart:', $product_id);
-                    viewCart()
+                    console.log('Product added to cart:', product_id);
+                    location.reload();
                 } else {
                     console.error('Failed to add product to cart:', xhr.responseText);
                 }
@@ -61,9 +49,7 @@
         };
         xhr.open('POST', '/Cart/addCart');
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.send('id=' + $product_id);
-
-
+        xhr.send('id=' + product_id);
     }
 
     function viewCart() {
@@ -71,15 +57,24 @@
         xhr.onreadystatechange = function () {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
-                    // Assuming the server sends back the full cart HTML
                     document.getElementById('popup').innerHTML = xhr.responseText;
-                    console.log("cart displayed");
+                    console.log("Cart displayed");
+
+                    document.getElementById('popup').style.display = 'block';
+
+                    setTimeout(hidePopup, 3000);
                 } else {
                     console.error('Failed to display cart', xhr.responseText);
                 }
             }
         };
-        xhr.open('GET', '/Cart/view'); // Make sure to provide the correct path
+        xhr.open('GET', '/Cart/view');
         xhr.send();
     }
+
+    function hidePopup() {
+        document.getElementById('popup').style.display = 'none';
+    }
 </script>
+
+</html>
