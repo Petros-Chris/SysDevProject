@@ -11,23 +11,23 @@ class Product extends \app\core\Controller
         $product = new \app\models\Product();
         $wishlist = new \app\models\Wishlist();
 
+        $products = [];
+        $wishlistItems = [];
+
         if (isset($_SESSION['customer_id'])) {
-            $allWishlistForCustomer = $wishlist->getAllFromCustomer($_SESSION['customer_id']);
-            foreach ($allWishlistForCustomer as $wishlistForCustomer) {
-                $wishlist->customer = $wishlistForCustomer;
-            }
+            $wishlistItems = $wishlist->getAllHearts($_SESSION['customer_id']);
 
         }
 
         if (isset($_GET['filter'])) {
             $products = $product->getFilter($_GET['type'], $_GET['filter']);
-            include 'app/views/Product/listing.php';
-            include 'app/views/footer.php';
+            
         } else {
             $products = $product->getAll();
-            include 'app/views/Product/listing.php';
-            include 'app/views/footer.php';
+            
         }
+        include 'app/views/Product/listing.php';
+        include 'app/views/footer.php';
     }
 
     function description()
