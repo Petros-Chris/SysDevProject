@@ -8,53 +8,53 @@
 	<div class='container'>
 		<form method='post' action=''>
 			<div class="form-group">
-				<label>Brand:<input type="text" class="form-control" name="brand" value=<?= $data->brand ?>></label>
+				<label><?= __('Brand') ?>:<input type="text" class="form-control" name="brand" value=<?= $data->brand ?>></label>
 			</div>
 
 			<div class="form-group">
-				<label>Model:<input type="text" class="form-control" name="model" value=<?= $data->model ?>></label>
+				<label><?= __('Model') ?>:<input type="text" class="form-control" name="model" value=<?= $data->model ?>></label>
 			</div>
 
 			<div class="form-group">
-				<label>Color:<input type="text" class="form-control" name="color" value=<?= $data->color ?>></label>
+				<label><?= __('Color') ?>:<input type="text" class="form-control" name="color" value=<?= $data->color ?>></label>
 			</div>
 
 			<div class="form-group">
-				<label>Price:<input type="text" class="form-control" name="cost_price" value=<?= $data->cost_price ?>
+				<label><?= __('Price') ?>:<input type="text" class="form-control" name="cost_price"
+						value=<?= $data->cost_price ?> required></label>
+			</div>
+
+			<div class="form-group">
+				<label><?= __('Shape') ?>:<input type="text" class="form-control" name="shape" value=<?= $data->shape ?>
 						required></label>
 			</div>
 
 			<div class="form-group">
-				<label>Shape:<input type="text" class="form-control" name="shape" value=<?= $data->shape ?>
+				<label><?= __('Size') ?>:<input type="text" class="form-control" name="size" value=<?= $data->size ?>
 						required></label>
 			</div>
 
 			<div class="form-group">
-				<label>Size:<input type="text" class="form-control" name="size" value=<?= $data->size ?>
-						required></label>
-			</div>
-
-			<div class="form-group">
-				<label>Optical Sun:<input type="text" class="form-control" name="optical_sun"
+				<label><?= __('Optical Sun') ?>:<input type="text" class="form-control" name="optical_sun"
 						value=<?= $data->optical_sun ?> required></label>
 			</div>
 
 			<div class="form-group">
-				<label>Description:<textarea type="text" class="form-control"
+				<label><?= __('Description') ?>:<textarea type="text" class="form-control"
 						name="description"><?= $data->description ?></textarea></label>
 			</div>
 
 			<div class="form-group">
-				<label>Quantity:<input type="text" class="form-control" name="quantity" value=<?= $data->quantity ?>
-						required></label>
+				<label><?= __('Quantity') ?>:<input type="text" class="form-control" name="quantity"
+						value=<?= $data->quantity ?> required></label>
 			</div>
 
 			<div class="form-group">
-				<label>Is Disabled:<input type="checkbox" id="disable" name="disable" value="1"></label>
+				<label><?= __('Is Disabled') ?>:<input type="checkbox" id="disable" name="disable" value="1"></label>
 			</div>
 
 			<div class="form-group">
-				<input type="submit" name="action" value="Modify Product"/>
+				<input type="submit" name="action" value="<?= __('Modify Product') ?>" />
 			</div>
 		</form>
 	</div>

@@ -14,7 +14,7 @@
 				<label>Brand:<input type="text" class="form-control" name="brand" /></label>
 			</div> -->
 
-			<label>Brand:<select name="brand" class="form-control">
+			<label><?= __('Brand') ?>:<select name="brand" class="form-control">
 					<option value="Boss">Boss</option>
 					<option value="Cartier">Cartier</option>
 					<option value="Dexter Marx">Dexter Marx</option>
@@ -27,53 +27,55 @@
 
 
 			<div class="form-group">
-				<label>Model:<input type="text" class="form-control" name="model" /></label>
+				<label><?= __('Model') ?>:<input type="text" class="form-control" name="model" /></label>
 			</div>
 
-			<label>Color:<select name="color" class="form-control">
-					<option value="Black">Black</option>
-					<option value="Brown">Brown</option>
-					<option value="Clear">Clear</option>
-					<option value="Green">Green</option>
-					<option value="Red">Red</option>
-					<option value="Tortoise">Tortoise</option>
-					<option value="White">White</option>
+			<label><?= __('Color') ?>:<select name="color" class="form-control">
+					<option value="Black"><?= __('Black') ?></option>
+					<option value="Brown"><?= __('Brown') ?></option>
+					<option value="Clear"><?= __('Clear') ?></option>
+					<option value="Green"><?= __('Green') ?></option>
+					<option value="Red"><?= __('Red') ?></option>
+					<option value="Tortoise"><?= __('Tortoise') ?></option>
+					<option value="White"><?= __('White') ?></option>
 				</select></label>
 
 			<div class="form-group">
-				<label>Price To Manufacter:<input type="text" class="form-control" name="cost_price" /></label>
+				<label><?= __('Price To Manufacter') ?>:<input type="text" class="form-control"
+						name="cost_price" /></label>
 			</div>
 
-			<label>Shape:<select name="shape" class="form-control">
-					<option value="Aviator">Aviator</option>
-					<option value="Cat eye">Cat eye</option>
-					<option value="Geometric">Geometric</option>
-					<option value="Oval">Oval</option>
-					<option value="Round">Round</option>
-					<option value="Rectangle">Rectangle</option>
-					<option value="Square">Square</option>
+			<label><?= __('Shape') ?>:<select name="shape" class="form-control">
+					<option value="Aviator"><?= __('Aviator') ?></option>
+					<option value="Cat eye"><?= __('Cat eye') ?></option>
+					<option value="Geometric"><?= __('Geometric') ?></option>
+					<option value="Oval"><?= __('Oval') ?></option>
+					<option value="Round"><?= __('Round') ?></option>
+					<option value="Rectangle"><?= __('Rectangle') ?></option>
+					<option value="Square"><?= __('Square') ?></option>
 				</select></label>
 
 			<div class="form-group">
-				<label>Size:<input type="text" class="form-control" name="size" /></label>
+				<label><?= __('Size') ?>:<input type="text" class="form-control" name="size" /></label>
 			</div>
 
-			<label>Optical Sun:<select name="optical_sun" class="form-control">
-					<option value="Optical">Optical</option>
-					<option value="Sun">Sun</option>
+			<label><?= __('Optical Sun') ?>:<select name="optical_sun" class="form-control">
+					<option value="Optical"><?= __('Optical') ?></option>
+					<option value="Sun"><?= __('Sun') ?></option>
 
 				</select></label>
 
 			<div class="form-group">
-				<label>Description:<textarea type="text" class="form-control" name="description"> </textarea></label>
+				<label><?= __('Description') ?>:<textarea type="text" class="form-control"
+						name="description"> </textarea></label>
 			</div>
 
 			<div class="form-group">
-				<label>Quantity:<input type="text" class="form-control" name="quantity"></input></label>
+				<label><?= __('Quantity') ?>:<input type="text" class="form-control" name="quantity"></input></label>
 			</div>
 
 			<div class="form-group">
-				<input type="submit" name="action" value="Create Product" />
+				<input type="submit" name="action" value="<?= __('Create Product') ?>" />
 			</div>
 		</form>
 	</div>

@@ -14,6 +14,12 @@ class Ticket extends \app\core\Model
     public $ticket_status;
     public $timestamp;
 
+    public $ticket_status_text;
+
+    public $customer_information;
+
+    public $extra_customer_information;
+
     public function insert()
     {
         $SQL = 'INSERT INTO ticket(product_id, customer_id, issue, issue_description, ticket_status) VALUES (:product_id, :customer_id, :issue, :issue_description, 0)';
@@ -33,6 +39,15 @@ class Ticket extends \app\core\Model
         $SQL = 'SELECT * FROM ticket';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute();
+        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Ticket');
+        return $STMT->fetchAll();
+    }
+
+    public function getAllByCustomerId($customer_id)
+    {
+        $SQL = 'SELECT * FROM ticket WHERE customer_id = :customer_id';
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute(['customer_id' => $customer_id]);
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Ticket');
         return $STMT->fetchAll();
     }

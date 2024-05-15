@@ -122,6 +122,7 @@ class User extends \app\core\Controller
 
 		if ($employee->admin == 1 && password_verify($password, $employee->password_hash)) {
 			$_SESSION['isAdmin'] = $employee->admin;
+			$_SESSION['employee_id'] = $employee->employee_id;
 
 			//if ($_SESSION['url'] != '') {
 			//	header("location:$_SESSION[url]");
