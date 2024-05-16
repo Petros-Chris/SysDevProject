@@ -5,12 +5,6 @@
     <link rel="stylesheet" type="text/css" href="/app/css/style.scss">
     <script src="/app/script.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-    <style>
-        .search-form {
-            display: none;
-        }
-    </style>
 </head>
 <nav class="menu">
     <ol>
@@ -69,29 +63,32 @@
             </ol>
         </li>
 
-        <li class="menu-item">
-            <div class="tools">
-                <button onclick="toggleSearch()">🔍</button>
-                <form action="/Product/search" method="GET" class="search-form" id="searchForm">
-                    <label for="search">Search:</label>
-                    <input type="text" id="search" name="search" placeholder="eg: Black">
-                    <button type="submit">Search</button>
-                </form>
-            </div>
-        </li>
+            <li class="menu-item">
+        <div class="tools">
+            <button onclick="toggleSearch()">🔍</button>
+            <form action="/Product/search" method="GET" class="search-form" id="searchForm" onsubmit="return submitSearchForm()">
+                <input type="text" id="search" name="search" placeholder="eg: Gucci">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </li>
 
-        <li class="menu-item">
-            <div class="tools">
-                <button>🛒</button>
-            </div>
-        </li>
+    <li class="menu-item cart-language">
+        <div class="tools">
+            <button>🛒</button>
+        </div>
+    </li>
 
-        <li class="menu-item"><a href="">Language</a>
+    <li class="menu-item cart-language">
+        <div class="tools">
+            <button>Language</button>
             <ol class="sub-menu">
-                <li class="menu-item"><button onclick="updateLanguageCookie('fr')">french</button></li>
-                <li class="menu-item"><button onclick="updateLanguageCookie('en')">english</button></li>
+                <li class="menu-item"><button onclick="updateLanguageCookie('fr')">French</button></li>
+                <li class="menu-item"><button onclick="updateLanguageCookie('en')">English</button></li>
             </ol>
-        </li>
+        </div>
+    </li>
+
         <?php if (isset($_SESSION['customer_id']) || isset($_SESSION['employee_id'])): ?>
             <li class="menu-item"><a href="/User/login">Log Out</a></li>
         <?php endif; ?>
@@ -110,9 +107,9 @@
         window.location.reload();
     }
 
-</script>
 
-<script>
+
+
     //god knows for this (no wokry)
     // function callLink(url) {
     //     fetch('app\controllers\Cart.php', {
@@ -126,17 +123,25 @@
     //         });
 
     // }
-</script>
 
 
 
-<script>
+
     function toggleSearch() {
         var searchForm = document.getElementById("searchForm");
-        if (searchForm.style.display === "none") {
-            searchForm.style.display = "block";
-        } else {
-            searchForm.style.display = "none";
+        searchForm.classList.toggle("active");
+
+        var cartAndLanguage = document.getElementsByClassName("cart-language");
+        for (var i = 0; i < cartAndLanguage.length; i++) {
+            cartAndLanguage[i].classList.toggle("move-right");
+        }
+    }
+
+    function submitSearchForm() {
+        var searchInput = document.getElementById("search").value.trim();
+        if (searchInput === "") {
+            return false; // Prevent form submission if search input is empty
         }
     }
 </script>
+
