@@ -19,7 +19,7 @@ msgstr ""
 
 #: app/views/Customer/about.php:9
 msgid "About us"
-msgstr "About us probably"
+msgstr ""
 
 #: app/views/Customer/about.php:10
 msgid "The story behind Mes Yeux Tes yeux"

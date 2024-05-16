@@ -87,7 +87,7 @@
 
 
   <div class="text-center">
-    <h3>Join Newsletter</h3>
+    <h3><?= __('Join Newsletter') ?></h3>
   </div>
 
   <!-- Email input field and button -->

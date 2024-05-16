@@ -11,6 +11,7 @@
                     <li><p>Email: mytyfacebook@gmail.com</p></li>
                     <li><p>Phone: (514) 341-2020</p></li>
                     </ul>
+	
                 </div>
                 <div class="footer-col">
                     <h4>company</h4>
@@ -25,6 +26,8 @@
   	 				<li><a href="#">Men</a></li>
   	 				<li><a href="#">Women</a></li>
   	 			</ul>
+				   <a href = "https://www.instagram.com/mesyeux.tesyeux/"><img src="/app/resources/instagram.png" class="instagram" alt="instgram Logo" ;>
+				   <a href = "https://www.facebook.com/people/Mes-Yeux-Tes-Yeux/100076348726051/"><img src="/app/resources/facebook.png" class="instagram" alt="facebook Logo" ;>
   	 		</div>
   	 		<div class="footer-col">
   	 			<h4>Account</h4>
@@ -44,6 +47,8 @@
   	 		</div>
   	 	</div>
 	<div>
+
+	
 
 
 		<div id ="footer-license">

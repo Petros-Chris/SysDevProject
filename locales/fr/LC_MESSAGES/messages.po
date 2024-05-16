@@ -231,7 +231,7 @@ msgstr ""
 
 #: app/views/Customer/about.php:10
 msgid "The story behind Mes Yeux Tes yeux"
-msgstr ""
+msgstr "l'histoire derrière Mes Yeux Tes yeux"
 
 #: app/views/Customer/about.php:28
 msgid "Second content heading"
