@@ -1,7 +1,5 @@
 <?php
 ob_start();
-composer require chillerlan/php-authenticator
-composer require chillerlan/php-qrcode
 require ('app/core/App.php');
 require ('app/core/Controller.php');
 require ('app/core/autoload.php');
