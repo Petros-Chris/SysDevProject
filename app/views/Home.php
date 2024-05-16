@@ -24,23 +24,23 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="/app/resources/manonWall.png" alt="Chicago" style="height:400px;">
+      <img src="/app/resources/Models/GG_8100_HB.jpg" alt="Prada">
       </div>
 
       <div class="item">
-        <img src="/app/resources/saddude.webp" alt="Chicago" style="height:400px;">
+        <img src="/app/resources/Models/TF2235__40x30 (1).jpg" alt="Tiffany">
       </div>
 
       <div class="item">
-        <img src="/app/resources/fireddude.webp" alt="Chicago" style="height:400px;">
+        <img src="/app/resources/Models/MiuMiu R.jpg" alt="MiuMiu ">
       </div>
 
       <div class="item">
-        <img src="/app/resources/happydude.webp" alt="Chicago" style="height:400px;">
+        <img src="/app/resources/happydude.webp" alt="Chicago">
       </div>
 
       <div class="item">
-        <img src="/app/resources/owch.webp" alt="Chicago" style="height:400px;">
+        <img src="/app/resources/owch.webp" alt="Chicago">
       </div>
     </div>
 

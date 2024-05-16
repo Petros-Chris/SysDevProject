@@ -1,12 +1,24 @@
+<?php
+$name = ''; // Initialize $name variable
+
+// Assuming $products is an array of products with each product having a 'brand' property
+if (!empty($products)) {
+    // Get the brand of the first product
+    $firstProduct = $products[0]; // Assuming products array is not empty
+    $name = $firstProduct->brand; // Set $name to the brand of the first product
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
-	<title><?= $name ?> view</title>
-	<link rel="stylesheet" type="text/css" href="/app/css/style.scss">
+    <title><?= $name ?> view</title>
+    <link rel="stylesheet" type="text/css" href="/app/css/style.scss">
 </head>
-<body>
 
+<body>
+    <h1><?= $name ?></h1>
 
     <div id="imcool">
         <?php foreach ($products as $product): ?>
