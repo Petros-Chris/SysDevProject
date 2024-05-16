@@ -11,23 +11,23 @@
     <div id='popup' class='popup'></div>
 
     <dl>
-        <dt>Brand:</dt>
+        <dt><?= __('Brand:') ?>Brand:</dt>
         <dd><?= $data->brand ?></dd>
-        <dt>Model:</dt>
+        <dt><?= __('Model:') ?>Model:</dt>
         <dd><?= $data->model ?></dd>
-        <dt>Color:</dt>
+        <dt><?= __('Color:') ?>Color:</dt>
         <dd><?= $data->color ?></dd>
-        <dt>Cost Price:</dt>
+        <dt><?= __('Cost Price:') ?>Cost Price:</dt>
         <dd><?= $data->cost_price ?></dd>
-        <dt>Shape:</dt>
+        <dt><?= __('Shape:') ?>Shape:</dt>
         <dd><?= $data->shape ?></dd>
-        <dt>Size:</dt>
+        <dt><?= __('Size:') ?>Size:</dt>
         <dd><?= $data->size ?></dd>
-        <dt>Optical Sun:</dt>
+        <dt><?= __('Optical Sun:') ?>Optical Sun:</dt>
         <dd><?= $data->optical_sun ?></dd>
-        <dt>Description:</dt>
+        <dt><?= __('Description:') ?>Description:</dt>
         <dd><?= $data->description ?></dd>
-        <dt>Quantity:</dt>
+        <dt><?= __('Quantity:') ?>Quantity:</dt>
         <dd><?= $data->quantity ?></dd>
     </dl>
 

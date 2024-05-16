@@ -1,10 +1,6 @@
 .menu {
   background: white;
   height: 4rem;
-  top: 0;
-  margin-bottom: 20px;
-  position: sticky;
-  z-index: 9999;
 }
 
 .menu ol {
@@ -15,6 +11,7 @@
 
 .logo {
   display: inline-block;
+
 }
 
 .menu>ol {
@@ -239,6 +236,7 @@ a {
   to {
     opacity: 1;
   }
+
 }
 
 .button-group {
@@ -246,6 +244,7 @@ a {
   justify-content: flex-start;
   padding-left: 25px;
   padding-bottom: 10px;
+
 }
 
 .button {
@@ -263,6 +262,7 @@ a {
   background-color: #444;
 }
 
+
 h1 {
   padding-left: 30px;
 }
@@ -273,25 +273,35 @@ h1 {
 
 .container {
   max-width: 1175px;
+
+
+
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
   margin-left: 120px;
+
 }
 
 ul {
   list-style: none;
+
 }
 
+
+
 .footer {
-  background-color: rgb(42, 39, 39);
+  background-color: #24262b;
   padding: 10px 0;
+
+
 }
 
 .footer-col {
   padding: 0 0px 0 20px;
+
 }
 
 .footer-col h4 {
@@ -342,6 +352,7 @@ ul {
   font-weight: 300;
   display: block;
   text-align: left;
+
 }
 
 #footer-license {
@@ -350,7 +361,10 @@ ul {
   text-transform: capitalize;
   font-weight: 300;
   padding-left: 10px;
+
 }
+
+
 
 .carousel-inner .item img {
  width: 100%;
@@ -361,19 +375,23 @@ ul {
   text-align: center;
 }
 
+
 .form-control {
   width: 30%;
   margin-left: 525px;
   margin-top: 0px;
   margin-right: 0px;
   margin-bottom: 0px;
+
 }
+
 
 .btn-primary {
   width: 10%;
   display: block;
   margin-left: 70%;
 }
+
 
 .login-container {
   width: 300px;
@@ -440,6 +458,7 @@ ul {
   text-decoration: underline;
 }
 
+
 .divider {
   height: 1px;
   width: 100%;
@@ -459,6 +478,7 @@ ul {
   cursor: pointer;
   font-size: 1.2em;
   font-weight: bold;
+
 }
 
 .phone-box {
@@ -474,6 +494,7 @@ ul {
   float: right;
 }
 
+
 .contact-info {
   max-width: 700px;
   margin: 0 auto;
@@ -483,6 +504,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 200px;
+
 }
 
 .email-box,
@@ -490,6 +512,7 @@ ul {
   flex: 1 0 45%;
   margin-top: 20px;
   text-align: center;
+
 }
 
 .email-box {
@@ -547,6 +570,7 @@ ul {
   text-align: center;
 }
 
+
 .header p,
 .header h1 {
   margin-top: 20px;
@@ -559,12 +583,17 @@ ul {
 
 .story-content {
   display: flex;
+  // flex-wrap: wrap;
+  //justify-content: center;
   padding-left: 20px;
 }
 
 .story-content2 {
   display: flex;
+  // flex-wrap: wrap;
+  //justify-content: center;
   padding-right: 20px;
+
 }
 
 .story-image {
@@ -577,6 +606,7 @@ ul {
   background-color: #f7f7f7;
   border: 1px solid #ddd;
   padding: 6rem 7rem 7rem;
+  // text-align: right;
 }
 
 .story-text-left {
@@ -584,10 +614,12 @@ ul {
   background-color: #f7f7f7;
   border: 1px solid #ddd;
   padding: 6rem 7rem 7rem;
+
 }
 
 .story-image-left {
   width: 40%;
+  // height: 40%;
   margin-left: 0px;
 }
 
@@ -719,107 +751,4 @@ ul {
 
 .suggestion:hover {
   background-color: #f0f0f0;
-}
-
-.Choice-button {
-  width: 60%;
-  padding: 10px;
-  margin-left: 50px;
-  margin-top: 10px;
-  background-color: rgb(153, 57, 87);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1.2em;
-  font-weight: bold;
-}
-
-
-.container {
-    max-width: 1175px;
-
-}
-
-#containerMap {
-  max-width: 500px;
-  margin: 0 auto;
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  padding: 20px;
-}
-
-
-h1 {
-    text-align: center;
-    color: #333;
-}
-
-
-.shipping-details {
-    margin-bottom: 20px;
-}
-
-
-#searchInput {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-
-#suggestions {
-    position: absolute;
-    z-index: 1000;
-    background: white;
-    width: 100%;
-    max-height: 150px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    border-top: none;
-    border-radius: 0 0 4px 4px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: none;
-}
-
-
-.suggestion {
-    padding: 8px;
-    cursor: pointer;
-    border-bottom: 1px solid #ccc;
-}
-
-.suggestion:last-child {
-    border-bottom: none;
-}
-
-.suggestion:hover {
-    background-color: #f0f0f0;
-}
-
-
-#map {
-    height: 300px;
-    border-radius: 4px;
-    margin-top: 10px;
-}
-
-
-input[type="submit"] {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-}
-
-input[type="submit"]:hover {
-    background-color: #218838;
 }

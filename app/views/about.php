@@ -15,7 +15,7 @@
 	<div class="story-container">
 		<div class="story-content">
 			<div class="story-image">
-				<img src="/app/resources/peopleTryingOnGlasses.png" alt="Image description" height="100%" ; width="100%" ;>
+				<img src="/app/resources/Models/TF4205U_TF4205U_ST__40x30_M.jpg" alt="Image description" height="100%" ; width="100%" ;>
 			</div>
 
 			<div class="story-text">
@@ -41,7 +41,7 @@
  Mes Yeux Tes Yeux is here to offer you the very best.') ?> </p>
 			</div>
 			<div class="story-image-left">
-				<img src="/app/resources/manonwall.png" alt="Image description" height="100%" ; width="100%" ;>
+				<img src="/app/resources/Models/PRVPR20Z__30x40_M.jpg" alt="Image description" height="100%" ; width="100%" ;>
 			</div>
 		</div>
 	</div>

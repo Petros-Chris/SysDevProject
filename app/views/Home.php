@@ -36,11 +36,11 @@
       </div>
 
       <div class="item">
-        <img src="/app/resources/happydude.webp" alt="Chicago">
+        <img src="/app/resources/Models/MiuMiu B.png.jpg" alt="Chicago">
       </div>
 
       <div class="item">
-        <img src="/app/resources/owch.webp" alt="Chicago">
+        <img src="/app/resources/Models/TF1150_ST__40x30.jpg" alt="Chicago">
       </div>
     </div>
 
