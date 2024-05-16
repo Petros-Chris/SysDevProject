@@ -1,5 +1,5 @@
 <?php
-$name = ''; // Initialize $name variable
+$name = '';
 
 // Assuming $products is an array of products with each product having a 'brand' property
 if (!empty($products)) {
@@ -15,10 +15,36 @@ if (!empty($products)) {
 <head>
     <title><?= $name ?> view</title>
     <link rel="stylesheet" type="text/css" href="/app/css/style.scss">
+    <style>
+        .brand-description {
+            margin-left: 20px; /* Adjust the margin-left as needed */
+        }
+    </style>
 </head>
 
 <body>
-    <h1><?= $name ?></h1>
+    <?php
+    // Check if the current URL exactly matches /Product/listing
+    $currentUrl = $_SERVER['REQUEST_URI'];
+    if ($currentUrl === '/Product/listing') {
+    ?>
+        <h1>All of our products</h1>
+    <?php } else {
+        // Check if the current URL contains specific parameters indicating optical or sunglasses
+        if (strpos($currentUrl, 'type=optical_sun')) {
+            if (strpos($currentUrl, 'filter=Optical')) {
+                ?>
+                <h1>All of our optical glasses</h1>
+            <?php } elseif (strpos($currentUrl, 'filter=Sun')) { ?>
+                <h1>All of our sunglasses</h1>
+            <?php }
+        } else {
+            // Check if the current URL doesn't contain specific parameters indicating the listing page
+            ?>
+            <h1><?= $name ?></h1>
+            <p class="brand-description">Find personalized glasses with unique designs</p>
+    <?php }
+    } ?>
 
     <div id="imcool">
         <?php foreach ($products as $product): ?>
@@ -47,6 +73,7 @@ if (!empty($products)) {
                 <?php endif; ?>
 
                 <div class='product-brand'><?= $product->brand ?></div>
+               
                 <div class='product-price'>$<?= $product->cost_price ?></div>
             </div>
         </div>
