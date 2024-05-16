@@ -2,37 +2,37 @@
 <html>
 
 <head>
-	<title><?= $name ?> view</title>
-	<link rel="stylesheet" type="text/css" href="/app/css/style.scss">
+    <title><?= $name ?> view</title>
+    <link rel="stylesheet" type="text/css" href="/app/css/style.scss">
 </head>
 
 <body>
-
     <div id='popup' class='popup'></div>
-
+    <img src="/app/resources/images/product_<?= $data->product_id ?>.png" alt="<?= $data->description ?>" style="width: 200px; height: auto;">
     <dl>
-        <dt><?= __('Brand:') ?>Brand:</dt>
+        <dt><?= __('Brand:') ?></dt>
         <dd><?= $data->brand ?></dd>
-        <dt><?= __('Model:') ?>Model:</dt>
+        <dt><?= __('Model:') ?></dt>
         <dd><?= $data->model ?></dd>
-        <dt><?= __('Color:') ?>Color:</dt>
+        <dt><?= __('Color:') ?></dt>
         <dd><?= $data->color ?></dd>
-        <dt><?= __('Cost Price:') ?>Cost Price:</dt>
+        <dt><?= __('Cost Price:') ?></dt>
         <dd><?= $data->cost_price ?></dd>
-        <dt><?= __('Shape:') ?>Shape:</dt>
+        <dt><?= __('Shape:') ?></dt>
         <dd><?= $data->shape ?></dd>
-        <dt><?= __('Size:') ?>Size:</dt>
+        <dt><?= __('Size:') ?></dt>
         <dd><?= $data->size ?></dd>
-        <dt><?= __('Optical Sun:') ?>Optical Sun:</dt>
+        <dt><?= __('Optical Sun:') ?>:</dt>
         <dd><?= $data->optical_sun ?></dd>
-        <dt><?= __('Description:') ?>Description:</dt>
+        <dt><?= __('Description:') ?></dt>
         <dd><?= $data->description ?></dd>
-        <dt><?= __('Quantity:') ?>Quantity:</dt>
+        <dt><?= __('Quantity:') ?></dt>
         <dd><?= $data->quantity ?></dd>
     </dl>
 
-    <input id="cartBtn" type='button' value='Add To Cart' onclick="addProduct(<?= $data->product_id ?>)">
+    
 
+    <input id="cartBtn" type='button' value='Add To Cart' onclick="addProduct(<?= $data->product_id ?>)">
 </body>
 
 <script>

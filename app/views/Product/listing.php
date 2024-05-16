@@ -17,20 +17,20 @@ if (!empty($products)) {
     <link rel="stylesheet" type="text/css" href="/app/css/style.scss">
     <style>
         .brand-description {
-            margin-left: 20px; /* Adjust the margin-left as needed */
+            margin-left: 30px; 
         }
     </style>
 </head>
 
 <body>
     <?php
-    // Check if the current URL exactly matches /Product/listing
+    
     $currentUrl = $_SERVER['REQUEST_URI'];
     if ($currentUrl === '/Product/listing') {
     ?>
         <h1>All of our products</h1>
     <?php } else {
-        // Check if the current URL contains specific parameters indicating optical or sunglasses
+        
         if (strpos($currentUrl, 'type=optical_sun')) {
             if (strpos($currentUrl, 'filter=Optical')) {
                 ?>
@@ -39,7 +39,7 @@ if (!empty($products)) {
                 <h1>All of our sunglasses</h1>
             <?php }
         } else {
-            // Check if the current URL doesn't contain specific parameters indicating the listing page
+           
             ?>
             <h1><?= $name ?></h1>
             <p class="brand-description">Find personalized glasses with unique designs</p>

@@ -62,9 +62,6 @@
   margin-left: 180px;
 }
 
-.brand-description {
-  margin-right: 60px; 
-}
 .search-form {
   position: absolute;
     top: 0;
@@ -303,9 +300,13 @@ h1 {
 
 .container {
   max-width: 1175px;
-
-
-
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 20px;
+}
+dl {
+  margin-left: 100px; /* Adjust margin as needed */
 }
 
 .row {
