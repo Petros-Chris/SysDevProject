@@ -12,5 +12,4 @@ class IsCustomer implements \app\core\AccessFilter{
 		}
 		return false;
 	}
-
 }

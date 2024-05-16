@@ -23,7 +23,6 @@ class Product extends \app\core\Controller
             
         } else {
             $products = $product->getAll();
-            
         }
         include 'app/views/Product/listing.php';
         include 'app/views/footer.php';

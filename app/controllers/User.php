@@ -84,11 +84,10 @@ class User extends \app\core\Controller
 			if ($user->disable == false) {
 				$_SESSION['customer_id'] = $user->customer_id;
 
-				if ($_SESSION['url'] != '') {
+				if (isset($_SESSION['url'])) {
 					header("location:$_SESSION[url]");
 				} else {
 					header("location:/Product/listing");
-
 				}
 			}
 			return true;
@@ -144,25 +143,26 @@ class User extends \app\core\Controller
 	function logout()
 	{
 		session_destroy();
-		header('location:/User/login');
 		//$this->view('User/login');
-		echo ("
-        <script>
-        document.getElementById('popup').style.display = 'block'
-        setTimeout(hidePopup, 3000);
+		header('location:/User/login');
 
-        setTimeout(function() {
-            popup.classList.add('popup-visible');
-          }, 250);
-        
-        function hidePopup() {
-                popup.classList.remove('popup-visible');
-                
-                setTimeout(function() {
-                    popup.style.display = 'none'
-                  }, 250);
-          }
-          </script>");
+		// echo ("
+		// <script>
+		// document.getElementById('popup').style.display = 'block'
+		// setTimeout(hidePopup, 3000);
+
+		// setTimeout(function() {
+		//     popup.classList.add('popup-visible');
+		//   }, 250);
+
+		// function hidePopup() {
+		//         popup.classList.remove('popup-visible');
+
+		//         setTimeout(function() {
+		//             popup.style.display = 'none'
+		//           }, 250);
+		//   }
+		//   </script>");
 	}
 
 	function contact()
