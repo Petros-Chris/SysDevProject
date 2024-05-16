@@ -43,7 +43,6 @@ class Ticket extends \app\core\Controller
             $ticket->customer_information = $customerInfo;
             $ticket->extra_customer_information = $extraCustomerinfo;
 
-
             switch ($tick_status) {
                 case 1:
                     $ticket->ticket_status_text = "Closed";
@@ -72,7 +71,6 @@ class Ticket extends \app\core\Controller
 
             $ticket->customer_information = $customerInfo;
             $ticket->extra_customer_information = $extraCustomerinfo;
-
 
             switch ($tick_status) {
                 case 1:
@@ -116,5 +114,4 @@ class Ticket extends \app\core\Controller
         $ticketMessage->viewMessage();
         include 'app/views/footer.php';
     }
-
 }

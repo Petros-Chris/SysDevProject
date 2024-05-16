@@ -13,11 +13,11 @@
                     <option value="Product Issue">Product Issue</option>
                 </select></label>
 
-            <label>Tell Us More About Your Issue: <textarea class="form-control" name="issue_description" required></textarea></label>
+            <label>Tell Us More About Your Issue: <textarea class="form-control textarea" name="issue_description" required></textarea></label>
 
             <div class="form-group">
                 <input type="submit" name="action" value="Submit" />
-                <a href='/User/login'>Cancel</a>
+                <a href="javascript:history.back()">Cancel</a>
             </div>
         </form>
     </div>

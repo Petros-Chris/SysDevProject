@@ -3,7 +3,6 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="/app/css/style.scss">
-    <link rel="stylesheet" type="text/css" href="/app/style.css">
     <script src="/app/script.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -15,7 +14,8 @@
 </head>
 <nav class="menu">
     <ol>
-    <a href="/home"> <img src="/app/resources/logo/mesyeuxtesyeuxLOGO.png" class="logo" alt="Image Logo" height="55px" ; width="160px" ;></a>
+        <a href="/home"> <img src="/app/resources/logo/mesyeuxtesyeuxLOGO.png" class="logo" alt="Image Logo"
+                height="55px" ; width="160px" ;></a>
         <?php if (!isset($_SESSION['employee_id'])): ?>
             <li class="menu-item"><a href="\Product\listing">Shop</a>
                 <ol class="sub-menu">
@@ -49,7 +49,7 @@
         <?php if (!isset($_SESSION['isAdmin']) && isset($_SESSION['employee_id'])): ?>
             <li class="menu-item"><a href='/Employee/index'>Employee</a>
                 <ol class="sub-menu">
-                    <li class="menu-item"><a href='/Admin/productListing'><?= __('Modify Product') ?></a></li>
+                    <li class="menu-item"><a href='/Employee/productListing'><?= __('Modify Product') ?></a></li>
                     <li class="menu-item"><a href='/Ticket/ongoing'><?= __('Ongoing Tickets') ?></a></li>
                     <li class="menu-item"><a href='/Employee/index'><?= __('More') ?></a></li>
                 </ol>
@@ -70,15 +70,15 @@
         </li>
 
         <li class="menu-item">
-        <div class="tools">
-            <button onclick="toggleSearch()">🔍</button>
-            <form action="/Product/search" method="GET" class="search-form" id="searchForm">
-                <label for="search">Search:</label>
-                <input type="text" id="search" name="search" placeholder="eg: Black">
-                <button type="submit">Search</button>
-            </form>
-        </div>
-    </li>
+            <div class="tools">
+                <button onclick="toggleSearch()">🔍</button>
+                <form action="/Product/search" method="GET" class="search-form" id="searchForm">
+                    <label for="search">Search:</label>
+                    <input type="text" id="search" name="search" placeholder="eg: Black">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </li>
 
         <li class="menu-item">
             <div class="tools">
@@ -104,6 +104,15 @@
 </html>
 
 <script>
+    function updateLanguageCookie(lang) {
+        document.cookie = "lang=" + lang + ";expires=" + new Date(Date.now() + (30 * 24 * 60 * 60 * 1000)).toUTCString() + ";path=/;SameSite=None;secure";
+
+        window.location.reload();
+    }
+
+</script>
+
+<script>
     //god knows for this (no wokry)
     // function callLink(url) {
     //     fetch('app\controllers\Cart.php', {
@@ -119,43 +128,15 @@
     // }
 </script>
 
-<script>
-    // function switchLang() {
-    //     var button = document.getElementById('langBtn')
-    //     switch (button.value) {
-    //         case 'en': {
-    //             button.innerText = 'fr';
-    //             updateLanguageCookie('fr');
-    //             break;
-    //         }
-    //         case 'fr': {
-    //             button.innerText = 'en';
-    //             updateLanguageCookie('en');
-    //             break;
-    //         }
-    //         default: {
-    //             button.innerText = 'en';
-    //             updateLanguageCookie('en');
-    //         }
-    //     }
-    // }
-
-    function updateLanguageCookie(lang) {
-        document.cookie = "lang=" + lang + ";expires=" + new Date(Date.now() + (30 * 24 * 60 * 60 * 1000)).toUTCString() + ";path=/;SameSite=None;secure";
-
-        window.location.reload();
-    }
-
-</script>
 
 
 <script>
-        function toggleSearch() {
-            var searchForm = document.getElementById("searchForm");
-            if (searchForm.style.display === "none") {
-                searchForm.style.display = "block";
-            } else {
-                searchForm.style.display = "none";
-            }
+    function toggleSearch() {
+        var searchForm = document.getElementById("searchForm");
+        if (searchForm.style.display === "none") {
+            searchForm.style.display = "block";
+        } else {
+            searchForm.style.display = "none";
         }
-    </script>
+    }
+</script>
