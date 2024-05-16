@@ -17,31 +17,22 @@
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
       <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-      <li data-target="#myCarousel" data-slide-to="4"></li>
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-      <img src="/app/resources/Models/GG_8100_HB.jpg" alt="Prada">
+      <img src="/app/resources/Models/GG_8100_HB.jpg" alt="Prada" style="height: 600px;"/>
       </div>
 
       <div class="item">
-        <img src="/app/resources/Models/TF2235__40x30 (1).jpg" alt="Tiffany">
+        <img src="/app/resources/Models/TF2235__40x30 (1).jpg" alt="Tiffany" style="height: 600px;" />
       </div>
 
       <div class="item">
-        <img src="/app/resources/Models/MiuMiu R.jpg" alt="MiuMiu ">
+        <img src="/app/resources/Models/MiuMiu R.jpg" alt="MiuMiu" style="height: 600px;"/>
       </div>
 
-      <div class="item">
-        <img src="/app/resources/Models/MiuMiu B.png.jpg" alt="Chicago">
-      </div>
-
-      <div class="item">
-        <img src="/app/resources/Models/TF1150_ST__40x30.jpg" alt="Chicago">
-      </div>
     </div>
 
     <!-- Left and right controls -->
