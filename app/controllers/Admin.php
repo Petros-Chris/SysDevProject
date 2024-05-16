@@ -30,11 +30,13 @@ class Admin extends \app\core\Controller
         }
 
         $this->view('Product/listing');
+        include 'app/views/footer.php';
     }
 
     function index()
     {
         $this->view('Admin/index');
+        include 'app/views/footer.php';
     }
 
     function create()

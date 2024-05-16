@@ -1,31 +1,29 @@
-<html>
-<link rel="stylesheet" type="text/css" href="/app/style.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <h1>Checkout</h1>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
-
 <body>
-    <form id="orderForm" action="" method="POST">
-        <div class="shipping-details">
-            <input type="text" id="searchInput" placeholder="Enter your address" autocomplete="off" name="address">
-            <div id="suggestions"></div>
-            <div id="map"></div>
-        </div>
-
-        <div id="popup" class="popup"></div>
-
-
-
-        <input type="hidden" name="total" value="">
-        <input type="submit" value="Place Order">
-    </form>
+    <div class="container" id="containerMap">
+        <h1>Checkout</h1>
+        <form id="orderForm" action="" method="POST">
+            <div class="shipping-details">
+                <input type="text" id="searchInput" placeholder="Enter your address" autocomplete="off" name="address" required>
+                <div id="suggestions"></div>
+                <div id="map"></div>
+            </div>
+            <div id="popup" class="popup"></div>
+            <input type="hidden" name="total" value="">
+            <input type="submit" value="Place Order">
+        </form>
+    </div>
 
     <script>
-        var map = L.map('map').setView([45.509, -73.667], 13); //Montreal center, can change it to toronto or something
+        var map = L.map('map').setView([45.509, -73.667], 13); // Montreal center
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '© OpenStreetMap'
@@ -33,7 +31,6 @@
 
         var apiKey = '3a5a6881d18b4a7da94f9f41908a16f6';
         var suggestionsBox = document.getElementById('suggestions');
-
 
         function fetchAddress(input) {
             var url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(input)}&format=json&apiKey=${apiKey}`;
@@ -53,7 +50,6 @@
                 });
         }
 
-
         function displaySuggestions(features) {
             suggestionsBox.innerHTML = '';
             suggestionsBox.style.display = 'block';
@@ -70,12 +66,10 @@
             });
         }
 
-
         function selectAddress(feature) {
             var latLng = [feature.lat, feature.lon];
             map.setView(latLng, 16);
-            L.marker([feature.lat, feature.lon]).addTo(map);
-
+            L.marker(latLng).addTo(map);
 
             var address = feature.formatted.split(',');
             address = address.slice(0, -2).join(',') + ',' + address.slice(-1);
@@ -110,7 +104,6 @@
 
             this.submit();
         });
-
     </script>
-
+</body>
 </html>

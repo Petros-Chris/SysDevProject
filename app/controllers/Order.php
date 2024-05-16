@@ -42,8 +42,10 @@ class Order extends \app\core\Controller
 
 
             header('location:/home');
+            
         } else {
             $this->view('Customer/Checkout');
+            include ('app/views/footer.php');
         }
     }
 
@@ -64,9 +66,8 @@ class Order extends \app\core\Controller
                 )->send();
 
                 if ($response->isRedirect()) {
-                    $response->redirect(); // this will automatically forward the customer
+                    $response->redirect(); 
                 } else {
-                    // not successful
                     echo $response->getMessage();
                 }
             } catch (Exception $e) {
@@ -78,7 +79,6 @@ class Order extends \app\core\Controller
     function success()
     {
         require_once 'vendor/omnipay/paypal/config.php';
-        // Once the transaction has been approved, we need to complete it.
         if (array_key_exists('paymentId', $_GET) && array_key_exists('PayerID', $_GET)) {
             $transaction = $gateway->completePurchase(
                 array(
@@ -89,7 +89,6 @@ class Order extends \app\core\Controller
             $response = $transaction->send();
 
             if ($response->isSuccessful()) {
-                // The customer has successfully paid.
                 $arr_body = $response->getData();
 
                 $payment_id = $db->real_escape_string($arr_body['id']);
@@ -128,10 +127,9 @@ class Order extends \app\core\Controller
         $order = new \app\models\Order();
         $allCustOrders = $order->getOrdersByCustomerId($_SESSION['customer_id']);
 
-        //To Get Customer Information (needed?)
+
         foreach ($allCustOrders as $custOrder) {
-            // $customerInfo = $custOrder->getById($custOrder->customer_id);
-            // $custOrder->customer_information = $customerInfo;
+
 
             $status = $custOrder->status;
 
