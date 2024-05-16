@@ -83,7 +83,7 @@ class Cart extends \app\core\Controller
             }
             echo "<script> 
                         document.getElementById('popup').innerHTML += 
-                        'Total: $price <br> <button onclick=\"window.location.href=\'/Customer/checkout\'\">Proceed</button>';
+                        'Total: $price <br> <button id=checkoutBtn onclick=\"window.location.href=\'/Customer/checkout\'\">Proceed</button>';
 
                         document.getElementById('popup').style.display = 'block';
                         setTimeout(hidePopup, 3000);
