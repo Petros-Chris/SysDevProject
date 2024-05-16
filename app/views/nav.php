@@ -14,8 +14,8 @@
 </head>
 <nav class="menu">
     <ol>
-        <a href="/home"> <img src="/app/resources/LOGO/mesyeuxtesyeuxLOGO.png" alt="Image Logo" height="20%" ;
-                width="20%" ;></a>
+    <a href="/home"> <img src="/app/resources/logo/LOGO/mesyeuxtesyeuxLOGO.png" alt="Image Logo" height="20%" ; width="20%" ;></a>
+    <a href="/home"> <img src="/app/resources/logo/mesyeuxtesyeuxLOGO.png" class="logo" alt="Image Logo" height="55px" ; width="160px" ;></a>
         <?php if (!isset($_SESSION['employee_id'])): ?>
             <li class="menu-item"><a href="\Product\listing">Shop</a>
                 <ol class="sub-menu">
