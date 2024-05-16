@@ -4,11 +4,11 @@
 	</head>
     
     <body>
-        <li><a href='/Admin/create'><?=__('Add A New Product')?></a></li>
-        <li><a href='/Admin/productListing'><?=__('Modify A Product')?></a></li>
-        <li><a href='/Admin/customerList'><?=__('Disable/Enable User Account')?></a></li>
-        <li><a href='/Ticket/ongoing'><?=__('View All Ongoing Tickets')?></a></li>
-        <li><a href='/Employee/creation'><?=__('Create A New Employee')?></a></li>
-        <li><a href='/Admin/orders'><?=__('View All Orders')?></a></li>
+    <button class="Choice-button" onclick="location.href='/Admin/create'"><?=__('Add A New Product')?></button>
+        <button class="Choice-button" onclick="location.href='/Admin/productListing'"><?=__('Modify A Product')?></button>
+        <button class="Choice-button" onclick="location.href='/Admin/customerList'"><?=__('Disable/Enable User Account')?></button>
+        <button class="Choice-button" onclick="location.href='/Ticket/ongoing'"><?=__('View All Ongoing Tickets')?></button>
+        <button class="Choice-button" onclick="location.href='/Employee/creation'"><?=__('Create A New Employee')?></button>
+        <button class="Choice-button" onclick="location.href='/Admin/orders'"><?=__('View All Orders')?></button>
     </body>
 </html>

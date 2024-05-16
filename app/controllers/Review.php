@@ -72,7 +72,6 @@ class Review extends \app\core\Controller
 
         $reviews = $review->getAllFromProduct($_GET['id']);
 
-        //This adds the customer information into the review
         foreach ($reviews as $review) {
             $customerInfo = $customer->getById($review->customer_id);
             $review->customer_information = $customerInfo;

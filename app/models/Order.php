@@ -28,7 +28,7 @@ class Order extends \app\core\Model
             'address' => $this->address,
             'total' => $this->total,
         ]);
-        return self::$_conn->lastInsertId(); // Capture and return the order ID
+        return self::$_conn->lastInsertId();
     }
 
     public function insertItem_Order()
@@ -43,7 +43,6 @@ class Order extends \app\core\Model
                 'price' => $this->price
             ]);
         } catch (PDOException $e) {
-            // Handle exception
             die("Error inserting item order: " . $e->getMessage());
         }
     }

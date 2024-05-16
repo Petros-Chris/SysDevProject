@@ -29,7 +29,7 @@
   	 		<div class="footer-col">
   	 			<h4>Account</h4>
   	 			<ul>
-  	 				<li><a href="\customer\dashboard">My account</a></li>
+  	 				<li><a href="\Customer\dashboard">My account</a></li>
   	 				<li><a href="#">My orders</a></li>
   	 				<li><a href="#">My cart</a></li>
   	 			</ul>
