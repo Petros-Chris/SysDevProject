@@ -58,7 +58,7 @@
 
         <li class="menu-item"><a href="/about">About</a>
             <ol class="sub-menu">
-                <li class="menu-item"><a href="/about">About Mes Yeux Tes Yeux</a></li>
+                <li class="menu-item"><a href="/about">About MYTY</a></li>
                 <li class="menu-item"><a href="/contact">Contact Us</a></li>
             </ol>
         </li>
