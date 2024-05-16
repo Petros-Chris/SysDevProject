@@ -21,6 +21,7 @@ class TicketMessage extends \app\core\Controller
 
             $ticket->insert();
 
+            header('location:/Customer/update');
         } else {
             $this->view('Ticket/Message/create');
         }
