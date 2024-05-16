@@ -11,7 +11,6 @@ class Order extends \app\core\Controller
     #[\app\filters\IsCustomer]
     function createOrder()
     {
-
         $cart = new \app\controllers\Cart();
 
         $cart->viewCartCheckout();
@@ -22,17 +21,15 @@ class Order extends \app\core\Controller
             $order->customer_id = $_SESSION['customer_id'];
             $order->address = $_POST['address'];
 
-
             $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
             $total = 0;
+
             foreach ($cart as $item) {
                 $total += $item->cost_price;
             }
             $order->total = $total;
 
-
             $order_id = $order->insertOrder_Customer();
-
 
             foreach ($cart as $item) {
                 $item_order = new \app\models\Order();
@@ -44,7 +41,7 @@ class Order extends \app\core\Controller
             }
 
 
-            header('location:/Order/Success');
+            header('location:/home');
         } else {
             $this->view('Customer/Checkout');
         }
@@ -106,11 +103,18 @@ class Order extends \app\core\Controller
                 $db->query($sql);
 
                 echo "Payment is successful. Your transaction id is: " . $payment_id;
+                session_destroy();
+                header('location:/home');
             } else {
                 echo $response->getMessage();
+                session_destroy();
+                header('location:/home');
             }
         } else {
+
             echo 'Transaction is declined';
+            session_destroy();
+            header('location:/home');
         }
     }
 

@@ -9,9 +9,9 @@
   padding: 10px;
 }
 
-.logo{
+.logo {
   display: inline-block;
-  
+
 }
 
 .menu>ol {
@@ -410,8 +410,7 @@ ul {
 
 .login-container input[type="email"],
 .login-container input[type="password"],
-.login-container input[type="text"]
- {
+.login-container input[type="text"] {
   width: 100%;
   padding: 10px;
   margin-top: 10px;
@@ -481,16 +480,16 @@ ul {
 
 //----contact------//
 .phone-box {
-    margin-top: 20px;
-    background-color: #ffffff; 
-    padding: 20px;
-    border-radius: 5px;
-    box-sizing: border-box;
-    float: left; 
+  margin-top: 20px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  float: left;
 }
 
 .phone-box {
-    float: right; 
+  float: right;
 }
 
 
@@ -503,7 +502,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 200px;
-  
+
 }
 
 .email-box,
@@ -519,46 +518,46 @@ ul {
 }
 
 .contact-info:after {
-    content: "";
-    display: table;
-    clear: both;
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .email-box h3,
 .phone-box h3 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 0;
-    margin-bottom: 10px;
-    text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .email-box a,
 .phone-box a {
-    display: block;
-    margin-bottom: 10px;
-    color: #007bff;
-    text-decoration: none;
-    font-size: 16px;
+  display: block;
+  margin-bottom: 10px;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 16px;
 }
 
 .email-box a:hover,
 .phone-box a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .contact-text h1 {
-    margin-bottom: 10px;
-    text-align: center;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-.contact-text p{
-    margin-bottom: 5px;
-    text-align: center;
+.contact-text p {
+  margin-bottom: 5px;
+  text-align: center;
 }
 
 .email-box img,
-.phone-box img{
+.phone-box img {
   padding-bottom: 10px;
 }
 
@@ -582,16 +581,16 @@ ul {
 
 .story-content {
   display: flex;
- // flex-wrap: wrap;
+  // flex-wrap: wrap;
   //justify-content: center;
   padding-left: 20px;
 }
 
-.story-content2{
+.story-content2 {
   display: flex;
   // flex-wrap: wrap;
-   //justify-content: center;
-   padding-right: 20px;
+  //justify-content: center;
+  padding-right: 20px;
 
 }
 
@@ -601,30 +600,32 @@ ul {
 }
 
 .story-text {
-  width: 50%; 
+  width: 50%;
   background-color: #f7f7f7;
   border: 1px solid #ddd;
-  padding:6rem 7rem 7rem;
- // text-align: right;
+  padding: 6rem 7rem 7rem;
+  // text-align: right;
 }
 
 .story-text-left {
-  width: 50%; 
+  width: 50%;
   background-color: #f7f7f7;
   border: 1px solid #ddd;
-  padding:6rem 7rem 7rem;
-  
+  padding: 6rem 7rem 7rem;
+
 }
 
 .story-image-left {
-  width: 40%; 
- // height: 40%;
-  margin-left: 0px; 
+  width: 40%;
+  // height: 40%;
+  margin-left: 0px;
 }
 
-
-
 //-------this was in a css file------------//
+.textarea {
+  resize: none;
+}
+
 .tools button {
   background: none;
   border: none;
@@ -635,25 +636,20 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* Aligns items centrally on the line */
   align-items: stretch;
 }
 
 .product-container {
   border: 1px solid #ccc;
   width: calc(18% - 20px);
-  /* Adjusts each box to be smaller as previously set */
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 10px;
-  /* Consistent margin for spacing around each box */
   text-align: center;
   display: inline-flex;
   flex-direction: column;
   box-sizing: border-box;
-  /* Includes padding and border in the element's total width and height */
 }
-
 
 #imcool {
   display: flex;
@@ -713,7 +709,7 @@ ul {
   border: 1px solid #ccc;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 9999;
-  /* transition: top 0.7s ease; */
+  transition: top 0.7s ease;
 }
 
 .popup-visible {

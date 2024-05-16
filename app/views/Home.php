@@ -17,6 +17,7 @@
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
       <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
     </ol>
 
     <!-- Wrapper for slides -->
@@ -26,11 +27,15 @@
       </div>
 
       <div class="item">
-        <img src="/app/resources/manonWall.png" alt="Chicago" style="height:400px;">
+        <img src="/app/resources/saddude.webp" alt="Chicago" style="height:400px;">
       </div>
 
       <div class="item">
-        <img src="/app/resources/manonWall.png" alt="Chicago" style="height:400px;">
+        <img src="/app/resources/fireddude.webp" alt="Chicago" style="height:400px;">
+      </div>
+
+      <div class="item">
+        <img src="/app/resources/happydude.webp" alt="Chicago" style="height:400px;">
       </div>
     </div>
 

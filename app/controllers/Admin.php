@@ -37,39 +37,6 @@ class Admin extends \app\core\Controller
         $this->view('Admin/index');
     }
 
-    function modify()
-    {
-        $product = new \app\models\Product();
-        $product = $product->getId($_GET['id']);
-
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-            //$product->product_id = $_GET['id'];  
-            $product->brand = $_POST['brand'];
-            $product->model = $_POST['model'];
-            $product->color = $_POST['color'];
-            $product->cost_price = $_POST['cost_price'];
-            $product->shape = $_POST['shape'];
-            $product->size = $_POST['size'];
-            $product->optical_sun = $_POST['optical_sun'];
-            $product->description = $_POST['description'];
-            $product->quantity = $_POST['quantity'];
-
-            if ($_POST['disable'] == null) {
-                $product->disable = 0;
-            } else {
-                $product->disable = $_POST['disable'];
-            }
-
-
-            $product->update();
-            header('location:/Admin/index');
-        } else {
-            $this->view('Admin/modify', $product);
-        }
-    }
-
     function create()
     {
         $product = new \app\models\Product();
@@ -191,7 +158,6 @@ class Admin extends \app\core\Controller
                 }
             }
         }
-
         include 'app/views/Admin/orders.php';
         include 'app/views/footer.php';
     }
