@@ -27,7 +27,7 @@ $this->addRoute('Admin/order', 'Order,viewCustomerOrder');
 //employee
 $this->addRoute('Employee/creation', 'Employee,register');
 $this->addRoute('Employee/index', 'Employee,index');
-$this->addRoute('Employee/modify', 'Employee,modify');
+$this->addRoute('Employee/modify', 'Admin,modify');
 //wishlist
 $this->addRoute('Wishlist/add', 'Wishlist,addToWishlist');
 $this->addRoute('Wishlist/remove', 'Wishlist,removeFromWishlist');

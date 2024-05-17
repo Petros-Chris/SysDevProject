@@ -26,7 +26,7 @@ class Admin extends \app\core\Controller
             $pro_quantity = $product->quantity;
             $pro_disable = $product->disable;
 
-            echo "<a href='../Admin/modify?id=$pro_id'> Product -- $pro_id</a><br>";
+            echo "<a href='../Employee/modify?id=$pro_id'> Product -- $pro_id</a><br>";
         }
 
         $this->view('Product/listing');
@@ -56,11 +56,43 @@ class Admin extends \app\core\Controller
             $product->quantity = $_POST['quantity'];
             $product->disable = 0;
 
-            var_dump($product);
             $product->insert();
             header('location:/Admin/index');
         } else {
             $this->view('Admin/create');
+        }
+    }
+
+    function modify()
+    {
+        $product = new \app\models\Product();
+        $product = $product->getId($_GET['id']);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            //$product->product_id = $_GET['id'];  
+            $product->brand = $_POST['brand'];
+            $product->model = $_POST['model'];
+            $product->color = $_POST['color'];
+            $product->cost_price = $_POST['cost_price'];
+            $product->shape = $_POST['shape'];
+            $product->size = $_POST['size'];
+            $product->optical_sun = $_POST['optical_sun'];
+            $product->description = $_POST['description'];
+            $product->quantity = $_POST['quantity'];
+
+            if (isset($_POST['disable'])) {
+                if ($_POST['disable'] == null) {
+                    $product->disable = 0;
+                } else {
+                    $product->disable = $_POST['disable'];
+                }
+            }
+
+            $product->update();
+            header('location:/Admin/index');
+        } else {
+            $this->view('Admin/modify', $product);
         }
     }
 
