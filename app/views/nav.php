@@ -79,15 +79,12 @@
         </div>
     </li>
 
-    <li class="menu-item cart-language">
-        <div class="tools">
-            <button>Language</button>
+    <li class="menu-item"><a href="">Language</a>
             <ol class="sub-menu">
-                <li class="menu-item"><button onclick="updateLanguageCookie('fr')">French</button></li>
-                <li class="menu-item"><button onclick="updateLanguageCookie('en')">English</button></li>
+                <li class="menu-item"><button onclick="updateLanguageCookie('fr')">french</button></li>
+                <li class="menu-item"><button onclick="updateLanguageCookie('en')">english</button></li>
             </ol>
-        </div>
-    </li>
+        </li>
 
         <?php if (isset($_SESSION['customer_id']) || isset($_SESSION['employee_id'])): ?>
             <li class="menu-item"><a href="/User/login">Log Out</a></li>

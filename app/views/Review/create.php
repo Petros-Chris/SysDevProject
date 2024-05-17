@@ -19,6 +19,7 @@
 			    	<label>Add An Image:<input type="text" class="form-control" name="image_link"/></label>
 			    </div>
                 <input type='Submit'value='Submit'name='create_review'>
+				<a href="#" onclick="history.back();">Cancel</a>
 		    </form>
 	    </div>
     </body>
