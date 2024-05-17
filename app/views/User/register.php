@@ -9,9 +9,9 @@
 	<div class="login-container">
 	<h1>Sign Up</h1>
 		<form id="registerForm" method='post' onsubmit="validateForm(event)">
-			<input type="text" name="firstname" placeholder="First Name" required />
+			<input type="text" name="first_name" placeholder="First Name" required />
 
-			<input type="text" name="lastname" placeholder="Last Name" required /> 
+			<input type="text" name="last_name" placeholder="Last Name" required /> 
 
 			<input type="email" name="email" placeholder="Email" required />
 
