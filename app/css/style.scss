@@ -1,17 +1,19 @@
 .menu {
   background: white;
   height: 4rem;
+  top: 0;
+  margin-bottom: 20px;
+  position: sticky;
 }
 
 .menu ol {
   list-style-type: none;
-  margin: 0 0 0 0;
+  margin: 0;
   padding: 10px;
 }
 
 .logo {
   display: inline-block;
-
 }
 
 .menu>ol {
@@ -23,6 +25,12 @@
 .menu>ol>.menu-item {
   flex: 2;
   padding: 0.75rem 1rem;
+  position: relative;
+  line-height: 2.5rem;
+  text-align: center;
+  width: 200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid transparent;
 }
 
 .menu>ol>.menu-item:after {
@@ -39,15 +47,14 @@
   transition: transform 0.2s ease;
 }
 
-.menu>ol>.menu-item:hover:after {
-  transform: scale(1);
+.menu>ol>.menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ddd;
 }
 
-.menu-item {
-  position: relative;
-  line-height: 2.5rem;
-  text-align: center;
-  width: 200px;
+.menu>ol>.menu-item:hover:after {
+  transform: scale(1);
 }
 
 .menu-item a {
@@ -56,6 +63,7 @@
   text-overflow: ellipsis;
   display: block;
   color: black;
+  text-decoration: none;
 }
 
 .cart-language.move-right {
@@ -63,18 +71,19 @@
 }
 
 .brand-description {
-  margin-right: 60px; 
+  margin-right: 60px;
 }
+
 .search-form {
   position: absolute;
-    top: 0;
-    left: calc(100% + 10px); 
-    align-items: center;
-    display: none; 
+  top: 0;
+  left: calc(100% + 10px);
+  align-items: center;
+  display: none;
 }
 
 .search-form input[type="text"] {
-  margin-right: 5px; 
+  margin-right: 5px;
 }
 
 .search-form button {
@@ -84,16 +93,29 @@
   padding: 8px 12px;
   cursor: pointer;
 }
+
 .search-form.active {
-  display: block; /* Show when active */
+  display: block;
 }
 
 .menu-item:last-child .tools {
-  margin-left: 10px; /* Adjust as needed */
+  margin-left: 10px;
+}
+
+.sub-menu {
+  position: absolute;
+  width: 250px; 
+  top: 100%;
+  left: 0;
+  display: none;
+  z-index: 1;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  border: 1px solid #ddd;
 }
 
 .sub-menu .menu-item {
-  padding: 0.75rem 0;
+  padding: 0.75rem 1rem;
   background: white;
   opacity: 0;
   transform-origin: bottom;
@@ -121,6 +143,10 @@
 
 .sub-menu .menu-item a {
   padding: 0 0.75rem;
+}
+
+.menu-item:hover>.sub-menu {
+  display: block;
 }
 
 @media screen and (max-width: 600px) {
@@ -203,49 +229,6 @@
   }
 }
 
-.sub-menu {
-  position: absolute;
-  width: 100%;
-  top: 100%;
-  left: 0;
-  display: none;
-  z-index: 1;
-}
-
-.menu-item:hover>.sub-menu {
-  display: block;
-}
-
-@media screen and (max-width: 600px) {
-  .sub-menu {
-    width: 100vw;
-    left: -2rem;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
-
-html,
-body {
-  font-size: 14px;
-  font-family: "Fira Mono", monospace;
-  margin: 0;
-  background: #E5E4E2;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-a {
-  text-decoration: none;
-}
-
 @keyframes enter {
   from {
     opacity: 0;
@@ -266,7 +249,6 @@ a {
   to {
     opacity: 1;
   }
-
 }
 
 .button-group {
@@ -274,7 +256,6 @@ a {
   justify-content: flex-start;
   padding-left: 25px;
   padding-bottom: 10px;
-
 }
 
 .button {
@@ -292,7 +273,6 @@ a {
   background-color: #444;
 }
 
-
 h1 {
   padding-left: 30px;
 }
@@ -303,40 +283,29 @@ h1 {
 
 .container {
   max-width: 1175px;
-
-
-
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
   margin-left: 120px;
-
 }
 
 ul {
   list-style: none;
-
 }
-
-
 
 .footer {
   background-color: #24262b;
   padding: 10px 0;
-
-
 }
 
 .footer-col img {
   margin-top: 50px;
-
 }
 
 .footer-col {
   padding: 0 0px 0 20px;
-
 }
 
 .footer-col h4 {
@@ -387,7 +356,6 @@ ul {
   font-weight: 300;
   display: block;
   text-align: left;
-
 }
 
 #footer-license {
@@ -396,13 +364,10 @@ ul {
   text-transform: capitalize;
   font-weight: 300;
   padding-left: 10px;
-
 }
 
-
-
 .carousel-inner .item img {
- width: 100%;
+  width: 100%;
   height: 710px;
 }
 
@@ -410,23 +375,19 @@ ul {
   text-align: center;
 }
 
-
 .form-control {
   width: 30%;
   margin-left: 525px;
   margin-top: 0px;
   margin-right: 0px;
   margin-bottom: 0px;
-
 }
-
 
 .btn-primary {
   width: 10%;
   display: block;
   margin-left: 70%;
 }
-
 
 .login-container {
   width: 300px;
@@ -493,7 +454,6 @@ ul {
   text-decoration: underline;
 }
 
-
 .divider {
   height: 1px;
   width: 100%;
@@ -513,7 +473,6 @@ ul {
   cursor: pointer;
   font-size: 1.2em;
   font-weight: bold;
-
 }
 
 .phone-box {
@@ -529,7 +488,6 @@ ul {
   float: right;
 }
 
-
 .contact-info {
   max-width: 700px;
   margin: 0 auto;
@@ -539,7 +497,6 @@ ul {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 200px;
-
 }
 
 .email-box,
@@ -547,7 +504,6 @@ ul {
   flex: 1 0 45%;
   margin-top: 20px;
   text-align: center;
-
 }
 
 .email-box {
@@ -598,201 +554,7 @@ ul {
   padding-bottom: 10px;
 }
 
-//-----about us ------//
-.header {
-  background-color: #f0f0f0;
-  padding: 20px;
-  text-align: center;
-}
 
-
-.header p,
-.header h1 {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.story-container {
-  padding: 40px;
-}
-
-.story-content {
-  display: flex;
-  // flex-wrap: wrap;
-  //justify-content: center;
-  padding-left: 20px;
-}
-
-.story-content2 {
-  display: flex;
-  // flex-wrap: wrap;
-  //justify-content: center;
-  padding-right: 20px;
-
-}
-
-.story-image {
-  width: 40%;
-  margin-right: 0px;
-}
-
-.story-text {
-  width: 50%;
-  background-color: #f7f7f7;
-  border: 1px solid #ddd;
-  padding: 6rem 7rem 7rem;
-  // text-align: right;
-}
-
-.story-text-left {
-  width: 50%;
-  background-color: #f7f7f7;
-  border: 1px solid #ddd;
-  padding: 6rem 7rem 7rem;
-
-}
-
-.story-image-left {
-  width: 40%;
-  // height: 40%;
-  margin-left: 0px;
-}
-
-.textarea {
-  resize: none;
-}
-
-.tools {
-  position: relative;
-}
-
-.tools button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-#imcool {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch;
-}
-
-.product-container {
-  border: 1px solid #ccc;
-  width: calc(18% - 20px);
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  text-align: center;
-  display: inline-flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-#imcool {
-  display: flex;
-}
-
-.product-image img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.product-brand {
-  font-size: 0.9em;
-  color: #333;
-  margin-bottom: 5px;
-}
-
-.product-price {
-  font-size: 1.2em;
-  color: #666;
-}
-
-.heart-icon {
-  float: right;
-  font-size: 1.5em;
-  color: #ccc;
-  cursor: pointer;
-}
-
-.heart-icon:hover {
-  color: #ff6868;
-}
-
-.heart-icon.clicked {
-  color: red;
-}
-
-.star-rating {
-  font-size: 24px;
-}
-
-.star {
-  color: #ddd;
-}
-
-.star.filled {
-  color: #ffcc00;
-}
-
-.popup {
-  display: none;
-  position: fixed;
-  top: 0;
-  right: 10px;
-  padding: 10px;
-  background-color: wheat;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 9999;
-  transition: top 0.7s ease;
-}
-
-.popup-visible {
-  top: 0;
-}
-
-#map {
-  width: 300px;
-  height: 300px;
-  margin: 10px;
-}
-
-#searchInput {
-  width: 20%;
-  padding: 8px;
-  font-size: 16px;
-}
-
-#suggestions {
-  position: absolute;
-  z-index: 1000;
-  background: white;
-  width: 300px;
-  display: none;
-  border: 1px solid #ccc;
-  margin-top: -1px;
-}
-
-.suggestion {
-  padding: 8px;
-  cursor: pointer;
-  border-bottom: 1px solid #ccc;
-}
-
-.suggestion:last-child {
-  border-bottom: none;
-}
-
-.suggestion:hover {
-  background-color: #f0f0f0;
-}
-
-/* Styles for the form container */
 #containerMap {
   max-width: 500px;
   margin: 0 auto;
@@ -802,18 +564,18 @@ ul {
   padding: 20px;
 }
 
-/* Styles for the header */
+
 h1 {
   text-align: center;
   color: #333;
 }
 
-/* Styles for the shipping details section */
+
 .shipping-details {
   margin-bottom: 20px;
 }
 
-/* Styles for the address input field */
+
 #searchInput {
   width: 100%;
   padding: 10px;
@@ -823,7 +585,7 @@ h1 {
   box-sizing: border-box;
 }
 
-/* Styles for the suggestions box */
+
 #suggestions {
   position: absolute;
   z-index: 1000;
@@ -838,7 +600,7 @@ h1 {
   display: none;
 }
 
-/* Styles for each suggestion */
+
 .suggestion {
   padding: 8px;
   cursor: pointer;
@@ -853,14 +615,14 @@ h1 {
   background-color: #f0f0f0;
 }
 
-/* Styles for the map */
+
 #map {
   height: 300px;
   border-radius: 4px;
   margin-top: 10px;
 }
 
-/* Styles for the submit button */
+
 input[type="submit"] {
   background-color: #28a745;
   color: white;
@@ -888,5 +650,4 @@ input[type="submit"]:hover {
   cursor: pointer;
   font-size: 1.2em;
   font-weight: bold;
-
 }
