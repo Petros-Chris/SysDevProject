@@ -240,6 +240,12 @@ body {
   box-sizing: border-box;
 }
 
+.btn {
+  background-color: black;
+  color: white;
+  margin-top: 10px;
+}
+
 *:before,
 *:after {
   box-sizing: inherit;
@@ -303,10 +309,31 @@ h1 {
 
 .container {
   max-width: 1175px;
-
-
-
 }
+
+.containers {
+  //display: flex;
+ // justify-content: space-between;
+  //align-items: center;
+  //margin: 20px; 
+ // margin-top: 200px;
+}
+
+
+
+.containers dl {
+  margin-left: 3%; 
+}
+
+#cartBtn {
+ margin-left: 3%; 
+}
+
+.glasses{
+  padding-top: 10px;
+  margin-left: 10px;
+}
+
 
 .row {
   display: flex;
@@ -718,7 +745,7 @@ ul {
   background-color: wheat;
   border: 1px solid #ccc;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
- /// z-index: 9999;
+ // z-index: 9999;
   transition: top 0.7s ease;
 }
 

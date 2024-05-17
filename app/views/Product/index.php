@@ -4,33 +4,34 @@
 <head>
     <title><?= $name ?> view</title>
     <link rel="stylesheet" type="text/css" href="/app/css/style.scss">
+    
 </head>
 
 <body>
     <div id='popup' class='popup'></div>
-
-    <dl>
-        <dt><?= __('Brand:') ?></dt>
-        <dd><?= $data->brand ?></dd>
-        <dt><?= __('Model:') ?></dt>
-        <dd><?= $data->model ?></dd>
-        <dt><?= __('Color:') ?></dt>
-        <dd><?= $data->color ?></dd>
-        <dt><?= __('Cost Price:') ?></dt>
-        <dd><?= $data->cost_price ?></dd>
-        <dt><?= __('Shape:') ?></dt>
-        <dd><?= $data->shape ?></dd>
-        <dt><?= __('Size:') ?></dt>
-        <dd><?= $data->size ?></dd>
-        <dt><?= __('Optical Sun:') ?></dt>
-        <dd><?= $data->optical_sun ?></dd>
-        <dt><?= __('Description:') ?></dt>
-        <dd><?= $data->description ?></dd>
-        <dt><?= __('Quantity:') ?></dt>
-        <dd><?= $data->quantity ?></dd>
-    </dl>
-
-    <input id="cartBtn" type='button' value='Add To Cart' onclick="addProduct(<?= $data->product_id ?>)">
+    <img src="/app/resources/images/product_<?= $data->product_id ?>.png" alt="<?= $data->description ?>" style="width: 40%; height: 40%;" class ="glasses">
+    <div class="containers">
+       
+        <dl>
+            <dt><?= __('Brand:') ?></dt>
+            <dd><?= $data->brand ?></dd>
+            <dt><?= __('Description:') ?></dt>
+            <dd><?= $data->description ?></dd>
+            <dt><?= __('Size:') ?></dt>
+            <dd><?= $data->size ?></dd>
+            <dt><?= __('Shape:') ?></dt>
+            <dd><?= $data->shape ?></dd>
+            <dt><?= __('Color:') ?></dt>
+            <dd><?= $data->color ?></dd>
+            <dt><?= __('Cost Price:') ?></dt>
+            <dd><?= $data->cost_price ?></dd>
+        </dl>
+        <div>
+            
+            <input id="cartBtn" type='button' value='Add To Cart' onclick="addProduct(<?= $data->product_id ?>)">
+            
+        </div>
+    </div>
 </body>
 
 <script>
@@ -74,6 +75,8 @@
     function hidePopup() {
         document.getElementById('popup').style.display = 'none';
     }
+
 </script>
 
 </html>
+

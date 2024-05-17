@@ -95,7 +95,7 @@
     <form>
       <div class="form-group">
         <input type="email" class="form-control" id="emailInput" placeholder="Email">
-        <button type="submit" class="btn btn-primary">Join</button>
+        <button type="submit" class="btn">Join</button>
       </div>
 
     </form>
