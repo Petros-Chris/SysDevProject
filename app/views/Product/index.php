@@ -8,29 +8,23 @@
 
 <body>
     <div id='popup' class='popup'></div>
-    <img src="/app/resources/images/product_<?= $data->product_id ?>.png" alt="<?= $data->description ?>" style="width: 200px; height: auto;">
-    <dl>
-        <dt><?= __('Brand:') ?></dt>
-        <dd><?= $data->brand ?></dd>
-        <dt><?= __('Model:') ?></dt>
-        <dd><?= $data->model ?></dd>
-        <dt><?= __('Color:') ?></dt>
-        <dd><?= $data->color ?></dd>
-        <dt><?= __('Cost Price:') ?></dt>
-        <dd><?= $data->cost_price ?></dd>
-        <dt><?= __('Shape:') ?></dt>
-        <dd><?= $data->shape ?></dd>
-        <dt><?= __('Size:') ?></dt>
-        <dd><?= $data->size ?></dd>
-        <dt><?= __('Optical Sun:') ?>:</dt>
-        <dd><?= $data->optical_sun ?></dd>
-        <dt><?= __('Description:') ?></dt>
-        <dd><?= $data->description ?></dd>
-        <dt><?= __('Quantity:') ?></dt>
-        <dd><?= $data->quantity ?></dd>
-    </dl>
-
-    
+    <div class="container">
+        <img src="/app/resources/images/product_<?= $data->product_id ?>.png" alt="<?= $data->description ?>" style="width: 200px; height: auto;">
+        <dl>
+            <dt><?= __('Brand:') ?></dt>
+            <dd><?= $data->brand ?></dd>
+            <dt><?= __('Description:') ?></dt>
+            <dd><?= $data->description ?></dd>
+            <dt><?= __('Size:') ?></dt>
+            <dd><?= $data->size ?></dd>
+            <dt><?= __('Shape:') ?></dt>
+            <dd><?= $data->shape ?></dd>
+            <dt><?= __('Color:') ?></dt>
+            <dd><?= $data->color ?></dd>
+            <dt><?= __('Cost Price:') ?></dt>
+            <dd><?= $data->cost_price ?></dd>
+        </dl>
+    </div>
 
     <input id="cartBtn" type='button' value='Add To Cart' onclick="addProduct(<?= $data->product_id ?>)">
 </body>
