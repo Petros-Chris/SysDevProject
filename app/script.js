@@ -1,6 +1,4 @@
 
-
-
 function displayCartLoop($pro_id, $pro_brand) {
     var box = document.getElementById('popup');
     box.innerHTML += '<a href=/Product/index?id=$pro_id\">$pro_brand $pro_shape $pro_price</a><br>'
@@ -13,6 +11,7 @@ function removeProductFromCart($product_id) {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 console.log('Product removed from cart:', $product_id);
+                location.reload(); //seems annyoing and a waste of resources 
             } else {
                 console.error('Failed to remove product from cart:', xhr.responseText);
             }
@@ -37,4 +36,61 @@ function generateStarRating(rating) {
         stars += '<span class="star ' + starClass + '">&#9733;</span>'; // Unicode for a star icon
     }
     return stars;
+}
+
+//For product index
+function addProduct(product_id) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                console.log('Product added to cart:', product_id);
+                location.reload();
+            } else {
+                console.error('Failed to add product to cart:', xhr.responseText);
+            }
+        }
+    };
+    xhr.open('POST', '/Cart/addCart');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send('id=' + product_id);
+}
+
+function viewCart() {
+    if (popup.style.display === 'block') {
+        hidePopup();
+    } else {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    var parser = new DOMParser();
+                    var xmlDoc = parser.parseFromString(xhr.responseText, "text/html");
+                    console.log("Cart displayed");
+
+                    document.getElementById('popup').style.display = 'block';
+
+                    setTimeout(function () {
+                        popup.classList.add('popup-visible');
+                    }, 250);
+
+                    //setTimeout(hidePopup, 3000);
+                } else {
+                    console.error('Failed to display cart', xhr.responseText);
+                }
+            }
+        };
+        xhr.open('GET', '/Cart/view');
+        xhr.send();
+    }
+}
+
+function hidePopup() {
+    setTimeout(function () {
+        popup.classList.remove('popup-visible');
+    }, 0);
+    setTimeout(function () {
+        document.getElementById('popup').style.display = 'none';
+    }, 500);
+
 }

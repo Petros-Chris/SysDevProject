@@ -75,7 +75,7 @@
 
     <li class="menu-item cart-language">
         <div class="tools">
-            <button>🛒</button>
+            <button onclick="viewCart()">🛒</button>
         </div>
     </li>
 

@@ -40,7 +40,7 @@ class Product extends \app\core\Controller
 
 
         $this->view('Product/index', $item);
-        $cart->displayCart();
+        $cart->viewCart();
         $re->displayReview();
 
 

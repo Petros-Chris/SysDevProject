@@ -740,18 +740,18 @@ ul {
 .popup {
   display: none;
   position: fixed;
-  top: 0;
-  right: 10px;
+  top: -1000px;
+  right: 720px;
   padding: 10px;
   background-color: wheat;
   border: 1px solid #ccc;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
- // z-index: 9999;
+  z-index: 9999;
   transition: top 0.7s ease;
 }
 
 .popup-visible {
-  top: 0;
+  top: 55px;
 }
 
 #map {
