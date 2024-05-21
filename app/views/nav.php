@@ -63,23 +63,29 @@
             </ol>
         </li>
 
-            <li class="menu-item">
-        <div class="tools">
-            <button onclick="toggleSearch()">🔍</button>
-            <form action="/Product/search" method="GET" class="search-form" id="searchForm" onsubmit="return submitSearchForm()">
-                <input type="text" id="search" name="search" placeholder="eg: Gucci">
-                <button type="submit">Search</button>
-            </form>
-        </div>
-    </li>
+        <li class="menu-item">
+            <div class="tools">
+                <button onclick="toggleSearch()">🔍</button>
+                <form action="/Product/search" method="GET" class="search-form" id="searchForm"
+                    onsubmit="return submitSearchForm()">
+                    <input type="text" id="search" name="search" placeholder="eg: Gucci">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </li>
 
-    <li class="menu-item cart-language">
-        <div class="tools">
-            <button onclick="viewCart()">🛒</button>
-        </div>
-    </li>
+        <li class="menu-item cart-language">
+            <div class="tools">
+                <button onclick="viewCart()">🛒</button>
+            </div>
 
-    <li class="menu-item"><a href="">Language</a>
+        </li>
+        <li class="menu-item cart-language">
+            <div class="tools">
+                <button onclick="viewWishlist()">🙉</button>
+            </div>
+        </li>
+        <li class="menu-item"><a href="">Language</a>
             <ol class="sub-menu">
                 <li class="menu-item"><button onclick="updateLanguageCookie('fr')">french</button></li>
                 <li class="menu-item"><button onclick="updateLanguageCookie('en')">english</button></li>
@@ -141,4 +147,3 @@
         }
     }
 </script>
-

@@ -20,7 +20,7 @@ class Product extends \app\core\Controller
 
         if (isset($_GET['filter'])) {
             $products = $product->getFilter($_GET['type'], $_GET['filter']);
-            
+
         } else {
             $products = $product->getAll();
         }
@@ -37,10 +37,12 @@ class Product extends \app\core\Controller
 
         $re = new \app\controllers\Review();
         $cart = new \app\controllers\Cart();
+        $wishlist = new \app\controllers\Wishlist();
 
 
         $this->view('Product/index', $item);
         $cart->viewCart();
+        $wishlist->displayWishlist();
         $re->displayReview();
 
 

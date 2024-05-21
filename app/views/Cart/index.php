@@ -18,12 +18,12 @@
 
     document.getElementById('popup').innerHTML += '<button onclick=hidePopup()>Close</button>'
 
-    document.getElementById('popup').style.display = 'block';
+    //document.getElementById('popup').style.display = 'block';
     // setTimeout(hidePopup, 3000);
 
-    setTimeout(function () {
-        popup.classList.add('popup-visible');
-    }, 250);
+    // setTimeout(function () {
+    //     popup.classList.add('popup-visible');
+    // }, 250);
 
 
 </script>

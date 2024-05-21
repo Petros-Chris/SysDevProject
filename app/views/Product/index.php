@@ -9,6 +9,7 @@
 
 <body>
     <div id='popup' class='popup'></div>
+    <div id='popup2' class='popup'></div>
     <img src="/app/resources/images/product_<?= $data->product_id ?>.png" alt="<?= $data->description ?>"
         style="width: 40%; height: 40%;" class="glasses">
     <div class="containers">

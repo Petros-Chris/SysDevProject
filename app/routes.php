@@ -31,7 +31,7 @@ $this->addRoute('Employee/modify', 'Admin,modify');
 //wishlist
 $this->addRoute('Wishlist/add', 'Wishlist,addToWishlist');
 $this->addRoute('Wishlist/remove', 'Wishlist,removeFromWishlist');
-$this->addRoute('Wishlist/displaytest', 'Wishlist,displayWishlist');
+$this->addRoute('Wishlist/show', 'Wishlist,displayWishlist');
 //ticket
 $this->addRoute('Ticket/create', 'Ticket,createTicket');
 $this->addRoute('Ticket/ongoing', 'Ticket,currentTickets');
