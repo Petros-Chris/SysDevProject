@@ -8,8 +8,6 @@
 </head>
 
 <body>
-    <div id='popup' class='popup'></div>
-    <div id='popup2' class='popup'></div>
     <img src="/app/resources/images/product_<?= $data->product_id ?>.png" alt="<?= $data->description ?>"
         style="width: 40%; height: 40%;" class="glasses">
     <div class="containers">
@@ -31,7 +29,7 @@
             <dd><?= $data->quantity ?></dd>
         </dl>
 
-        <select>
+        <select id="quantitySeleted">
             <?php
             for ($num = 1; $num <= $data->quantity; $num++): ?>
                 <option value="<?= $num ?>"><?= $num ?></option>
@@ -40,7 +38,7 @@
 
 
         </select>
-        <input id="cartBtn" type='button' value='Add To Cart' onclick="addProduct(<?= $data->product_id ?>)">
+        <input id="cartBtn" type='button' value='Add To Cart' onclick="addProduct(<?= $data->product_id ?>, document.getElementById('quantitySeleted').value)">
     </div>
 </body>
 

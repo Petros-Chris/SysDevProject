@@ -43,8 +43,17 @@ class Cart extends \app\core\Controller
             $product = new \app\models\Product();
             $item = $product->getId($_POST['id']);
 
+            $item->quantity = $_POST['quantity'];
+
             if (isset($_SESSION['cart'])) {
                 $cart = $_SESSION['cart'];
+
+                foreach ($cart as $cartItem) {
+                    if ($cartItem->product_id == $item->product_id) {
+                        return;
+                    }
+                }
+
                 $length = count($cart);
                 $_SESSION['cart'][$length] = $item;
                 $this->viewCart();

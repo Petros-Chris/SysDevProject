@@ -39,7 +39,7 @@ function generateStarRating(rating) {
 }
 
 //For product index
-function addProduct(product_id) {
+function addProduct(product_id, quantity) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -53,7 +53,7 @@ function addProduct(product_id) {
     };
     xhr.open('POST', '/Cart/addCart');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.send('id=' + product_id);
+    xhr.send('id=' + product_id + '&quantity=' + quantity);
 }
 
 function viewCart() {

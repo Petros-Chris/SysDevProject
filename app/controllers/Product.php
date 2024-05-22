@@ -36,13 +36,8 @@ class Product extends \app\core\Controller
         $_SESSION['product_id'] = $_GET['id'];
 
         $re = new \app\controllers\Review();
-        $cart = new \app\controllers\Cart();
-        $wishlist = new \app\controllers\Wishlist();
-
 
         $this->view('Product/index', $item);
-        $cart->viewCart();
-        $wishlist->displayWishlist();
         $re->displayReview();
 
 
