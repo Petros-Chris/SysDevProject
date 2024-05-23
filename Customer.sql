@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 16, 2024 at 05:57 AM
+-- Generation Time: May 23, 2024 at 11:59 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `Customer` (
   `disable` tinyint(1) NOT NULL,
   PRIMARY KEY (`customer_id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `Customer`
@@ -56,8 +56,7 @@ INSERT INTO `Customer` (`customer_id`, `first_name`, `last_name`, `email`, `pass
 (9, 'yu', 'o', 'qwer@asd', '$2y$10$cdGvJi0MT6iLeZ1IVLvJTumz1CfOhv6mqMumHz7z1oLxeg3mqiy5S', 0, 0),
 (10, 'zz', 'zz', 'zz@zz', '$2y$10$ZjMDPwTaD.uklnwFfMIcie9aNjGjMqwQ6zP4U9gZ8k2fSEplgRkv2', 0, 0),
 (13, 'among', 'us', '1@1', '$2y$10$o8RxtMunv6Mn57pqMaIp0OuILthykyRhKtQVKLiiOwS5LCEoOAb2a', 0, 0),
-(14, 'joe', 'biden', '123@e', '$2y$10$j7qQUW89rd/Y7VH3RIcS2O2C73yDuq/Ar/6SHFzGNDfvAxbhJFWf2', 0, 0),
-(16, 'kai', 'cenat', 'a@a', '$2y$10$ilr8xF20P8Zc8ul7SJ8KD.yL/3VyaIjha4G8GNXG2vgRxbiCunuH.', 0, 0);
+(14, 'joe', 'biden', '123@e', '$2y$10$j7qQUW89rd/Y7VH3RIcS2O2C73yDuq/Ar/6SHFzGNDfvAxbhJFWf2', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -70,34 +69,29 @@ CREATE TABLE IF NOT EXISTS `customer_order` (
   `order_id` int(11) NOT NULL AUTO_INCREMENT,
   `customer_id` int(11) NOT NULL,
   `address` varchar(200) NOT NULL,
+  `postal_code` varchar(10) NOT NULL,
+  `state` varchar(40) NOT NULL,
   `total` double NOT NULL,
   `status` tinyint(1) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`order_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `customer_order`
 --
 
-INSERT INTO `customer_order` (`order_id`, `customer_id`, `address`, `total`, `status`, `timestamp`) VALUES
-(1, 14, '37 Edgehill Terrace, Stratford, Canada', 0, 0, '2024-05-13 19:58:08'),
-(2, 14, 'Studio Coolio, Utrechter Straße 48, Germany', 0, 0, '2024-05-13 19:58:45'),
-(3, 14, '36 Place Marie-Hélène, Saint-Joseph-du-Lac, Canada', 0, 0, '2024-05-13 20:01:58'),
-(4, 14, '36 Place Marie-Hélène, Saint-Joseph-du-Lac, Canada', 787.5, 0, '2024-05-13 21:13:04'),
-(5, 14, '36 Place Marie-Hélène, Saint-Joseph-du-Lac, Canada', 787.5, 0, '2024-05-13 21:15:55'),
-(6, 14, '36 Place Marie-Hélène, Saint-Joseph-du-Lac, Canada', 787.5, 0, '2024-05-13 21:18:10'),
-(7, 14, '194 Rue Lamarche, Laval (administrative region), Canada', 2562.5, 0, '2024-05-13 21:18:50'),
-(8, 14, '194 Rue Lamarche, Laval (administrative region), Canada', 0, 0, '2024-05-13 21:28:33'),
-(9, 16, '399 12e Rue, Laval, Canada', 0, 0, '2024-05-14 13:53:49'),
-(10, 16, '399 12e Rue, Laval, Canada', 1897.5, 0, '2024-05-14 14:21:49'),
-(11, 16, '399 12e lava', 950, 0, '2024-05-16 00:37:55'),
-(12, 16, '12e Rue, Laval (administrative region), Canada', 950, 0, '2024-05-16 00:38:05'),
-(13, 16, '12e Rue, Laval (administrative region), Canada', 1737.5, 0, '2024-05-16 00:40:44'),
-(14, 16, '12e Rue, Laval (administrative region), Canada', 1737.5, 0, '2024-05-16 00:41:33'),
-(15, 16, '', 1737.5, 0, '2024-05-16 00:41:49'),
-(16, 16, '12e Rue, Laval (administrative region), Canada', 1737.5, 0, '2024-05-16 00:45:43'),
-(17, 16, '12e Rue, Laval (administrative region), Canada', 1737.5, 0, '2024-05-16 00:46:36');
+INSERT INTO `customer_order` (`order_id`, `customer_id`, `address`, `postal_code`, `state`, `total`, `status`, `timestamp`) VALUES
+(1, 14, '37 Edgehill Terrace, Stratford, Canada', '', '', 0, 0, '2024-05-13 19:58:08'),
+(2, 14, 'Studio Coolio, Utrechter Straße 48, Germany', '', '', 0, 0, '2024-05-13 19:58:45'),
+(3, 14, '36 Place Marie-Hélène, Saint-Joseph-du-Lac, Canada', '', '', 0, 0, '2024-05-13 20:01:58'),
+(4, 14, '36 Place Marie-Hélène, Saint-Joseph-du-Lac, Canada', '', '', 787.5, 0, '2024-05-13 21:13:04'),
+(5, 14, '36 Place Marie-Hélène, Saint-Joseph-du-Lac, Canada', '', '', 787.5, 0, '2024-05-13 21:15:55'),
+(6, 14, '36 Place Marie-Hélène, Saint-Joseph-du-Lac, Canada', '', '', 787.5, 0, '2024-05-13 21:18:10'),
+(7, 14, '194 Rue Lamarche, Laval (administrative region), Canada', '', '', 2562.5, 0, '2024-05-13 21:18:50'),
+(8, 14, '194 Rue Lamarche, Laval (administrative region), Canada', '', '', 0, 0, '2024-05-13 21:28:33'),
+(9, 14, '', '', '', 0, 0, '2024-05-16 03:28:56'),
+(10, 13, 'Étienne Road, Laurentides, Canada', 'I2Q 0W0', 'QC', 787.5, 0, '2024-05-23 21:41:34');
 
 -- --------------------------------------------------------
 
@@ -114,16 +108,14 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `password_hash` varchar(60) NOT NULL,
   `admin` tinyint(1) NOT NULL,
   PRIMARY KEY (`employee_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `employee`
 --
 
 INSERT INTO `employee` (`employee_id`, `first_name`, `last_name`, `email`, `password_hash`, `admin`) VALUES
-(1, '', '', 'default@default', '$2y$10$ilr8xF20P8Zc8ul7SJ8KD.yL/3VyaIjha4G8GNXG2vgRxbiCunuH.', 1),
-(2, 'a', 'a', 'default@default', '$2y$10$ilr8xF20P8Zc8ul7SJ8KD.yL/3VyaIjha4G8GNXG2vgRxbiCunuH.', 1),
-(3, 'test', 'man', 'qwe@qwe', '$2y$10$6.Umjo2oGSysJQHaYRXwb.4Qzy0VYFuqyuUQuJa/KqB7Gvzz1HAu6', 0);
+(2, 'joe', 'bideb', 'a@a', '$2y$10$ilr8xF20P8Zc8ul7SJ8KD.yL/3VyaIjha4G8GNXG2vgRxbiCunuH.', 1);
 
 -- --------------------------------------------------------
 
@@ -149,29 +141,7 @@ INSERT INTO `order_item` (`order_id`, `product_id`, `quantity`, `price`) VALUES
 (7, 7, 1, 800),
 (7, 7, 1, 800),
 (7, 18, 1, 175),
-(10, 1, 1, 787.5),
-(10, 4, 1, 700),
-(10, 13, 1, 162.5),
-(10, 34, 1, 247.5),
-(11, 2, 1, 475),
-(11, 2, 1, 475),
-(12, 2, 1, 475),
-(12, 2, 1, 475),
-(13, 2, 1, 475),
-(13, 2, 1, 475),
-(13, 1, 1, 787.5),
-(14, 2, 1, 475),
-(14, 2, 1, 475),
-(14, 1, 1, 787.5),
-(15, 2, 1, 475),
-(15, 2, 1, 475),
-(15, 1, 1, 787.5),
-(16, 2, 1, 475),
-(16, 2, 1, 475),
-(16, 1, 1, 787.5),
-(17, 2, 1, 475),
-(17, 2, 1, 475),
-(17, 1, 1, 787.5);
+(10, 1, 1, 787.5);
 
 -- --------------------------------------------------------
 
@@ -302,7 +272,7 @@ CREATE TABLE IF NOT EXISTS `review` (
   PRIMARY KEY (`review_id`),
   KEY `fk_review_product_id_product` (`product_id`),
   KEY `fk_review_customer_id_customer` (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `review`
@@ -314,8 +284,7 @@ INSERT INTO `review` (`review_id`, `product_id`, `customer_id`, `rating`, `descr
 (3, 7, 4, 8, '', '', '2024-05-02 15:07:36'),
 (4, 7, 4, 4, '', '', '2024-05-02 15:08:01'),
 (5, 1, 4, 4, '', '', '2024-05-03 18:32:44'),
-(6, 1, 4, 8, '', '', '2024-05-03 18:33:18'),
-(7, 1, 16, 3, 'CRINNGGGE', '', '2024-05-14 02:02:36');
+(6, 1, 4, 8, '', '', '2024-05-03 18:33:18');
 
 -- --------------------------------------------------------
 
@@ -333,50 +302,14 @@ CREATE TABLE IF NOT EXISTS `ticket` (
   `ticket_status` tinyint(1) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`ticket_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `ticket`
 --
 
 INSERT INTO `ticket` (`ticket_id`, `product_id`, `customer_id`, `issue`, `issue_description`, `ticket_status`, `timestamp`) VALUES
-(1, 1, 12, 'Order Issue', 'Heaf', 0, '2024-05-09 16:09:29'),
-(2, 1, 16, 'Order Issue', 'helelelep', 0, '2024-05-14 02:30:32'),
-(3, 1, 16, 'Order Issue', 'ERM WAHT THRE SIGMA', 0, '2024-05-14 03:03:02');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ticket_message`
---
-
-DROP TABLE IF EXISTS `ticket_message`;
-CREATE TABLE IF NOT EXISTS `ticket_message` (
-  `message_id` int(11) NOT NULL AUTO_INCREMENT,
-  `ticket_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `message` varchar(255) NOT NULL,
-  `image_link` varchar(255) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`message_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `ticket_message`
---
-
-INSERT INTO `ticket_message` (`message_id`, `ticket_id`, `user_id`, `message`, `image_link`, `timestamp`) VALUES
-(2, 3, 16, 'HALP', '', '2024-05-14 22:04:39'),
-(3, 3, 16, 'Cool guys, so this is because you litterly bought no product, so to resolve this issue, please add a product ', '', '2024-05-14 22:10:14'),
-(4, 3, 16, 'Yup A message goes here inddec', '', '2024-05-14 22:15:19'),
-(5, 3, 16, 'bn', '', '2024-05-14 22:28:33'),
-(6, 3, 16, 'bvcn', '', '2024-05-14 22:30:49'),
-(7, 3, 16, 'bvcn', '', '2024-05-14 22:31:37'),
-(8, 3, 16, 'bvcn', '', '2024-05-14 22:31:47'),
-(9, 3, 16, 'hjgh', '', '2024-05-14 22:31:50'),
-(10, 3, 16, 'q', '', '2024-05-14 22:32:05'),
-(11, 3, 1, 'Can you shut', '', '2024-05-14 23:51:12'),
-(12, 2, 16, 'yo am waiting', '', '2024-05-16 01:39:23');
+(1, 1, 12, 'Order Issue', 'Heaf', 0, '2024-05-09 16:09:29');
 
 -- --------------------------------------------------------
 
@@ -397,10 +330,12 @@ CREATE TABLE IF NOT EXISTS `wishlist` (
 --
 
 INSERT INTO `wishlist` (`product_id`, `customer_id`) VALUES
-(1, 16),
-(3, 16),
+(3, 14),
+(7, 14),
+(22, 14),
+(26, 14),
+(27, 14),
 (72, 10),
-(75, 16),
 (80, 10);
 
 --
