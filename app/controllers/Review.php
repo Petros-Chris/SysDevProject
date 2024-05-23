@@ -16,6 +16,8 @@ class Review extends \app\core\Controller
             $specificReview->rating = $_POST['rating'];
             $specificReview->description = $_POST['description'];
             $specificReview->image_link = $_POST['image_link'];
+            $specificReview->timestamp = $_POST['timestamp'];
+
 
             $specificReview->update();
             header("Location:/Product/index?id=$_SESSION[product_id]");
@@ -69,6 +71,23 @@ class Review extends \app\core\Controller
     {
         $review = new \app\models\Review();
         $customer = new \app\models\Customer();
+        $order = new \app\models\Order();
+
+        $orderIdsByCus = $order->getOrdersByCustomerId($_SESSION['customer_id']);
+        $canMakeNewReview = false;
+
+
+        foreach ($orderIdsByCus as $orderIdByCus) {
+            $orderInfomation = $order->getItemsPerOrder($orderIdByCus->order_id);
+
+            foreach($orderInfomation as $orderIdsa) {
+                if($_GET['id'] == $orderIdsa->product_id) {
+                    $canMakeNewReview = true;
+                    break;
+                }
+            }
+            
+        }
 
         $reviews = $review->getAllFromProduct($_GET['id']);
 
@@ -81,7 +100,6 @@ class Review extends \app\core\Controller
         if ($ownsReview) {
             $cus_id = $_SESSION['customer_id'];
         }
-        $canMakeNewReview = true;
 
         include 'app/views/Review/index.php';
         include 'app/views/footer.php';

@@ -41,7 +41,7 @@ class Review extends \app\core\Model
 
     public function getAllFromProduct($product_id)
     {
-        $SQL = 'SELECT * FROM review WHERE product_id = :product_id';
+        $SQL = 'SELECT * FROM review WHERE product_id = :product_id ORDER BY timestamp DESC';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute(['product_id' => $product_id]);
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Review');
@@ -50,13 +50,14 @@ class Review extends \app\core\Model
 
     public function update()
     {
-        $SQL = 'UPDATE review SET rating = :rating, description = :description, image_link = :image_link WHERE review_id = :review_id';
+        $SQL = 'UPDATE review SET rating = :rating, description = :description, image_link = :image_link, timestamp = :timestamp WHERE review_id = :review_id';
         $STMT = self::$_conn->prepare($SQL);
 
         $STMT->bindValue(':rating', $this->rating);
         $STMT->bindValue(':description', $this->description);
         $STMT->bindValue(':image_link', $this->image_link);
         $STMT->bindValue(':review_id', $this->review_id);
+        $STMT->bindValue(':timestamp', $this->timestamp);
 
         $STMT->execute();
     }

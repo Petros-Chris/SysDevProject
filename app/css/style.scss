@@ -694,16 +694,47 @@ ul {
   box-sizing: border-box;
   
 }
+.containerToHoldContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-container {
+  border: 1px solid #cac3c3;
+  width: 100vh;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  box-sizing: border-box;
+}
+.review-name {
+  font-size: 0.9em;
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.review-date {
+  font-size: 0.9em;
+  color: #333;
+  margin-bottom: 5px;
+  font-style: italic;
+}
+
+.makeReview{
+  text-align: left;
+  width: 100vh;
+}
 
 .order-container {
   border: 1px solid #cac3c3;
-  width: 90%;
+  width: 100vh;
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 10px;
   text-align: center;
-  display: inline-flex;
-  flex-direction: column;
   box-sizing: border-box;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   transition: background-color 0.3s ease, transform 0.3s ease;
@@ -716,6 +747,47 @@ ul {
 }
 #imcool {
   display: flex;
+}
+
+#labelForStar{
+  display: block;
+}
+
+.rate {
+  height: 46px;
+  padding: 0 10px;
+  position: relative;
+  float: right;
+}
+.rate:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+}
+.rate:not(:checked) > label {
+  float:right;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:30px;
+  color:#ccc;
+}
+.rate:not(:checked) > label:before {
+  content: '★ ';
+}
+.rate > input:checked ~ label {
+  color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
 }
 
 .product-image img {
@@ -755,11 +827,11 @@ ul {
 }
 
 .star {
-  color: #ddd;
+  color: #d3d3d3;
 }
 
 .star.filled {
-  color: #ffcc00;
+  color: #eabb00;
 }
 
 .popup {
