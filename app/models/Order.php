@@ -18,6 +18,7 @@ class Order extends \app\core\Model
     public $customer_information;
     public $product_information;
     public $statusText;
+    public $items_bought_each_order;
 
     public function insertOrder_Customer()
     {
@@ -58,7 +59,7 @@ class Order extends \app\core\Model
 
     public function getOrdersByCustomerId($customer_id)
     {
-        $SQL = 'SELECT * FROM customer_order WHERE customer_id = :customer_id';
+        $SQL = 'SELECT * FROM customer_order WHERE customer_id = :customer_id ORDER BY timestamp DESC';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute(['customer_id' => $customer_id]);
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Order');
@@ -84,11 +85,11 @@ class Order extends \app\core\Model
 
     }
 
-    public function getAllOrderItemsFromCustomer($customer_id)
+    public function getAllOrderItemsFromCustomer($order_id)
     {
-        $SQL = 'SELECT * FROM order_item WHERE customer_id = :customer_id';
+        $SQL = 'SELECT * FROM order_item WHERE order_id = :order_id';
         $STMT = self::$_conn->prepare($SQL);
-        $STMT->execute(['customer_id' => $customer_id]);
+        $STMT->execute(['order_id' => $order_id]);
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Order');
         return $STMT->fetchAll();
 
@@ -120,6 +121,22 @@ class Order extends \app\core\Model
         $STMT->execute(['ticket_id' => $customer_id]);
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Ticket');
         return $STMT->fetch();
+    }
+
+    public function getMultiFilter($type, $type2, $type3, $customer_id, $filter)
+    {
+        $SQL ="SELECT * FROM customer_order WHERE customer_id = :customer_id
+        AND ($type LIKE :$type OR $type2 LIKE :$type2 OR $type3 LIKE :$type3)";
+        
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute([
+            "$type" => '%' . $filter . '%',
+            "$type2" => '%' . $filter . '%',
+            "$type3" => '%' . $filter . '%',
+            "customer_id" => $customer_id
+        ]);
+        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Order');
+        return $STMT->fetchAll();
     }
 }
 

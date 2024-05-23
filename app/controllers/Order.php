@@ -42,7 +42,7 @@ class Order extends \app\core\Controller
 
 
             header('location:/home');
-            
+
         } else {
             $this->view('Customer/Checkout');
             include ('app/views/footer.php');
@@ -66,7 +66,7 @@ class Order extends \app\core\Controller
                 )->send();
 
                 if ($response->isRedirect()) {
-                    $response->redirect(); 
+                    $response->redirect();
                 } else {
                     echo $response->getMessage();
                 }
@@ -125,14 +125,35 @@ class Order extends \app\core\Controller
     function viewCustomerOrdersForCustomer()
     {
         $order = new \app\models\Order();
+        $product = new \app\models\Product();
+
+
+
         $allCustOrders = $order->getOrdersByCustomerId($_SESSION['customer_id']);
 
+        if ($_SERVER['REQUEST_METHOD'] === "GET") {
+
+            if (isset($_GET['search'])) {
+                $allCustOrders = $order->getMultiFilter('order_id', 'timestamp', 'address', $_SESSION['customer_id'], $_GET['search']);
+            }
+
+        }
 
         foreach ($allCustOrders as $custOrder) {
+            $amountBought = 0;
+            $orderItems = $order->getAllOrderItemsFromCustomer($custOrder->order_id);
+            $orderInfomation = $order->getItemsPerOrder($custOrder->order_id);
 
+            foreach ($orderInfomation as $oaa) {
+                $amountBought += $oaa->quantity;
+            }
+            $custOrder->items_bought_each_order = $amountBought;
+            foreach ($orderItems as $item) {
+                $productInformation = $product->getId($item->product_id);
+                $custOrder->product_information = $productInformation;
 
+            }
             $status = $custOrder->status;
-
             switch ($status) {
                 case 1: {
                     $custOrder->statusText = "Processed";
@@ -144,7 +165,7 @@ class Order extends \app\core\Controller
                 }
             }
         }
-        include 'app/views/Admin/orders.php';
+        include 'app/views/Customer/orders.php';
         include 'app/views/footer.php';
     }
 

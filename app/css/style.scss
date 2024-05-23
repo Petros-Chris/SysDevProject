@@ -677,6 +677,11 @@ ul {
   align-items: stretch;
 }
 
+.searchBtn {
+  position: relative;
+  left: 10px;
+}
+
 .product-container {
   border: 1px solid #ccc;
   width: calc(18% - 20px);
@@ -687,8 +692,28 @@ ul {
   display: inline-flex;
   flex-direction: column;
   box-sizing: border-box;
+  
 }
 
+.order-container {
+  border: 1px solid #cac3c3;
+  width: 90%;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  text-align: center;
+  display: inline-flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.order-container:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  background-color:#d5d5d5
+}
 #imcool {
   display: flex;
 }

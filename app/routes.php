@@ -52,6 +52,7 @@ $this->addRoute('home', 'User,index');
 $this->addRoute('Order/createOrder', 'Order,createOrder');
 $this->addRoute('Order/charge', 'Order,charge');
 $this->addRoute('Order/success', 'Order,success');
+// $this->addRoute('OrderCus/search', 'Customer,search');
 //cart
 $this->addRoute('Cart/removeCart', 'Cart,removeFromCart');
 $this->addRoute('Cart/addCart', 'Cart,addToCart');
