@@ -10,7 +10,7 @@
 		<form method='post' action=''>
 			<h1>Create A Review</h1>
 			<div class="form-group">
-				<label id="labelForStar">How Much Would You Rate This Product On A Scale Of 1 To 5?
+				<label id="labelForStar">How Much Would You Rate This Product On A Scale Of 1 To 5? </label>
 					<div class="rate">
 						<input type="radio" id="star5" name="rating" value="5" />
 						<label for="star5" title="text">5 stars</label>
@@ -25,13 +25,10 @@
 					</div>
 				</label>
 			</div>
-				<label>Description:<input type="text" class="form-control" name="description" /></label>
+				<textarea type="text" id="form-description" name="description" placeholder="Description" maxlength="255"></textarea>
 				
-			<div class="form-group">
-				<label>Add An Image:<input type="text" class="form-control" name="image_link" /></label>
-			</div>
-			<input type='Submit' value='Submit' name='create_review'>
-			<a href="#" onclick="history.back();">Cancel</a>
+			<input type='Submit' value='Submit' name='create_review' id="submitReview1" >
+			<a href="#" onclick="history.back();"><input type='Submit' value='Back' name='create_review' id="submitReview2" ></a>
 		</form>
 
 	</div>
