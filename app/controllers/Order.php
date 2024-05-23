@@ -20,6 +20,9 @@ class Order extends \app\core\Controller
             $order = new \app\models\Order();
             $order->customer_id = $_SESSION['customer_id'];
             $order->address = $_POST['address'];
+            $order->postal_code = $_POST['postalCode'];
+            $order->state = $_POST['state'];
+            
 
             $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
             $total = 0;

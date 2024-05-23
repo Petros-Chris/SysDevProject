@@ -10,6 +10,8 @@ class Order extends \app\core\Model
     public $product_id;
     public $customer_id;
     public $address;
+    public $postal_code;
+    public $state;
     public $total;
     public $status;
     public $timestamp;
@@ -22,12 +24,14 @@ class Order extends \app\core\Model
 
     public function insertOrder_Customer()
     {
-        $SQL = 'INSERT INTO customer_order(customer_id, address, total, status) VALUES (:customer_id, :address, :total, 0)';
+        $SQL = 'INSERT INTO customer_order(customer_id, address, postal_code, state, total, status) VALUES (:customer_id, :address, :postal_code, :state, :total, 0)';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute([
             'customer_id' => $this->customer_id,
             'address' => $this->address,
             'total' => $this->total,
+            'postal_code' => $this->postal_code,
+            'state' => $this->state
         ]);
         return self::$_conn->lastInsertId();
     }

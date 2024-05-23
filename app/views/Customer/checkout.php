@@ -5,18 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
     <div class="container" id="containerMap">
         <h1>Checkout</h1>
         <form id="orderForm" action="" method="POST">
-            <div class="shipping-details">
+            <div class="form-group">
+                <label for="searchInput">Address</label>
                 <input type="text" id="searchInput" placeholder="Enter your address" autocomplete="off" name="address" required>
                 <div id="suggestions"></div>
-                <div id="map"></div>
             </div>
-            <div id="popup" class="popup"></div>
+            <div class="form-group">
+                <label for="postalCode">Postal Code</label>
+                <input type="text" id="postalCode" name="postalCode" required>
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <select id="state" name="state" required>
+                    <option value="">Select Province</option>
+                    <option value="AB">Alberta</option>
+                    <option value="BC">British Columbia</option>
+                    <option value="MB">Manitoba</option>
+                    <option value="NB">New Brunswick</option>
+                    <option value="NL">Newfoundland and Labrador</option>
+                    <option value="NS">Nova Scotia</option>
+                    <option value="ON">Ontario</option>
+                    <option value="PE">Prince Edward Island</option>
+                    <option value="QC">Quebec</option>
+                    <option value="SK">Saskatchewan</option>
+                </select>
+            </div>
+            <div id="map"></div>
+            <div class="form-group">
+                <label for="cardName">Cardholder's Name</label>
+                <input type="text" id="cardName" name="cardName" required>
+            </div>
+            <div class="form-group">
+                <label for="cardNumber">Card Number</label>
+                <input type="text" id="cardNumber" name="cardNumber" pattern="\d{15,16}" required>
+            </div>
+            <div class="form-group flex-group">
+                <div class="half-width">
+                    <label for="expiry">Expiration Date</label>
+                    <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
+                </div>
+                <div class="half-width">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" pattern="\d{3,4}" required>
+                </div>
+            </div>
             <input type="hidden" name="total" value="">
             <input type="submit" value="Place Order">
         </form>
