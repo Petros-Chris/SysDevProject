@@ -8,25 +8,27 @@
 </head>
 
 <body>
-    <img src="/app/resources/images/product_<?= $data->product_id ?>.png" alt="<?= $data->description ?>"
+    <img src="/app/resources/images/product_<?= $item->product_id ?>.png" alt="<?= $item->description ?>"
         style="width: 40%; height: 40%;" class="glasses">
     <div class="containers">
 
         <dl>
             <dt><?= __('Brand:') ?></dt>
-            <dd><?= $data->brand ?></dd>
+            <dd><?= $item->brand ?></dd>
             <dt><?= __('Description:') ?></dt>
-            <dd><?= $data->description ?></dd>
+            <dd><?= $item->description ?></dd>
             <dt><?= __('Size:') ?></dt>
-            <dd><?= $data->size ?></dd>
+            <dd><?= $item->size ?></dd>
             <dt><?= __('Shape:') ?></dt>
-            <dd><?= $data->shape ?></dd>
+            <dd><?= $item->shape ?></dd>
             <dt><?= __('Color:') ?></dt>
-            <dd><?= $data->color ?></dd>
+            <dd><?= $item->color ?></dd>
             <dt><?= __('Cost Price:') ?></dt>
-            <dd><?= $data->cost_price ?></dd>
+            <dd><?= $item->cost_price ?></dd>
             <dt><?= __('Left In Stock:') ?></dt>
-            <dd><?= $data->quantity ?></dd>
+            <dd><?= $item->quantity ?></dd>
+            <script>document.write(generateStarRating(<?= $product->rating ?>))</script>
+                (<?= $product->how_many_reviews ?>)
         </dl>
 
         <select id="quantitySeleted">
@@ -38,7 +40,7 @@
 
 
         </select>
-        <input id="cartBtn" type='button' value='Add To Cart' onclick="addProduct(<?= $data->product_id ?>, document.getElementById('quantitySeleted').value)">
+        <input id="cartBtn" type='button' value='Add To Cart' onclick="addProduct(<?= $item->product_id ?>, document.getElementById('quantitySeleted').value)">
     </div>
 </body>
 

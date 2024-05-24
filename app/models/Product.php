@@ -18,6 +18,8 @@ class Product extends \app\core\Model
     public $description;
     public $quantity;
     public $disable;
+    public $rating;
+    public $how_many_reviews;
 
 
     public function insert()

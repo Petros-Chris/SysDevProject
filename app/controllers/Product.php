@@ -10,6 +10,7 @@ class Product extends \app\core\Controller
     {
         $product = new \app\models\Product();
         $wishlist = new \app\models\Wishlist();
+        $review = new \app\models\Review();
 
         $products = [];
         $wishlistItems = [];
@@ -24,6 +25,24 @@ class Product extends \app\core\Controller
         } else {
             $products = $product->getAll();
         }
+
+        //To Get The Average Of All Reviews For A Product
+        foreach ($products as $product) {
+            $reviews = $review->getAllFromProduct($product->product_id);
+            $counter = 0;
+            $ratingTotalForProduct = 0;
+            foreach ($reviews as $review) {
+                $ratingTotalForProduct += $review->rating;
+                $counter++;
+            }
+            //Error Handling
+            if ($ratingTotalForProduct == 0) {
+                $product->rating = 0;
+            } else {
+                $product->rating = ($ratingTotalForProduct / $counter);
+            }
+            $product->how_many_reviews = $counter;
+        }
         include 'app/views/Product/listing.php';
         include 'app/views/footer.php';
     }
@@ -31,16 +50,31 @@ class Product extends \app\core\Controller
     function description()
     {
         $product = new \app\models\Product();
+        $review = new \app\models\Review();
+
         $item = $product->getId($_GET['id']);
+        $reviews = $review->getAllFromProduct($_GET['id']);
+
+        $counter = 0;
+        $ratingTotalForProduct = 0;
+
+        foreach ($reviews as $review) {
+            $ratingTotalForProduct += $review->rating;
+            $counter++;
+        }
+        if ($ratingTotalForProduct == 0) {
+            $product->rating = 0;
+        } else {
+            $product->rating = ($ratingTotalForProduct / $counter);
+        }
+        $product->how_many_reviews = $counter;
 
         $_SESSION['product_id'] = $_GET['id'];
 
         $re = new \app\controllers\Review();
 
-        $this->view('Product/index', $item);
+        include 'app/views/Product/index.php';
         $re->displayReview();
-
-
     }
 
     public function search()

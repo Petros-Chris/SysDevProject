@@ -17,13 +17,12 @@ class Review extends \app\core\Model
 
     public function insert()
     {
-        $SQL = 'INSERT INTO review(product_id, customer_id, rating, description, image_link) VALUES (:product_id, :customer_id, :rating, :description, :image_link)';
+        $SQL = 'INSERT INTO review(product_id, customer_id, rating, description) VALUES (:product_id, :customer_id, :rating, :description)';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute(
             [
                 'rating' => $this->rating,
                 'description' => $this->description,
-                'image_link' => $this->image_link,
                 'product_id' => $this->product_id,
                 'customer_id' => $this->customer_id
             ]
@@ -50,12 +49,11 @@ class Review extends \app\core\Model
 
     public function update()
     {
-        $SQL = 'UPDATE review SET rating = :rating, description = :description, image_link = :image_link, timestamp = :timestamp WHERE review_id = :review_id';
+        $SQL = 'UPDATE review SET rating = :rating, description = :description, timestamp = :timestamp WHERE review_id = :review_id';
         $STMT = self::$_conn->prepare($SQL);
 
         $STMT->bindValue(':rating', $this->rating);
         $STMT->bindValue(':description', $this->description);
-        $STMT->bindValue(':image_link', $this->image_link);
         $STMT->bindValue(':review_id', $this->review_id);
         $STMT->bindValue(':timestamp', $this->timestamp);
 

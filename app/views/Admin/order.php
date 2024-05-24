@@ -14,6 +14,10 @@
     <dd><?= $customerInfo->email ?></dd>
     <dt><?= __('Address') ?>:</dt>
     <dd><?= $extraCustomerInfo->address ?></dd>
+    <dt><?= __('Postal Code') ?>:</dt>
+    <dd><?= $extraCustomerInfo->postal_code ?></dd>
+    <dt><?= __('State') ?>:</dt>
+    <dd><?= $extraCustomerInfo->state ?></dd>
     <h1><?= __('Products Ordered') ?>:</h1>
     <?php
 

@@ -1,9 +1,4 @@
 
-function displayCartLoop($pro_id, $pro_brand) {
-    var box = document.getElementById('popup');
-    box.innerHTML += '<a href=/Product/index?id=$pro_id\">$pro_brand $pro_shape $pro_price</a><br>'
-}
-
 function removeProductFromCart($product_id) {
     var xhr = new XMLHttpRequest();
 
@@ -33,7 +28,7 @@ function generateStarRating(rating) {
     var stars = '';
     for (var i = 1; i <= 5; i++) {
         var starClass = (i <= rating) ? 'filled' : 'empty';
-        stars += '<span class="star ' + starClass + '">&#9733;</span>'; // Unicode for a star icon
+        stars += '<span class="star ' + starClass + '">&#9733;</span>';
     }
     return stars;
 }

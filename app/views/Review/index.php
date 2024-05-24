@@ -1,36 +1,7 @@
 <html>
 
-<head>
-
-</head>
-
-<script>
-    function generateStarRating(rating) {
-        var stars = '';
-        for (var i = 1; i <= 5; i++) {
-            var starClass = (i <= rating) ? 'filled' : 'empty';
-            stars += '<span class="star ' + starClass + '">&#9733;</span>';
-        }
-        return stars;
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-        var starElements = document.querySelectorAll('.star');
-        starElements.forEach(function (star) {
-            star.addEventListener('click', function () {
-                var rating = parseInt(document.getElementById('starRating').innerText);
-                // Handle the click event, for example, you can log the rating to the console
-                console.log('Clicked rating:', rating);
-                // You can also perform any other actions you want, such as sending the rating to the server
-            });
-        });
-    });
-</script>
-
 <body>
     <br>
-
-
     <div class='containerToHoldContainer'>
         <div class="makeReview">
             <?php if ($canMakeNewReview): ?>

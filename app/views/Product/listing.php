@@ -17,20 +17,20 @@ if (!empty($products)) {
     <link rel="stylesheet" type="text/css" href="/app/css/style.scss">
     <style>
         .brand-description {
-            margin-left: 30px; 
+            margin-left: 30px;
         }
     </style>
 </head>
 
 <body>
     <?php
-    
+
     $currentUrl = $_SERVER['REQUEST_URI'];
     if ($currentUrl === '/Product/listing') {
-    ?>
+        ?>
         <h1>All of our products</h1>
     <?php } else {
-        
+
         if (strpos($currentUrl, 'type=optical_sun')) {
             if (strpos($currentUrl, 'filter=Optical')) {
                 ?>
@@ -39,11 +39,11 @@ if (!empty($products)) {
                 <h1>All of our sunglasses</h1>
             <?php }
         } else {
-           
+
             ?>
             <h1><?= $name ?></h1>
             <p class="brand-description">Find personalized glasses with unique designs</p>
-    <?php }
+        <?php }
     } ?>
 
     <div id="imcool">
@@ -73,8 +73,9 @@ if (!empty($products)) {
                 <?php endif; ?>
 
                 <div class='product-brand'><?= $product->brand ?></div>
-               
                 <div class='product-price'>$<?= $product->cost_price ?></div>
+                <script>document.write(generateStarRating(<?= $product->rating ?>))</script>
+                (<?= $product->how_many_reviews ?>)
             </div>
         </div>
     <?php endforeach; ?>

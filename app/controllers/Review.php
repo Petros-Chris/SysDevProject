@@ -15,8 +15,9 @@ class Review extends \app\core\Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $specificReview->rating = $_POST['rating'];
             $specificReview->description = $_POST['description'];
-            $specificReview->image_link = $_POST['image_link'];
             $specificReview->timestamp = $_POST['timestamp'];
+
+            var_dump($_POST['timestamp']);
 
 
             $specificReview->update();
@@ -39,7 +40,6 @@ class Review extends \app\core\Controller
             $review->customer_id = $_SESSION['customer_id'];
             $review->rating = $_POST['rating'];
             $review->description = $_POST['description'];
-            $review->image_link = $_POST['image_link'];
 
             $review->insert();
 
@@ -80,27 +80,31 @@ class Review extends \app\core\Controller
         foreach ($orderIdsByCus as $orderIdByCus) {
             $orderInfomation = $order->getItemsPerOrder($orderIdByCus->order_id);
 
-            foreach($orderInfomation as $orderIdsa) {
-                if($_GET['id'] == $orderIdsa->product_id) {
+            foreach ($orderInfomation as $orderIdsa) {
+                if ($_GET['id'] == $orderIdsa->product_id) {
                     $canMakeNewReview = true;
                     break;
                 }
             }
-            
         }
 
         $reviews = $review->getAllFromProduct($_GET['id']);
+        $reviewAmount = 0;
+
+        $counter = 0;
 
         foreach ($reviews as $review) {
             $customerInfo = $customer->getById($review->customer_id);
             $review->customer_information = $customerInfo;
+            $reviewAmount += $review->rating;
+            $counter++;
         }
+        $avgOfReview = $reviewAmount / $counter;
         $ownsReview = isset($_SESSION['customer_id']);
         $cus_id = 0;
         if ($ownsReview) {
             $cus_id = $_SESSION['customer_id'];
         }
-
         include 'app/views/Review/index.php';
         include 'app/views/footer.php';
     }

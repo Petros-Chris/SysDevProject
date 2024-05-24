@@ -1,26 +1,36 @@
 <html>
 
 <head>
-	<title><?= $name ?> view</title>
-	<link rel="stylesheet" type="text/css" href="/app/css/style.scss">
+    <title><?= $name ?> view</title>
+    <link rel="stylesheet" type="text/css" href="/app/css/style.scss">
 </head>
 
+<script>
+    function generateStarRating(rating) {
+        var stars = '';
+        for (var i = 1; i <= 5; i++) {
+            var starClass = (i <= rating) ? 'filled' : 'empty';
+            stars += '<span class="star ' + starClass + '">&#9733;</span>';
+        }
+        return stars;
+    }
+</script>
+
 <body>
+    <h1>Delete Review</h1>
     <div class='container'>
         <form method='post' action=''>
-            <div class="form-group">
-                <label>Rating: <?= $data->rating ?></label>
+            <div class="form-group-for-delete">
+                <script>document.write(generateStarRating(<?= $data->rating ?>))</script>
             </div>
+            <div class='product-brand-for-delete'>
+                <p><?= $data->description ?> </p>
+            </div>
+            <div class='product-brand-for-delete'><?= $data->timestamp ?></div>
 
-            <div class="form-group">
-                <label>Description: <?= $data->description ?></label>
-            </div>
-
-            <div class="form-group">
-                <label>Add An Image: <?= $data->image_link ?></label>
-            </div>
-            <input type='Submit' value='Delete' name='create_review'>
-            <a href="/Product/index?id=<?= $_SESSION['product_id'] ?>">Cancel</a>
+            <input type='Submit' value='Delete' name='create_review' id="submitReviewDelete">
+            <a href="/Product/index?id=<?= $_SESSION['product_id'] ?>"><input type='Button' value='Back'
+                    name='create_review' id="submitReview2"></a>
         </form>
     </div>
 </body>
