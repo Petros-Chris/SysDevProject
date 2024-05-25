@@ -24,7 +24,7 @@
                 wishlistItemsContent +=
                     '<div class="popup-item">' +
                         '<a href="/Product/index?id=' + pro_id + '">' + pro_shape + ' ' + pro_price + '</a>' +
-                        '<span onclick="removeProductFromCart(' + pro_id + ')">&#128465;</span><br>' +
+                        '<span onclick="removeProductFromCart(' + pro_id + ')"><i class="fas fa-trash"></i></span>' +
                     '</div>';
             <?php endforeach; ?>
         <?php endif; ?>
