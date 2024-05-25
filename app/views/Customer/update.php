@@ -6,7 +6,7 @@
 
 <body>
     <div class='container'>
-        <form id="updateForm" method='post' action='' onsubmit="validateForm(event)">
+        <form id="updateForm" method='post' action=''>
 
             <input type="text" name="first_name" placeholder="First Name" value='<?= $customer->first_name ?>' required />
 
@@ -33,31 +33,31 @@
 </html>
 
 <script>
-    function validateForm(event) {
-        event.preventDefault();
+    // function validateForm(event) {
+    //     event.preventDefault();
 
-        var oldPassword = document.getElementById("oldPass").value;
-        var newPassword = document.getElementById("pass").value;
-        var confirmPassword = document.getElementById("conPas").value;
+    //     var oldPassword = document.getElementById("oldPass").value;
+    //     var newPassword = document.getElementById("pass").value;
+    //     var confirmPassword = document.getElementById("conPas").value;
 
-        // Validate new password and confirm password match
-        if (newPassword === confirmPassword) {
-            // Assuming a function to verify the old password using AJAX
-            verifyOldPassword(oldPassword, function(isValid) {
-                if (isValid) {
-                    document.getElementById("updateForm").submit();
-                } else {
-                    alert("Old password is incorrect.");
-                }
-            });
-        } else {
-            alert("New passwords do not match.");
-        }
-    }
+    //     // Validate new password and confirm password match
+    //     if (newPassword === confirmPassword) {
+    //         // Assuming a function to verify the old password using AJAX
+    //         verifyOldPassword(oldPassword, function(isValid) {
+    //             if (isValid) {
+    //                 document.getElementById("updateForm").submit();
+    //             } else {
+    //                 alert("Old password is incorrect.");
+    //             }
+    //         });
+    //     } else {
+    //         alert("New passwords do not match.");
+    //     }
+    // }
 
-    function verifyOldPassword(oldPassword, callback) {
+    // function verifyOldPassword(oldPassword, callback) {
        
-        var isValid = oldPassword === <?$_SESSION['password_hash']?>;
-        callback(isValid);
-    }
+    //     var isValid = oldPassword === <?$_SESSION['password_hash']?>;
+    //     callback(isValid);
+    // }
 </script>

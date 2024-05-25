@@ -16,6 +16,17 @@ class Customer extends \app\core\Controller
             $customer->first_name = $_POST['first_name'];
             $customer->last_name = $_POST['last_name'];
             $customer->email = $_POST['email'];
+            $oldPass = $_POST['oldPassword'];
+
+
+            if (password_verify($oldPass, $customer->password_hash)) {
+                echo ("WOHO!");
+            } else {
+                header('location:/Customer/update');
+            }
+            var_dump(password_verify($oldPass, $customer->password_hash));
+            return;
+
 
             if (!empty($_POST['password'])) {
                 $customer->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
