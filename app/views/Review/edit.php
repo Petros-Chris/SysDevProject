@@ -9,7 +9,7 @@
     <div class='container'>
         <form method='post' action='' id="reviewForm">
             <h1><?= __('Edit Review') ?></h1>
-            <div class="form-group">
+            <div class="form">
                 <label id="labelForStar"><?= __('How Much Would You Rate This Product On A Scale Of 1 To 5?') ?>
                 </label>
                 <div class="rate">

@@ -10,6 +10,7 @@ $this->addRoute('Customer/deactivate', 'Customer,deactivate');
 $this->addRoute('Customer/dashboard', 'Customer,dashboard');
 $this->addRoute('Customer/paypal', 'Customer,paypal');
 $this->addRoute('Customer/orders', 'Order,viewCustomerOrdersForCustomer');
+$this->addRoute('Customer/sucess', 'Order,sucessfullOrder');
 //products
 $this->addRoute('Product/listing', 'Product,listings');
 $this->addRoute('Product/index', 'Product,description');
@@ -51,7 +52,6 @@ $this->addRoute('home', 'User,index');
 //order
 $this->addRoute('Order/createOrder', 'Order,createOrder');
 $this->addRoute('Order/charge', 'Order,charge');
-$this->addRoute('Order/success', 'Order,success');
 // $this->addRoute('OrderCus/search', 'Customer,search');
 //cart
 $this->addRoute('Cart/removeCart', 'Cart,removeFromCart');

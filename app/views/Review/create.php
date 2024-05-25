@@ -1,16 +1,18 @@
 <html>
 
 <head>
-	<title><?= $name ?> view</title>
+	<title><?= __('Create A Review') ?></title>
 	<link rel="stylesheet" type="text/css" href="/app/css/style.scss">
 </head>
 
 <body>
 	<div class='container'>
-		<form method='post' action=''>
-			<h1>Create A Review</h1>
-			<div class="form-group">
-				<label id="labelForStar">How Much Would You Rate This Product On A Scale Of 1 To 5? </label> <br>
+		<form method='post'>
+			<h1><?= __('Create A Review') ?></h1>
+			<div class="form">
+				<label id="labelForStar"><?= __('How Much Would You Rate This Product On A Scale Of 1 To 5') ?>?
+				</label>
+				<br>
 				<div class="rate">
 					<input type="radio" id="star5" name="rating" value="5" checked />
 					<label for="star5" title="text">5 stars</label>
@@ -28,10 +30,10 @@
 			<div id="descriptionBox">
 				<textarea type="text" id="form-description" name="description" placeholder="Description"
 					maxlength="500"></textarea> <br>
-					<span><?= __('Remaining characters') ?>: <span id='remainingCharacter'>500</span></span>
+				<span><?= __('Remaining characters') ?>: <span id='remainingCharacter'>500</span></span>
 			</div>
-			<input type='Submit' value='Submit' name='create_review' id="submitReview1">
-			<a href="#" onclick="history.back();"><input type='Submit' value='Back' name='create_review'
+			<input type='Submit' value='<?= __('Submit') ?>' name='create_review' id="submitReview1">
+			<a href="#" onclick="history.back();"><input type='Submit' value='<?= __('Back') ?>' name='create_review'
 					id="submitReview2"></a>
 		</form>
 

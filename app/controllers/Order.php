@@ -22,7 +22,7 @@ class Order extends \app\core\Controller
             $order->address = $_POST['address'];
             $order->postal_code = $_POST['postalCode'];
             $order->state = $_POST['state'];
-            
+
 
             $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
             $total = 0;
@@ -44,12 +44,21 @@ class Order extends \app\core\Controller
             }
 
 
-            header('location:/home');
+            $order = new \app\controllers\Order();
+            $order->sucessfullOrder();
 
         } else {
             $this->view('Customer/Checkout');
             include ('app/views/footer.php');
         }
+    }
+
+    function sucessfullOrder()
+    {
+        $order = new \app\models\Order();
+        $latestOrderFromCustomer = $order->getLatestOrderFromCustomer($_SESSION['customer_id']);
+        $this->view('Customer/successOrder', $latestOrderFromCustomer);
+
     }
 
     function charge()

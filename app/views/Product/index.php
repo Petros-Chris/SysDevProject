@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title><?= $name ?> view</title>
+    <title><?= $item->brand ?></title>
     <link rel="stylesheet" type="text/css" href="/app/css/style.scss">
 
 </head>

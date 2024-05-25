@@ -106,7 +106,15 @@ class Order extends \app\core\Model
         $STMT->execute(['order_id' => $order_id]);
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Order');
         return $STMT->fetchAll();
+    }
 
+    public function getLatestOrderFromCustomer($customer_id)
+    {
+        $SQL = 'SELECT * FROM customer_order where customer_id = :customer_id ORDER BY timestamp DESC LIMIT 1';
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute(['customer_id' => $customer_id]);
+        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Order');
+        return $STMT->fetch();
     }
 
     public function get($email)
