@@ -36,6 +36,18 @@ class Ticket extends \app\core\Model
         );
     }
 
+    public function update()
+    {
+        $SQL = 'UPDATE ticket SET ticket_status = :ticket_status WHERE ticket_id = :ticket_id';
+        $STMT = self::$_conn->prepare($SQL);
+
+        $STMT->execute([
+            ':ticket_id' => $this->ticket_id,
+            ':ticket_status' => $this->ticket_status
+        ]);
+        $STMT->execute();
+    }
+
     public function getAll()
     {
         $SQL = 'SELECT * FROM ticket ORDER BY timestamp DESC';

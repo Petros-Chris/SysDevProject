@@ -10,7 +10,7 @@
 
         <div class='product-container'>
 
-            <a href='../Ticket/index?id=<?= $ticket->ticket_id ?>'>
+            <a href='../Ticket/indexEmployee?id=<?= $ticket->ticket_id ?>'>
 
                 <!-- Check if user exists -->
                 <?php if (isset($ticket->customer_information->customer_id)): ?>

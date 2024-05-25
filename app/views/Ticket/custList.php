@@ -5,7 +5,7 @@
 </head>
 
 <body>
-    <h1>All Tickets</h1>
+    <h1><?= __('All Tickets') ?></h1>
     <div class='containerToHoldContainer'>
         <?php
         foreach ($tickets as $ticket): ?>

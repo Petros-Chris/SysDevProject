@@ -96,7 +96,7 @@ class Ticket extends \app\core\Controller
         $_SESSION['ticket_id'] = $_GET['id'];
 
         $ticketInfo = $ticket->getId($_GET['id']);
-        
+
         $tick_status = $ticketInfo->ticket_status;
         $customerInfo = $customer->getById($ticketInfo->customer_id);
         $extraCustomerinfo = $order->getCustomerOrderInformationById($ticketInfo->customer_id);
@@ -114,6 +114,55 @@ class Ticket extends \app\core\Controller
         }
 
         include 'app/views/Ticket/custIndex.php';
+
+        $ticketMessage = new \app\controllers\TicketMessage();
+        $ticketMessage->viewMessage();
+        include 'app/views/footer.php';
+    }
+
+    //stopper
+    function descriptionForEmployee()
+    {
+        $ticket = new \app\models\Ticket();
+        $order = new \app\models\Order();
+        $customer = new \app\models\Customer();
+
+        //To Allow BackTracking
+        $_SESSION['ticket_id'] = $_GET['id'];
+
+        $ticketInfo = $ticket->getId($_GET['id']);
+
+        //To mark the ticket as resolved
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if ($ticketInfo->ticket_status == 1) {
+                $ticketInfo->ticket_status = 0;
+                $ticketInfo->update();
+            } else {
+                $ticketInfo->ticket_status = 1;
+                $ticketInfo->update();
+            }
+        }
+
+        $tick_status = $ticketInfo->ticket_status;
+        $customerInfo = $customer->getById($ticketInfo->customer_id);
+        $extraCustomerinfo = $order->getCustomerOrderInformationById($ticketInfo->customer_id);
+
+        $ticket->customer_information = $customerInfo;
+        $ticket->extra_customer_information = $extraCustomerinfo;
+
+
+
+        switch ($tick_status) {
+            case 1:
+                $ticket->ticket_status_text = "Closed";
+                break;
+
+            default:
+                $ticket->ticket_status_text = "Ongoing";
+        }
+
+
+        include 'app/views/Ticket/index.php';
 
         $ticketMessage = new \app\controllers\TicketMessage();
         $ticketMessage->viewMessage();

@@ -388,12 +388,16 @@ h1 {
 
 .container {
   max-width: 1175px;
-  text-align: center;
 }
 
 .containerFields {
   max-width: 1175px;
   text-align: center;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
 }
 
 .containers {
@@ -762,7 +766,7 @@ ul {
   left: 10px;
 }
 
-.product-container {
+.product-container, .container-infromation {
   border: 1px solid #ccc;
   width: calc(18% - 20px);
   padding: 10px;
@@ -772,6 +776,10 @@ ul {
   display: inline-flex;
   flex-direction: column;
   box-sizing: border-box;
+}
+
+.container-infromation {
+  width: 50%;
 }
 
 .containerToHoldContainer {
@@ -832,9 +840,13 @@ ul {
   display: block;
 }
 
-#inputTitle {
+#inputTitle, #inputFile {
   margin: 5px;
   width: 50%;
+}
+
+#inputFile {
+  display: inline;
 }
 
 .rate:not(:checked)>input {
