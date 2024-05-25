@@ -9,7 +9,9 @@
         "omnipay/paypal": "^3.0",
         "psr/http-factory": "^1.1",
         "google/cloud-storage": "^1.41",
-        "symfony/translation": "^7.0"
+        "symfony/translation": "^7.0",
+        "chillerlan/php-authenticator": "^5.1",
+        "chillerlan/php-qrcode": "^5.0"
     },
     "config": {
         "allow-plugins": {

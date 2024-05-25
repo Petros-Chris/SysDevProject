@@ -21,8 +21,8 @@ class Ticket extends \app\core\Controller
             $ticket->issue_description = $_POST['issue_description'];
 
             $ticket->insert();
-
-            header('location:/User/login');
+            $ticketController = new \app\controllers\Ticket();
+            $ticketController->currentTicketsForSpecificCustomer();
         } else {
             $this->view('Ticket/create');
         }

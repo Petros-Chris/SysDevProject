@@ -29,6 +29,12 @@ class ComposerStaticInit3aa8807de7f4f7e79d809f17e0f890b4
     );
 
     public static $prefixLengthsPsr4 = array (
+        'c' => 
+        array (
+            'chillerlan\\Settings\\' => 20,
+            'chillerlan\\QRCode\\' => 18,
+            'chillerlan\\Authenticator\\' => 25,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Php83\\' => 23,
@@ -68,6 +74,7 @@ class ComposerStaticInit3aa8807de7f4f7e79d809f17e0f890b4
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
             'PhpParser\\' => 10,
+            'ParagonIE\\ConstantTime\\' => 23,
         ),
         'O' => 
         array (
@@ -138,6 +145,18 @@ class ComposerStaticInit3aa8807de7f4f7e79d809f17e0f890b4
     );
 
     public static $prefixDirsPsr4 = array (
+        'chillerlan\\Settings\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/chillerlan/php-settings-container/src',
+        ),
+        'chillerlan\\QRCode\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/chillerlan/php-qrcode/src',
+        ),
+        'chillerlan\\Authenticator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/chillerlan/php-authenticator/src',
+        ),
         'Symfony\\Polyfill\\Php83\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php83',
@@ -262,6 +281,10 @@ class ComposerStaticInit3aa8807de7f4f7e79d809f17e0f890b4
         'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
+        ),
+        'ParagonIE\\ConstantTime\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src',
         ),
         'Omnipay\\PayPal\\' => 
         array (

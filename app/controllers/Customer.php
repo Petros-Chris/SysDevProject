@@ -91,4 +91,9 @@ class Customer extends \app\core\Controller
         $this->view('Customer/dashboard');
         include ('app/views/footer.php');
     }
+
+    function setup2fa()
+    {
+
+    }
 }

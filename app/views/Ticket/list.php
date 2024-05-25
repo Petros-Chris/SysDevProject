@@ -5,36 +5,32 @@
 </head>
 
 <body>
-    <?php
-    foreach ($tickets as $ticket): ?>
-
-        <div class='product-container'>
-
+    <h1><?= __('All Tickets') ?></h1>
+    <div class='containerToHoldContainer'>
+        <?php
+        foreach ($tickets as $ticket): ?>
             <a href='../Ticket/indexEmployee?id=<?= $ticket->ticket_id ?>'>
+                <div class='order-container'>
 
-                <!-- Check if user exists -->
-                <?php if (isset($ticket->customer_information->customer_id)): ?>
                     <div class='product-details'>Id: <?= $ticket->ticket_id ?></div>
-                    <div class='product-brand'>User: <?= $ticket->customer_information->first_name ?>
+                    <div class='review-name'> <?= $ticket->customer_information->first_name ?>
                         <?= $ticket->customer_information->last_name ?>
                     </div>
-                    <!-- //Check if address exists -->
-                    <?php if (isset($extraCustomerinfo->address)): ?>
-                        <dd><?= $extraCustomerinfo->address ?></dd>
+                    <?php if (isset($ticket->extra_customer_information->address)): ?>
+                        <dd><?= $ticket->extra_customer_information->address ?></dd>
                     <?php else: ?>
-                        <dd>User Has No Address</dd>
+                        <dd><?= ('No Address') ?></dd>
                     <?php endif; ?>
-                <?php else: ?>
-                    <div class='product-details'>User Has Been Deleted</div>
-                <?php endif; ?>
-
-                <div class='product-details'>The Issue: <?= $ticket->issue ?></div>
-                <div class='product-brand'>Status: <?= $ticket->ticket_status_text ?></div>
+                    <div class='product-details'><?= $ticket->issue ?></div>
+                    <div class='product-details'><?= $ticket->issue_title ?></div>
+                    <div class='product-brand'>Status: <?= $ticket->ticket_status_text ?></div>
+                    <div class='product-details'>
+                        <p><?= $ticket->timestamp ?></p>
+                    </div>
+                </div>
             </a>
-        </div>
-
-        </div>
-    <?php endforeach; ?>   
+        <?php endforeach; ?>
+    </div>
 </body>
 
 </html>

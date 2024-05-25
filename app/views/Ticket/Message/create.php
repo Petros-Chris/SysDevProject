@@ -7,7 +7,7 @@
 <body>
     <div class="containerFields">
         <h1 class="h1Titles"><?= __('Create A Message') ?></h1>
-        <form method="POST" name="ermwhatthesigma">
+        <form method="POST" name="ermwhatthesigma" enctype="multipart/form-data">
             <input id="inputFile" type="file" name="image_link" placeholder="<?= __('Image Link') ?>"><br> <br>
             <div id="descriptionBox">
                 <textarea type="text" id="form-description" name="message"

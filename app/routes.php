@@ -58,3 +58,5 @@ $this->addRoute('Order/charge', 'Order,charge');
 $this->addRoute('Cart/removeCart', 'Cart,removeFromCart');
 $this->addRoute('Cart/addCart', 'Cart,addToCart');
 $this->addRoute('Cart/view', 'Cart,viewCart');
+
+$this->addRoute('User/setup2fa' , 'User,setup2fa');

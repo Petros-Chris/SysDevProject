@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Ticket</title>
+    <title><?= __('Ticket') ?></title>
 </head>
 
 <body>
@@ -14,7 +14,7 @@
             <?php if (isset($extraCustomerinfo->address)): ?>
                 <dd><?= $extraCustomerinfo->address ?></dd>
             <?php else: ?>
-                <dd>User Has No Address</dd>
+                <dd><?= __('No Address') ?></dd>
             <?php endif; ?>
         </div>
         <div class='container-infromation'>
