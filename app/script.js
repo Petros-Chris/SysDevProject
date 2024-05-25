@@ -6,7 +6,7 @@ function removeProductFromCart($product_id) {
             if (xhr.status === 200) {
                 console.log('Product removed from cart:', $product_id);
                 localStorage.setItem('cartVisible', 'true');
-                location.reload(); // Reload the page
+                location.reload(); 
             } else {
                 console.error('Failed to remove product from cart:', xhr.responseText);
             }
@@ -24,7 +24,7 @@ function addProduct(product_id, quantity) {
             if (xhr.status === 200) {
                 console.log('Product added to cart:', product_id);
                 localStorage.setItem('cartVisible', 'true');
-                location.reload(); // Reload the page
+                location.reload(); 
             } else {
                 console.error('Failed to add product to cart:', xhr.responseText);
             }
@@ -109,7 +109,7 @@ function hidePopup2() {
 
 function showPopup() {
     var popup = document.getElementById('popup');
-    hidePopup2(); // Hide wishlist popup if it's open
+    hidePopup2(); 
     popup.style.display = 'block';
     setTimeout(() => {
         popup.classList.add('popup-visible');
@@ -119,7 +119,7 @@ function showPopup() {
 
 function showPopup2() {
     var popup2 = document.getElementById('popup2');
-    hidePopup(); // Hide cart popup if it's open
+    hidePopup(); 
     popup2.style.display = 'block';
     setTimeout(() => {
         popup2.classList.add('popup-visible');

@@ -1,11 +1,11 @@
 <?php
 $name = '';
 
-// Assuming $products is an array of products with each product having a 'brand' property
+
 if (!empty($products)) {
-    // Get the brand of the first product
-    $firstProduct = $products[0]; // Assuming products array is not empty
-    $name = $firstProduct->brand; // Set $name to the brand of the first product
+
+    $firstProduct = $products[0]; 
+    $name = $firstProduct->brand; 
 }
 ?>
 
