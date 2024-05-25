@@ -944,22 +944,6 @@ ul {
   margin: 10px;
 }
 
-#searchInput {
-  width: 20%;
-  padding: 8px;
-  font-size: 16px;
-}
-
-#suggestions {
-  position: absolute;
-  z-index: 1000;
-  background: white;
-  width: 300px;
-  display: none;
-  border: 1px solid #ccc;
-  margin-top: -1px;
-}
-
 .suggestion {
   padding: 8px;
   cursor: pointer;
@@ -1005,7 +989,7 @@ h1 {
   position: absolute;
   z-index: 1000;
   background: white;
-  width: 100%;
+  width: 20%;
   max-height: 150px;
   overflow-y: auto;
   border: 1px solid #ccc;
@@ -1042,7 +1026,7 @@ input[type="submit"] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: 100%;
+  width: 20%;
   font-size: 16px;
 }
 
