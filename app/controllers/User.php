@@ -82,6 +82,7 @@ class User extends \app\core\Controller
 		if ($user && password_verify($password, $user->password_hash)) {
 
 			if ($user->disable == false) {
+				$_SESSION['password_hash'] = $user->password_hash;
 				$_SESSION['customer_id'] = $user->customer_id;
 
 				if (isset($_SESSION['url'])) {

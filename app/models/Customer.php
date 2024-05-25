@@ -57,11 +57,16 @@ class Customer extends \app\core\Model
         return $STMT->fetch();
     }
 
-    public function update()
-    {
+    public function update() {
         $SQL = 'UPDATE Customer SET first_name = :first_name, last_name = :last_name, email = :email, password_hash = :password_hash WHERE customer_id = :customer_id';
         $STMT = self::$_conn->prepare($SQL);
-        $STMT->execute((array) $this);
+        $STMT->execute([
+            'first_name' => $this->first_name,
+            'last_name' => $this->last_name,
+            'email' => $this->email,
+            'password_hash' => $this->password_hash,
+            'customer_id' => $this->customer_id
+        ]);
     }
 
     function disableOrEnable($customer_id, $status)

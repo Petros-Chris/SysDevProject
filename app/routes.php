@@ -11,6 +11,7 @@ $this->addRoute('Customer/dashboard', 'Customer,dashboard');
 $this->addRoute('Customer/paypal', 'Customer,paypal');
 $this->addRoute('Customer/orders', 'Order,viewCustomerOrdersForCustomer');
 $this->addRoute('Customer/sucess', 'Order,sucessfullOrder');
+$this->addRoute('Customer/verifyOldPassword', 'Customer,verifyOldPassword');
 //products
 $this->addRoute('Product/listing', 'Product,listings');
 $this->addRoute('Product/index', 'Product,description');
@@ -25,6 +26,7 @@ $this->addRoute('Admin/disableCustomer', 'Admin,deactivate');
 $this->addRoute('Admin/enableCustomer', 'Admin,reactivate');
 $this->addRoute('Admin/orders', 'Admin,viewCustomerOrders');
 $this->addRoute('Admin/order', 'Order,viewCustomerOrder');
+$this->addRoute('Admin/changeTable', 'Order,changeTable');
 //employee
 $this->addRoute('Employee/creation', 'Employee,register');
 $this->addRoute('Employee/index', 'Employee,index');
