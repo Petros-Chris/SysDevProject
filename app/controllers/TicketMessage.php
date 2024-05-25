@@ -32,9 +32,20 @@ class TicketMessage extends \app\core\Controller
     function viewMessage()
     {
         $ticket = new \app\models\TicketMessage();
+        $customer = new \app\models\Customer();
+        $employee = new \app\models\Employee();
+
+
 
         $messages = $ticket->getMessageFromTicketId($_GET['id']);
-
+        foreach ($messages as $message) {
+            $message->user_information = $customer->getById($message->user_id);
+            //if user is not a customer
+            if ($message->user_information == null) {
+                $message->user_information = $employee->getById($message->user_id);
+            }
+        }
+        $canMakeNewMessage = true;
         include 'app/views/Ticket/Message/index.php';
     }
 }

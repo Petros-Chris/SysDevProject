@@ -360,6 +360,10 @@ a {
   background-color: #444;
 }
 
+.h1Titles {
+  padding: 0;
+}
+
 h1 {
   padding-left: 30px;
 }
@@ -369,6 +373,11 @@ h1 {
 }
 
 .container {
+  max-width: 1175px;
+  text-align: center;
+}
+
+.containerFields {
   max-width: 1175px;
   text-align: center;
 }

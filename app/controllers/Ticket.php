@@ -86,7 +86,7 @@ class Ticket extends \app\core\Controller
         include 'app/views/footer.php';
     }
 
-    function description()
+    function descriptionForCustomer()
     {
         $ticket = new \app\models\Ticket();
         $order = new \app\models\Order();
@@ -113,7 +113,7 @@ class Ticket extends \app\core\Controller
                 $ticket->ticket_status_text = "Ongoing";
         }
 
-        include 'app/views/Ticket/index.php';
+        include 'app/views/Ticket/custIndex.php';
 
         $ticketMessage = new \app\controllers\TicketMessage();
         $ticketMessage->viewMessage();

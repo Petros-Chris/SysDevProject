@@ -12,6 +12,7 @@ class TicketMessage extends \app\core\Model
     public $message;
     public $image_link;
     public $timestamp;
+    public $user_information;
 
     public function insert()
     {

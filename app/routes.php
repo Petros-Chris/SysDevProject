@@ -36,7 +36,7 @@ $this->addRoute('Wishlist/show', 'Wishlist,displayWishlist');
 $this->addRoute('Ticket/create', 'Ticket,createTicket');
 $this->addRoute('Ticket/ongoing', 'Ticket,currentTickets');
 $this->addRoute('Ticket/allTickets', 'Ticket,currentTicketsForSpecificCustomer');
-$this->addRoute('Ticket/index', 'Ticket,description');
+$this->addRoute('Ticket/index', 'Ticket,descriptionForCustomer');
 //ticketMessage
 $this->addRoute('Ticket/createMessage', 'TicketMessage,createMessage');
 //review

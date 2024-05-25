@@ -33,4 +33,13 @@ class Employee extends \app\core\Model
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Employee');
         return $STMT->fetch();
     }
+
+    public function getById($employee_id)
+    {
+        $SQL = 'SELECT * FROM employee WHERE employee_id = :employee_id';
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute(['employee_id' => $employee_id]);
+        $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Employee');
+        return $STMT->fetch();
+    }
 }
