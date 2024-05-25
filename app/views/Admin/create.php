@@ -9,7 +9,7 @@
 
 
 
-		<form method='post' action=''>
+		<form method='post' action='' enctype="multipart/form-data">
 			<!-- <div class="form-group">
 				<label>Brand:<input type="text" class="form-control" name="brand" /></label>
 			</div> -->
@@ -73,6 +73,10 @@
 			<div class="form-group">
 				<label><?= __('Quantity') ?>:<input type="text" class="form-control" name="quantity"></input></label>
 			</div>
+
+			<div class="form-group">
+                <label><?= __('Image') ?>:<input type="file" class="form-control" name="image" /></label>
+            </div>
 
 			<div class="form-group">
 				<input type="submit" name="action" value="<?= __('Create Product') ?>" />

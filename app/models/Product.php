@@ -41,6 +41,7 @@ class Product extends \app\core\Model
                 'quantity' => $this->quantity
             ]
         );
+        return self::$_conn->lastInsertId();
     }
 
     public function update()

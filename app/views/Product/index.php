@@ -9,7 +9,7 @@
 
 <body>
     <img src="/app/resources/images/product_<?= $item->product_id ?>.png" alt="<?= $item->description ?>"
-        style="width: 40%; height: 40%;" class="glasses">
+        style="width: 340px; height: 150px;" class="glasses">
     <div class="containers">
 
         <dl>

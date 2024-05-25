@@ -56,8 +56,33 @@ class Admin extends \app\core\Controller
             $product->quantity = $_POST['quantity'];
             $product->disable = 0;
 
-            $product->insert();
-            header('location:/Admin/index');
+            $product_id = $product->insert();
+
+            if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
+                $target_dir = "app/resources/images/";
+                $target_file = $target_dir . "product_" . $product_id . ".png";
+                $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
+    
+
+                if ($imageFileType == 'png') {
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+
+                    } else {
+                        $error = "Upload has had an error, please try again or contact an admin.";
+                    }
+                } else {
+                    $error = "Invalid file format, we only accept '.png'.";
+                }
+            }
+    
+
+            if($error == null){
+                header('location:/Admin/index');
+                }else{
+                    $this->view('Admin/modify', $product);
+                    echo($error);
+    
+                }
         } else {
             $this->view('Admin/create');
         }
@@ -67,10 +92,10 @@ class Admin extends \app\core\Controller
     {
         $product = new \app\models\Product();
         $product = $product->getId($_GET['id']);
+        $error = null;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-            //$product->product_id = $_GET['id'];  
+  
             $product->brand = $_POST['brand'];
             $product->model = $_POST['model'];
             $product->color = $_POST['color'];
@@ -90,7 +115,38 @@ class Admin extends \app\core\Controller
             }
 
             $product->update();
+
+            if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
+                $target_dir = "app/resources/images/";
+                $target_file = $target_dir . "product_" . $product->product_id . ".png";
+                $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
+    
+                if ($imageFileType == 'png') {
+                    $error = null;
+                    if (file_exists($target_file)) {
+                        unlink($target_file);
+                    }
+    
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                        $error = null;
+
+                    } else {
+
+                         $error = "Upload has had an error, please try again or contact an admin.";
+                    }
+                } else {
+                    $error = "Invalid file format, we only accept '.png'.";
+                }
+            
+            }
+            
+            if($error == null){
             header('location:/Admin/index');
+            }else{
+                $this->view('Admin/modify', $product);
+                echo($error);
+
+            }
         } else {
             $this->view('Admin/modify', $product);
         }

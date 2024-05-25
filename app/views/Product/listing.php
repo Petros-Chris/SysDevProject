@@ -52,7 +52,7 @@ if (!empty($products)) {
                 <div class='product-container'>
                     <div class='product-image'>
                         <img src='/app/resources/images/product_<?= $product->product_id ?>.png'
-                            alt='<?= $product->description ?>' style='width: 100%; height: 100%;'>
+                            alt='<?= $product->description ?>' style='width: 100%; height: 150px;'>
                     </div>
             </a>
             <div class='product-details'>

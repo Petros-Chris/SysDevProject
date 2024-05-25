@@ -6,7 +6,9 @@
 
 <body>
 	<div class='container'>
-		<form method='post' action=''>
+
+
+		<form method='post' action='' enctype="multipart/form-data">
 			<div class="form-group">
 				<label><?= __('Brand') ?>:<input type="text" class="form-control" name="brand" value=<?= $data->brand ?>></label>
 			</div>
@@ -51,6 +53,10 @@
 
 			<div class="form-group">
 				<label><?= __('Is Disabled') ?>:<input type="checkbox" id="disable" name="disable" value="1"></label>
+			</div>
+
+			<div class="form-group">
+                <label><?= __('Image') ?>:<input type="file" class="form-control" name="image" /></label>
 			</div>
 
 			<div class="form-group">
