@@ -13,6 +13,7 @@ class User extends \app\core\Model
     public $password_hash;
     public $email_activated;
     public $disable;
+    public $secret;
 
     public function insert()
     {
@@ -27,6 +28,7 @@ class User extends \app\core\Model
             'password_hash'=>$this->password_hash]);
     }
 
+    //oh man
     public function get($email)
     {
         $SQL = 'SELECT * FROM Customer WHERE email = :email';

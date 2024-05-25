@@ -7,6 +7,7 @@ use PDOException;
 class Customer extends \app\core\Model
 {
     public $customer_id;
+    public $secret;
     public $first_name;
     public $last_name;
     public $email;
@@ -16,6 +17,7 @@ class Customer extends \app\core\Model
     public $whole_customer;
     public $disable_text;
 
+    //UH OH WTF is this
     public function insert()
     {
         $SQL = 'INSERT INTO Customer(first_name, last_name, email, password_hash) VALUES (:first_name, :last_name, :email, :password_hash)';
@@ -28,6 +30,16 @@ class Customer extends \app\core\Model
                 'password_hash' => $this->password_hash
             ]
         );
+    }
+
+    public function add2FA($customer_id)
+    {
+        $SQL = 'UPDATE Customer SET secret = :secret WHERE customer_id = :customer_id';
+        $STMT = self::$_conn->prepare($SQL);
+        $STMT->execute([
+            ':customer_id' => $customer_id,
+            ':secret' => $this->secret
+        ]);
     }
 
     public function getAll()
@@ -57,7 +69,8 @@ class Customer extends \app\core\Model
         return $STMT->fetch();
     }
 
-    public function update() {
+    public function update()
+    {
         $SQL = 'UPDATE Customer SET first_name = :first_name, last_name = :last_name, email = :email, password_hash = :password_hash WHERE customer_id = :customer_id';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute([

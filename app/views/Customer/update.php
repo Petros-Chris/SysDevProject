@@ -21,6 +21,8 @@
 
             <input type="password" id="conPas" name="confirmPassword" placeholder="Confirm New Password" required />
 
+            <a href="/Customer/setup2fa">2fa Setup</a>
+
             <div class="form-group">
                 <input type="submit" name="action" value="Update" />
                 <a href='/Customer/dashboard'>Cancel</a>

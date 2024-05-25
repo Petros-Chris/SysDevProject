@@ -3,6 +3,7 @@
 $this->addRoute('User/register', 'User,register');
 $this->addRoute('User/login', 'User,login');
 $this->addRoute('User/logout', 'User,logout');
+$this->addRoute('User/check2fa' , 'User,check2fa');
 //customers
 $this->addRoute('Customer/update', 'Customer,update');
 $this->addRoute('Customer/checkout', 'Order,createOrder');
@@ -61,4 +62,4 @@ $this->addRoute('Cart/removeCart', 'Cart,removeFromCart');
 $this->addRoute('Cart/addCart', 'Cart,addToCart');
 $this->addRoute('Cart/view', 'Cart,viewCart');
 
-$this->addRoute('User/setup2fa' , 'User,setup2fa');
+$this->addRoute('Customer/setup2fa' , 'Customer,setup2fa');

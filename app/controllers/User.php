@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use stdClass;
+use chillerlan\Authenticator\{Authenticator, AuthenticatorOptions};
+use chillerlan\QRCode\QRCode;
 
 class User extends \app\core\Controller
 {
@@ -32,6 +34,28 @@ class User extends \app\core\Controller
 		} else {
 			$this->view('User/register');
 			include ('app/views/footer.php');
+		}
+	}
+
+	function check2fa()
+	{
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+			$customer = new \app\models\Customer();
+			$custInfo = $customer->getById($_SESSION['customer_id']);
+
+			$options = new AuthenticatorOptions();
+			$authenticator = new Authenticator($options);
+
+
+			$authenticator->setSecret($custInfo->secret);
+			if ($authenticator->verify($_POST['totp'])) {
+				header('location:/Product/listing');
+			} else {
+				session_destroy();
+				header('location:/User/login');
+			}
+		} else {
+			$this->view('User/check2fa');
 		}
 	}
 
@@ -84,6 +108,11 @@ class User extends \app\core\Controller
 			if ($user->disable == false) {
 				$_SESSION['password_hash'] = $user->password_hash;
 				$_SESSION['customer_id'] = $user->customer_id;
+
+				if ($user->secret != null) {
+					header("location:/User/check2fa");
+					exit;
+				}
 
 				if (isset($_SESSION['url'])) {
 					header("location:$_SESSION[url]");

@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use stdClass;
+use chillerlan\Authenticator\{Authenticator, AuthenticatorOptions};
+use chillerlan\QRCode\QRCode;
 
 class Customer extends \app\core\Controller
 {
@@ -96,6 +98,31 @@ class Customer extends \app\core\Controller
 
     function setup2fa()
     {
+        $customer = new \app\models\Customer();
+        $options = new AuthenticatorOptions();
+        $authenticator = new Authenticator($options);
 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_SESSION['secret_setup'])) {
+                $authenticator->setSecret($_SESSION['secret_setup']);
+                $customer->secret = $_SESSION['secret_setup'];
+            } else {
+                header('location:/Customer/setup2fa');
+            }
+            //was submitted, check the TOTP
+            $totp = $_POST['totp'];
+            if ($authenticator->verify($totp)) {
+                $customer->add2FA($_SESSION['customer_id']);
+                header('location:/Customer/update');
+            } else {
+                header('location:/Customer/setup2fa');
+            }
+
+        } else {
+            $_SESSION['secret_setup'] = $authenticator->createSecret();
+            $uri = $authenticator->getUri('Mes Yeux Tes Yeux', 'localhost');
+            $QRCode = (new QRCode)->render($uri);
+            include 'app/views/Customer/setup2fa.php';
+        }
     }
 }
