@@ -251,4 +251,7 @@ class Admin extends \app\core\Controller
         include 'app/views/Admin/orders.php';
         include 'app/views/footer.php';
     }
+
 }
+
+
