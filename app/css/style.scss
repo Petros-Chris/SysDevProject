@@ -9,6 +9,9 @@
 
 .form-group {
   margin-bottom: 15px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 label {
@@ -367,6 +370,7 @@ h1 {
 
 .container {
   max-width: 1175px;
+  text-align: center;
 }
 
 .containers {
@@ -818,16 +822,19 @@ ul {
   display: block;
 }
 
-.rate {
-  right: 250px;
-  top: -40px;
-  position: relative;
-  float: right;
+#inputTitle {
+  margin: 5px;
+  width: 50%;
 }
 
 .rate:not(:checked)>input {
   position: absolute;
   top: -9999px;
+}
+
+#orderIssueSelction {
+  width: 50%;
+  background-color: white;
 }
 
 .rate:not(:checked)>label {

@@ -14,7 +14,7 @@
 
                 <!-- Check if user exists -->
                 <?php if (isset($ticket->customer_information->customer_id)): ?>
-                    <div class='product-details'>Debug: <?= $ticket->customer_information->customer_id ?></div>
+                    <div class='product-details'>Id: <?= $ticket->ticket_id ?></div>
                     <div class='product-brand'>User: <?= $ticket->customer_information->first_name ?>
                         <?= $ticket->customer_information->last_name ?>
                     </div>
@@ -34,7 +34,7 @@
         </div>
 
         </div>
-    <?php endforeach; ?>
+    <?php endforeach; ?>   
 </body>
 
 </html>

@@ -10,7 +10,7 @@
 		<form method='post' action=''>
 			<h1>Create A Review</h1>
 			<div class="form-group">
-				<label id="labelForStar">How Much Would You Rate This Product On A Scale Of 1 To 5? </label>
+				<label id="labelForStar">How Much Would You Rate This Product On A Scale Of 1 To 5? </label> <br>
 				<div class="rate">
 					<input type="radio" id="star5" name="rating" value="5" checked />
 					<label for="star5" title="text">5 stars</label>
@@ -28,7 +28,7 @@
 			<div id="descriptionBox">
 				<textarea type="text" id="form-description" name="description" placeholder="Description"
 					maxlength="500"></textarea> <br>
-				<span id='remainingCharacter'>Remaining characters: 500</span>
+					<span><?= __('Remaining characters') ?>: <span id='remainingCharacter'>500</span></span>
 			</div>
 			<input type='Submit' value='Submit' name='create_review' id="submitReview1">
 			<a href="#" onclick="history.back();"><input type='Submit' value='Back' name='create_review'
@@ -39,12 +39,7 @@
 </body>
 
 <script>
-	document.getElementById('form-description').addEventListener('input', function () {
-		var maxLength = 500;
-		var currentLength = this.value.length;
-		var remainingC = document.getElementById('remainingCharacter');
-		remainingC.textContent = "Remaining characters: " + (maxLength - currentLength);
-	});
+	characterLimit();
 </script>
 
 </html>

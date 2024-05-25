@@ -10,6 +10,7 @@ class Ticket extends \app\core\Model
     public $product_id;
     public $customer_id;
     public $issue;
+    public $issue_title;
     public $issue_description;
     public $ticket_status;
     public $timestamp;
@@ -22,13 +23,14 @@ class Ticket extends \app\core\Model
 
     public function insert()
     {
-        $SQL = 'INSERT INTO ticket(product_id, customer_id, issue, issue_description, ticket_status) VALUES (:product_id, :customer_id, :issue, :issue_description, 0)';
+        $SQL = 'INSERT INTO ticket(product_id, customer_id, issue, issue_title, issue_description, ticket_status) VALUES (:product_id, :customer_id, :issue, :issue_title, :issue_description, 0)';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute(
             [
                 'product_id' => $this->product_id,
                 'customer_id' => $this->customer_id,
                 'issue' => $this->issue,
+                'issue_title' => $this->issue_title,
                 'issue_description' => $this->issue_description
             ]
         );

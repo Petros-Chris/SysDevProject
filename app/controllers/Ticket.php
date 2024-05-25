@@ -17,6 +17,7 @@ class Ticket extends \app\core\Controller
             $ticket->product_id = 1;
             $ticket->customer_id = $_SESSION['customer_id'];
             $ticket->issue = $_POST['issue'];
+            $ticket->issue_title = $_POST['title'];
             $ticket->issue_description = $_POST['issue_description'];
 
             $ticket->insert();
@@ -81,7 +82,7 @@ class Ticket extends \app\core\Controller
                     $ticket->ticket_status_text = "Ongoing";
             }
         }
-        include 'app/views/Ticket/list.php';
+        include 'app/views/Ticket/custList.php';
         include 'app/views/footer.php';
     }
 
@@ -91,7 +92,11 @@ class Ticket extends \app\core\Controller
         $order = new \app\models\Order();
         $customer = new \app\models\Customer();
 
+        //To Allow BackTracking
+        $_SESSION['ticket_id'] = $_GET['id'];
+
         $ticketInfo = $ticket->getId($_GET['id']);
+        
         $tick_status = $ticketInfo->ticket_status;
         $customerInfo = $customer->getById($ticketInfo->customer_id);
         $extraCustomerinfo = $order->getCustomerOrderInformationById($ticketInfo->customer_id);

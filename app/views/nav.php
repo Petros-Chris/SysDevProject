@@ -59,7 +59,9 @@
         <li class="menu-item"><a href="/Customer/dashboard">Account</a>
             <ol class="sub-menu">
                 <li class="menu-item"><a href="/Customer/dashboard">My Account</a></li>
-                <li class="menu-item"><a href="/User/login">Login/Register</a></li>
+                <?php if (!isset($_SESSION['customer_id']) || isset($_SESSION['employee_id'])): ?>
+                    <li class="menu-item"><a href="/User/login">Login/Register</a></li>
+                <?php endif; ?>
             </ol>
         </li>
 

@@ -11,7 +11,6 @@
         <?php
 
         foreach ($reviews as $review): ?>
-
             <div class='review-container'>
                 <div class='review-name'><?= $review->customer_information->first_name ?>
                     <?= $review->customer_information->last_name ?>
@@ -28,9 +27,9 @@
                     <?php endif; ?>
                 <?php endif; ?>
                 <?php if (!$canMakeNewReview): ?>
+                    |
                     <a href="/Product/index?id=<?= $review->product_id ?>"><?= __('Go To Product') ?></a>
                 <?php endif; ?>
-
             </div>
         <?php endforeach; ?>
     </div>

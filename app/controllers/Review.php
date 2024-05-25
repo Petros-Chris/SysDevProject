@@ -89,17 +89,11 @@ class Review extends \app\core\Controller
         }
 
         $reviews = $review->getAllFromProduct($_GET['id']);
-        $reviewAmount = 0;
-
-        $counter = 0;
 
         foreach ($reviews as $review) {
             $customerInfo = $customer->getById($review->customer_id);
             $review->customer_information = $customerInfo;
-            $reviewAmount += $review->rating;
-            $counter++;
         }
-        $avgOfReview = $reviewAmount / $counter;
         $ownsReview = isset($_SESSION['customer_id']);
         $cus_id = 0;
         if ($ownsReview) {

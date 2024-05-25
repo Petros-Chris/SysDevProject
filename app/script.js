@@ -33,6 +33,16 @@ function generateStarRating(rating) {
     return stars;
 }
 
+function characterLimit() {
+
+    document.getElementById('form-description').addEventListener('input', function () {
+        var maxLength = 500;
+        var currentLength = this.value.length;
+        var remainingC = document.getElementById('remainingCharacter');
+        remainingC.textContent = (maxLength - currentLength);
+    });
+}
+
 //For product index
 function addProduct(product_id, quantity) {
     var xhr = new XMLHttpRequest();

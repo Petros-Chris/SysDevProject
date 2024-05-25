@@ -28,7 +28,7 @@
             <dt><?= __('Left In Stock:') ?></dt>
             <dd><?= $item->quantity ?></dd>
             <script>document.write(generateStarRating(<?= $product->rating ?>))</script>
-                (<?= $product->how_many_reviews ?>)
+            (<?= $product->how_many_reviews ?>)
         </dl>
 
         <select id="quantitySeleted">
@@ -37,10 +37,9 @@
                 <option value="<?= $num ?>"><?= $num ?></option>
 
             <?php endfor; ?>
-
-
         </select>
-        <input id="cartBtn" type='button' value='Add To Cart' onclick="addProduct(<?= $item->product_id ?>, document.getElementById('quantitySeleted').value)">
+        <input id="cartBtn" type='button' value='Add To Cart'
+            onclick="addProduct(<?= $item->product_id ?>, document.getElementById('quantitySeleted').value)">
     </div>
 </body>
 

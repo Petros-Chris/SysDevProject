@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 23, 2024 at 11:59 PM
+-- Generation Time: May 25, 2024 at 02:09 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `Customer` (
   `disable` tinyint(1) NOT NULL,
   PRIMARY KEY (`customer_id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `Customer`
@@ -56,7 +56,8 @@ INSERT INTO `Customer` (`customer_id`, `first_name`, `last_name`, `email`, `pass
 (9, 'yu', 'o', 'qwer@asd', '$2y$10$cdGvJi0MT6iLeZ1IVLvJTumz1CfOhv6mqMumHz7z1oLxeg3mqiy5S', 0, 0),
 (10, 'zz', 'zz', 'zz@zz', '$2y$10$ZjMDPwTaD.uklnwFfMIcie9aNjGjMqwQ6zP4U9gZ8k2fSEplgRkv2', 0, 0),
 (13, 'among', 'us', '1@1', '$2y$10$o8RxtMunv6Mn57pqMaIp0OuILthykyRhKtQVKLiiOwS5LCEoOAb2a', 0, 0),
-(14, 'joe', 'biden', '123@e', '$2y$10$j7qQUW89rd/Y7VH3RIcS2O2C73yDuq/Ar/6SHFzGNDfvAxbhJFWf2', 0, 0);
+(14, 'joe', 'biden', '123@e', '$2y$10$j7qQUW89rd/Y7VH3RIcS2O2C73yDuq/Ar/6SHFzGNDfvAxbhJFWf2', 0, 0),
+(15, 'kai', 'cenat', 'q@q', '$2y$10$otbfJBYHJyRa92ex2OE1NuRIbdIgZBzVzMqdagX0hmrZlA7iT6zUC', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -75,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `customer_order` (
   `status` tinyint(1) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`order_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `customer_order`
@@ -91,7 +92,8 @@ INSERT INTO `customer_order` (`order_id`, `customer_id`, `address`, `postal_code
 (7, 14, '194 Rue Lamarche, Laval (administrative region), Canada', '', '', 2562.5, 0, '2024-05-13 21:18:50'),
 (8, 14, '194 Rue Lamarche, Laval (administrative region), Canada', '', '', 0, 0, '2024-05-13 21:28:33'),
 (9, 14, '', '', '', 0, 0, '2024-05-16 03:28:56'),
-(10, 13, 'Étienne Road, Laurentides, Canada', 'I2Q 0W0', 'QC', 787.5, 0, '2024-05-23 21:41:34');
+(10, 13, 'Étienne Road, Laurentides, Canada', 'I2Q 0W0', 'QC', 787.5, 0, '2024-05-23 21:41:34'),
+(11, 15, '12e Rue, Laval (administrative region), Canada', 'h7n 1s8', 'NS', 787.5, 0, '2024-05-23 22:05:46');
 
 -- --------------------------------------------------------
 
@@ -141,7 +143,8 @@ INSERT INTO `order_item` (`order_id`, `product_id`, `quantity`, `price`) VALUES
 (7, 7, 1, 800),
 (7, 7, 1, 800),
 (7, 18, 1, 175),
-(10, 1, 1, 787.5);
+(10, 1, 1, 787.5),
+(11, 1, 1, 787.5);
 
 -- --------------------------------------------------------
 
@@ -267,24 +270,22 @@ CREATE TABLE IF NOT EXISTS `review` (
   `customer_id` int(11) NOT NULL,
   `rating` int(11) NOT NULL,
   `description` text NOT NULL,
-  `image_link` text NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`review_id`),
   KEY `fk_review_product_id_product` (`product_id`),
   KEY `fk_review_customer_id_customer` (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `review`
 --
 
-INSERT INTO `review` (`review_id`, `product_id`, `customer_id`, `rating`, `description`, `image_link`, `timestamp`) VALUES
-(1, 1, 4, 4, '', '', '2024-05-02 15:04:39'),
-(2, 5, 4, 7, '', '', '2024-05-02 15:05:04'),
-(3, 7, 4, 8, '', '', '2024-05-02 15:07:36'),
-(4, 7, 4, 4, '', '', '2024-05-02 15:08:01'),
-(5, 1, 4, 4, '', '', '2024-05-03 18:32:44'),
-(6, 1, 4, 8, '', '', '2024-05-03 18:33:18');
+INSERT INTO `review` (`review_id`, `product_id`, `customer_id`, `rating`, `description`, `timestamp`) VALUES
+(1, 1, 4, 4, '', '2024-05-02 15:04:39'),
+(4, 7, 4, 4, '', '2024-05-02 15:08:01'),
+(5, 1, 4, 4, '', '2024-05-03 18:32:44'),
+(12, 1, 15, 1, '', '2024-05-24 12:31:42'),
+(14, 1, 15, 4, 'gbcvhtrrfdsvcsdqrghjdqwgdfgfd ghfghdf gdfvxcbxc vxcvxc vx', '2024-05-24 18:30:14');
 
 -- --------------------------------------------------------
 
@@ -298,18 +299,50 @@ CREATE TABLE IF NOT EXISTS `ticket` (
   `product_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
   `issue` text NOT NULL,
+  `issue_title` text NOT NULL,
   `issue_description` text NOT NULL,
   `ticket_status` tinyint(1) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`ticket_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `ticket`
 --
 
-INSERT INTO `ticket` (`ticket_id`, `product_id`, `customer_id`, `issue`, `issue_description`, `ticket_status`, `timestamp`) VALUES
-(1, 1, 12, 'Order Issue', 'Heaf', 0, '2024-05-09 16:09:29');
+INSERT INTO `ticket` (`ticket_id`, `product_id`, `customer_id`, `issue`, `issue_title`, `issue_description`, `ticket_status`, `timestamp`) VALUES
+(1, 1, 12, 'Order Issue', '', 'Heaf', 0, '2024-05-09 16:09:29'),
+(2, 1, 15, 'Order Issue', '', 'maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxlength=\"500\"maxle', 0, '2024-05-24 17:39:02'),
+(3, 1, 15, 'Product Issue', 'bruh', 'boy what the hael', 0, '2024-05-24 20:15:31');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ticket_message`
+--
+
+DROP TABLE IF EXISTS `ticket_message`;
+CREATE TABLE IF NOT EXISTS `ticket_message` (
+  `message_id` int(11) NOT NULL AUTO_INCREMENT,
+  `ticket_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `image_link` text NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`message_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ticket_message`
+--
+
+INSERT INTO `ticket_message` (`message_id`, `ticket_id`, `user_id`, `message`, `image_link`, `timestamp`) VALUES
+(1, 3, 15, 'bonjour', '', '2024-05-24 23:53:53'),
+(2, 3, 15, 'barh', '', '2024-05-24 23:54:06'),
+(3, 3, 15, 'a', '', '2024-05-25 00:01:22'),
+(4, 3, 15, 'qa', '', '2024-05-25 00:02:13'),
+(5, 3, 15, 'zxc', '', '2024-05-25 00:02:27'),
+(6, 3, 15, 'b', '', '2024-05-25 00:03:07');
 
 -- --------------------------------------------------------
 
@@ -330,6 +363,8 @@ CREATE TABLE IF NOT EXISTS `wishlist` (
 --
 
 INSERT INTO `wishlist` (`product_id`, `customer_id`) VALUES
+(1, 15),
+(2, 15),
 (3, 14),
 (7, 14),
 (22, 14),

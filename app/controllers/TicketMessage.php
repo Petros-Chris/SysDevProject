@@ -21,9 +21,11 @@ class TicketMessage extends \app\core\Controller
 
             $ticket->insert();
 
-            header('location:/Customer/update');
+            header("Location: /Ticket/index?id=" . $_SESSION["ticket_id"]);
+            unset($_SESSION['ticket_id']);
         } else {
             $this->view('Ticket/Message/create');
+            include 'app/views/footer.php';
         }
     }
 
