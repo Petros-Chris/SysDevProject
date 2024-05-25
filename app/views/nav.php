@@ -84,7 +84,7 @@
         </li>
         <li class="menu-item cart-language">
             <div class="tools">
-                <button onclick="viewWishlist()">🙉</button>
+                <button onclick="viewWishlist()">💗</button>
             </div>
         </li>
         <li class="menu-item"><a href="">Language</a>

@@ -44,7 +44,7 @@
             </div>
             <div class="form-group">
                 <label for="cardNumber">Card Number</label>
-                <input type="text" id="cardNumber" name="cardNumber" pattern="\d{15,16}" required>
+                <input type="text" id="cardNumber" name="cardNumber" pattern="\d{15,16}" required placeholder="eg: 1234123412341234 or 123412341234123">
             </div>
             <div class="form-group flex-group">
                 <div class="half-width">
