@@ -6,13 +6,32 @@ function removeProductFromCart($product_id) {
             if (xhr.status === 200) {
                 console.log('Product removed from cart:', $product_id);
                 localStorage.setItem('cartVisible', 'true');
-                location.reload(); // Reload the page
+                location.reload();
             } else {
                 console.error('Failed to remove product from cart:', xhr.responseText);
             }
         }
     };
     xhr.open('POST', '/Cart/removeCart');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send('id=' + $product_id);
+}
+
+function removeProductFromWishlist($product_id) {
+    var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                console.log('Product removed from cart:', $product_id);
+                localStorage.setItem('cartVisible', 'true');
+                location.reload();
+            } else {
+                console.error('Failed to remove product from cart:', xhr.responseText);
+            }
+        }
+    };
+    xhr.open('POST', '/Wishlist/remove');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.send('id=' + $product_id);
 }
@@ -24,7 +43,7 @@ function addProduct(product_id, quantity) {
             if (xhr.status === 200) {
                 console.log('Product added to cart:', product_id);
                 localStorage.setItem('cartVisible', 'true');
-                location.reload(); // Reload the page
+                location.reload();
             } else {
                 console.error('Failed to add product to cart:', xhr.responseText);
             }
