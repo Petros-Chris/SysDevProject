@@ -1,12 +1,12 @@
 <html>
 
 <head>
-	<title><?= __('Create A Review') ?></title>
+	<title><?= __('Create Review') ?></title>
 	<link rel="stylesheet" type="text/css" href="/app/css/style.scss">
 </head>
 
 <body>
-	<div class='container'>
+	<div class='containerFields'>
 		<form method='post'>
 			<h1><?= __('Create A Review') ?></h1>
 			<div class="form">
@@ -28,7 +28,7 @@
 				</label>
 			</div>
 			<div id="descriptionBox">
-				<textarea type="text" id="form-description" name="description" placeholder="Description"
+				<textarea type="text" id="form-description" name="description" placeholder="<?= __('Description') ?>"
 					maxlength="500"></textarea> <br>
 				<span><?= __('Remaining characters') ?>: <span id='remainingCharacter'>500</span></span>
 			</div>

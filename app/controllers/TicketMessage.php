@@ -21,7 +21,12 @@ class TicketMessage extends \app\core\Controller
 
             $ticket->insert();
 
-            header("Location: /Ticket/index?id=" . $_SESSION["ticket_id"]);
+            if (isset($_SESSION['employee_id'])) {
+                header("Location: /Ticket/indexEmployee?id=" . $_SESSION["ticket_id"]);
+            } else {
+                header("Location: /Ticket/index?id=" . $_SESSION["ticket_id"]);
+            }
+
             unset($_SESSION['ticket_id']);
         } else {
             $this->view('Ticket/Message/create');
@@ -31,13 +36,13 @@ class TicketMessage extends \app\core\Controller
 
     function viewMessage()
     {
-        $ticket = new \app\models\TicketMessage();
+        $ticket = new \app\models\Ticket();
+        $ticketMessage = new \app\models\TicketMessage();
         $customer = new \app\models\Customer();
         $employee = new \app\models\Employee();
+        $canMakeNewMessage = true;
 
-
-
-        $messages = $ticket->getMessageFromTicketId($_GET['id']);
+        $messages = $ticketMessage->getMessageFromTicketId($_GET['id']);
         foreach ($messages as $message) {
             $message->user_information = $customer->getById($message->user_id);
             //if user is not a customer
@@ -45,7 +50,11 @@ class TicketMessage extends \app\core\Controller
                 $message->user_information = $employee->getById($message->user_id);
             }
         }
-        $canMakeNewMessage = true;
+        $ticketInfo = $ticket->getId($_GET['id']);
+        if ($ticketInfo->ticket_status == 1) {
+            $canMakeNewMessage = false;
+        }
+
         include 'app/views/Ticket/Message/index.php';
     }
 }

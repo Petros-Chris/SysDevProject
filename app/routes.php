@@ -38,6 +38,7 @@ $this->addRoute('Ticket/create', 'Ticket,createTicket');
 $this->addRoute('Ticket/ongoing', 'Ticket,currentTickets');
 $this->addRoute('Ticket/allTickets', 'Ticket,currentTicketsForSpecificCustomer');
 $this->addRoute('Ticket/index', 'Ticket,descriptionForCustomer');
+$this->addRoute('Ticket/indexEmployee', 'Ticket,descriptionForEmployee');
 //ticketMessage
 $this->addRoute('Ticket/createMessage', 'TicketMessage,createMessage');
 //review
