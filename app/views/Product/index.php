@@ -33,7 +33,7 @@
 
         <select id="quantitySeleted">
             <?php
-            for ($num = 1; $num <= $data->quantity; $num++): ?>
+            for ($num = 1; $num <= $item->quantity; $num++): ?>
                 <option value="<?= $num ?>"><?= $num ?></option>
 
             <?php endfor; ?>

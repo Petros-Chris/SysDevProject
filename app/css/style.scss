@@ -5,6 +5,8 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 .form-group {
@@ -25,19 +27,27 @@ select {
 }
 
 #map {
-  height: 200px;
+  width: 300px;
+  height: 300px;
+  margin: 10px;
   margin-bottom: 15px;
+  border-radius: 4px;
 }
 
 .suggestion {
   cursor: pointer;
-  padding: 5px;
+  padding: 8px;
   border: 1px solid #ddd;
   background: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.suggestion:last-child {
+  border-bottom: none;
 }
 
 .suggestion:hover {
-  background: #f0f0f0;
+  background-color: #f0f0f0;
 }
 
 .flex-group {
@@ -210,9 +220,7 @@ select {
   .sub-menu .menu-item {
     background: #C06C84;
   }
-}
 
-@media screen and (max-width: 600px) {
   .menu {
     position: relative;
   }
@@ -363,6 +371,8 @@ a {
 
 h1 {
   padding-left: 30px;
+  text-align: center;
+  color: #333;
 }
 
 #sun {
@@ -387,8 +397,6 @@ h1 {
   // margin-top: 200px;
 }
 
-
-
 .containers dl {
   margin-left: 3%;
 }
@@ -401,7 +409,6 @@ h1 {
   padding-top: 10px;
   margin-left: 10px;
 }
-
 
 .row {
   display: flex;
@@ -599,10 +606,6 @@ ul {
   padding: 20px;
   border-radius: 5px;
   box-sizing: border-box;
-  float: left;
-}
-
-.phone-box {
   float: right;
 }
 
@@ -675,7 +678,6 @@ ul {
 .phone-box img {
   padding-bottom: 10px;
 }
-
 
 .header {
   background-color: #f0f0f0;
@@ -763,7 +765,6 @@ ul {
   display: inline-flex;
   flex-direction: column;
   box-sizing: border-box;
-
 }
 
 .containerToHoldContainer {
@@ -816,11 +817,7 @@ ul {
 .order-container:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transform: translateY(-5px);
-  background-color: #d5d5d5
-}
-
-#imcool {
-  display: flex;
+  background-color: #d5d5d5;
 }
 
 #labelForStar {
@@ -921,52 +918,102 @@ ul {
 .popup {
   display: none;
   position: fixed;
-  top: -1000px;
-  right: 720px;
-  padding: 10px;
-  background-color: wheat;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100%;
+  padding: 20px;
+  background-color: whitesmoke;
   border: 1px solid #ccc;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 9999;
-  transition: top 0.7s ease;
+  transition: right 0.3s ease;
+  overflow-y: hidden;
 }
 
 .popup-visible {
-  top: 55px;
+  right: 0;
 }
 
-#map {
-  width: 300px;
-  height: 300px;
-  margin: 10px;
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.suggestion {
-  padding: 8px;
-  cursor: pointer;
-  border-bottom: 1px solid #ccc;
+.popup-items {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px;
 }
 
-.suggestion:last-child {
-  border-bottom: none;
+.popup-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
 }
 
-.suggestion:hover {
-  background-color: #f0f0f0;
+.popup-item img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
 }
 
-#containerMap {
-  max-width: 500px;
-  margin: 0 auto;
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  padding: 20px;
-}
-
-h1 {
-  text-align: center;
+.popup-item a {
+  flex: 1;
+  text-decoration: none;
   color: #333;
+}
+
+.popup-item span {
+  cursor: pointer;
+}
+
+.popup-total {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.popup-button {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.popup-button button {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.popup-button button:hover {
+  background-color: #218838;
+}
+
+.close-button {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.close-button button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.close-button button:hover {
+  background-color: #d32f2f;
 }
 
 .shipping-details {
@@ -994,26 +1041,6 @@ h1 {
   border-radius: 0 0 4px 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: none;
-}
-
-.suggestion {
-  padding: 8px;
-  cursor: pointer;
-  border-bottom: 1px solid #ccc;
-}
-
-.suggestion:last-child {
-  border-bottom: none;
-}
-
-.suggestion:hover {
-  background-color: #f0f0f0;
-}
-
-#map {
-  height: 300px;
-  border-radius: 4px;
-  margin-top: 10px;
 }
 
 input[type="submit"] {
@@ -1086,7 +1113,6 @@ input[type="submit"]:hover {
 .product-brand-for-delete {
   font-size: 18px;
 }
-
 
 #submitReview1:hover,
 #submitReview2:hover,
