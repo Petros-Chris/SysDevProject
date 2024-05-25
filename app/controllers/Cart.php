@@ -12,7 +12,19 @@ class Cart extends \app\core\Controller
         if (isset($_SESSION['cart'])) {
             $cart = ($_SESSION['cart']);
             $price = 0;
-
+    
+            echo "<table class='cart-table'>";
+            echo "<thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Brand</th>
+                        <th>Shape</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                  </thead>";
+            echo "<tbody>";
+    
             foreach ($cart as $product) {
                 $pro_id = $product->product_id;
                 $pro_brand = $product->brand;
@@ -24,18 +36,27 @@ class Cart extends \app\core\Controller
                 $pro_optial_sun = $product->optical_sun;
                 $pro_description = $product->description;
                 $price += $pro_price;
-
-                echo "<p>
-                        <a href=\"/Product/index?id=$pro_id\">$pro_brand $pro_shape $pro_price</a>
-                        <span onclick=\"removeProductFromCart($pro_id)\">&#128465;</span><br>
-                    </p>";
+    
+                echo "<tr>
+                        <td><a href=\"/Product/index?id=$pro_id\">$pro_brand $pro_model</a></td>
+                        <td>$pro_brand</td>
+                        <td>$pro_shape</td>
+                        <td>\$$pro_price</td>
+                        <td><span class='remove-product' onclick=\"removeProductFromCart($pro_id)\">&#128465;</span></td>
+                      </tr>";
             }
-
-            echo "<p>
-                        Total: $price <br>
-                    </p>";
+    
+            echo "</tbody>";
+            echo "<tfoot>
+                    <tr>
+                        <td colspan='3'>Total:</td>
+                        <td colspan='2'>\$$price</td>
+                    </tr>
+                  </tfoot>";
+            echo "</table>";
         }
     }
+    
 
     public function addToCart()
     {

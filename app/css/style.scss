@@ -1132,3 +1132,33 @@ input[type="submit"]:hover {
 #submitReviewDelete:active {
   transform: scale(0.95);
 }
+
+#containerTable {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+h1 {
+  text-align: center;
+}
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.cart-table th, .cart-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.cart-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+.cart-table td a {
+  color: #000;
+  text-decoration: none;
+}
+.cart-table .remove-product {
+  cursor: pointer;
+  color: red;
+}

@@ -8,7 +8,7 @@
             <div class="popup-items" id="popupItems"></div>
             <div class="popup-total" id="popupTotal"></div>
             <div class="popup-button" id="checkoutButton" style="display: none;">
-                <button id="checkoutBtn" onclick="window.location.href='/Customer/checkout'">Proceed to Checkout</button>
+                <button id="checkoutBtn">Proceed to Checkout</button>
             </div>
             <div class="close-button">
                 <button onclick="hidePopup()">Close</button>
@@ -52,6 +52,12 @@
                 showPopup();
             }
         });
+
+        document.getElementById('checkoutBtn').addEventListener('click', function() {
+            localStorage.setItem('cartVisible', 'true');    
+            window.location.href = '/Customer/checkout';
+                
+            });
 
         function showPopup() {
             var popup = document.getElementById('popup');
