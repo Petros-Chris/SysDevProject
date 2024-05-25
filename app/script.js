@@ -6,7 +6,9 @@ function removeProductFromCart($product_id) {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 console.log('Product removed from cart:', $product_id);
-                location.reload(); //seems annyoing and a waste of resources 
+                location.reload(); //seems annyoing and a waste of resources \
+                document.getElementById('popup').style.display = 'block';
+
             } else {
                 console.error('Failed to remove product from cart:', xhr.responseText);
             }

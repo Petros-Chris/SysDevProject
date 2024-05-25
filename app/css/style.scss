@@ -7,8 +7,15 @@
   background-color: #f9f9f9;
 }
 
-.form-group {
+.form-group,
+.form {
   margin-bottom: 15px;
+}
+
+.form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 label {
