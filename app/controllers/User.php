@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use stdClass;
+use chillerlan\Authenticator\{Authenticator, AuthenticatorOptions};
+use chillerlan\QRCode\QRCode;
 
 class User extends \app\core\Controller
 {
@@ -31,6 +33,38 @@ class User extends \app\core\Controller
 			header('location:/User/login');
 		} else {
 			$this->view('User/register');
+			include ('app/views/footer.php');
+		}
+	}
+
+	function check2fa()
+	{
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+			$customer = new \app\models\Customer();
+			$custInfo = $customer->getById($_SESSION['temp_customer_id']);
+
+			$options = new AuthenticatorOptions();
+			$authenticator = new Authenticator($options);
+
+			$authenticator->setSecret($custInfo->secret);
+			if ($authenticator->verify($_POST['totp'])) {
+
+				unset($_SESSION['temp_customer_id']);
+
+				$_SESSION['password_hash'] = $custInfo->password_hash;
+				$_SESSION['customer_id'] = $custInfo->customer_id;
+
+				if (isset($_SESSION['url'])) {
+					header("location:$_SESSION[url]");
+				} else {
+					header("location:/Product/listing");
+				}
+			} else {
+				$_SESSION['error_message'] = "something so it exists";
+				header('location:/User/check2fa');
+			}
+		} else {
+			$this->view('User/check2fa');
 			include ('app/views/footer.php');
 		}
 	}
@@ -82,9 +116,14 @@ class User extends \app\core\Controller
 		if ($user && password_verify($password, $user->password_hash)) {
 
 			if ($user->disable == false) {
+
+				if ($user->secret != null) {
+					$_SESSION['temp_customer_id'] = $user->customer_id;
+					header("location:/User/check2fa");
+					exit;
+				}
 				$_SESSION['password_hash'] = $user->password_hash;
 				$_SESSION['customer_id'] = $user->customer_id;
-
 				if (isset($_SESSION['url'])) {
 					header("location:$_SESSION[url]");
 				} else {

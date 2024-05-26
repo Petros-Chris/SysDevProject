@@ -21,6 +21,12 @@
 
             <input type="password" id="conPas" name="confirmPassword" placeholder="Confirm New Password" required />
 
+            <?php if ($customer->secret != null): ?>
+                <a href="/Customer/disable2fa"><?= __('Disable 2 Factor Authentication') ?></a>
+            <?php else: ?>
+                <a href="/Customer/setup2fa"><?= __('Enable 2 Factor Authentication') ?></a>
+            <?php endif; ?>
+
             <div class="form-group">
                 <input type="submit" name="action" value="Update" />
                 <a href='/Customer/dashboard'>Cancel</a>
