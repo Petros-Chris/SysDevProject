@@ -70,9 +70,9 @@ class Order extends \app\core\Model
         return $STMT->fetchAll();
     }
 
-    public function getCustomerOrderInformationById($customer_id)
+       public function getCustomerOrderInformationById($customer_id)
     {
-        $SQL = 'SELECT * FROM customer_order WHERE customer_id = :customer_id';
+        $SQL = 'SELECT * FROM customer_order WHERE customer_id = :customer_id ORDER BY timestamp DESC';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute(['customer_id' => $customer_id]);
         $STMT->setFetchMode(PDO::FETCH_CLASS, 'app\models\Order');
