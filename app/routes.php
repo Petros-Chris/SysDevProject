@@ -3,7 +3,7 @@
 $this->addRoute('User/register', 'User,register');
 $this->addRoute('User/login', 'User,login');
 $this->addRoute('User/logout', 'User,logout');
-$this->addRoute('User/check2fa' , 'User,check2fa');
+$this->addRoute('User/check2fa', 'User,check2fa');
 //customers
 $this->addRoute('Customer/update', 'Customer,update');
 $this->addRoute('Customer/checkout', 'Order,createOrder');
@@ -13,6 +13,8 @@ $this->addRoute('Customer/paypal', 'Customer,paypal');
 $this->addRoute('Customer/orders', 'Order,viewCustomerOrdersForCustomer');
 $this->addRoute('Customer/sucess', 'Order,sucessfullOrder');
 $this->addRoute('Customer/verifyOldPassword', 'Customer,verifyOldPassword');
+$this->addRoute('Customer/disable2fa', 'Customer,disable2fa');
+
 //products
 $this->addRoute('Product/listing', 'Product,listings');
 $this->addRoute('Product/index', 'Product,description');
@@ -62,4 +64,4 @@ $this->addRoute('Cart/removeCart', 'Cart,removeFromCart');
 $this->addRoute('Cart/addCart', 'Cart,addToCart');
 $this->addRoute('Cart/view', 'Cart,viewCart');
 
-$this->addRoute('Customer/setup2fa' , 'Customer,setup2fa');
+$this->addRoute('Customer/setup2fa', 'Customer,setup2fa');

@@ -21,7 +21,11 @@
 
             <input type="password" id="conPas" name="confirmPassword" placeholder="Confirm New Password" required />
 
-            <a href="/Customer/setup2fa">2fa Setup</a>
+            <?php if ($customer->secret != null): ?>
+                <a href="/Customer/disable2fa"><?= __('Disable 2 Factor Authentication') ?></a>
+            <?php else: ?>
+                <a href="/Customer/setup2fa"><?= __('Enable 2 Factor Authentication') ?></a>
+            <?php endif; ?>
 
             <div class="form-group">
                 <input type="submit" name="action" value="Update" />
@@ -59,7 +63,7 @@
 
     // function verifyOldPassword(oldPassword, callback) {
        
-    //     var isValid = oldPassword === <?$_SESSION['password_hash']?>;
+    //     var isValid = oldPassword === <? $_SESSION['password_hash'] ?>;
     //     callback(isValid);
     // }
 </script>

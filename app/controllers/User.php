@@ -41,21 +41,31 @@ class User extends \app\core\Controller
 	{
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$customer = new \app\models\Customer();
-			$custInfo = $customer->getById($_SESSION['customer_id']);
+			$custInfo = $customer->getById($_SESSION['temp_customer_id']);
 
 			$options = new AuthenticatorOptions();
 			$authenticator = new Authenticator($options);
 
-
 			$authenticator->setSecret($custInfo->secret);
 			if ($authenticator->verify($_POST['totp'])) {
-				header('location:/Product/listing');
+
+				unset($_SESSION['temp_customer_id']);
+
+				$_SESSION['password_hash'] = $custInfo->password_hash;
+				$_SESSION['customer_id'] = $custInfo->customer_id;
+
+				if (isset($_SESSION['url'])) {
+					header("location:$_SESSION[url]");
+				} else {
+					header("location:/Product/listing");
+				}
 			} else {
-				session_destroy();
-				header('location:/User/login');
+				$_SESSION['error_message'] = "something so it exists";
+				header('location:/User/check2fa');
 			}
 		} else {
 			$this->view('User/check2fa');
+			include ('app/views/footer.php');
 		}
 	}
 
@@ -106,14 +116,14 @@ class User extends \app\core\Controller
 		if ($user && password_verify($password, $user->password_hash)) {
 
 			if ($user->disable == false) {
-				$_SESSION['password_hash'] = $user->password_hash;
-				$_SESSION['customer_id'] = $user->customer_id;
 
 				if ($user->secret != null) {
+					$_SESSION['temp_customer_id'] = $user->customer_id;
 					header("location:/User/check2fa");
 					exit;
 				}
-
+				$_SESSION['password_hash'] = $user->password_hash;
+				$_SESSION['customer_id'] = $user->customer_id;
 				if (isset($_SESSION['url'])) {
 					header("location:$_SESSION[url]");
 				} else {

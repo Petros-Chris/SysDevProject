@@ -109,12 +109,12 @@ class Customer extends \app\core\Controller
             } else {
                 header('location:/Customer/setup2fa');
             }
-            //was submitted, check the TOTP
             $totp = $_POST['totp'];
             if ($authenticator->verify($totp)) {
                 $customer->add2FA($_SESSION['customer_id']);
                 header('location:/Customer/update');
             } else {
+                $_SESSION['error_message'] = "something so it exists";
                 header('location:/Customer/setup2fa');
             }
 
@@ -123,6 +123,28 @@ class Customer extends \app\core\Controller
             $uri = $authenticator->getUri('Mes Yeux Tes Yeux', 'localhost');
             $QRCode = (new QRCode)->render($uri);
             include 'app/views/Customer/setup2fa.php';
+            include 'app/views/footer.php';
         }
     }
+    function disable2fa()
+    {
+        $customer = new \app\models\Customer();
+        $customerInfo = $customer->getById($_SESSION['customer_id']);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $password = $_POST['password'];
+
+            if ($customer && password_verify($password, $customerInfo->password_hash)) {
+                $customer->add2FA($_SESSION['customer_id']);
+                header('location:/Customer/update');
+            } else {
+                $_SESSION['error_message'] = "something so it exists";
+                header('location:/Customer/disable2fa');
+            }
+        } else {
+            $this->view('Customer/disable2fa');
+            include 'app/views/footer.php';
+        }
+    }
+
 }
