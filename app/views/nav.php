@@ -56,14 +56,18 @@
                 <li class="menu-item"><a href="/contact">Contact Us</a></li>
             </ol>
         </li>
-        <li class="menu-item"><a href="/Customer/dashboard">Account</a>
-            <ol class="sub-menu">
-                <li class="menu-item"><a href="/Customer/dashboard">My Account</a></li>
-                <?php if (!isset($_SESSION['customer_id']) || isset($_SESSION['employee_id'])): ?>
-                    <li class="menu-item"><a href="/User/login">Login/Register</a></li>
-                <?php endif; ?>
-            </ol>
-        </li>
+        <?php if (!isset($_SESSION['customer'])): ?>
+            <li class="menu-item"><a href="/User/login">Login</a></li>
+        <?php else: ?>
+            <li class="menu-item"><a href="/Customer/dashboard">Account</a>
+                <ol class="sub-menu">
+                    <li class="menu-item"><a href="/Customer/dashboard">My Account</a></li>
+                    <?php if (!isset($_SESSION['customer_id']) || isset($_SESSION['employee_id'])): ?>
+                        <li class="menu-item"><a href="/User/login">Login/Register</a></li>
+                    <?php endif; ?>
+                </ol>
+            </li>
+        <?php endif; ?>
 
         <li class="menu-item">
             <div class="tools">
@@ -82,11 +86,13 @@
             </div>
 
         </li>
-        <li class="menu-item cart-language">
-            <div class="tools">
-                <button onclick="viewWishlist()">💗</button>
-            </div>
-        </li>
+        <?php if (isset($_SESSION['customer'])): ?>
+            <li class="menu-item cart-language">
+                <div class="tools">
+                    <button onclick="viewWishlist()">💗</button>
+                </div>
+            </li>
+        <?php endif; ?>
         <li class="menu-item"><a href="">Language</a>
             <ol class="sub-menu">
                 <li class="menu-item"><button onclick="updateLanguageCookie('fr')">french</button></li>
