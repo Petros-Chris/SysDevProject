@@ -6,7 +6,6 @@
     <title><?= $name ?> view</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
     <link rel="stylesheet" type="text/css" href="/app/css/style.scss">
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
     <div class='container'>

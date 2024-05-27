@@ -6,24 +6,34 @@
 </head>
 
 <body>
-	<div class="login-container">
+	<div class="login-form">
 	<h1>Sign Up</h1>
 		<form id="registerForm" method='post' onsubmit="validateForm(event)">
-			<input type="text" name="first_name" placeholder="First Name" required />
+		<div class="form-input-material">
+			<input type="text" name="first_name" class="form-control-material" placeholder="First Name" required />
+			</div>
 
-			<input type="text" name="last_name" placeholder="Last Name" required /> 
+			<div class="form-input-material">
+			<input type="text" name="last_name" class="form-control-material" placeholder="Last Name" required /> 
+			</div>
 
-			<input type="email" name="email" placeholder="Email" required />
+			<div class="form-input-material">
+			<input type="email" name="email" class="form-control-material" placeholder="Email" required />
+			</div>
 
-			<input type="password" id="pass" name="password" placeholder="Password" required />
+			<div class="form-input-material">
+			<input type="password" id="pass" name="password" class="form-control-material" placeholder="Password" required />
 			<span id="error1" style="color: red; display: none;">*</span>
-
-			<input type="password" id="conPas" name="confirmPassword" placeholder="Confirm Password" 
+			</div>
+			
+			<div class="form-input-material">
+			<input type="password" id="conPas" name="confirmPassword" class="form-control-material" placeholder="Confirm Password" 
 					required />
+					</div>
 
-			<input type="submit" name="action" value="Register" />
+			<button type="submit" name="action" class="btn btn-primary btn-ghost" >Register </button>
 
-			<button type="button" onclick="window.location.href = '/User/login'" class="signup-button">Log In</button>
+			<button type="button" onclick="window.location.href = '/User/login'" class="btn btn-primary btn-ghost">Log In</button>
 	</form>
 	</div>
 </body>
