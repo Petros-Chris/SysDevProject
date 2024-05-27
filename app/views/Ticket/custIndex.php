@@ -1,8 +1,10 @@
 <html>
 
 <head>
-    <title>Ticket</title>
+<title><?= $name ?> view</title>
+	<link rel="stylesheet" type="text/css" href="/app/css/style.scss">
 </head>
+
 
 <body>
 

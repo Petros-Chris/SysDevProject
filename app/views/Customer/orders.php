@@ -1,12 +1,12 @@
 <html>
 
 <head>
-
+	<title><?= $name ?> view</title>
+	<link rel="stylesheet" type="text/css" href="/app/css/style.scss">
 </head>
 
 <body>
     <h1>All Orders</h1>
-
 
     <div class='containerToHoldContainer'>
     <form action="" method="GET" class='searchBtn'>

@@ -399,6 +399,14 @@ h1 {
   max-width: 1175px;
   margin-bottom: 70px;
   margin-top: 70px;
+  
+}
+
+.container-for-footer {
+  max-width: 1175px;
+  margin-bottom: 10px;
+  margin-top: 60px;
+  
 }
 
 .containerFields {
@@ -466,7 +474,7 @@ dl {
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 120px;
+  margin-left: 170px;
 }
 
 ul {
@@ -597,6 +605,39 @@ ul {
   margin-top: 300px;  
   input {
     color: black;
+  }
+}
+
+#update-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 40px;
+  color: black;
+  background: white;
+  height: 50%;
+  margin-left: 30%;
+  margin-bottom: 30px;
+  margin-right: 30%;
+  border-radius: 10px;
+  box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+    0 1px 1px rgba(128, 128, 128, 0.155),
+    0 2.1px 2.1px rgba(233, 137, 137, 0.195),
+    0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+    0 12px 12px rgba(128, 128, 128, 0.35);
+
+  h1 {
+    margin: 0 30px 23px 0;
+    color: white;
+  }
+
+  .form-input-material {
+    margin: 12px 0;
+  }
+
+  .btn {
+    width: 100%;
+    margin: 18px 0 9px 0;
   }
 }
 
@@ -807,8 +848,12 @@ ul {
 }
 
 .searchBtn {
-  position: relative;
-  left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.searchBtn input[type="text"] {
+  margin-right: 10px; 
 }
 
 .product-container, .container-infromation {
@@ -827,11 +872,25 @@ ul {
   width: 50%;
 }
 
+#account{
+  color: white;
+}
 .containerToHoldContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 230px;
+  margin-top: 20px;
+}
+
+.containerToHoldContainers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 210px;
+  margin-top: 20px;
 }
 
 .review-container {
@@ -1108,26 +1167,26 @@ ul {
 }
 
 input[type="submit"] {
-  background-color: #28a745;
+  background-color: blue;
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: 20%;
+  width: 40%;
   font-size: 16px;
 }
 
 input[type="submit"]:hover {
-  background-color: #218838;
+  background-color: #007bff;
 }
 
 .Choice-button {
-  width: 60%;
+  width: 50%;
   padding: 10px;
-  margin-left: 50px;
+  margin-left: 300px;
   margin-top: 10px;
-  background-color: rgb(153, 57, 87);
+  background-color:black;
   color: white;
   border: none;
   border-radius: 4px;

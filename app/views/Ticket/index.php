@@ -2,6 +2,8 @@
 
 <head>
     <title><?= __('Ticket') ?></title>
+	<link rel="stylesheet" type="text/css" href="/app/css/style.scss">
+</head>
 </head>
 
 <body>

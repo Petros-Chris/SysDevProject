@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <footer class="footer">
-  	    <div class="container">
+  	    <div class="container-for-footer">
   	 	    <div class="row">
 		        <div class="footer-col">
 		        <h4>Mes yeux tes yeux</h4>

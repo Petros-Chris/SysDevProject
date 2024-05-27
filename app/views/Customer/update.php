@@ -9,22 +9,27 @@
 </head>
 
 <body>
-    <div class='container'>
+    <div id="update-form">
         <form id="updateForm" method='post' action=''>
-
-            <input type="text" name="first_name" placeholder="First Name" value='<?= $customer->first_name ?>' required />
-
-            <input type="text" name="last_name" placeholder="Last Name" value='<?= $customer->last_name ?>' required />
-
-            <input type="email" name="email" placeholder="Email" value='<?= $customer->email ?>' required />
-
-            <input type="password" id="oldPass" name="oldPassword" placeholder="Old Password" required />
-
-            <input type="password" id="pass" name="password" placeholder="New Password" required />
+        <div class="form-input-material">
+            <input type="text" name="first_name" class="form-control-material" placeholder="First Name" value='<?= $customer->first_name ?>' required />
+            </div>
+            <div class="form-input-material">
+            <input type="text" name="last_name" class="form-control-material" placeholder="Last Name" value='<?= $customer->last_name ?>' required />
+            </div>
+            <div class="form-input-material">
+            <input type="email" name="email" class="form-control-material" placeholder="Email" value='<?= $customer->email ?>' required />
+            </div>
+            <div class="form-input-material">
+            <input type="password" id="oldPass" class="form-control-material" name="oldPassword" placeholder="Old Password" required />
+            </div>
+            <div class="form-input-material">
+            <input type="password" id="pass"  class="form-control-material" name="password" placeholder="New Password" required />
             <span id="error1" style="color: red; display: none;">*</span>
-
-            <input type="password" id="conPas" name="confirmPassword" placeholder="Confirm New Password" required />
-
+            </div>
+            <div class="form-input-material">
+            <input type="password" id="conPas" class="form-control-material" name="confirmPassword" placeholder="Confirm New Password" required />
+            </div>
             <?php if ($customer->secret != null): ?>
                 <a href="/Customer/disable2fa"><?= __('Disable 2 Factor Authentication') ?></a>
             <?php else: ?>

@@ -1,8 +1,12 @@
 <html>
 
+<head>
+	<title><?= $name ?> view</title>
+	<link rel="stylesheet" type="text/css" href="/app/css/style.scss">
+</head>
 <body>
     <br>
-    <div class='containerToHoldContainer'>
+    <div class='containerToHoldContainers'>
         <div class="makeReview">
             <?php if ($canMakeNewReview): ?>
                 <a href='/Review/create'><?= __('Make A Review') ?></a> <br>

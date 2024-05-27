@@ -25,7 +25,7 @@
       <div class="divider"></div>
     </div>
     <div class="signup-link">
-      <h4>Don't have an account?</h4>
+      <h4 id = "account">Don't have an account?</h4>
       <button type="button" onclick="window.location.href = '/User/register'"  class="btn btn-primary btn-ghost">Sign up</button>
 </div>
     </form>
