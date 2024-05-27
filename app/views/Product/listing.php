@@ -62,21 +62,40 @@ if ($currentUrl === '/Product/listing') {
 <!-- End of new product filters section -->
 
 <div id="imcool">
-    <?php foreach ($products as $product): ?>
-        <div class='product-container' data-price="<?= $product->sell_price ?>">
-            <div class='product-image'>
-                <img src='/app/resources/images/product_<?= $product->product_id ?>.png'
-                     alt='<?= $product->description ?>' style='width: 100%; height: 150px;'>
-            </div>
+        <?php foreach ($products as $product): ?>
+            <a id="productLink" href='../Product/index?id=<?= $product->product_id ?>'>
+                <div class='product-container'>
+                    <div class='product-image'>
+                        <img src='/app/resources/images/product_<?= $product->product_id ?>.png'
+                            alt='<?= $product->description ?>' style='width: 100%; height: 150px;'>
+                    </div>
+            </a>
             <div class='product-details'>
+                <?php if (isset($wishlistItems)): ?>
+                    <?php
+                    $isWishlisted = false;
+                    foreach ($wishlistItems as $item) {
+                        if ($item->product_id == $product->product_id) {
+                            $isWishlisted = true;
+                            break;
+                        }
+                    }
+                    ?>
+                <?php endif; ?>
+                <?php if (isset($_SESSION['customer_id'])): ?>
+                    <span id='heart-icon-<?= $product->product_id ?>' class='heart-icon <?= $isWishlisted ? 'clicked' : '' ?>'
+                        onclick='toggleHeartAjax(this, <?= $product->product_id ?>)'>&#x2661;</span>
+                <?php endif; ?>
+
                 <div class='product-brand'><?= $product->brand ?></div>
-                <div class='product-price'>$<?= $product->sell_price ?></div>
+                <div class='product-price'>$<?= $product->cost_price ?></div>
                 <script>document.write(generateStarRating(<?= $product->rating ?>))</script>
                 (<?= $product->how_many_reviews ?>)
             </div>
         </div>
     <?php endforeach; ?>
-</div>
+    </div>
+    
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var checkboxes = document.querySelectorAll('.price-checkbox');
