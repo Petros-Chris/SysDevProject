@@ -17,7 +17,7 @@ class App{
 
                 /*print_r($matches);
                 echo "\n";*/
-                
+
                 // Filter named parameters
                 $namedParams = array_filter($matches,
                     function($key) {
@@ -31,7 +31,7 @@ class App{
                 return [$controllerMethod, $namedParams];
             }
         }
-        header('Location:/home');
+        include('app/views/notFound.php');
     }
 
     function filtered($controllerInstance, $method){
