@@ -65,3 +65,6 @@ $this->addRoute('Cart/addCart', 'Cart,addToCart');
 $this->addRoute('Cart/view', 'Cart,viewCart');
 
 $this->addRoute('Customer/setup2fa', 'Customer,setup2fa');
+
+//default page
+$this->addRoute('', 'User,index');

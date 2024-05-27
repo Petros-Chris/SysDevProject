@@ -72,18 +72,19 @@ class Review extends \app\core\Controller
         $review = new \app\models\Review();
         $customer = new \app\models\Customer();
         $order = new \app\models\Order();
+        $canMakeNewReview = true;
 
-        $orderIdsByCus = $order->getOrdersByCustomerId($_SESSION['customer_id']);
-        $canMakeNewReview = false;
+        if (isset($_SESSION['customer_id'])) {
+            $orderIdsByCus = $order->getOrdersByCustomerId($_SESSION['customer_id']);
 
+            foreach ($orderIdsByCus as $orderIdByCus) {
+                $orderInfomation = $order->getItemsPerOrder($orderIdByCus->order_id);
 
-        foreach ($orderIdsByCus as $orderIdByCus) {
-            $orderInfomation = $order->getItemsPerOrder($orderIdByCus->order_id);
-
-            foreach ($orderInfomation as $orderIdsa) {
-                if ($_GET['id'] == $orderIdsa->product_id) {
-                    $canMakeNewReview = true;
-                    break;
+                foreach ($orderInfomation as $orderIdsa) {
+                    if ($_GET['id'] == $orderIdsa->product_id) {
+                        $canMakeNewReview = true;
+                        break;
+                    }
                 }
             }
         }
