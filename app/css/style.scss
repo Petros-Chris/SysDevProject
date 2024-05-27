@@ -402,20 +402,50 @@ h1 {
 
 }
 
-// .containers {
-//   //display: flex;
-//   // justify-content: space-between;
-//   //align-items: center;
-//   //margin: 20px; 
-//   // margin-top: 200px;
-// }
-
-.containers dl {
-  margin-left: 3%;
+.containers {
+  width: calc(50% - 200px); /* 50% of the remaining space, minus any margins */
+  padding-left: 30px;
+  padding-top: 10px;
+  margin-left: 55%;
+  background-color: white;
+  border-radius: 10px;
+  
 }
 
+.big-words dt {
+  font-size: 18px;
+}
+
+.big-words dd {
+  font-size: 13px;
+}
+
+.glasses {
+  width: 50%;
+  padding-left: 50px;
+  float: left; 
+}
+
+
+.containers::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+dl {
+  margin-top: 0;
+}
 #cartBtn {
-  margin-left: 3%;
+  margin-left: 35%;
+  width: 25%;
+  margin-bottom: 10px;
+}
+
+#quantitySeleted{
+  margin-left: 35.25%;
+  width: 25%;
+  
 }
 
 .glasses {
