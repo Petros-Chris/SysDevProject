@@ -56,7 +56,7 @@
                 <li class="menu-item"><a href="/contact">Contact Us</a></li>
             </ol>
         </li>
-        <?php if (!isset($_SESSION['customer'])): ?>
+        <?php if (!isset($_SESSION['customer_id'])): ?>
             <li class="menu-item"><a href="/User/login">Login</a></li>
         <?php else: ?>
             <li class="menu-item"><a href="/Customer/dashboard">Account</a>
@@ -86,7 +86,7 @@
             </div>
 
         </li>
-        <?php if (isset($_SESSION['customer'])): ?>
+        <?php if (isset($_SESSION['customer_id'])): ?>
             <li class="menu-item cart-language">
                 <div class="tools">
                     <button onclick="viewWishlist()">💗</button>
