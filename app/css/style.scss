@@ -7,12 +7,19 @@
   background-color: #f9f9f9;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: white;
+  margin-bottom: 30px;
 }
 
 .form-group,
 .form {
   margin-bottom: 15px;
 }
+
+
+.form-group-checkout{
+  margin-bottom: 15px;
+}
+
 
 .form {
   align-items: center;
@@ -390,6 +397,8 @@ h1 {
 
 .container {
   max-width: 1175px;
+  margin-bottom: 70px;
+  margin-top: 70px;
 }
 
 .containerFields {
@@ -411,6 +420,7 @@ h1 {
   border-radius: 10px;
   
 }
+
 
 .big-words dt {
   font-size: 18px;

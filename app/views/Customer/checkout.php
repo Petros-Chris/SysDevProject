@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout</title>
+    <title><?= $name ?> view</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -12,16 +12,16 @@
     <div class="container" id="containerMap">
         <h1>Checkout</h1>
         <form id="orderForm" action="" method="POST">
-            <div class="form-group">
+            <div class="form-group-checkout">
                 <label for="searchInput">Address</label>
                 <input type="text" id="searchInput" placeholder="Enter your address" autocomplete="off" name="address" required>
                 <div id="suggestions"></div>
             </div>
-            <div class="form-group">
+            <div class="form-group-checkout">
                 <label for="postalCode">Postal Code</label>
                 <input type="text" id="postalCode" name="postalCode" required>
             </div>
-            <div class="form-group">
+            <div class="form-group-checkout">
                 <label for="state">State</label>
                 <select id="state" name="state" required>
                     <option value="">Select Province</option>
@@ -38,15 +38,15 @@
                 </select>
             </div>
             <div id="map"></div>
-            <div class="form-group">
+            <div class="form-group-checkout">
                 <label for="cardName">Cardholder's Name</label>
                 <input type="text" id="cardName" name="cardName" required>
             </div>
-            <div class="form-group">
+            <div class="form-group-checkout">
                 <label for="cardNumber">Card Number</label>
                 <input type="text" id="cardNumber" name="cardNumber" pattern="\d{15,16}" required placeholder="eg: 1234123412341234 or 123412341234123">
             </div>
-            <div class="form-group flex-group">
+            <div class="form-group-checkout flex-group">
                 <div class="half-width">
                     <label for="expiry">Expiration Date</label>
                     <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <input type="hidden" name="total" value="">
-            <input type="submit" value="Place Order">
+            <input type="submit" value="Place Order" style="background-color: blue; color: white; width: 200px;">
         </form>
     </div>
 
