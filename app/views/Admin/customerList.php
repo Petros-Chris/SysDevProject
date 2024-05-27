@@ -1,11 +1,12 @@
+<!DOCTYPE html>
 <html>
-
 <head>
 	<title><?= $name ?> view</title>
-
+	<link rel="stylesheet" type="text/css" href="/app/css/style.scss">
 </head>
 
 <body>
+	<h1> User Accounts</h1>
 	<?php
 	foreach ($customers as $customer): ?>
 		<div class='product-container'>

@@ -800,12 +800,12 @@ ul {
 
 .story-content {
   display: flex;
-  padding-left: 20px;
+  padding-left: 100px;
 }
 
 .story-content2 {
   display: flex;
-  padding-right: 20px;
+  padding-left: 100px;
 }
 
 .story-image {
@@ -863,8 +863,10 @@ ul {
   margin-right: 10px; 
 }
 
+
 .product-container, .container-infromation {
   border: 1px solid #ccc;
+  background-color: #f0f0f0;
   width: calc(18% - 20px);
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -930,6 +932,7 @@ ul {
 
 .order-container {
   border: 1px solid #cac3c3;
+  background-color:#f0f0f0;
   width: 100vh;
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
