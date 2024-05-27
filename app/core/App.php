@@ -31,7 +31,7 @@ class App{
                 return [$controllerMethod, $namedParams];
             }
         }
-        return false;
+        include('app/views/notFound.php');
     }
 
     function filtered($controllerInstance, $method){
