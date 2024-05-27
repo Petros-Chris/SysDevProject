@@ -24,7 +24,7 @@
             <dt><?= __('Color:') ?></dt>
             <dd><?= $item->color ?></dd>
             <dt><?= __('Cost Price:') ?></dt>
-            <dd><?= $item->cost_price ?></dd>
+            <dd><?= $item->sell_price ?></dd>
             <dt><?= __('Left In Stock:') ?></dt>
             <dd><?= $item->quantity ?></dd>
             <script>document.write(generateStarRating(<?= $product->rating ?>))</script>
