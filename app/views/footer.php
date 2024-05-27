@@ -19,16 +19,9 @@
                         <li><a href="\about">About</a></li>
                         <li><a href="\contact">Contact Us</a></li>
                     </ul>
-  	 		    </div>
-  	 		<div class="footer-col">
-  	 			<h4>Shop</h4>
-  	 			<ul>
-  	 				<li><a href="#">Men</a></li>
-  	 				<li><a href="#">Women</a></li>
-  	 			</ul>
-				   <a href = "https://www.instagram.com/mesyeux.tesyeux/"><img src="/app/resources/instagram.png" class="instagram" alt="instgram Logo" ;>
+					<a href = "https://www.instagram.com/mesyeux.tesyeux/"><img src="/app/resources/instagram.png" class="instagram" alt="instgram Logo" ;>
 				   <a href = "https://www.facebook.com/people/Mes-Yeux-Tes-Yeux/100076348726051/"><img src="/app/resources/facebook.png" class="instagram" alt="facebook Logo" ;>
-  	 		</div>
+  	 		    </div>
   	 		<div class="footer-col">
   	 			<h4>Account</h4>
   	 			<ul>
