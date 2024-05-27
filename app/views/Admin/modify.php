@@ -1,11 +1,13 @@
+<!DOCTYPE html>
 <html>
-
 <head>
 	<title><?= $name ?> view</title>
+	<link rel="stylesheet" type="text/css" href="/app/css/style.scss">
 </head>
 
 <body>
-	<div class='container'>
+	<h1 class ="admin">Modify Frames</h1>
+	<div class='container-admin'>
 
 
 		<form method='post' action='' enctype="multipart/form-data">

@@ -402,6 +402,13 @@ h1 {
   
 }
 
+.container-admin{
+  margin-top: 10px;
+  max-width: 1175px;
+  padding-left: 300px;
+
+}
+
 .container-for-footer {
   max-width: 1175px;
   margin-bottom: 10px;
@@ -1180,8 +1187,8 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #007bff;
 }
-#admin{
-  margin-right: 100px;
+.admin{
+  margin-right: 90px;
   color:black
 }
 .Choice-buttonadmin{
