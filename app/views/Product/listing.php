@@ -61,10 +61,13 @@ if ($currentUrl === '/Product/listing') {
 </div>
 <!-- End of new product filters section -->
 
+
+
+
 <div id="imcool">
         <?php foreach ($products as $product): ?>
+            <div class='product-container'data-price="<?= $product->sell_price ?>">
             <a id="productLink" href='../Product/index?id=<?= $product->product_id ?>'>
-                <div class='product-container'>
                     <div class='product-image'>
                         <img src='/app/resources/images/product_<?= $product->product_id ?>.png'
                             alt='<?= $product->description ?>' style='width: 100%; height: 150px;'>
@@ -88,14 +91,14 @@ if ($currentUrl === '/Product/listing') {
                 <?php endif; ?>
 
                 <div class='product-brand'><?= $product->brand ?></div>
-                <div class='product-price'>$<?= $product->cost_price ?></div>
+                <div class='product-price'>$<?= $product->sell_price ?></div>
                 <script>document.write(generateStarRating(<?= $product->rating ?>))</script>
                 (<?= $product->how_many_reviews ?>)
             </div>
         </div>
     <?php endforeach; ?>
     </div>
-    
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var checkboxes = document.querySelectorAll('.price-checkbox');
