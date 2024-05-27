@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <div class='container'>
+    <div class='containerFields'>
         <form method='post' action='' id="reviewForm">
             <h1><?= __('Edit Review') ?></h1>
             <div class="form">
