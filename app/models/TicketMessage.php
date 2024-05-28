@@ -16,14 +16,13 @@ class TicketMessage extends \app\core\Model
 
     public function insert()
     {
-        $SQL = 'INSERT INTO ticket_message(ticket_id, user_id, message, image_link) VALUES (:ticket_id, :user_id, :message, :image_link)';
+        $SQL = 'INSERT INTO ticket_message(ticket_id, user_id, message) VALUES (:ticket_id, :user_id, :message)';
         $STMT = self::$_conn->prepare($SQL);
         $STMT->execute(
             [
                 'ticket_id' => $this->ticket_id,
                 'user_id' => $this->user_id,
-                'message' => $this->message,
-                'image_link' => $this->image_link
+                'message' => $this->message
             ]
         );
     }

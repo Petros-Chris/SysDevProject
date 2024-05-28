@@ -23,6 +23,57 @@ class AcceptanceTester extends \Codeception\Actor
 {
     use _generated\AcceptanceTesterActions;
 
+    //TODO: Reivew system thing
+    /**
+     * @Given I am on the review page for product with id :arg1
+     */
+    public function iAmOnTheReviewPageForProductWithId($arg1)
+    {
+        $this->amOnPage("/Product/index?id=$arg1");
+    }
+
+    /**
+     * @Then I should see the page contains :arg1
+     */
+    public function iShouldSeeThePageContains($arg1)
+    {
+        $this->seeElement(".$arg1");
+    }
+
+    /**
+     * @Given I am on :arg1
+     */
+    public function iAmOn($arg1)
+    {
+        $this->amOnPage($arg1);
+    }
+
+    /**
+     * @When I fill the :arg1 with :arg2
+     */
+    public function iFillTheWith($arg1, $arg2)
+    {
+        $this->fillField("#form-description", $arg2);
+    }
+
+    /**
+     * @When I press the submitReview:num1 button
+     */
+    public function iPressTheSubmitReviewButton($num1)
+    {
+        $this->click("#submitReview$num1");
+    }
+
+    /**
+     * @Then I should be redirected to the review page for product with id :arg1
+     */
+    public function iShouldBeRedirectedToTheReviewPageForProductWithId($arg1)
+    {
+        $this->seeCurrentUrlEquals("/Product/index?id=$arg1");
+    }
+
+
+
     //TODO:cartSystem.feature IS HERE
     /**
      * @Given the customer is browsing :arg1

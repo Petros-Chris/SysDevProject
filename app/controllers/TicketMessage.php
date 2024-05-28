@@ -17,7 +17,6 @@ class TicketMessage extends \app\core\Controller
             $ticket->user_id = isset($_SESSION['customer_id']) ?
                 $_SESSION['customer_id'] : $_SESSION['employee_id'];
             $ticket->message = $_POST['message'];
-            $ticket->image_link = $_POST['image_link'];
 
             $ticket->insert();
 
