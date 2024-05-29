@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-29 16:14+0000\n"
+"POT-Creation-Date: 2024-05-29 17:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -259,7 +259,7 @@ msgstr ""
 msgid "Is Disabled"
 msgstr ""
 
-#: app/views/Admin/modify.php:65 app/views/nav.php:46
+#: app/views/Admin/modify.php:65 app/views/nav.php:47
 msgid "Modify Product"
 msgstr ""
 
@@ -373,7 +373,7 @@ msgstr ""
 msgid "Your Password Is Incorrect"
 msgstr ""
 
-#: app/views/Customer/orders.php:14
+#: app/views/Customer/orders.php:14 app/views/nav.php:79
 msgid "Search"
 msgstr ""
 
@@ -417,16 +417,92 @@ msgstr ""
 msgid "Join Newsletter"
 msgstr ""
 
-#: app/views/nav.php:36
+#: app/views/nav.php:14
+msgid "Shop"
+msgstr ""
+
+#: app/views/nav.php:17
+msgid "Optical Glasses"
+msgstr ""
+
+#: app/views/nav.php:19
+msgid "Sunglasses"
+msgstr ""
+
+#: app/views/nav.php:25
+msgid "Brands"
+msgstr ""
+
+#: app/views/nav.php:27
+msgid "Gucci"
+msgstr ""
+
+#: app/views/nav.php:28
+msgid "Cartier"
+msgstr ""
+
+#: app/views/nav.php:29 app/views/nav.php:39 app/views/nav.php:49
+msgid "More"
+msgstr ""
+
+#: app/views/nav.php:35
+msgid "Admin"
+msgstr ""
+
+#: app/views/nav.php:37
 msgid "New Product"
 msgstr ""
 
-#: app/views/nav.php:37 app/views/nav.php:47
+#: app/views/nav.php:38 app/views/nav.php:48
 msgid "Ongoing Tickets"
 msgstr ""
 
-#: app/views/nav.php:38 app/views/nav.php:48
-msgid "More"
+#: app/views/nav.php:45
+msgid "Employee"
+msgstr ""
+
+#: app/views/nav.php:54
+msgid "About"
+msgstr ""
+
+#: app/views/nav.php:56
+msgid "About MYTY"
+msgstr ""
+
+#: app/views/nav.php:57
+msgid "Contact Us"
+msgstr ""
+
+#: app/views/nav.php:61
+msgid "Login"
+msgstr ""
+
+#: app/views/nav.php:63
+msgid "Account"
+msgstr ""
+
+#: app/views/nav.php:65
+msgid "Dashboard"
+msgstr ""
+
+#: app/views/nav.php:67
+msgid "Login/Register"
+msgstr ""
+
+#: app/views/nav.php:97
+msgid "Language"
+msgstr ""
+
+#: app/views/nav.php:99
+msgid "french"
+msgstr ""
+
+#: app/views/nav.php:100
+msgid "english"
+msgstr ""
+
+#: app/views/nav.php:105
+msgid "Log Out"
 msgstr ""
 
 #: app/views/Product/index.php:15

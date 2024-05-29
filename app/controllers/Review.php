@@ -69,7 +69,7 @@ class Review extends \app\core\Controller
         $review = new \app\models\Review();
         $customer = new \app\models\Customer();
         $order = new \app\models\Order();
-        $canMakeNewReview = true;
+        $canMakeNewReview = false;
 
         if (isset($_SESSION['customer_id'])) {
             $orderIdsByCus = $order->getOrdersByCustomerId($_SESSION['customer_id']);

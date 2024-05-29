@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-29 16:14+0000\n"
-"PO-Revision-Date: 2024-05-29 16:15+0000\n"
+"POT-Creation-Date: 2024-05-29 17:12+0000\n"
+"PO-Revision-Date: 2024-05-29 17:14+0000\n"
 "Last-Translator: root <EMAIL@ADDRESS>\n"
 "Language-Team: English\n"
 "Language: en\n"
@@ -279,7 +279,7 @@ msgstr "Price"
 msgid "Is Disabled"
 msgstr "Is Disabled"
 
-#: app/views/Admin/modify.php:65 app/views/nav.php:46
+#: app/views/Admin/modify.php:65 app/views/nav.php:47
 msgid "Modify Product"
 msgstr "Modify Product"
 
@@ -393,7 +393,7 @@ msgstr "Back"
 msgid "Your Password Is Incorrect"
 msgstr "Your Password Is Incorrect"
 
-#: app/views/Customer/orders.php:14
+#: app/views/Customer/orders.php:14 app/views/nav.php:79
 msgid "Search"
 msgstr "Search"
 
@@ -438,17 +438,93 @@ msgstr "Enable 2 Factor Authentication"
 msgid "Join Newsletter"
 msgstr "Join Newsletter"
 
-#: app/views/nav.php:36
+#: app/views/nav.php:14
+msgid "Shop"
+msgstr "Shop"
+
+#: app/views/nav.php:17
+msgid "Optical Glasses"
+msgstr "Optical Glasses"
+
+#: app/views/nav.php:19
+msgid "Sunglasses"
+msgstr "Sunglasses"
+
+#: app/views/nav.php:25
+msgid "Brands"
+msgstr "Brands"
+
+#: app/views/nav.php:27
+msgid "Gucci"
+msgstr "Gucci"
+
+#: app/views/nav.php:28
+msgid "Cartier"
+msgstr "Cartier"
+
+#: app/views/nav.php:29 app/views/nav.php:39 app/views/nav.php:49
+msgid "More"
+msgstr "More"
+
+#: app/views/nav.php:35
+msgid "Admin"
+msgstr "Admin"
+
+#: app/views/nav.php:37
 msgid "New Product"
 msgstr "New Product"
 
-#: app/views/nav.php:37 app/views/nav.php:47
+#: app/views/nav.php:38 app/views/nav.php:48
 msgid "Ongoing Tickets"
 msgstr "Ongoing Tickets"
 
-#: app/views/nav.php:38 app/views/nav.php:48
-msgid "More"
-msgstr "More"
+#: app/views/nav.php:45
+msgid "Employee"
+msgstr "Employee"
+
+#: app/views/nav.php:54
+msgid "About"
+msgstr "About"
+
+#: app/views/nav.php:56
+msgid "About MYTY"
+msgstr "About MYTY"
+
+#: app/views/nav.php:57
+msgid "Contact Us"
+msgstr "Contact Us"
+
+#: app/views/nav.php:61
+msgid "Login"
+msgstr "Login"
+
+#: app/views/nav.php:63
+msgid "Account"
+msgstr "Account"
+
+#: app/views/nav.php:65
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: app/views/nav.php:67
+msgid "Login/Register"
+msgstr "Login/Register"
+
+#: app/views/nav.php:97
+msgid "Language"
+msgstr "Language"
+
+#: app/views/nav.php:99
+msgid "french"
+msgstr "french"
+
+#: app/views/nav.php:100
+msgid "english"
+msgstr "english"
+
+#: app/views/nav.php:105
+msgid "Log Out"
+msgstr "Log Out"
 
 #: app/views/Product/index.php:15
 msgid "Brand:"

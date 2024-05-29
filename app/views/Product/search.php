@@ -1,5 +1,5 @@
 <html>
     <head>
-	    <title><?= $name ?> view</title>
+	    <title>Products</title>
 	</head>
 </html>
