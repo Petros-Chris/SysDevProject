@@ -17,9 +17,6 @@ class Review extends \app\core\Controller
             $specificReview->description = $_POST['description'];
             $specificReview->timestamp = $_POST['timestamp'];
 
-            var_dump($_POST['timestamp']);
-
-
             $specificReview->update();
             header("Location:/Product/index?id=$_SESSION[product_id]");
         } else {

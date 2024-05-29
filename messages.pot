@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-15 01:26+0000\n"
+"POT-Creation-Date: 2024-05-29 16:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,59 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: app/views/Admin/create.php:17 app/views/Admin/modify.php:11
+#: app/views/about.php:11
+msgid "About us"
+msgstr ""
+
+#: app/views/about.php:12
+msgid "The story behind Mes Yeux Tes yeux"
+msgstr ""
+
+#: app/views/about.php:22
+msgid "Welcome to Mes Yeux Tes Yeux"
+msgstr ""
+
+#: app/views/about.php:23
+msgid ""
+"your premier destination for high-end fashion eyewear and cutting-edge "
+"optical solutions. Nestled in Mount Royal at 2324 Lucerne Rd, \r\n"
+"\t\t\t\t\twe have proudly served our community for nearly 30 years.\r\n"
+"\t\t\t\t\tAt Mes Yeux Tes Yeux, we curate an exquisite collection of eyewear "
+"from the most coveted fashion brands, offering both optical glasses and "
+"sunglasses that epitomize luxury\\\r\n"
+"\t\t\t\t\t and innovation. Our commitment to quality and excellence is "
+"exemplified by our exclusive retail \r\n"
+"\t\t\t\t\t partnership with the renowned Japanese optical company, TOKAI. "
+"Through this exclusive collaboration, \r\n"
+"\t\t\t\t\t we provide our customers with access to TOKAI's revolutionary "
+"neuroscience lenses and advanced progressive lens technology.\r\n"
+"\t\t\t\t\t  These lenses feature extraordinary coatings designed to endure "
+"the test of time, ensuring superior visual clarity and durability"
+msgstr ""
+
+#: app/views/about.php:36
+msgid "Customer Service"
+msgstr ""
+
+#: app/views/about.php:38
+msgid ""
+"Our experienced team is dedicated to delivering personalized service,\r\n"
+"\t\t\t\t helping you find the perfect eyewear to meet your needs and express "
+"your unique style. \r\n"
+"\t\t\t\tWhether you're looking for the latest trends in eyewear fashion or "
+"the most advanced optical solutions,\r\n"
+" Mes Yeux Tes Yeux is here to offer you the very best."
+msgstr ""
+
+#: app/views/Admin/create.php:17 app/views/Admin/modify.php:15
 msgid "Brand"
 msgstr ""
 
-#: app/views/Admin/create.php:30 app/views/Admin/modify.php:15
+#: app/views/Admin/create.php:30 app/views/Admin/modify.php:19
 msgid "Model"
 msgstr ""
 
-#: app/views/Admin/create.php:33 app/views/Admin/modify.php:19
+#: app/views/Admin/create.php:33 app/views/Admin/modify.php:23
 msgid "Color"
 msgstr ""
 
@@ -61,7 +105,7 @@ msgstr ""
 msgid "Price To Manufacter"
 msgstr ""
 
-#: app/views/Admin/create.php:48 app/views/Admin/modify.php:28
+#: app/views/Admin/create.php:48 app/views/Admin/modify.php:32
 msgid "Shape"
 msgstr ""
 
@@ -93,11 +137,11 @@ msgstr ""
 msgid "Square"
 msgstr ""
 
-#: app/views/Admin/create.php:59 app/views/Admin/modify.php:33
+#: app/views/Admin/create.php:59 app/views/Admin/modify.php:37
 msgid "Size"
 msgstr ""
 
-#: app/views/Admin/create.php:62 app/views/Admin/modify.php:38
+#: app/views/Admin/create.php:62 app/views/Admin/modify.php:42
 msgid "Optical Sun"
 msgstr ""
 
@@ -109,35 +153,40 @@ msgstr ""
 msgid "Sun"
 msgstr ""
 
-#: app/views/Admin/create.php:69 app/views/Admin/modify.php:43
+#: app/views/Admin/create.php:69 app/views/Admin/modify.php:47
+#: app/views/Review/create.php:31 app/views/Review/edit.php:31
 msgid "Description"
 msgstr ""
 
-#: app/views/Admin/create.php:74 app/views/Admin/modify.php:48
+#: app/views/Admin/create.php:74 app/views/Admin/modify.php:52
 msgid "Quantity"
 msgstr ""
 
-#: app/views/Admin/create.php:78
+#: app/views/Admin/create.php:78 app/views/Admin/modify.php:61
+msgid "Image"
+msgstr ""
+
+#: app/views/Admin/create.php:82
 msgid "Create Product"
 msgstr ""
 
-#: app/views/Admin/createEmployee.php:9
+#: app/views/Admin/createEmployee.php:10
 msgid "New Employee"
 msgstr ""
 
-#: app/views/Admin/createEmployee.php:23
+#: app/views/Admin/createEmployee.php:34
 msgid "Go Back"
 msgstr ""
 
-#: app/views/Admin/customerList.php:14
+#: app/views/Admin/customerList.php:15
 msgid "debug"
 msgstr ""
 
-#: app/views/Admin/customerList.php:15
+#: app/views/Admin/customerList.php:16
 msgid "User"
 msgstr ""
 
-#: app/views/Admin/customerList.php:17
+#: app/views/Admin/customerList.php:18
 msgid "Status"
 msgstr ""
 
@@ -145,15 +194,28 @@ msgstr ""
 msgid "Are You Sure You Want To Disable Customer"
 msgstr ""
 
-#: app/views/Admin/disableCustomer.php:13 app/views/Admin/enableCustomer.php:12
+#: app/views/Admin/disableCustomer.php:12
+msgid "Customer Name"
+msgstr ""
+
+#: app/views/Admin/disableCustomer.php:13
+msgid "Customer Email"
+msgstr ""
+
+#: app/views/Admin/disableCustomer.php:17 app/views/Admin/enableCustomer.php:12
 msgid "Password"
 msgstr ""
 
-#: app/views/Admin/disableCustomer.php:17
+#: app/views/Admin/disableCustomer.php:21
+msgid "Type Customer Name to Confirm"
+msgstr ""
+
+#: app/views/Admin/disableCustomer.php:25
 msgid "Deactivate"
 msgstr ""
 
-#: app/views/Admin/disableCustomer.php:18 app/views/Admin/enableCustomer.php:17
+#: app/views/Admin/disableCustomer.php:26 app/views/Admin/enableCustomer.php:17
+#: app/views/Ticket/create.php:23 app/views/Ticket/Message/create.php:18
 msgid "Cancel"
 msgstr ""
 
@@ -165,39 +227,39 @@ msgstr ""
 msgid "Enable"
 msgstr ""
 
-#: app/views/Admin/index.php:7
+#: app/views/Admin/index.php:9
 msgid "Add A New Product"
 msgstr ""
 
-#: app/views/Admin/index.php:8
+#: app/views/Admin/index.php:10
 msgid "Modify A Product"
 msgstr ""
 
-#: app/views/Admin/index.php:9
+#: app/views/Admin/index.php:11
 msgid "Disable/Enable User Account"
 msgstr ""
 
-#: app/views/Admin/index.php:10
+#: app/views/Admin/index.php:12
 msgid "View All Ongoing Tickets"
 msgstr ""
 
-#: app/views/Admin/index.php:11
+#: app/views/Admin/index.php:13
 msgid "Create A New Employee"
 msgstr ""
 
-#: app/views/Admin/index.php:12
+#: app/views/Admin/index.php:14
 msgid "View All Orders"
 msgstr ""
 
-#: app/views/Admin/modify.php:23
+#: app/views/Admin/modify.php:27
 msgid "Price"
 msgstr ""
 
-#: app/views/Admin/modify.php:53
+#: app/views/Admin/modify.php:57
 msgid "Is Disabled"
 msgstr ""
 
-#: app/views/Admin/modify.php:57
+#: app/views/Admin/modify.php:65 app/views/nav.php:46
 msgid "Modify Product"
 msgstr ""
 
@@ -222,17 +284,317 @@ msgid "Address"
 msgstr ""
 
 #: app/views/Admin/order.php:17
+msgid "Postal Code"
+msgstr ""
+
+#: app/views/Admin/order.php:19
+msgid "State"
+msgstr ""
+
+#: app/views/Admin/order.php:21 app/views/Customer/orders.php:22
 msgid "Products Ordered"
 msgstr ""
 
-#: app/views/Customer/about.php:9
-msgid "About us"
+#: app/views/contact.php:10
+msgid "Get in touch"
 msgstr ""
 
-#: app/views/Customer/about.php:10
-msgid "The story behind Mes Yeux Tes yeux"
+#: app/views/contact.php:11
+msgid "Want to get in touch?"
 msgstr ""
 
-#: app/views/Customer/about.php:28
-msgid "Second content heading"
+#: app/views/contact.php:12
+msgid "We'd love to hear from you. Here's how you can reach us"
+msgstr ""
+
+#: app/views/contact.php:18
+msgid "Send an Email"
+msgstr ""
+
+#: app/views/contact.php:19
+msgid "Want to contact us by email to ask any questions?"
+msgstr ""
+
+#: app/views/contact.php:20
+msgid "Email to company"
+msgstr ""
+
+#: app/views/contact.php:21
+msgid "MesYeuxTesYeux@gmail.com"
+msgstr ""
+
+#: app/views/contact.php:22
+msgid "Talk to a representative"
+msgstr ""
+
+#: app/views/contact.php:23
+msgid "PersonCompany@gmail.com"
+msgstr ""
+
+#: app/views/contact.php:28
+msgid "Give us a call"
+msgstr ""
+
+#: app/views/contact.php:29
+msgid "Would you like to talk to one of our agents?"
+msgstr ""
+
+#: app/views/contact.php:30
+msgid "Call our in-store agent"
+msgstr ""
+
+#: app/views/contact.php:31
+msgid "514-341-2020"
+msgstr ""
+
+#: app/views/contact.php:32
+msgid "Prefer to book an appointment with one of our doctors?"
+msgstr ""
+
+#: app/views/contact.php:33
+msgid "450-xxx-xxx"
+msgstr ""
+
+#: app/views/Customer/disable2fa.php:4
+msgid "Disable Authenticator"
+msgstr ""
+
+#: app/views/Customer/disable2fa.php:9
+msgid "Are You Sure You Want To Disable 2 Factor Authentication"
+msgstr ""
+
+#: app/views/Customer/disable2fa.php:14 app/views/Review/create.php:36
+#: app/views/Review/delete.php:32 app/views/Review/edit.php:42
+#: app/views/User/check2fa.php:17
+msgid "Back"
+msgstr ""
+
+#: app/views/Customer/disable2fa.php:18
+msgid "Your Password Is Incorrect"
+msgstr ""
+
+#: app/views/Customer/orders.php:14
+msgid "Search"
+msgstr ""
+
+#: app/views/Customer/orders.php:20
+msgid "Order Number"
+msgstr ""
+
+#: app/views/Customer/orders.php:21
+msgid "Placed On"
+msgstr ""
+
+#: app/views/Customer/orders.php:24
+msgid "Amount Paid"
+msgstr ""
+
+#: app/views/Customer/orders.php:25
+msgid "Shipped To"
+msgstr ""
+
+#: app/views/Customer/setup2fa.php:4
+msgid "Setup 2 Factor Authentication"
+msgstr ""
+
+#: app/views/Customer/setup2fa.php:9
+msgid "Scan This Qr Code With Your Authenticator App To Get The Six Digit Code"
+msgstr ""
+
+#: app/views/Customer/setup2fa.php:16
+msgid "The Code You Provided Didn't Work, Rescan The Qr Code And Try Again."
+msgstr ""
+
+#: app/views/Customer/update.php:34
+msgid "Disable 2 Factor Authentication"
+msgstr ""
+
+#: app/views/Customer/update.php:36
+msgid "Enable 2 Factor Authentication"
+msgstr ""
+
+#: app/views/Home.php:90
+msgid "Join Newsletter"
+msgstr ""
+
+#: app/views/nav.php:36
+msgid "New Product"
+msgstr ""
+
+#: app/views/nav.php:37 app/views/nav.php:47
+msgid "Ongoing Tickets"
+msgstr ""
+
+#: app/views/nav.php:38 app/views/nav.php:48
+msgid "More"
+msgstr ""
+
+#: app/views/Product/index.php:15
+msgid "Brand:"
+msgstr ""
+
+#: app/views/Product/index.php:17
+msgid "Shape:"
+msgstr ""
+
+#: app/views/Product/index.php:19
+msgid "Description:"
+msgstr ""
+
+#: app/views/Product/index.php:23
+msgid "Color:"
+msgstr ""
+
+#: app/views/Product/index.php:25
+msgid "Cost Price:"
+msgstr ""
+
+#: app/views/Product/index.php:27
+msgid "Size:"
+msgstr ""
+
+#: app/views/Product/index.php:29
+msgid "Left In Stock:"
+msgstr ""
+
+#: app/views/Review/create.php:4
+msgid "Create Review"
+msgstr ""
+
+#: app/views/Review/create.php:11
+msgid "Create A Review"
+msgstr ""
+
+#: app/views/Review/create.php:13
+msgid "How Much Would You Rate This Product On A Scale Of 1 To 5"
+msgstr ""
+
+#: app/views/Review/create.php:33 app/views/Review/edit.php:33
+#: app/views/Ticket/create.php:20 app/views/Ticket/Message/create.php:15
+msgid "Remaining characters"
+msgstr ""
+
+#: app/views/Review/create.php:35 app/views/Ticket/create.php:22
+#: app/views/Ticket/Message/create.php:17
+msgid "Submit"
+msgstr ""
+
+#: app/views/Review/delete.php:4 app/views/Review/delete.php:20
+msgid "Delete Review"
+msgstr ""
+
+#: app/views/Review/delete.php:31
+msgid "Delete"
+msgstr ""
+
+#: app/views/Review/edit.php:11
+msgid "Edit Review"
+msgstr ""
+
+#: app/views/Review/edit.php:13
+msgid "How Much Would You Rate This Product On A Scale Of 1 To 5?"
+msgstr ""
+
+#: app/views/Review/edit.php:37
+msgid "Update"
+msgstr ""
+
+#: app/views/Review/edit.php:39
+msgid "Delete Instead"
+msgstr ""
+
+#: app/views/Review/index.php:13
+msgid "Make A Review"
+msgstr ""
+
+#: app/views/Review/index.php:31
+msgid "Edit"
+msgstr ""
+
+#: app/views/Review/index.php:36
+msgid "Go To Product"
+msgstr ""
+
+#: app/views/Ticket/create.php:4
+msgid "Create A Ticket"
+msgstr ""
+
+#: app/views/Ticket/create.php:11
+msgid "Submit A Ticket"
+msgstr ""
+
+#: app/views/Ticket/create.php:12
+msgid "Whats Your Issue Today?"
+msgstr ""
+
+#: app/views/Ticket/create.php:13
+msgid "Order Issue"
+msgstr ""
+
+#: app/views/Ticket/create.php:14
+msgid "Product Issue"
+msgstr ""
+
+#: app/views/Ticket/create.php:16
+msgid "Title"
+msgstr ""
+
+#: app/views/Ticket/create.php:19
+msgid "Description Of Your Issue"
+msgstr ""
+
+#: app/views/Ticket/custList.php:10 app/views/Ticket/list.php:9
+msgid "All Tickets"
+msgstr ""
+
+#: app/views/Ticket/index.php:4
+msgid "Ticket"
+msgstr ""
+
+#: app/views/Ticket/index.php:19
+msgid "No Address"
+msgstr ""
+
+#: app/views/Ticket/index.php:34
+msgid "Unresolve It"
+msgstr ""
+
+#: app/views/Ticket/index.php:36
+msgid "Mark As Resolved"
+msgstr ""
+
+#: app/views/Ticket/Message/create.php:4 app/views/Ticket/Message/create.php:10
+msgid "Create A Message"
+msgstr ""
+
+#: app/views/Ticket/Message/create.php:14
+msgid "What The Message Is About"
+msgstr ""
+
+#: app/views/Ticket/Message/index.php:8
+msgid "Messages"
+msgstr ""
+
+#: app/views/Ticket/Message/index.php:11
+msgid "Add A Message"
+msgstr ""
+
+#: app/views/Ticket/Message/index.php:25
+msgid "No Messages Found."
+msgstr ""
+
+#: app/views/User/check2fa.php:4
+msgid "Authenticate"
+msgstr ""
+
+#: app/views/User/check2fa.php:9
+msgid "Write the 6-digit code provided by your authenticator app"
+msgstr ""
+
+#: app/views/User/check2fa.php:11
+msgid "Write It Here"
+msgstr ""
+
+#: app/views/User/check2fa.php:13
+msgid "The Code You Provided Didn't Work"
 msgstr ""

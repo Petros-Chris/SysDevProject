@@ -11,27 +11,28 @@
         <a href="/home"> <img src="/app/resources/logo/mesyeuxtesyeuxLOGO.png" class="logo" alt="Image Logo"
                 height="56px" ; width="160px" ;></a>
         <?php if (!isset($_SESSION['employee_id'])): ?>
-            <li class="menu-item"><a href="\Product\listing">Shop</a>
+            <li class="menu-item"><a href="\Product\listing"><?= __('Shop') ?></a>
                 <ol class="sub-menu">
-                    <li class="menu-item"><a href="/Product/listing?type=optical_sun&filter=Optical">Optical Glasses </a>
+                    <li class="menu-item"><a
+                            href="/Product/listing?type=optical_sun&filter=Optical"><?= __('Optical Glasses') ?> </a>
                     </li>
-                    <li class="menu-item"><a href="/Product/listing?type=optical_sun&filter=Sun">Sunglasses</a>
+                    <li class="menu-item"><a href="/Product/listing?type=optical_sun&filter=Sun"><?= __('Sunglasses') ?></a>
                     </li>
                 </ol>
             </li>
         <?php endif; ?>
         <?php if (!isset($_SESSION['employee_id'])): ?>
-            <li class="menu-item"><a href="/Product/more">Brands</a>
+            <li class="menu-item"><a href="/Product/more"><?= __('Brands') ?></a>
                 <ol class="sub-menu">
-                    <li class="menu-item"><a href="/Product/listing?type=brand&filter=Gucci">Gucci</a></li>
-                    <li class="menu-item"><a href="/Product/listing?type=brand&filter=Cartier">Cartier</a></li>
-                    <li class="menu-item"><a href="/Product/more">More ></a></li>
+                    <li class="menu-item"><a href="/Product/listing?type=brand&filter=Gucci"><?= __('Gucci') ?></a></li>
+                    <li class="menu-item"><a href="/Product/listing?type=brand&filter=Cartier"><?= __('Cartier') ?></a></li>
+                    <li class="menu-item"><a href="/Product/more"><?= __('More') ?> ></a></li>
                 </ol>
             </li>
         <?php endif; ?>
 
         <?php if (isset($_SESSION['isAdmin'])): ?>
-            <li class="menu-item"><a href='/Admin/index'>Admin</a>
+            <li class="menu-item"><a href='/Admin/index'><?= __('Admin') ?></a>
                 <ol class="sub-menu">
                     <li class="menu-item"><a href='/Admin/create'><?= __('New Product') ?></a></li>
                     <li class="menu-item"><a href='/Ticket/ongoing'><?= __('Ongoing Tickets') ?></a></li>
@@ -41,7 +42,7 @@
         <?php endif; ?>
 
         <?php if (!isset($_SESSION['isAdmin']) && isset($_SESSION['employee_id'])): ?>
-            <li class="menu-item"><a href='/Employee/index'>Employee</a>
+            <li class="menu-item"><a href='/Employee/index'><?= __('Employee') ?></a>
                 <ol class="sub-menu">
                     <li class="menu-item"><a href='/Employee/productListing'><?= __('Modify Product') ?></a></li>
                     <li class="menu-item"><a href='/Ticket/ongoing'><?= __('Ongoing Tickets') ?></a></li>
@@ -50,20 +51,20 @@
             </li>
         <?php endif; ?>
 
-        <li class="menu-item"><a href="/about">About</a>
+        <li class="menu-item"><a href="/about"><?= __('About') ?></a>
             <ol class="sub-menu">
-                <li class="menu-item"><a href="/about">About MYTY</a></li>
-                <li class="menu-item"><a href="/contact">Contact Us</a></li>
+                <li class="menu-item"><a href="/about"><?= __('About MYTY') ?></a></li>
+                <li class="menu-item"><a href="/contact"><?= __('Contact Us') ?></a></li>
             </ol>
         </li>
         <?php if (!isset($_SESSION['customer_id'])): ?>
-            <li class="menu-item"><a href="/User/login">Login</a></li>
+            <li class="menu-item"><a href="/User/login"><?= __('Login') ?></a></li>
         <?php else: ?>
-            <li class="menu-item"><a href="/Customer/dashboard">Account</a>
+            <li class="menu-item"><a href="/Customer/dashboard"><?= __('Account') ?></a>
                 <ol class="sub-menu">
-                    <li class="menu-item"><a href="/Customer/dashboard">My Account</a></li>
+                    <li class="menu-item"><a href="/Customer/dashboard"><?= __('Dashboard') ?></a></li>
                     <?php if (!isset($_SESSION['customer_id']) || isset($_SESSION['employee_id'])): ?>
-                        <li class="menu-item"><a href="/User/login">Login/Register</a></li>
+                        <li class="menu-item"><a href="/User/login"><?= __('Login/Register') ?></a></li>
                     <?php endif; ?>
                 </ol>
             </li>
@@ -75,7 +76,7 @@
                 <form action="/Product/search" method="GET" class="search-form" id="searchForm"
                     onsubmit="return submitSearchForm()">
                     <input type="text" id="search" name="search" placeholder="eg: Gucci">
-                    <button type="submit">Search</button>
+                    <button type="submit"><?= __('Search') ?></button>
                 </form>
             </div>
         </li>
@@ -93,15 +94,15 @@
                 </div>
             </li>
         <?php endif; ?>
-        <li class="menu-item"><a href="">Language</a>
+        <li class="menu-item"><a href=""><?= __('Language') ?></a>
             <ol class="sub-menu">
-                <li class="menu-item"><button onclick="updateLanguageCookie('fr')">french</button></li>
-                <li class="menu-item"><button onclick="updateLanguageCookie('en')">english</button></li>
+                <li class="menu-item"><button onclick="updateLanguageCookie('fr')"><?= __('french') ?></button></li>
+                <li class="menu-item"><button onclick="updateLanguageCookie('en')"><?= __('english') ?></button></li>
             </ol>
         </li>
 
         <?php if (isset($_SESSION['customer_id']) || isset($_SESSION['employee_id'])): ?>
-            <li class="menu-item"><a href="/User/login">Log Out</a></li>
+            <li class="menu-item"><a href="/User/login"><?= __('Log Out') ?></a></li>
         <?php endif; ?>
     </ol>
 
@@ -118,26 +119,6 @@
         window.location.reload();
     }
 
-
-
-
-    //god knows for this (no wokry)
-    // function callLink(url) {
-    //     fetch('app\controllers\Cart.php', {
-    //         method: 'POST',
-    //         body: JSON.stringify({ action: 'viewCart' })
-    //     })
-    //         // Handle the response as needed)
-    //         .catch(error => {
-    //             // Handle errors if any
-    //             console.error('Error:', error);
-    //         });
-
-    // }
-
-
-
-
     function toggleSearch() {
         var searchForm = document.getElementById("searchForm");
         searchForm.classList.toggle("active");
@@ -151,7 +132,7 @@
     function submitSearchForm() {
         var searchInput = document.getElementById("search").value.trim();
         if (searchInput === "") {
-            return false; // Prevent form submission if search input is empty
+            return false;
         }
     }
 </script>
