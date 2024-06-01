@@ -22,21 +22,17 @@ class Customer extends \app\core\Controller
 
 
             if (password_verify($oldPass, $customer->password_hash)) {
-                echo ("WOHO!");
+
+                if (!empty($_POST['password'])) {
+                    $customer->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                    $_SESSION['password_hash'] = $customer->password_hash;
+                }
+                $customer->update();
+                header('location:/Customer/dashboard');
+
             } else {
                 header('location:/Customer/update');
             }
-            var_dump(password_verify($oldPass, $customer->password_hash));
-            return;
-
-
-            if (!empty($_POST['password'])) {
-                $customer->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                $_SESSION['password_hash'] = $customer->password_hash;
-            }
-
-            $customer->update();
-            header('location:/Customer/update');
         } else {
             include 'app/views/Customer/update.php';
             include 'app/views/footer.php';
@@ -62,7 +58,7 @@ class Customer extends \app\core\Controller
             $password = $_POST['password'];
 
             if ($customer && password_verify($password, $customer->password_hash)) {
-                $customer->disable($_SESSION['customer_id']);
+                $customer->disableOrEnable($_SESSION['customer_id'], 1);
                 session_destroy();
             }
             header('location:/User/login');
@@ -132,11 +128,22 @@ class Customer extends \app\core\Controller
         $customerInfo = $customer->getById($_SESSION['customer_id']);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $password = $_POST['password'];
 
-            if ($customer && password_verify($password, $customerInfo->password_hash)) {
-                $customer->add2FA($_SESSION['customer_id']);
-                header('location:/Customer/update');
+            $options = new AuthenticatorOptions();
+            $authenticator = new Authenticator($options);
+
+            $authenticator->setSecret($customerInfo->secret);
+            if ($authenticator->verify($_POST['totp'])) {
+
+                $password = $_POST['password'];
+
+                if ($customer && password_verify($password, $customerInfo->password_hash)) {
+                    $customer->add2FA($_SESSION['customer_id']);
+                    header('location:/Customer/update');
+                } else {
+                    $_SESSION['error_message'] = "something so it exists";
+                    header('location:/Customer/disable2fa');
+                }
             } else {
                 $_SESSION['error_message'] = "something so it exists";
                 header('location:/Customer/disable2fa');
@@ -146,5 +153,4 @@ class Customer extends \app\core\Controller
             include 'app/views/footer.php';
         }
     }
-
 }

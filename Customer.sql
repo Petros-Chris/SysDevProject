@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 26, 2024 at 09:05 AM
+-- Generation Time: Jun 01, 2024 at 05:03 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `Customer` (
   `secret` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`customer_id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `Customer`
@@ -57,8 +57,10 @@ INSERT INTO `Customer` (`customer_id`, `first_name`, `last_name`, `email`, `pass
 (10, 'zz', 'zz', 'zz@zz', '$2y$10$ZjMDPwTaD.uklnwFfMIcie9aNjGjMqwQ6zP4U9gZ8k2fSEplgRkv2', 0, 0, NULL),
 (13, 'among', 'us', '1@1', '$2y$10$o8RxtMunv6Mn57pqMaIp0OuILthykyRhKtQVKLiiOwS5LCEoOAb2a', 0, 0, NULL),
 (14, 'joe', 'biden', '123@e', '$2y$10$j7qQUW89rd/Y7VH3RIcS2O2C73yDuq/Ar/6SHFzGNDfvAxbhJFWf2', 0, 0, NULL),
-(15, 'kai', 'cenat', 'q@q', '$2y$10$ClPxwOUtX5E1vu.d5lFd0eBDa8jbTkqTRSJnYLVJmoc33YqK3FP9u', 0, 0, 'VSG5QE5RCKVTVXZKFJ4XYCEBC2RYOZI7'),
-(16, 'bruh', 'whatthehape', '2@2', '$2y$10$IR9OupDh8hLADZWbnvYcG.2m9NyRayt1dtk4ZwWZ3HvWYfyq5Pivm', 0, 0, NULL);
+(15, 'kaie', 'cenatas', 'q@qq', '$2y$10$DMA3enAkbrdd5EaPKS4Fbuvl1OycDnyEhNRDJvkdy7OLs7CyDbx2G', 0, 0, NULL),
+(16, 'bruh', 'whatthehape', '2@2', '$2y$10$IR9OupDh8hLADZWbnvYcG.2m9NyRayt1dtk4ZwWZ3HvWYfyq5Pivm', 0, 0, NULL),
+(17, 'asd', 'asd', 'e@e', '$2y$10$N.zVaXyuEtJZuwWXsz23MeZVYHg4BLYEe1naqxwwCLFZ2LiiKz14K', 0, 0, NULL),
+(18, 'max', 'yaw', 'person@gmail.com', '$2y$10$0GmODj1spPbL/IgNbUmxb.urD5oeM7i4hDq2fKzscnKx5BdedmgK6', 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -77,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `customer_order` (
   `status` tinyint(1) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`order_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `customer_order`
@@ -104,7 +106,10 @@ INSERT INTO `customer_order` (`order_id`, `customer_id`, `address`, `postal_code
 (18, 15, '399', 'gsdg', 'NB', 787.5, 0, '2024-05-25 04:00:03'),
 (19, 15, '399', 'gsdg', 'NB', 787.5, 0, '2024-05-25 04:33:12'),
 (20, 15, '399', 'gsdg', 'NB', 787.5, 0, '2024-05-25 04:35:10'),
-(21, 15, '512 Chemin Principal, Saint-Elzéar-de-Témiscouata, Canada', '213', 'BC', 787.5, 0, '2024-05-25 21:58:12');
+(21, 15, '512 Chemin Principal, Saint-Elzéar-de-Témiscouata, Canada', '213', 'BC', 787.5, 0, '2024-05-25 21:58:12'),
+(22, 15, '12e Rue, Laval (administrative region), Canada', 'h7n 1s8', 'SK', 787.5, 0, '2024-05-28 22:48:29'),
+(23, 17, 'Matsumoto-shi, Japan', 'g6n 1s5', 'MB', 787.5, 0, '2024-05-28 23:17:21'),
+(24, 18, '12e Rue, Laval (administrative region), Canada', 'h7n 1s8', 'QC', 875, 0, '2024-05-29 18:09:25');
 
 -- --------------------------------------------------------
 
@@ -121,14 +126,17 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `password_hash` varchar(60) NOT NULL,
   `admin` tinyint(1) NOT NULL,
   PRIMARY KEY (`employee_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `employee`
 --
 
 INSERT INTO `employee` (`employee_id`, `first_name`, `last_name`, `email`, `password_hash`, `admin`) VALUES
-(2, 'joe', 'bideb', 'a@a', '$2y$10$ilr8xF20P8Zc8ul7SJ8KD.yL/3VyaIjha4G8GNXG2vgRxbiCunuH.', 1);
+(2, 'joe', 'bideb', 'a@a', '$2y$10$ilr8xF20P8Zc8ul7SJ8KD.yL/3VyaIjha4G8GNXG2vgRxbiCunuH.', 1),
+(5, 'a', 'a', 'default@default', '$2y$10$ilr8xF20P8Zc8ul7SJ8KD.yL/3VyaIjha4G8GNXG2vgRxbiCunuH.', 1),
+(6, 'aqua', 'marine', 'qwe@qwe', '$2y$10$lTs/FtZ99OQgbZVCB1hcG.19owKKQ8txUvpkpengVQJQXd/jKvLYu', 0),
+(7, 'yum', 'mers', 'person2@gmail.com', '$2y$10$z7DPwm03gtFACNom8Tgupu7vl./zWagrYuXsHiuUGnNWU36ApXBvK', 0);
 
 -- --------------------------------------------------------
 
@@ -165,7 +173,10 @@ INSERT INTO `order_item` (`order_id`, `product_id`, `quantity`, `price`) VALUES
 (18, 1, 1, 787.5),
 (19, 1, 1, 787.5),
 (20, 1, 1, 787.5),
-(21, 1, 1, 787.5);
+(21, 1, 1, 787.5),
+(22, 1, 1, 787.5),
+(23, 1, 1, 787.5),
+(24, 9, 1, 875);
 
 -- --------------------------------------------------------
 
@@ -189,14 +200,14 @@ CREATE TABLE IF NOT EXISTS `product` (
   `disable` tinyint(1) NOT NULL,
   PRIMARY KEY (`product_id`),
   UNIQUE KEY `Model` (`model`)
-) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`product_id`, `brand`, `model`, `color`, `cost_price`, `shape`, `size`, `optical_sun`, `description`, `quantity`, `disable`) VALUES
-(1, 'Cartier', 'ESW00632', 'Brown,Red,Tortoise', 787.50, 'Rectangle', 51, 'Optical', 'Timeless aesthetics with modern functionality.', 1, 0),
+(1, 'Cartier', 'ESW00632', 'Brown,Red,Tortoise', 787.50, 'Rectangle', 51, 'Optical', 'Timeless aesthetics with modern functionality.', 1, 1),
 (2, 'Cartier', 'ESW00629', 'Black', 475.00, 'Oval', 46, 'Sun', 'Bold and modern, stands out in any crowd.', 3, 1),
 (3, 'Cartier', 'ESW00669', 'Black', 550.00, 'Square', 49, 'Sun', 'Fashion-forward with a vintage feel.', 1, 0),
 (4, 'Cartier', 'ESW00618', 'Red', 700.00, 'Square', 51, 'Sun', 'Timeless aesthetics with modern functionality.', 1, 0),
@@ -277,7 +288,8 @@ INSERT INTO `product` (`product_id`, `brand`, `model`, `color`, `cost_price`, `s
 (79, 'Oliver Peoples', 'Sidell', 'Red,Green,Clear', 362.50, 'Round', 56, 'Optical', 'Bold and modern, stands out in any crowd.', 1, 0),
 (80, 'Oliver Peoples', 'Maysen', 'Black,Brown,Red,Clear', 360.00, 'Square', 47, 'Sun', 'Classic design with a contemporary twist.', 1, 0),
 (81, 'Cartier', 'odkowkod', 'Black', 120.00, 'Oval', 12, 'Sun', ' very good', 1, 0),
-(82, 'Cartier', 'dsfsdf', 'Black', 213.00, 'Aviator', 12, 'Optical', ' fdxfsdf', 8, 1);
+(82, 'Cartier', 'dsfsdf', 'Black', 213.00, 'Aviator', 12, 'Optical', ' fdxfsdf', 8, 1),
+(83, 'Gucci', 'epruwhfsoidfgfv', 'Tortoise', 128.00, 'Geometric', 12, 'Sun', ' very pretty to wear, makes you very cool', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -296,7 +308,7 @@ CREATE TABLE IF NOT EXISTS `review` (
   PRIMARY KEY (`review_id`),
   KEY `fk_review_product_id_product` (`product_id`),
   KEY `fk_review_customer_id_customer` (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `review`
@@ -304,7 +316,12 @@ CREATE TABLE IF NOT EXISTS `review` (
 
 INSERT INTO `review` (`review_id`, `product_id`, `customer_id`, `rating`, `description`, `timestamp`) VALUES
 (12, 1, 15, 1, '', '2024-05-24 12:31:42'),
-(14, 1, 15, 4, 'gbcvhtrrfdsvcsdqrghjdqwgdfgfd ghfghdf gdfvxcbxc vxcvxc vx', '2024-05-24 18:30:14');
+(14, 1, 15, 4, 'gbcvhtrrfdsvcsdqrghjdqwgdfgfd ghfghdf gdfvxcbxc vxcvxc vx', '2024-05-24 18:30:14'),
+(15, 82, 15, 5, 'WOOOW this is zonkers', '2024-05-27 21:44:46'),
+(16, 1, 15, 1, '', '2024-05-28 20:58:23'),
+(17, 1, 15, 5, '', '2024-05-28 21:13:59'),
+(19, 1, 17, 5, 'blah blah', '2024-05-28 23:51:12'),
+(21, 9, 18, 5, 'lovely', '2024-05-29 18:11:49');
 
 -- --------------------------------------------------------
 
@@ -323,7 +340,7 @@ CREATE TABLE IF NOT EXISTS `ticket` (
   `ticket_status` tinyint(1) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`ticket_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `ticket`
@@ -334,7 +351,9 @@ INSERT INTO `ticket` (`ticket_id`, `product_id`, `customer_id`, `issue`, `issue_
 (4, 1, 15, 'Order Issue', 'Man I dont Want to look like a neeerd', ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada justo id risus tincidunt, sit amet vestibulum neque posuere. Suspendisse sed nibh ut mauris viverra aliquet in ac lacus. Donec a odio tellus. Nunc vehicula eu augue eget rutrum. Donec eu fringilla arcu. Sed eget dui eget purus lacinia sagittis quis vitae nibh. Sed vulputate leo eu ex imperdiet, vel lacinia quam vehicula. Sed sollicitudin, ligula et ullamcorper aliquet, felis odio ultrices elit, a dignissim libero massa qu', 0, '2024-05-25 00:36:25'),
 (5, 1, 15, 'Product Issue', 'BOY WHAT TTHE GLELLO', '\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada justo id risus tincidunt, sit amet vestibulum neque posuere. Suspendisse sed nibh ut mauris viverra aliquet in ac lacus. Donec a odio tellus. Nunc vehicula eu augue eget rutrum. Donec eu fringilla arcu. Sed eget dui eget purus lacinia sagittis quis vitae nibh. Sed vulputate leo eu ex imperdiet, vel lacinia quam vehicula. Sed sollicitudin, ligula et ullamcorper aliquet, felis odio ultrices elit, a dignissim libero massa quis risus. Vestibulum viverra convallis posuere. Nullam eu ex enim. Nullam malesuada cursus elit, et consectetur ex. Vestibulum at risus et orci rhoncus pharetra non sed libero. Etiam ac erat in justo bibendum congue. Proin tempus rutrum mauris vel maximus. Cras pellentesque molestie magna eu dictum.\r\n\r\nDonec porta sem lacus, ac suscipit leo ultricies sit amet. Vivamus malesuada imperdiet facilisis. Integer et turpis hendrerit orci dictum fermentum eu eu turpis. Vestibulum auctor sit amet mi at egestas. Donec pharetra dapibus nisi, ac euismod lectus congue non. Maecenas id leo ultricies, gravida orci quis, interdum lacus. Cras maximus in nunc at porttitor. Etiam pharetra pellentesque quam et gravida. Curabitur bibendum quam lorem, congue convallis nisi porttitor non. In vel ex quis eros ullamcorper scelerisque et malesuada velit. Cras eget nunc turpis. Cras id sapien vel augue ornare rhoncus id ut arcu. Cras quis volutpat diam, ut sodales magna. Donec egestas mollis justo vitae mollis.', 1, '2024-05-25 18:30:28'),
 (6, 1, 16, 'Order Issue', 'BRO WHAT AM I DOING', 'HOW DO I EVEN OCNTACT YOUUUUU 😡😡😡😡😡', 1, '2024-05-25 18:50:23'),
-(7, 1, 16, 'Order Issue', 'WOOW DID YOU END MY MESSAGE?!?!?!?', 'IM SUING 😡', 1, '2024-05-25 18:53:59');
+(7, 1, 16, 'Order Issue', 'WOOW DID YOU END MY MESSAGE?!?!?!?', 'IM SUING 😡', 1, '2024-05-25 18:53:59'),
+(8, 1, 15, 'Order Issue', 'My glasses is not here yet', 'hurry up I want my Gucci glasses', 0, '2024-05-28 16:57:40'),
+(9, 1, 18, 'Product Issue', 'missing product', 'why is not here', 1, '2024-05-29 18:14:07');
 
 -- --------------------------------------------------------
 
@@ -348,36 +367,38 @@ CREATE TABLE IF NOT EXISTS `ticket_message` (
   `ticket_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `message` text NOT NULL,
-  `image_link` text NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`message_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `ticket_message`
 --
 
-INSERT INTO `ticket_message` (`message_id`, `ticket_id`, `user_id`, `message`, `image_link`, `timestamp`) VALUES
-(1, 3, 15, 'bonjour', '', '2024-05-24 23:53:53'),
-(2, 3, 15, 'barh', '', '2024-05-24 23:54:06'),
-(3, 3, 15, 'a', '', '2024-05-25 00:01:22'),
-(4, 3, 15, 'qa', '', '2024-05-25 00:02:13'),
-(5, 3, 15, 'zxc', '', '2024-05-25 00:02:27'),
-(6, 3, 15, 'b', '', '2024-05-25 00:03:07'),
-(7, 4, 15, 'This is becasue whjen your a nerd, you lose 100% coolness', '', '2024-05-25 00:37:07'),
-(8, 4, 15, 'Also Being a nerd means ill be like max which is badd', '', '2024-05-25 00:37:28'),
-(9, 4, 15, 'Because if im like max, that means im very stupid', '', '2024-05-25 00:37:49'),
-(10, 4, 15, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada justo id risus tincidunt, sit amet vestibulum neque posuere. Suspendisse sed nibh ut mauris viverra aliquet in ac lacus. Donec a odio tellus. Nunc vehicula eu augue eget rutrum. Donec eu fringilla arcu. Sed eget dui eget purus lacinia sagittis quis vitae nibh. Sed vulputate leo eu ex imperdiet, vel lacinia quam vehicula. Sed sollicitudin, ligula et ullamcorper aliquet, felis odio ultrices elit, a dignissim libero massa qu', '', '2024-05-25 00:38:11'),
-(11, 4, 15, 'dfcgvb jhk ', '', '2024-05-25 16:46:41'),
-(12, 4, 2, 'Okay Bruh', '', '2024-05-25 16:47:52'),
-(13, 4, 2, 'yall this so cringee', '', '2024-05-25 16:54:57'),
-(14, 4, 2, 'man why are you asking this', '', '2024-05-25 16:57:06'),
-(15, 4, 2, '\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada justo id risus tincidunt, sit amet vestibulum neque posuere. Suspendisse sed nibh ut mauris viverra aliquet in ac lacus. Donec a odio tellus. Nunc vehicula eu augue eget rutrum. Donec eu fringilla arcu. Sed eget dui eget purus lacinia sagittis quis vitae nibh. Sed vulputate leo eu ex imperdiet, vel lacinia quam vehicula. Sed sollicitudin, ligula et ullamcorper aliquet, felis odio ultrices elit, a dignissim libero massa quis risus. Vestibulum viverra convallis posuere. Nullam eu ex enim. Nullam malesuada cursus elit, et consectetur ex. Vestibulum at risus et orci rhoncus pharetra non sed libero. Etiam ac erat in justo bibendum congue. Proin tempus rutrum mauris vel maximus. Cras pellentesque molestie magna eu dictum.\r\n\r\nDonec porta sem lacus, ac suscipit leo ultricies sit amet. Vivamus malesuada imperdiet facilisis. Integer et turpis hendrerit orci dictum fermentum eu eu turpis. Vestibulum auctor sit amet mi at egestas. Donec pharetra dapibus nisi, ac euismod lectus congue non. Maecenas id leo ultricies, gravida orci ', '', '2024-05-25 17:09:10'),
-(16, 4, 2, '\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada justo id risus tincidunt, sit amet vestibulum neque posuere. Suspendisse sed nibh ut mauris viverra aliquet in ac lacus. Donec a odio tellus. Nunc vehicula eu augue eget rutrum. Donec eu fringilla arcu. Sed eget dui eget purus lacinia sagittis quis vitae nibh. Sed vulputate leo eu ex imperdiet, vel lacinia quam vehicula. Sed sollicitudin, ligula et ullamcorper aliquet, felis odio ultrices elit, a dignissim libero massa quis risus. Vestibulum viverra convallis posuere. Nullam eu ex enim. Nullam malesuada cursus elit, et consectetur ex. Vestibulum at risus et orci rhoncus pharetra non sed libero. Etiam ac erat in justo bibendum congue. Proin tempus rutrum mauris vel maximus. Cras pellentesque molestie magna eu dictum.\r\n\r\nDonec porta sem lacus, ac suscipit leo ultricies sit amet. Vivamus malesuada imperdiet facilisis. Integer et turpis hendrerit orci dictum fermentum eu eu turpis. Vestibulum auctor sit amet mi at egestas. Donec pharetra dapibus nisi, ac euismod lectus congue non. Maecenas id leo ultricies, gravida orci quis, interdum lacus. Cras maximus in nunc at porttitor. Etiam pharetra pellentesque quam et gravida. Curabitur bibendum quam lorem, congue convallis nisi porttitor non. In vel ex quis eros ullamcorper scelerisque et malesuada velit. Cras eget nunc turpis. Cras id sapien vel augue ornare rhoncus id ut arcu. Cras quis volutpat diam, ut sodales magna. Donec egestas mollis justo vitae mollis. A', '', '2024-05-25 17:09:44'),
-(17, 5, 2, 'ermm what the sigma', '', '2024-05-25 17:45:52'),
-(18, 6, 2, 'BRO SHUT ur mouth pleawse 🥺🥺🥺', '', '2024-05-25 18:50:04'),
-(19, 7, 2, 'haha nerd you big loser', '', '2024-05-25 18:53:38'),
-(20, 7, 2, 'why did you go bye bye now 🤤', '', '2024-05-25 18:53:53');
+INSERT INTO `ticket_message` (`message_id`, `ticket_id`, `user_id`, `message`, `timestamp`) VALUES
+(1, 3, 15, 'bonjour', '2024-05-24 23:53:53'),
+(2, 3, 15, 'barh', '2024-05-24 23:54:06'),
+(3, 3, 15, 'a', '2024-05-25 00:01:22'),
+(4, 3, 15, 'qa', '2024-05-25 00:02:13'),
+(5, 3, 15, 'zxc', '2024-05-25 00:02:27'),
+(6, 3, 15, 'b', '2024-05-25 00:03:07'),
+(7, 4, 15, 'This is becasue whjen your a nerd, you lose 100% coolness', '2024-05-25 00:37:07'),
+(8, 4, 15, 'Also Being a nerd means ill be like max which is badd', '2024-05-25 00:37:28'),
+(9, 4, 15, 'Because if im like max, that means im very stupid', '2024-05-25 00:37:49'),
+(10, 4, 15, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada justo id risus tincidunt, sit amet vestibulum neque posuere. Suspendisse sed nibh ut mauris viverra aliquet in ac lacus. Donec a odio tellus. Nunc vehicula eu augue eget rutrum. Donec eu fringilla arcu. Sed eget dui eget purus lacinia sagittis quis vitae nibh. Sed vulputate leo eu ex imperdiet, vel lacinia quam vehicula. Sed sollicitudin, ligula et ullamcorper aliquet, felis odio ultrices elit, a dignissim libero massa qu', '2024-05-25 00:38:11'),
+(11, 4, 15, 'dfcgvb jhk ', '2024-05-25 16:46:41'),
+(12, 4, 2, 'Okay Bruh', '2024-05-25 16:47:52'),
+(13, 4, 2, 'yall this so cringee', '2024-05-25 16:54:57'),
+(14, 4, 2, 'man why are you asking this', '2024-05-25 16:57:06'),
+(15, 4, 2, '\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada justo id risus tincidunt, sit amet vestibulum neque posuere. Suspendisse sed nibh ut mauris viverra aliquet in ac lacus. Donec a odio tellus. Nunc vehicula eu augue eget rutrum. Donec eu fringilla arcu. Sed eget dui eget purus lacinia sagittis quis vitae nibh. Sed vulputate leo eu ex imperdiet, vel lacinia quam vehicula. Sed sollicitudin, ligula et ullamcorper aliquet, felis odio ultrices elit, a dignissim libero massa quis risus. Vestibulum viverra convallis posuere. Nullam eu ex enim. Nullam malesuada cursus elit, et consectetur ex. Vestibulum at risus et orci rhoncus pharetra non sed libero. Etiam ac erat in justo bibendum congue. Proin tempus rutrum mauris vel maximus. Cras pellentesque molestie magna eu dictum.\r\n\r\nDonec porta sem lacus, ac suscipit leo ultricies sit amet. Vivamus malesuada imperdiet facilisis. Integer et turpis hendrerit orci dictum fermentum eu eu turpis. Vestibulum auctor sit amet mi at egestas. Donec pharetra dapibus nisi, ac euismod lectus congue non. Maecenas id leo ultricies, gravida orci ', '2024-05-25 17:09:10'),
+(16, 4, 2, '\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada justo id risus tincidunt, sit amet vestibulum neque posuere. Suspendisse sed nibh ut mauris viverra aliquet in ac lacus. Donec a odio tellus. Nunc vehicula eu augue eget rutrum. Donec eu fringilla arcu. Sed eget dui eget purus lacinia sagittis quis vitae nibh. Sed vulputate leo eu ex imperdiet, vel lacinia quam vehicula. Sed sollicitudin, ligula et ullamcorper aliquet, felis odio ultrices elit, a dignissim libero massa quis risus. Vestibulum viverra convallis posuere. Nullam eu ex enim. Nullam malesuada cursus elit, et consectetur ex. Vestibulum at risus et orci rhoncus pharetra non sed libero. Etiam ac erat in justo bibendum congue. Proin tempus rutrum mauris vel maximus. Cras pellentesque molestie magna eu dictum.\r\n\r\nDonec porta sem lacus, ac suscipit leo ultricies sit amet. Vivamus malesuada imperdiet facilisis. Integer et turpis hendrerit orci dictum fermentum eu eu turpis. Vestibulum auctor sit amet mi at egestas. Donec pharetra dapibus nisi, ac euismod lectus congue non. Maecenas id leo ultricies, gravida orci quis, interdum lacus. Cras maximus in nunc at porttitor. Etiam pharetra pellentesque quam et gravida. Curabitur bibendum quam lorem, congue convallis nisi porttitor non. In vel ex quis eros ullamcorper scelerisque et malesuada velit. Cras eget nunc turpis. Cras id sapien vel augue ornare rhoncus id ut arcu. Cras quis volutpat diam, ut sodales magna. Donec egestas mollis justo vitae mollis. A', '2024-05-25 17:09:44'),
+(17, 5, 2, 'ermm what the sigma', '2024-05-25 17:45:52'),
+(18, 6, 2, 'BRO SHUT ur mouth pleawse 🥺🥺🥺', '2024-05-25 18:50:04'),
+(19, 7, 2, 'haha nerd you big loser', '2024-05-25 18:53:38'),
+(20, 7, 2, 'why did you go bye bye now 🤤', '2024-05-25 18:53:53'),
+(21, 8, 15, 'I think they were green', '2024-05-28 17:22:10'),
+(22, 9, 18, 'hurry up', '2024-05-29 18:13:29'),
+(23, 9, 2, 'its coming soon, dont worry', '2024-05-29 18:14:03');
 
 -- --------------------------------------------------------
 
@@ -399,7 +420,9 @@ CREATE TABLE IF NOT EXISTS `wishlist` (
 
 INSERT INTO `wishlist` (`product_id`, `customer_id`) VALUES
 (3, 14),
+(6, 15),
 (7, 14),
+(7, 15),
 (22, 14),
 (26, 14),
 (27, 14),

@@ -4,9 +4,9 @@ namespace app\controllers;
 
 use stdClass;
 
-#[\app\filters\IsAdmin]
 class Admin extends \app\core\Controller
 {
+    #[\app\filters\IsEmployee]
     function listings()
     {
         $product = new \app\models\Product();
@@ -33,12 +33,14 @@ class Admin extends \app\core\Controller
         include 'app/views/footer.php';
     }
 
+    #[\app\filters\IsAdmin]
     function index()
     {
         $this->view('Admin/index');
         include 'app/views/footer.php';
     }
 
+    #[\app\filters\IsAdmin]
     function create()
     {
         $product = new \app\models\Product();
@@ -62,7 +64,7 @@ class Admin extends \app\core\Controller
                 $target_dir = "app/resources/images/";
                 $target_file = $target_dir . "product_" . $product_id . ".png";
                 $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
-    
+
 
                 if ($imageFileType == 'png') {
                     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
@@ -74,20 +76,21 @@ class Admin extends \app\core\Controller
                     $error = "Invalid file format, we only accept '.png'.";
                 }
             }
-    
 
-            if($error == null){
+
+            if ($error == null) {
                 header('location:/Admin/index');
-                }else{
-                    $this->view('Admin/modify', $product);
-                    echo($error);
-    
-                }
+            } else {
+                $this->view('Admin/modify', $product);
+                echo ($error);
+
+            }
         } else {
             $this->view('Admin/create');
         }
     }
 
+    #[\app\filters\IsEmployee]
     function modify()
     {
         $product = new \app\models\Product();
@@ -95,7 +98,7 @@ class Admin extends \app\core\Controller
         $error = null;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  
+
             $product->brand = $_POST['brand'];
             $product->model = $_POST['model'];
             $product->color = $_POST['color'];
@@ -120,31 +123,31 @@ class Admin extends \app\core\Controller
                 $target_dir = "app/resources/images/";
                 $target_file = $target_dir . "product_" . $product->product_id . ".png";
                 $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
-    
+
                 if ($imageFileType == 'png') {
                     $error = null;
                     if (file_exists($target_file)) {
                         unlink($target_file);
                     }
-    
+
                     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
                         $error = null;
 
                     } else {
 
-                         $error = "Upload has had an error, please try again or contact an admin.";
+                        $error = "Upload has had an error, please try again or contact an admin.";
                     }
                 } else {
                     $error = "Invalid file format, we only accept '.png'.";
                 }
-            
+
             }
-            
-            if($error == null){
-            header('location:/Admin/index');
-            }else{
+
+            if ($error == null) {
+                header('location:/Admin/productListing');
+            } else {
                 $this->view('Admin/modify', $product);
-                echo($error);
+                echo ($error);
 
             }
         } else {
@@ -158,6 +161,7 @@ class Admin extends \app\core\Controller
         header('location:/User/login');
     }
 
+    #[\app\filters\IsEmployee]
     function customerList()
     {
         $customer = new \app\models\Customer();

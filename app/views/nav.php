@@ -44,7 +44,7 @@
         <?php if (!isset($_SESSION['isAdmin']) && isset($_SESSION['employee_id'])): ?>
             <li class="menu-item"><a href='/Employee/index'><?= __('Employee') ?></a>
                 <ol class="sub-menu">
-                    <li class="menu-item"><a href='/Employee/productListing'><?= __('Modify Product') ?></a></li>
+                    <li class="menu-item"><a href='/Admin/productListing'><?= __('Modify Product') ?></a></li>
                     <li class="menu-item"><a href='/Ticket/ongoing'><?= __('Ongoing Tickets') ?></a></li>
                     <li class="menu-item"><a href='/Employee/index'><?= __('More') ?></a></li>
                 </ol>
